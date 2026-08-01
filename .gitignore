@@ -1,0 +1,7 @@
+# agent/tooling artifacts - not part of the site
+.kilo/
+.kilocode/
+.playwright-cli/
+.playwright-mcp/
+output/
+node_modules/
