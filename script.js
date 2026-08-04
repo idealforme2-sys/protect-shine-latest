@@ -95,7 +95,18 @@ function initPreloader() {
   };
 
   updateProgress(0);
-  window.setTimeout(hide, 900);
+
+  const startedAt = Date.now();
+  const finishWhenReady = () => {
+    const remaining = Math.max(0, 900 - (Date.now() - startedAt));
+    window.setTimeout(hide, remaining);
+  };
+  if (document.readyState === "complete") {
+    finishWhenReady();
+  } else {
+    window.addEventListener("load", finishWhenReady, { once: true });
+    window.setTimeout(() => { if (!hidden) hide(); }, 4500);
+  }
 }
 
 function updateHeaderState() {
@@ -379,7 +390,7 @@ function initFaq() {
 }
 
 function initShowcaseVideos() {
-  const videos = document.querySelectorAll(".showcase-card video");
+  const videos = document.querySelectorAll(".showcase-card video, .finish-media video");
   if (!videos.length) return;
 
   const playVideo = (video) => {
@@ -409,7 +420,14 @@ function initShowcaseVideos() {
     video.addEventListener("waiting", () => window.setTimeout(() => playVideo(video), 300));
     video.closest(".showcase-card")?.addEventListener("mouseenter", () => playVideo(video));
     observer?.observe(video);
-    playVideo(video);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    videos.forEach((video) => {
+      const rect = video.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) playVideo(video);
+    });
   });
 }
 
