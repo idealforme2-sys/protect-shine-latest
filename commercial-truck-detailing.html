@@ -32,8 +32,17 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="./styles.css?v=marquee-transplant-1" />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link rel="preload" as="image" href="./assets/truck-detail.jpg" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -71,6 +80,7 @@
         <a href="./index.html#top">Home</a>
         <a href="./index.html#services">Services</a>
         <a href="./index.html#results">Results</a>
+        <a href="./index.html#packages">Packages</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" data-dropdown-toggle>
             Specialty

@@ -7272,8 +7272,8 @@ main > .section,
   position: relative;
   z-index: 5;
   overflow: hidden;
-  width: 100%;
-  margin: -11px 0 0;
+  width: 104vw;
+  margin: -11px 0 0 calc(50% - 52vw);
   padding: 12px 0;
   border-block: 1px solid rgba(255, 255, 255, 0.1);
   background:
@@ -7490,4 +7490,247 @@ main > .section,
   to {
     background-position: 0 0, -100% 0, 100% 100%, 0 -100%, 100% 100%;
   }
+}
+
+/* ============================================================
+   PS UPDATE 2 — reversible refit: step icons, car-seat media,
+   package prominence + highlighted headlines, why-section
+   premium redesign. Full-bleed marquee handled in the
+   .signal-strip.ps-marquee rule above.
+   ============================================================ */
+
+/* Service step icons (numeric checkpoints replaced) */
+.route-checkpoint img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 16px 5px 16px 5px;
+  background: #f5f8fc;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 10px 26px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(97, 183, 255, 0.28);
+}
+
+/* Car seat media: real asset replaces the placeholder blob */
+.car-seat-media {
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(103, 160, 215, 0.1), rgba(2, 5, 10, 0.42));
+}
+
+.car-seat-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 32%;
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.car-seat-media::after {
+  bottom: 14px;
+  text-shadow: 0 1px 8px rgba(2, 5, 10, 0.85);
+}
+
+/* Package media banner on the featured card */
+.package-media {
+  position: relative;
+  z-index: 1;
+  height: 150px;
+  margin: -28px -28px 18px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(195, 220, 244, 0.28);
+}
+
+.package-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+  transform: scale(1.02);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.package-card.featured:hover .package-media img { transform: scale(1.09); }
+
+.package-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4, 9, 16, 0.28), transparent 34%, rgba(4, 9, 16, 0.62) 96%),
+    linear-gradient(90deg, rgba(22, 120, 255, 0.14), transparent 30%, transparent 70%, rgba(255, 30, 53, 0.14));
+}
+
+/* Highlighted "Best for" + estimated-time headlines */
+.package-best {
+  min-height: 0;
+  padding: 10px 12px;
+  border-left: 2px solid var(--blue);
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), rgba(22, 120, 255, 0.03));
+  color: #e2edf8;
+  font-weight: 600;
+}
+
+.package-card:last-child .package-best {
+  border-left-color: var(--red);
+  background: linear-gradient(90deg, rgba(255, 30, 53, 0.16), rgba(255, 30, 53, 0.03));
+}
+
+.package-time {
+  border: 1px solid rgba(145, 207, 255, 0.4);
+  background: rgba(22, 120, 255, 0.14);
+  box-shadow: 0 0 18px rgba(22, 120, 255, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.package-time strong { color: #ffffff; }
+
+.package-card:last-child .package-time {
+  border-color: rgba(255, 102, 119, 0.42);
+  background: rgba(255, 30, 53, 0.12);
+  box-shadow: 0 0 18px rgba(255, 30, 53, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Featured card: premium centerpiece */
+.package-card.featured {
+  transform: translateY(-14px) scale(1.02);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(160deg, rgba(10, 34, 64, 0.97), rgba(6, 10, 18, 0.98) 46%, rgba(46, 9, 22, 0.94)) padding-box,
+    linear-gradient(120deg, rgba(22, 120, 255, 0.9), rgba(220, 238, 255, 0.9) 28%, rgba(240, 196, 121, 0.95) 50%, rgba(255, 30, 53, 0.9) 74%, rgba(22, 120, 255, 0.9)) border-box;
+  box-shadow:
+    0 42px 96px rgba(0, 0, 0, 0.55),
+    0 0 52px rgba(22, 120, 255, 0.2),
+    0 0 52px rgba(255, 30, 53, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.package-card.featured:hover { transform: translateY(-18px) scale(1.03); }
+
+.package-card.featured .package-best {
+  border-left-color: var(--gold);
+  background: linear-gradient(90deg, rgba(240, 196, 121, 0.18), rgba(240, 196, 121, 0.04));
+}
+
+.package-card.featured .package-time {
+  border-color: rgba(240, 196, 121, 0.55);
+  background: rgba(240, 196, 121, 0.14);
+  box-shadow: 0 0 20px rgba(240, 196, 121, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.package-card.featured::after {
+  content: "Most Picked";
+  top: 12px;
+  right: 12px;
+  border-color: rgba(240, 196, 121, 0.6);
+  background: linear-gradient(120deg, #0c3f94, #44215c 55%, #941b32);
+  color: #ffe9c2;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5), 0 0 26px rgba(240, 196, 121, 0.3);
+}
+
+/* Why section premium refit */
+.why-section { padding-block: 128px 120px; }
+
+.why-grid { gap: 34px; }
+
+.why-identity {
+  padding: 38px;
+  border-radius: 6px 34px 6px 34px;
+  border-color: rgba(181, 211, 239, 0.24);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(22, 120, 255, 0.2), transparent 42%),
+    radial-gradient(circle at 86% 88%, rgba(255, 30, 53, 0.16), transparent 44%),
+    linear-gradient(160deg, rgba(10, 25, 47, 0.92), rgba(4, 8, 15, 0.95) 58%, rgba(28, 7, 15, 0.9));
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.why-crest {
+  padding: 26px 22px;
+  border-radius: 6px 26px 6px 26px;
+  border-color: rgba(240, 196, 121, 0.35);
+  background: linear-gradient(160deg, rgba(8, 18, 34, 0.94), rgba(3, 6, 12, 0.96));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.5), 0 0 34px rgba(240, 196, 121, 0.12);
+  animation: none;
+}
+
+.why-crest img {
+  width: 118px;
+  height: 118px;
+  border-radius: 6px 22px 6px 22px;
+  box-shadow: 0 0 0 1px rgba(240, 196, 121, 0.4), 0 0 34px rgba(22, 120, 255, 0.25), 0 0 34px rgba(255, 30, 53, 0.18);
+}
+
+.why-crest-label { font-size: 1.7rem; }
+
+.why-chips {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-chips li {
+  padding: 7px 12px;
+  border: 1px solid rgba(181, 211, 239, 0.28);
+  border-radius: 999px;
+  background: rgba(4, 12, 24, 0.72);
+  color: #cfe3f6;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.why-chips li:first-child {
+  border-color: rgba(240, 196, 121, 0.5);
+  color: #ffe1a6;
+  background: linear-gradient(120deg, rgba(12, 63, 148, 0.5), rgba(148, 27, 50, 0.4));
+}
+
+.why-credentials { padding-left: 44px; gap: 18px; }
+
+.why-credential {
+  border-radius: 6px 26px 6px 26px;
+  border-color: rgba(181, 211, 239, 0.2);
+  background: linear-gradient(150deg, rgba(12, 31, 54, 0.88), rgba(4, 9, 16, 0.92));
+}
+
+.why-num {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  border-color: rgba(240, 196, 121, 0.45);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(240, 196, 121, 0.25), transparent 55%),
+    rgba(5, 9, 17, 0.94);
+}
+
+.why-footer {
+  border-radius: 6px 26px 6px 26px;
+  border-color: rgba(240, 196, 121, 0.3);
+  background:
+    linear-gradient(140deg, rgba(240, 196, 121, 0.14), transparent 42%),
+    rgba(5, 9, 17, 0.72);
+}
+
+@media (max-width: 1020px) {
+  .package-card.featured,
+  .package-card.featured:hover { transform: none; }
+}
+
+@media (max-width: 720px) {
+  .package-media { height: 130px; margin: -24px -24px 16px; }
+}
+
+@media (max-width: 620px) {
+  .route-checkpoint img { width: 34px; height: 34px; border-radius: 10px 4px 10px 4px; }
+  .why-identity { padding: 26px; }
+  .why-credentials { padding-left: 30px; }
 }

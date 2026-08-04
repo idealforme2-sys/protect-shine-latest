@@ -413,10 +413,13 @@ function initShowcaseVideos() {
     : null;
 
   videos.forEach((video) => {
-    video.addEventListener("stalled", () => {
-      video.load();
-      playVideo(video);
-    });
+    video.addEventListener("stalled", () => playVideo(video));
+    video.addEventListener("error", () => {
+      window.setTimeout(() => {
+        video.load();
+        playVideo(video);
+      }, 800);
+    }, { once: true });
     video.addEventListener("waiting", () => window.setTimeout(() => playVideo(video), 300));
     video.closest(".showcase-card")?.addEventListener("mouseenter", () => playVideo(video));
     observer?.observe(video);
