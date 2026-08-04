@@ -32,10 +32,34 @@ http
         return;
       }
 
-      res.writeHead(200, {
-        "Content-Type": types[path.extname(file).toLowerCase()] || "application/octet-stream",
-      });
-      fs.createReadStream(file).pipe(res);
+      const ext = path.extname(file).toLowerCase();
+      const headers = {
+        "Content-Type": types[ext] || "application/octet-stream",
+        "Accept-Ranges": "bytes",
+        "Cache-Control": ext === ".html" ? "no-cache" : "public, max-age=300",
+      };
+
+      const range = req.headers.range;
+      if (range) {
+        const match = /bytes=(\d*)-(\d*)/.exec(range);
+        let start = match && match[1] ? parseInt(match[1], 10) : 0;
+        let end = match && match[2] ? parseInt(match[2], 10) : stat.size - 1;
+        if (Number.isNaN(start) || start < 0) start = 0;
+        if (Number.isNaN(end) || end >= stat.size) end = stat.size - 1;
+        if (start > end) {
+          res.writeHead(416, { "Content-Range": `bytes */${stat.size}` });
+          res.end();
+          return;
+        }
+        headers["Content-Range"] = `bytes ${start}-${end}/${stat.size}`;
+        headers["Content-Length"] = end - start + 1;
+        res.writeHead(206, headers);
+        fs.createReadStream(file, { start, end }).pipe(res);
+      } else {
+        headers["Content-Length"] = stat.size;
+        res.writeHead(200, headers);
+        fs.createReadStream(file).pipe(res);
+      }
     });
   })
   .listen(8001, "127.0.0.1");

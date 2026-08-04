@@ -7291,8 +7291,9 @@ main > .section,
 }
 
 .ps-marquee .signal-band {
-  width: 104%;
-  margin-left: -2%;
+  width: 112%;
+  margin: -16px 0 -16px -6%;
+  padding: 16px 0;
   overflow: hidden;
   background: rgba(3, 5, 11, 0.86);
   transform: rotate(-0.55deg);
@@ -7520,12 +7521,19 @@ main > .section,
 
 .car-seat-media img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 72% 32%;
-  filter: saturate(1.04) contrast(1.02);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 94%;
+  max-width: 92%;
+  object-fit: contain;
+  border-radius: 18px 18px 12px 12px;
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 0 34px rgba(97, 183, 255, 0.18);
+  filter: saturate(1.02);
 }
 
 .car-seat-media::after {
