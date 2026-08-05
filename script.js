@@ -56,13 +56,6 @@ function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
   if (!preloader) return;
 
-  const hasSeenPreloader = sessionStorage.getItem("protect-shine-preloader") === "done";
-  if (hasSeenPreloader) {
-    preloader.remove();
-    document.body.classList.add("is-loaded");
-    return;
-  }
-
   const bar = preloader.querySelector("[data-preloader-bar]");
   const percent = preloader.querySelector("[data-preloader-percent]");
   let progress = 0;
@@ -76,36 +69,34 @@ function initPreloader() {
 
   const timer = window.setInterval(() => {
     if (hidden) return;
-    const next = progress + (progress < 55 ? 7 : progress < 82 ? 4 : 2);
-    updateProgress(Math.min(next, 94));
-  }, 120);
+    const next = progress + (progress < 55 ? 6 : progress < 82 ? 3 : 1.5);
+    updateProgress(Math.min(next, 96));
+  }, 100);
+
+  const startedAt = Date.now();
+  const MIN_VISIBLE = 1700;
 
   const hide = () => {
     if (hidden) return;
     hidden = true;
     document.body.classList.add("is-loaded");
-    sessionStorage.setItem("protect-shine-preloader", "done");
     updateProgress(100);
     window.clearInterval(timer);
+    const wait = Math.max(0, MIN_VISIBLE - (Date.now() - startedAt));
     window.setTimeout(() => {
       preloader.classList.add("is-hidden");
       window.setTimeout(() => preloader.remove(), 360);
-    }, 260);
+    }, wait);
     updateHeaderState();
   };
 
   updateProgress(0);
 
-  const startedAt = Date.now();
-  const finishWhenReady = () => {
-    const remaining = Math.max(0, 900 - (Date.now() - startedAt));
-    window.setTimeout(hide, remaining);
-  };
   if (document.readyState === "complete") {
-    finishWhenReady();
+    window.setTimeout(hide, 300);
   } else {
-    window.addEventListener("load", finishWhenReady, { once: true });
-    window.setTimeout(() => { if (!hidden) hide(); }, 4500);
+    window.addEventListener("load", () => window.setTimeout(hide, 300), { once: true });
+    window.setTimeout(hide, 4500);
   }
 }
 
@@ -118,9 +109,6 @@ function updateHeaderState() {
 function normalizePageState() {
   document.body.classList.add("is-loaded");
   document.body.style.overflow = "";
-  if (sessionStorage.getItem("protect-shine-preloader") === "done") {
-    document.querySelector("[data-preloader]")?.remove();
-  }
   document.querySelectorAll(".hero-content, .hero-badge-card, .hero .eyebrow, #hero-title > span, .hero-copy, .hero-actions, .hero-cred-cards").forEach((item) => {
     item.style.removeProperty("opacity");
     item.style.removeProperty("filter");
@@ -779,7 +767,7 @@ function initGsapAnimations() {
 
 function initReveal() {
   const items = Array.from(document.querySelectorAll(
-    ".section-kicker, .section-heading, .lane-panel, .route-step, .route-end, .route-actions, .process-intro, .showcase-card, .package-card, .package-note, .finish-media, .finish-copy, .truck-service-grid article, .finish-actions, .car-seat-copy, .car-seat-details, .fr-heading, .fr-panel, .fr-actions, .why-identity, .why-credential, .why-footer, .area-map, .area-copy, .area-tags, .faq-item, .reviews-intro, .review-card, .quote-copy, .quote-card, .quote-progress, .hero-cred-cards, .faq-heading, .truck-group, .driver-reset-inner, .unit-type-card, .fr-detail-inner, .fr-monthly-inner, .fr-addons-inner, .fr-trust-inner, .fr-conversion-banner, .page-hero-content"
+    ".section-kicker, .section-heading, .lane-panel, .route-step, .route-end, .route-actions, .process-intro, .showcase-card, .package-card, .package-note, .finish-media, .finish-copy, .truck-service-grid article, .finish-actions, .car-seat-copy, .car-seat-details, .fr-heading, .fr-panel, .fr-dispatch, .why-identity, .why-credential, .why-footer, .area-map, .area-copy, .area-tags, .faq-item, .reviews-intro, .quote-copy, .quote-card, .quote-progress, .hero-cred-cards, .faq-heading, .truck-group, .driver-reset-inner, .unit-type-card, .fr-detail-inner, .fr-monthly-inner, .fr-addons-inner, .fr-trust-inner, .fr-conversion-banner, .page-hero-content"
   )).filter((item) => !item.closest(".packages"));
 
   if (!("IntersectionObserver" in window) || reducedMotion()) {
@@ -891,7 +879,7 @@ function initSpotlight() {
   if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return;
 
   document
-    .querySelectorAll(".lane-panel, .package-card, .why-credential, .review-card, .route-step, .fr-panel, .truck-group, .unit-type-card, .quote-package-card")
+    .querySelectorAll(".lane-panel, .package-card, .route-step, .fr-panel, .truck-group, .unit-type-card, .quote-package-card")
     .forEach((target) => {
       if (target.querySelector(":scope > .spot-fx")) return;
       const spot = document.createElement("div");
@@ -938,7 +926,8 @@ function initCrossPagePreselect() {
 }
 
 normalizePageState();
-window.addEventListener("pageshow", () => {
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
   document.querySelector("[data-preloader]")?.remove();
   normalizePageState();
 });
