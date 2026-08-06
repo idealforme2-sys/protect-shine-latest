@@ -3437,12 +3437,16 @@ a.showcase-card {
 }
 
 .why-intro h2 {
-  margin-bottom: 12px;
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
+  margin-bottom: 8px;
+  line-height: 1.15;
 }
 
 .why-intro p {
   color: var(--muted);
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-top: 4px;
 }
 
 .why-credentials {
@@ -6856,23 +6860,48 @@ main > section:not(.hero):not(.page-hero):not(.ps-marquee),
 .hero-badge-card { border-color: rgba(162, 203, 240, .28); }
 .hero-badge-card:hover { border-color: rgba(196, 225, 250, .55); }
 .hero-badge-cta {
+  position: relative;
   display: inline-flex !important;
   width: max-content;
   align-items: center;
   gap: 8px;
   margin-top: 12px;
-  padding: 8px 10px;
-  border: 1px solid rgba(124, 191, 249, .45);
-  border-radius: 4px;
-  color: #e7f4ff !important;
-  background: rgba(12, 63, 118, .28);
-  font-size: .68rem !important;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 77, 77, 0.42);
+  border-radius: 999px;
+  color: #ffffff !important;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.12) 0 1px, transparent 1px 5px), linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%);
+  font-size: .72rem !important;
   font-weight: 900;
   letter-spacing: .11em;
   line-height: 1;
   text-transform: uppercase;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.hero-badge-cta i { color: #8fcaff; font-size: 1rem; font-style: normal; transition: transform .2s ease; }
+.hero-badge-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(108deg, transparent 34%, rgba(255,255,255,.22) 48%, transparent 62%);
+  transform: translateX(-130%);
+  transition: transform .45s ease;
+  pointer-events: none;
+}
+.hero-badge-card:hover .hero-badge-cta::before,
+.hero-badge-cta:hover::before {
+  transform: translateX(130%);
+}
+.hero-badge-cta i {
+  position: relative;
+  z-index: 1;
+  color: #ff9e9e;
+  font-size: 1rem;
+  font-style: normal;
+  transition: transform .2s ease;
+}
 .hero-badge-card:hover .hero-badge-cta i { transform: translateX(3px); }
 
 .lane-panel:hover { box-shadow: inset -2px 0 0 rgba(255, 66, 85, .92), 0 30px 86px rgba(0, 0, 0, .5), 0 0 38px rgba(97, 183, 255, .14), 0 0 38px rgba(255, 77, 77, .18); }
@@ -8778,14 +8807,17 @@ a.chat-card:hover {
   border-radius: 16px;
   background: rgba(3, 6, 12, 0.6);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-top: 24px;
 }
 
 .why-photo img {
   display: block;
   width: 100%;
-  max-height: 470px;
+  height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
 }
 
 .why-credential {
