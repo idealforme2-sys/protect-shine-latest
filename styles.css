@@ -9653,38 +9653,78 @@ a.chat-card:hover {
   line-height: 1.5;
 }
 
-/* 4. FAQ Alignment & Mirrored Icons */
+/* 4. FAQ Section Polish, Centered Headline Underlines & Mirrored Far-Left Icons */
 .faq-heading {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 36px;
+  max-width: 800px;
+  margin: 0 auto 40px;
 }
 
 .faq-heading .eyebrow {
   margin: 0 auto 12px;
 }
 
-.faq-help {
-  margin: 20px auto 36px;
-  padding: 22px 28px;
-  border: 1px solid rgba(97, 183, 255, 0.25);
-  border-radius: 18px;
-  background: linear-gradient(150deg, rgba(12, 30, 54, 0.6), rgba(4, 9, 17, 0.7));
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+.faq-heading h2 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem) !important;
+  font-family: var(--font-display);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.faq-heading p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
   max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Centered Headline Underline Fix */
+.faq-heading h2::after,
+.reviews-intro h2::after,
+.section-heading h2::after {
+  left: 50% !important;
+  transform: translateX(-50%) scaleX(1) !important;
+  transform-origin: center center !important;
+}
+
+body.js .faq-heading h2::after,
+body.js .reviews-intro h2::after,
+body.js .section-heading h2::after {
+  transform: translateX(-50%) scaleX(0) !important;
+}
+
+body.js .faq-heading.is-visible h2::after,
+body.js .reviews-intro.is-visible h2::after,
+body.js .section-heading.is-visible h2::after {
+  transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* Premium FAQ Help Card */
+.faq-help {
+  margin: 24px auto 40px;
+  padding: 28px 32px;
+  border: 1px solid rgba(97, 183, 255, 0.35);
+  border-radius: 20px;
+  background: linear-gradient(150deg, rgba(12, 34, 62, 0.75), rgba(4, 9, 17, 0.85));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 24px rgba(97, 183, 255, 0.15);
+  max-width: 720px;
   text-align: center;
 }
 
 .faq-help h3 {
   margin: 0 0 8px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #ffffff;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
 }
 
 .faq-help p {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .faq-help-actions {
@@ -9696,41 +9736,116 @@ a.chat-card:hover {
 }
 
 .faq-help-actions .button {
-  min-height: 38px;
-  padding: 8px 20px;
-  font-size: 0.84rem;
+  min-height: 42px;
+  padding: 10px 24px;
+  font-size: 0.86rem;
+  font-weight: 800;
   border-radius: 999px;
 }
 
-/* Mirrored icon styling: Gold frames for numbers (right side) */
+/* Far-Left Number & Plus Badges inside FAQ item buttons */
+.faq-item button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+.faq-item button > span {
+  margin-right: 4px;
+}
+
+/* Right side: Gold number badges on the far left (06, 07, 08, 09) */
 .faq-col:last-child .faq-item button > span {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(240, 196, 121, 0.4);
-  border-radius: 8px;
-  background: rgba(240, 196, 121, 0.08);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(240, 196, 121, 0.45);
+  border-radius: 10px;
+  background: rgba(240, 196, 121, 0.1);
   color: var(--gold);
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   flex-shrink: 0;
 }
 
-/* Left side plus icons styling */
+/* Left side: Blue plus icon badges on the far left */
 .faq-col:first-child .faq-item button > span {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(97, 183, 255, 0.35);
-  border-radius: 8px;
-  background: rgba(97, 183, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(97, 183, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(97, 183, 255, 0.12);
   color: var(--blue);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   flex-shrink: 0;
+}
+
+/* Word Of Mouth Reviews Intro Polish */
+.reviews-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 44px;
+}
+
+.reviews-intro .eyebrow {
+  margin: 0 auto 12px;
+}
+
+.reviews-intro h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem) !important;
+  font-family: var(--font-display);
+  margin-bottom: 0;
+}
+
+/* Why Us Layout Alignment & Photo Under Left Intro */
+.why-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.why-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.why-photo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184, 205, 227, 0.22);
+  border-radius: 18px;
+  background: rgba(3, 6, 12, 0.6);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-top: 8px;
+}
+
+.why-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.why-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.why-crest {
+  margin-bottom: 4px;
 }
 
 /* 5. Booking Form Vertical Spacing & 6. Prevent Sidebar Shift */
