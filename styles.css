@@ -8895,29 +8895,30 @@ a.chat-card:hover {
 /* Quote: parallel bottoms + lowered copy + premium chat frame */
 .quote-copy { margin-top: 24px; }
 
-.quote-shell { align-items: stretch; }
+.quote-shell { align-items: flex-start; }
 
 .quote-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: block;
+  height: auto;
 }
 
 .quote-step.is-active {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  display: block;
+  flex: none;
 }
 
-.quote-step.is-active .quote-step-actions { margin-top: auto; padding-top: 18px; }
+.quote-step.is-active .quote-step-actions {
+  margin-top: 16px;
+  padding-top: 0;
+}
 
 .quote-support.chat-support {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
 }
 
-.chat-support .quote-support-path { margin-top: auto; }
+.chat-support .quote-support-path { margin-top: 16px; }
 
 .chat-head {
   padding: 22px 24px;
