@@ -11216,3 +11216,331 @@ span.stat-icon-box svg,
   letter-spacing: 0.04em !important;
 }
 
+/* ============================================================
+   AUTHORITATIVE MOBILE REWORK & POLISH (NAVBAR, 3-STEP PROCESS, QUOTE)
+   ============================================================ */
+
+/* 1. Header & Navbar Mobile Rework (< 900px) */
+@media (max-width: 900px) {
+  .site-header.ps-header {
+    top: 10px !important;
+    width: calc(100% - 20px) !important;
+    padding: 10px 14px !important;
+    border-radius: 16px !important;
+    gap: 10px !important;
+  }
+
+  .brand-mark {
+    gap: 10px !important;
+    min-width: 0 !important;
+  }
+
+  .brand-mark img {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-mark strong {
+    font-size: 0.96rem !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-mark small {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    background: rgba(12, 28, 48, 0.85) !important;
+    border: 1px solid rgba(97, 183, 255, 0.35) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-nav {
+    position: fixed !important;
+    top: 72px !important;
+    left: 10px !important;
+    right: 10px !important;
+    max-height: calc(100vh - 86px) !important;
+    overflow-y: auto !important;
+    padding: 18px 16px !important;
+    border-radius: 20px !important;
+    background: rgba(5, 12, 22, 0.97) !important;
+    border: 1px solid rgba(97, 183, 255, 0.35) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.92), 0 0 30px rgba(97, 183, 255, 0.15) !important;
+    backdrop-filter: blur(24px) !important;
+    z-index: 999999 !important;
+  }
+
+  .site-nav a,
+  .site-nav .nav-dropdown-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 13px 14px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #e2f0fd !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    text-align: left !important;
+    background: transparent !important;
+  }
+
+  .nav-dropdown-menu {
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: rgba(97, 183, 255, 0.06) !important;
+    border-radius: 12px !important;
+    margin: 6px 0 !important;
+    padding: 4px 0 !important;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 11px 18px !important;
+    font-size: 0.92rem !important;
+    color: #aed5ff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .site-nav .nav-social,
+  .site-nav .nav-cta {
+    margin-top: 10px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 0.98rem !important;
+    border-radius: 12px !important;
+    padding: 13px !important;
+  }
+
+  .site-nav .nav-social {
+    background: linear-gradient(135deg, rgba(97, 183, 255, 0.25), rgba(12, 38, 70, 0.8)) !important;
+    border: 1px solid rgba(97, 183, 255, 0.4) !important;
+    color: #ffffff !important;
+  }
+
+  .site-nav .nav-cta {
+    background: linear-gradient(135deg, rgba(255, 62, 79, 0.25), rgba(60, 12, 20, 0.8)) !important;
+    border: 1px solid rgba(255, 77, 77, 0.4) !important;
+    color: #ffffff !important;
+  }
+}
+
+/* 2. Horizontal 3-Step Process Cards on Mobile (< 768px) */
+@media (max-width: 768px) {
+  .process-section {
+    padding: 34px 12px !important;
+  }
+
+  .process-intro {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+  }
+
+  .route-timeline {
+    padding: 0 !important;
+  }
+
+  .route-line {
+    display: none !important; /* Remove connecting bar to allow clean 3-card horizontal grid */
+  }
+
+  .route-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    align-items: start !important;
+  }
+
+  .route-step,
+  .route-step:nth-child(2) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 12px 6px !important;
+    transform: none !important;
+    background: linear-gradient(145deg, rgba(12, 26, 44, 0.7), rgba(4, 9, 17, 0.85)) !important;
+    border: 1px solid rgba(97, 183, 255, 0.18) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .route-checkpoint {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 12px !important;
+    margin: 0 0 8px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 16px rgba(97, 183, 255, 0.25) !important;
+  }
+
+  .route-checkpoint img {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+    border-radius: 4px !important;
+  }
+
+  .route-step h3 {
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    color: #ffffff !important;
+    letter-spacing: 0.01em !important;
+    word-break: break-word !important;
+  }
+
+  .route-step p {
+    font-size: 0.68rem !important;
+    line-height: 1.35 !important;
+    color: #a2b7cc !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .route-actions {
+    margin-top: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .route-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* 3. Quote Section & Form Rework on Mobile (< 768px) */
+@media (max-width: 768px) {
+  .quote-section {
+    padding: 32px 10px !important;
+  }
+
+  .quote-shell {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .quote-card {
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .quote-progress {
+    gap: 10px !important;
+    margin-bottom: 18px !important;
+    justify-content: center !important;
+  }
+
+  .quote-step-indicator {
+    gap: 6px !important;
+  }
+
+  .quote-step-indicator span {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .quote-step-indicator strong {
+    font-size: 0.82rem !important;
+  }
+
+  .quote-fields {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .quote-fields label {
+    font-size: 0.75rem !important;
+    gap: 6px !important;
+  }
+
+  .quote-fields input,
+  .quote-fields select,
+  .quote-fields textarea {
+    padding: 12px 14px !important;
+    font-size: 0.95rem !important;
+    border-radius: 10px !important;
+    min-height: 48px !important;
+  }
+
+  .quote-step-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 18px !important;
+  }
+
+  .quote-step-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 50px !important;
+  }
+
+  .service-selector-toggle {
+    padding: 10px 12px !important;
+    min-height: 56px !important;
+  }
+
+  .service-selector-toggle strong {
+    font-size: 1.02rem !important;
+  }
+
+  .service-selector-toggle small {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* 4. Hero & General Section Mobile Sizing (< 480px) */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.95rem !important;
+    line-height: 1.12 !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .hero-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .package-grid,
+  .lane-grid,
+  .showcase-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
