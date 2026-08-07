@@ -10750,13 +10750,6 @@ body.js .section-heading.is-visible h2::after {
   margin: 0 !important;
 }
 
-/* Tighten vertical padding & empty space on commercial truck page */
-.commercial-hero {
-  padding-top: 120px !important;
-  padding-bottom: 32px !important;
-  min-height: auto !important;
-}
-
 .truck-services-section,
 .driver-reset-section {
   padding-top: 40px !important;
