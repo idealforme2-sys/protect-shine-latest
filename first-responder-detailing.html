@@ -42,7 +42,7 @@
       />
     </noscript>
     <link rel="preload" as="image" href="./policE.jpg" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=ps-update-29" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-30" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -345,24 +345,38 @@
           <form class="quote-card quote-form" data-quote-form data-form-type="first-responder">
             <div class="quote-progress" data-quote-progress><div class="quote-step-indicator is-active" data-step-indicator="1"><span>Step 1</span><strong>Details</strong></div><div class="quote-step-line" aria-hidden="true"></div><div class="quote-step-indicator" data-step-indicator="2"><span>Step 2</span><strong>Date + Time</strong></div></div>
             <div class="quote-step is-active" data-quote-step="1">
-              <p class="package-label">Select Your Plan</p>
-              <h3>Choose your service.</h3>
-              <div class="quote-package-grid" data-package-grid>
-                <button class="quote-package-card" type="button" data-package-select="One-Time Unit Detail">
-                  <span class="quote-pkg-top">
-                    <span class="quote-pkg-name">One-Time Unit Detail</span>
-                    <span class="quote-pkg-badge-tag">Single Visit Reset</span>
-                  </span>
-                  <span class="quote-pkg-price">$150 Flat Rate</span>
+              <div class="service-selector" data-service-selector>
+                <button
+                  class="service-selector-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="fr-service-options"
+                  data-service-toggle
+                >
+                  <span>Select Unit Plan</span>
+                  <strong data-service-summary-title>Monthly Maintenance</strong>
+                  <small data-service-summary-price">From $120 / detail</small>
+                  <i aria-hidden="true"></i>
                 </button>
-                <button class="quote-package-card" type="button" data-package-select="Monthly Maintenance">
-                  <span class="quote-pkg-top">
-                    <span class="quote-pkg-badge">Most Popular</span>
-                    <span class="quote-pkg-name">Monthly Maintenance</span>
-                    <span class="quote-pkg-badge-tag">Scheduled Upkeep</span>
-                  </span>
-                  <span class="quote-pkg-price">From $120 / detail</span>
-                </button>
+                <div class="service-selector-options" id="fr-service-options" data-service-options hidden>
+                  <div class="quote-package-grid" role="listbox">
+                    <button class="quote-package-card" type="button" data-package-select="One-Time Unit Detail">
+                      <span class="quote-pkg-top">
+                        <span class="quote-pkg-name">One-Time Unit Detail</span>
+                        <span class="quote-pkg-badge-tag">Single Visit Reset</span>
+                      </span>
+                      <span class="quote-pkg-price">$150 Flat Rate</span>
+                    </button>
+                    <button class="quote-package-card is-selected" type="button" data-package-select="Monthly Maintenance">
+                      <span class="quote-pkg-top">
+                        <span class="quote-pkg-badge">Most Popular</span>
+                        <span class="quote-pkg-name">Monthly Maintenance</span>
+                        <span class="quote-pkg-badge-tag">Scheduled Upkeep</span>
+                      </span>
+                      <span class="quote-pkg-price">From $120 / detail</span>
+                    </button>
+                  </div>
+                </div>
               </div>
               <div class="quote-fields">
                 <label>

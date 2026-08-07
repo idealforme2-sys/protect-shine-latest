@@ -11005,3 +11005,92 @@ span.stat-icon-box svg,
   line-height: 1.45 !important;
 }
 
+/* ============================================================
+   5. PREMIUM INTERACTIVE SERVICE SELECTOR DROPDOWN (TOGGLE BUTTON)
+   ============================================================ */
+.service-selector {
+  margin-bottom: 18px !important;
+}
+
+.service-selector-toggle {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto 20px !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 64px !important;
+  padding: 12px 18px !important;
+  border: 1px solid rgba(97, 183, 255, 0.35) !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(12, 28, 50, 0.95), rgba(4, 9, 17, 0.98)) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.service-selector-toggle:hover,
+.service-selector-toggle[aria-expanded="true"] {
+  border-color: rgba(97, 183, 255, 0.6) !important;
+  box-shadow: 0 0 25px rgba(97, 183, 255, 0.25) !important;
+}
+
+.service-selector-toggle > span {
+  grid-column: 1 !important;
+  color: #8faac8 !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.service-selector-toggle strong {
+  grid-column: 1 !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.03em !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  line-height: 1.1 !important;
+  margin-top: 2px !important;
+}
+
+.service-selector-toggle small {
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
+  color: #61b7ff !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  margin-right: 12px !important;
+}
+
+.service-selector-toggle i {
+  grid-column: 3 !important;
+  grid-row: 1 / span 2 !important;
+  display: block !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-right: 2px solid #61b7ff !important;
+  border-bottom: 2px solid #61b7ff !important;
+  transform: rotate(45deg) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.service-selector-toggle[aria-expanded="true"] i {
+  transform: rotate(225deg) !important;
+}
+
+.service-selector-options {
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 8px !important;
+  padding: 10px !important;
+  border: 1px solid rgba(97, 183, 255, 0.3) !important;
+  border-radius: 14px !important;
+  background: rgba(6, 12, 22, 0.98) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
