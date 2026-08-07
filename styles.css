@@ -11043,6 +11043,10 @@ span.stat-icon-box svg,
   text-transform: uppercase !important;
 }
 
+.service-selector-toggle[aria-expanded="true"] > span {
+  display: none !important;
+}
+
 .service-selector-toggle strong {
   grid-column: 1 !important;
   font-family: var(--font-display) !important;
