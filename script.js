@@ -475,8 +475,8 @@ function initQuoteForm() {
   const carSeatField = form.querySelector("[data-car-seat-field]");
   const serviceToggle = form.querySelector("[data-service-toggle]");
   const serviceOptions = form.querySelector("[data-service-options]");
-  const serviceCurrent = form.querySelector("[data-service-current]");
-  const servicePrice = form.querySelector("[data-service-price]");
+  const serviceCurrent = form.querySelector("[data-service-summary-title]");
+  const servicePrice = form.querySelector("[data-service-summary-price]");
 
   const closeServiceOptions = () => {
     serviceOptions?.setAttribute("hidden", "");
@@ -484,8 +484,10 @@ function initQuoteForm() {
   };
   const updateServiceSummary = (card) => {
     if (!card) return;
-    if (serviceCurrent) serviceCurrent.textContent = card.querySelector(".quote-pkg-name")?.textContent || selectedPkg;
-    if (servicePrice) servicePrice.textContent = card.querySelector(".quote-pkg-price")?.textContent || "Custom quote";
+    const nameText = card.querySelector(".quote-pkg-name")?.textContent || selectedPkg;
+    const priceText = card.querySelector(".quote-pkg-price")?.textContent || "Custom Quote";
+    if (serviceCurrent) serviceCurrent.textContent = nameText;
+    if (servicePrice) servicePrice.textContent = priceText;
   };
 
   packageGrid?.setAttribute("role", "radiogroup");
