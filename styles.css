@@ -133,7 +133,7 @@ body.has-custom-cursor [role="button"] {
 /* Interactive Target Hover State (Slightly scales bigger without rotation or gold shine) */
 .cursor-ring.is-hovering {
   transform: translate(-50%, -50%) scale(1.15);
-  filter: drop-shadow(0 0 8px rgba(66, 185, 255, 0.85)) drop-shadow(0 0 8px rgba(255, 62, 79, 0.85));
+  filter: drop-shadow(0 0 8px rgba(15, 94, 214, 0.85)) drop-shadow(0 0 8px rgba(217, 20, 40, 0.85));
 }
 
 img {
