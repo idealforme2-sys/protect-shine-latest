@@ -41,7 +41,7 @@
         rel="stylesheet"
       />
     </noscript>
-    <link rel="stylesheet" href="./styles.css?v=ps-update-22" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-23" />
     <link rel="preload" as="image" href="./POLICECAR.jpg" />
     <script type="application/ld+json">
       {
@@ -588,6 +588,10 @@
               spend long shifts on the road. Gear, food runs, mud, dust, pet hair, and everyday wear add up quickly.
               Your unit deserves a service designed around how it is actually used.
             </p>
+            <div class="fr-equipment-notice">
+              <span class="notice-icon">🛡️</span>
+              <p><strong>Reminder:</strong> Please remove or secure all sensitive equipment and personal items before service.</p>
+            </div>
           </div>
           <div class="fr-panels">
             <article class="fr-panel fr-panel-blue">
@@ -857,23 +861,43 @@
               service.
             </p>
           </div>
-          <form class="quote-card quote-form" data-quote-form>
-            <div class="quote-progress" data-quote-progress><div class="quote-step-indicator is-active" data-step-indicator="1"><span>Step 1</span><strong>Details</strong></div><div class="quote-step-line" aria-hidden="true"></div><div class="quote-step-indicator" data-step-indicator="2"><span>Step 2</span><strong>Date + Time</strong></div></div>
+          <form class="quote-card quote-form" id="quote-form" data-quote-form>
+            <div class="quote-progress" aria-label="Quote steps">
+              <div class="quote-step-indicator is-active" data-step-indicator="1">
+                <span>01</span>
+                <strong>Details</strong>
+              </div>
+              <div class="quote-step-line" aria-hidden="true"></div>
+              <div class="quote-step-indicator" data-step-indicator="2">
+                <span>02</span>
+                <strong>Date + Time</strong>
+              </div>
+            </div>
             <div class="quote-step is-active" data-quote-step="1">
-              <p class="package-label">Details</p>
-              <div class="service-selector">
-                <button class="service-selector-toggle" type="button" data-service-toggle aria-expanded="false" aria-controls="service-options">
-                  <span>Select a Service</span><strong data-service-current>Priority Detail</strong><small data-service-price>From $180</small><em>Change</em><i aria-hidden="true"></i>
+              <div class="service-selector" data-service-selector>
+                <p class="package-label">Select Service</p>
+                <button
+                  class="service-selector-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  data-service-toggle
+                >
+                  <span>Select a Service</span>
+                  <strong>Quick Response Wash &middot; From $80</strong>
+                  <small>Maintenance &amp; already clean vehicles</small>
+                  <em>Change</em>
+                  <i aria-hidden="true">&darr;</i>
                 </button>
-                <div class="service-selector-options" id="service-options" data-service-options hidden>
-                  <div class="quote-package-grid" data-package-grid>
-                <button class="quote-package-card" type="button" data-package-select="Quick Response Wash">
+                <div class="service-selector-options" data-service-options hidden>
+                  <div class="quote-package-grid" role="listbox">
+                <button class="quote-package-card is-selected" type="button" data-package-select="Quick Response Wash">
                   <span class="quote-pkg-name">Quick Response Wash</span>
-                  <span class="quote-pkg-best">Maintenance &amp; already clean vehicles.</span>
+                  <span class="quote-pkg-best">Fast. Reliable. Ready.</span>
                   <span class="quote-pkg-price">From $80</span>
                   <span class="quote-pkg-time">~1 hr</span>
                 </button>
-                <button class="quote-package-card is-selected" type="button" data-package-select="Priority Detail">
+                <button class="quote-package-card" type="button" data-package-select="Priority Detail">
                   <span class="quote-pkg-badge">Most Requested</span>
                   <span class="quote-pkg-name">Priority Detail</span>
                   <span class="quote-pkg-best">Daily drivers that need a full reset.</span>
@@ -927,7 +951,7 @@
                 </label>
               </div>
               <div class="quote-step-actions">
-                <button class="button button-primary quote-next-btn" type="button" data-next-step>Next &mdash; Pick a Time <i class="btn-arrow" aria-hidden="true">&rarr;</i></button>
+                <button class="button button-secondary quote-next-btn" type="button" data-next-step>Next &mdash; Pick a Time <i class="btn-arrow" aria-hidden="true">&rarr;</i></button>
               </div>
             </div>
             <div class="quote-step" data-quote-step="2">
@@ -941,19 +965,33 @@
                 <div class="quote-time-slots" data-time-slots hidden>
                   <p class="quote-time-label">Available Time Slots</p>
                   <div class="time-slot-grid">
+                    <button type="button" class="time-slot" data-time-slot="7:30 AM">7:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="8:00 AM">8:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="8:30 AM">8:30 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="9:00 AM">9:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="9:30 AM">9:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="10:00 AM">10:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="10:30 AM">10:30 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="11:00 AM">11:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="11:30 AM">11:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="12:00 PM">12:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="12:30 PM">12:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="1:00 PM">1:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="1:30 PM">1:30 PM</button>
                     <button type="button" class="time-slot" data-time-slot="2:00 PM">2:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="2:30 PM">2:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="3:00 PM">3:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="3:30 PM">3:30 PM</button>
                     <button type="button" class="time-slot" data-time-slot="4:00 PM">4:00 PM</button>
-                    <button type="button" class="time-slot" data-time-slot="6:00 PM">6:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="4:30 PM">4:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="5:00 PM">5:00 PM</button>
                   </div>
                 </div>
                 <p class="quote-time-placeholder" data-time-placeholder>Pick a date to see available time slots.</p>
               </div>
               <div class="quote-step-actions">
-                <button class="button button-secondary" type="button" data-prev-step>Back to Details</button>
-                <button class="button button-primary" type="submit">Send Quote Request</button>
+                <button class="button button-primary" type="button" data-prev-step>Back to Details</button>
+                <button class="button button-secondary" type="submit">Send Quote Request</button>
               </div>
             </div>
           </form>
