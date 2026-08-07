@@ -83,7 +83,7 @@ body::before {
 }
 
 /* ============================================================
-   PREMIUM ARTISTIC POLICE OFFICER & MOBILE DETAILING CURSOR
+   ULTRA-PREMIUM POLICE DETAILING GLASS CURSOR SYSTEM
    ============================================================ */
 .cursor-dot,
 .cursor-ring {
@@ -94,74 +94,36 @@ body::before {
   pointer-events: none;
   opacity: 0;
   transform: translate3d(-50%, -50%, 0);
-  transition: opacity 200ms ease, width 220ms ease, height 220ms ease, border-color 220ms ease, background 220ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 220ms ease, width 260ms cubic-bezier(0.16, 1, 0.3, 1), height 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease, background 260ms ease, box-shadow 260ms ease;
   isolation: isolate;
 }
 
+/* Inner Police Precision Aim Core */
 .cursor-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #ffffff;
   box-shadow:
-    0 0 10px #42b9ff,
-    0 0 18px #ff3e4f,
-    0 0 28px rgba(255, 255, 255, 0.9);
+    0 0 8px #54b8ff,
+    0 0 16px #ff4b5c,
+    0 0 24px rgba(255, 255, 255, 0.9);
 }
 
-.cursor-dot::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #42b9ff, #ff3e4f);
-  z-index: -1;
-  opacity: 0.85;
-}
-
+/* Outer Police Patrol Light Halo Ring */
 .cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(97, 183, 255, 0.45);
-  border-radius: 12px 4px 12px 4px; /* Tactical Shield Curved Badge shape */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
   background:
-    radial-gradient(circle at 20% 20%, rgba(66, 185, 255, 0.15), transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(255, 62, 79, 0.15), transparent 45%),
-    rgba(3, 8, 16, 0.22);
+    linear-gradient(rgba(4, 9, 17, 0.15), rgba(4, 9, 17, 0.15)) padding-box,
+    linear-gradient(135deg, rgba(66, 185, 255, 0.75), rgba(255, 62, 79, 0.75)) border-box;
   box-shadow:
-    0 0 20px rgba(66, 185, 255, 0.22),
-    0 0 20px rgba(255, 62, 79, 0.18),
-    inset 0 0 12px rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(2px);
-  animation: cursorPatrolPulse 4s ease-in-out infinite alternate;
-}
-
-/* Tactical Precision Reticle Crosshair Ticks */
-.cursor-ring::before,
-.cursor-ring::after {
-  content: "";
-  position: absolute;
-  background: rgba(180, 215, 250, 0.65);
-}
-
-/* Vertical crosshair notch */
-.cursor-ring::before {
-  top: -6px;
-  bottom: -6px;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, #42b9ff 0%, transparent 25%, transparent 75%, #ff3e4f 100%);
-}
-
-/* Horizontal crosshair notch */
-.cursor-ring::after {
-  left: -6px;
-  right: -6px;
-  top: 50%;
-  height: 1px;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, #42b9ff 0%, transparent 25%, transparent 75%, #ff3e4f 100%);
+    0 0 20px rgba(66, 185, 255, 0.25),
+    0 0 20px rgba(255, 62, 79, 0.2);
+  backdrop-filter: blur(1.5px);
+  animation: cursorSirenPulse 3.6s linear infinite alternate;
 }
 
 .cursor-dot.is-visible,
@@ -169,33 +131,29 @@ body::before {
   opacity: 1;
 }
 
-/* Interactive Target Acquired / Detail Active Hover State */
+/* High-Impact Gold Badge Target Acquired Hover State */
 .cursor-ring.is-hovering {
-  width: 54px;
-  height: 54px;
-  border-color: rgba(255, 215, 0, 0.75); /* Tactical Gold Badge Highlight */
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid transparent;
   background:
-    radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, rgba(66, 185, 255, 0.15) 50%, rgba(255, 62, 79, 0.15) 100%);
+    linear-gradient(rgba(12, 28, 48, 0.3), rgba(12, 28, 48, 0.3)) padding-box,
+    linear-gradient(135deg, #ffd700, #ff4b5c, #54b8ff) border-box;
   box-shadow:
-    0 0 30px rgba(255, 215, 0, 0.4),
-    0 0 40px rgba(66, 185, 255, 0.3),
-    inset 0 0 16px rgba(255, 255, 255, 0.2);
-  transform: translate3d(-50%, -50%, 0) scale(1.15) rotate(45deg);
+    0 0 28px rgba(255, 215, 0, 0.45),
+    0 0 36px rgba(84, 184, 255, 0.35);
+  transform: translate3d(-50%, -50%, 0) scale(1.1);
 }
 
-@keyframes cursorPatrolPulse {
+@keyframes cursorSirenPulse {
   0% {
-    border-color: rgba(66, 185, 255, 0.6);
-    box-shadow: 0 0 18px rgba(66, 185, 255, 0.3), 0 0 28px rgba(255, 62, 79, 0.15);
+    box-shadow: 0 0 16px rgba(66, 185, 255, 0.4), 0 0 24px rgba(255, 62, 79, 0.15);
   }
   50% {
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 24px rgba(255, 255, 255, 0.4), 0 0 32px rgba(66, 185, 255, 0.25);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.4), 0 0 32px rgba(66, 185, 255, 0.3);
   }
   100% {
-    border-color: rgba(255, 62, 79, 0.6);
-    box-shadow: 0 0 18px rgba(255, 62, 79, 0.3), 0 0 28px rgba(66, 185, 255, 0.15);
+    box-shadow: 0 0 16px rgba(255, 62, 79, 0.4), 0 0 24px rgba(66, 185, 255, 0.15);
   }
 }
 
