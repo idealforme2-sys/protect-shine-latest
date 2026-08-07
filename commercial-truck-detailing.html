@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -42,7 +42,7 @@
       />
     </noscript>
     <link rel="preload" as="image" href="./assets/truck-detail.jpg" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=ps-update-24" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-25" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -149,62 +149,88 @@
           <p>Structured service packages designed around real working truck requirements.</p>
         </div>
         <div class="truck-command-grid">
-          <div class="truck-panel-v2">
-            <span class="truck-panel-num">01</span>
-            <h3>Exterior Road Wash</h3>
-            <ul class="truck-panel-list">
-              <li>Hand wash and thorough drying</li>
-              <li>Bug, tar & road oil removal</li>
-              <li>Rim, wheel & step degreasing</li>
-              <li>Fuel tank & mud flap cleanup</li>
-              <li>Door jambs & exterior glass</li>
-              <li>Hydrophobic spray sealant finish</li>
+
+          <div class="truck-panel-v2 tcp-exterior">
+            <div class="tcp-num-wrap">
+              <span class="tcp-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6a2 2 0 0 0-2 2v10h20V8a2 2 0 0 0-2-2M4 6l2-4h12l2 4M7 16a1 1 0 1 0 2 0 1 1 0 0 0-2 0M15 16a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/></svg>
+              </span>
+              <span class="tcp-num">01</span>
+            </div>
+            <h3 class="tcp-title">Exterior Road Wash</h3>
+            <p class="tcp-desc">Complete exterior decontamination and hydrophobic protection for trucks that eat miles.</p>
+            <ul class="tcp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Hand wash and thorough drying</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Bug, tar & road oil removal</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Rim, wheel & step degreasing</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Fuel tank & mud flap cleanup</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Door jambs & exterior glass</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Hydrophobic spray sealant finish</li>
             </ul>
-            <span class="unit-card-tag">Exterior Grime Reset</span>
+            <span class="tcp-tag">Exterior Grime Reset</span>
           </div>
 
-          <div class="truck-panel-v2">
-            <span class="truck-panel-num">02</span>
-            <h3>Interior Cab Detail</h3>
-            <ul class="truck-panel-list">
-              <li>Full cab & floor vacuuming</li>
-              <li>Bunk, mattress & seat dusting</li>
-              <li>Dashboard & instrument wipe</li>
-              <li>Door panel & storage crevice detail</li>
-              <li>Interior glass & mirror clarity</li>
-              <li>High-touch control sanitization</li>
+          <div class="truck-panel-v2 tcp-interior">
+            <div class="tcp-num-wrap">
+              <span class="tcp-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v5M9.5 12h5"/></svg>
+              </span>
+              <span class="tcp-num">02</span>
+            </div>
+            <h3 class="tcp-title">Interior Cab Detail</h3>
+            <p class="tcp-desc">Deep routine cleanup for the working cab â€” every surface, crevice, and contact point.</p>
+            <ul class="tcp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Full cab & floor vacuuming</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Bunk, mattress & seat dusting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Dashboard & instrument wipe</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Door panel & storage crevice detail</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Interior glass & mirror clarity</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>High-touch control sanitization</li>
             </ul>
-            <span class="unit-card-tag">Working Cab Upkeep</span>
+            <span class="tcp-tag">Working Cab Upkeep</span>
           </div>
 
-          <div class="truck-panel-v2" style="border-color: rgba(97, 183, 255, 0.35);">
-            <span class="truck-panel-num" style="color: var(--blue);">03</span>
-            <span class="tactical-badge tactical-badge-blue" style="margin-bottom: 8px; align-self: flex-start;">Most Popular</span>
-            <h3>Deep Clean & Driver Reset</h3>
-            <ul class="truck-panel-list">
-              <li>Deep thermal steam sanitation</li>
-              <li>Bunk & mattress deep extraction</li>
-              <li>Heavy odor treatment & elimination</li>
-              <li>New-driver preparation</li>
-              <li>Complete handoff reset for fleets</li>
-              <li>Cabinet & sleeper compartment clean</li>
+          <div class="truck-panel-v2 tcp-reset tcp-featured">
+            <div class="tcp-popular-badge">Most Popular</div>
+            <div class="tcp-num-wrap">
+              <span class="tcp-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <span class="tcp-num">03</span>
+            </div>
+            <h3 class="tcp-title">Deep Clean & Driver Reset</h3>
+            <p class="tcp-desc">Thermal steam sanitation and full cab handoff restoration for new drivers and post-run recovery.</p>
+            <ul class="tcp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Deep thermal steam sanitation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Bunk & mattress deep extraction</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Heavy odor treatment & elimination</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>New-driver preparation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Complete handoff reset for fleets</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Cabinet & sleeper compartment clean</li>
             </ul>
-            <span class="unit-card-tag">Driver Handoff Reset</span>
+            <span class="tcp-tag tcp-tag-blue">Driver Handoff Reset</span>
           </div>
 
-          <div class="truck-panel-v2">
-            <span class="truck-panel-num">04</span>
-            <h3>Protection & Extras</h3>
-            <ul class="truck-panel-list">
-              <li>Interior UV protectant application</li>
-              <li>Leather cleaning & conditioning</li>
-              <li>Exterior wax / paint sealant</li>
-              <li>Aluminum tank & wheel polish</li>
-              <li>Light engine bay rinse</li>
-              <li>Headache rack & trailer wash</li>
+          <div class="truck-panel-v2 tcp-protection">
+            <div class="tcp-num-wrap">
+              <span class="tcp-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+              <span class="tcp-num">04</span>
+            </div>
+            <h3 class="tcp-title">Protection & Extras</h3>
+            <p class="tcp-desc">Premium add-ons for long-term surface protection, heavy equipment finishing, and fleet appearance.</p>
+            <ul class="tcp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Interior UV protectant application</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Leather cleaning & conditioning</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Exterior wax / paint sealant</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Aluminum tank & wheel polish</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Light engine bay rinse</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Headache rack & trailer wash</li>
             </ul>
-            <span class="unit-card-tag">Heavy Duty Protection</span>
+            <span class="tcp-tag">Heavy Duty Protection</span>
           </div>
+
         </div>
       </section>
 
@@ -249,14 +275,23 @@
             </p>
           </div>
           <form class="quote-card quote-form" data-quote-form data-form-type="commercial-truck">
-            <div class="quote-progress" data-quote-progress><div class="quote-step-indicator is-active" data-step-indicator="1"><span>Step 1</span><strong>Details</strong></div><div class="quote-step-line" aria-hidden="true"></div><div class="quote-step-indicator" data-step-indicator="2"><span>Step 2</span><strong>Date + Time</strong></div></div>
+            <div class="quote-progress" aria-label="Quote steps">
+              <div class="quote-step-indicator is-active" data-step-indicator="1">
+                <span>01</span>
+                <strong>Details</strong>
+              </div>
+              <div class="quote-step-line" aria-hidden="true"></div>
+              <div class="quote-step-indicator" data-step-indicator="2">
+                <span>02</span>
+                <strong>Date + Time</strong>
+              </div>
+            </div>
             <div class="quote-step is-active" data-quote-step="1">
               <p class="package-label">Select Truck Package</p>
-              <h3>Choose your service.</h3>
               <div class="quote-package-grid" data-package-grid>
                 <button class="quote-package-card" type="button" data-package-select="Exterior Truck Service">
                   <span class="quote-pkg-name">Exterior Truck Service</span>
-                  <span class="quote-pkg-best">Exterior road grime, wheels, fuel tanks, steps, windows, and protection.</span>
+                  <span class="quote-pkg-best">Road grime, wheels, fuel tanks, steps, windows, and protection.</span>
                   <span class="quote-pkg-price">Custom Quote</span>
                 </button>
                 <button class="quote-package-card" type="button" data-package-select="Interior Cab Detail">
@@ -265,13 +300,14 @@
                   <span class="quote-pkg-price">Custom Quote</span>
                 </button>
                 <button class="quote-package-card" type="button" data-package-select="Driver Reset / New-Driver Prep">
+                  <span class="quote-pkg-badge">Most Requested</span>
                   <span class="quote-pkg-name">Driver Reset / New-Driver Prep</span>
-                  <span class="quote-pkg-best">Changing drivers, heavy interior use, sanitation, odors, bunk cleaning, and a complete cab reset.</span>
+                  <span class="quote-pkg-best">Changing drivers, heavy interior use, sanitation, odors, bunk cleaning, complete cab reset.</span>
                   <span class="quote-pkg-price">Custom Quote</span>
                 </button>
                 <button class="quote-package-card" type="button" data-package-select="Complete Road-Ready Detail">
                   <span class="quote-pkg-name">Complete Road-Ready Detail</span>
-                  <span class="quote-pkg-best">Coordinated exterior service, interior cab cleaning, sanitation, and protection.</span>
+                  <span class="quote-pkg-best">Full exterior service, interior cab cleaning, sanitation, and protection.</span>
                   <span class="quote-pkg-price">Priced by Truck Condition</span>
                 </button>
               </div>
@@ -310,7 +346,7 @@
                 </label>
               </div>
               <div class="quote-step-actions">
-                <button class="button button-primary" type="button" data-next-step>Continue to Date + Time</button>
+                <button class="button button-secondary" type="button" data-next-step>Continue to Date + Time <i class="btn-arrow" aria-hidden="true">&rarr;</i></button>
               </div>
             </div>
             <div class="quote-step" data-quote-step="2">
@@ -324,23 +360,74 @@
                 <div class="quote-time-slots" data-time-slots hidden>
                   <p class="quote-time-label">Available Time Slots</p>
                   <div class="time-slot-grid">
+                    <button type="button" class="time-slot" data-time-slot="7:30 AM">7:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="8:00 AM">8:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="8:30 AM">8:30 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="9:00 AM">9:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="9:30 AM">9:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="10:00 AM">10:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="10:30 AM">10:30 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="11:00 AM">11:00 AM</button>
+                    <button type="button" class="time-slot" data-time-slot="11:30 AM">11:30 AM</button>
                     <button type="button" class="time-slot" data-time-slot="12:00 PM">12:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="12:30 PM">12:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="1:00 PM">1:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="1:30 PM">1:30 PM</button>
                     <button type="button" class="time-slot" data-time-slot="2:00 PM">2:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="2:30 PM">2:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="3:00 PM">3:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="3:30 PM">3:30 PM</button>
                     <button type="button" class="time-slot" data-time-slot="4:00 PM">4:00 PM</button>
-                    <button type="button" class="time-slot" data-time-slot="6:00 PM">6:00 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="4:30 PM">4:30 PM</button>
+                    <button type="button" class="time-slot" data-time-slot="5:00 PM">5:00 PM</button>
                   </div>
                 </div>
                 <p class="quote-time-placeholder" data-time-placeholder>Pick a date to see available time slots.</p>
               </div>
               <div class="quote-step-actions">
-                <button class="button button-secondary" type="button" data-prev-step>Back</button>
-                <button class="button button-primary" type="submit">Send Truck Quote Request</button>
+                <button class="button button-primary" type="button" data-prev-step>Back to Details</button>
+                <button class="button button-secondary" type="submit">Send Truck Quote Request</button>
               </div>
             </div>
           </form>
-          <aside class="quote-support"><p class="eyebrow">Truck Quote Support</p><h3>Need help scoping the job?</h3><p>Cab condition, sleeper configuration, odors, heavy buildup, and fleet size can affect the right recommendation.</p><dl><div><dt>Call or Text</dt><dd><a href="tel:9723385781">972-338-5781</a></dd></div><div><dt>DM Us on Instagram</dt><dd><a href="https://www.instagram.com/protectandshinedetailing/" target="_blank" rel="noreferrer">@protectandshinedetailing</a></dd></div><div><dt>Mobile Service</dt><dd>Melissa, McKinney + surrounding routes</dd></div></dl><div class="quote-support-note"><strong>For a faster truck quote</strong><p>Include truck type, cab or sleeper configuration, vehicle count, condition, odors, and clear photos.</p></div><div class="quote-support-note"><strong>Built by someone who knows the cab.</strong><p>Former semi-truck driving experience and a current Texas CDL shape a practical commercial process.</p></div></aside>
+          <aside class="quote-support chat-support">
+            <div class="chat-head">
+              <div class="chat-status-badge"><span class="status-dot"></span> Active Dispatch &middot; Direct Owner Line</div>
+              <h3>Need help scoping the job?</h3>
+              <p>Cab condition, sleeper configuration, odors, and fleet size can all affect the right recommendation.</p>
+            </div>
+            <div class="chat-cards">
+              <a class="chat-card" href="tel:9723385781">
+                <span class="chat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.21c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </span>
+                <span class="chat-text"><small>Call or Text</small><strong>972-338-5781</strong></span>
+              </a>
+              <a class="chat-card" href="https://www.instagram.com/protectandshinedetailing/" target="_blank" rel="noreferrer">
+                <span class="chat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.18 8.8 2.16 12 2.16zM12 7.16a4.84 4.84 0 1 0 0 9.68 4.84 4.84 0 0 0 0-9.68zm0 7.98a3.14 3.14 0 1 1 0-6.28 3.14 3.14 0 0 1 0 6.28zm5.03-8.19a1.13 1.13 0 1 0 0 2.26 1.13 1.13 0 0 0 0-2.26z"/></svg>
+                </span>
+                <span class="chat-text"><small>Instagram</small><strong>@protectandshinedetailing</strong></span>
+              </a>
+              <div class="chat-card">
+                <span class="chat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                </span>
+                <span class="chat-text"><small>Mobile Service</small><strong>Melissa + McKinney, TX</strong></span>
+              </div>
+            </div>
+            <div class="quote-support-note cdl-note">
+              <span class="cdl-badge">CDL</span>
+              <div>
+                <strong>Built by someone who knows the cab.</strong>
+                <p>Former semi-truck driving experience and a Texas CDL shape every commercial detail decision.</p>
+              </div>
+            </div>
+            <div class="quote-support-note">
+              <strong>For a faster truck quote</strong>
+              <p>Include truck type, cab or sleeper config, vehicle count, condition, odors, and clear photos.</p>
+            </div>
+          </aside>
         </div>
       </section>
     </main>
