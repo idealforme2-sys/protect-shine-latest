@@ -686,38 +686,24 @@ function initCustomCursor() {
   if (!dot || !ring) return;
 
   document.body.classList.add("has-custom-cursor");
-
-  ring.innerHTML = `<svg viewBox="0 0 34 34" width="34" height="34" style="display:block; overflow:visible;">
-    <defs>
-      <linearGradient id="psArrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#ff3e4f" />
-        <stop offset="100%" stop-color="#1678ff" />
-      </linearGradient>
-      <filter id="psArrowGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#ff3e4f" flood-opacity="0.7"/>
-        <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="#1678ff" flood-opacity="0.7"/>
-      </filter>
-    </defs>
-    <path d="M 3,3 L 13,30 L 19,19 L 30,13 Z" fill="url(#psArrowGrad)" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" filter="url(#psArrowGlow)" />
-  </svg>`;
+  ring.innerHTML = "";
 
   const gsapApi = window.gsap;
   if (gsapApi) {
-    gsapApi.set(dot, { xPercent: -50, yPercent: -50 });
-    gsapApi.set(ring, { xPercent: -10, yPercent: -10 });
+    gsapApi.set([dot, ring], { xPercent: -50, yPercent: -50 });
   }
 
   const moveDot = gsapApi
-    ? gsapApi.quickTo(dot, "x", { duration: 0.1, ease: "power3.out" })
+    ? gsapApi.quickTo(dot, "x", { duration: 0.12, ease: "power3.out" })
     : null;
   const moveDotY = gsapApi
-    ? gsapApi.quickTo(dot, "y", { duration: 0.1, ease: "power3.out" })
+    ? gsapApi.quickTo(dot, "y", { duration: 0.12, ease: "power3.out" })
     : null;
   const moveRing = gsapApi
-    ? gsapApi.quickTo(ring, "x", { duration: 0.22, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "x", { duration: 0.34, ease: "power3.out" })
     : null;
   const moveRingY = gsapApi
-    ? gsapApi.quickTo(ring, "y", { duration: 0.22, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "y", { duration: 0.34, ease: "power3.out" })
     : null;
 
   window.addEventListener("mousemove", (event) => {
@@ -733,7 +719,7 @@ function initCustomCursor() {
     }
 
     dot.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
-    ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-10%, -10%)`;
+    ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
   }, { passive: true });
 
   document.querySelectorAll("a, button, input, select, textarea, .service-card, .package-card, .lane-panel, .specialty-panel, .review-card, .why-credential, .route-step").forEach((item) => {
