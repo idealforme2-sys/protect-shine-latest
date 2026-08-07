@@ -689,20 +689,21 @@ function initCustomCursor() {
 
   const gsapApi = window.gsap;
   if (gsapApi) {
-    gsapApi.set([dot, ring], { xPercent: -50, yPercent: -50 });
+    gsapApi.set(dot, { xPercent: -50, yPercent: -50 });
+    gsapApi.set(ring, { xPercent: -10, yPercent: -10 });
   }
 
   const moveDot = gsapApi
-    ? gsapApi.quickTo(dot, "x", { duration: 0.12, ease: "power3.out" })
+    ? gsapApi.quickTo(dot, "x", { duration: 0.1, ease: "power3.out" })
     : null;
   const moveDotY = gsapApi
-    ? gsapApi.quickTo(dot, "y", { duration: 0.12, ease: "power3.out" })
+    ? gsapApi.quickTo(dot, "y", { duration: 0.1, ease: "power3.out" })
     : null;
   const moveRing = gsapApi
-    ? gsapApi.quickTo(ring, "x", { duration: 0.34, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "x", { duration: 0.22, ease: "power3.out" })
     : null;
   const moveRingY = gsapApi
-    ? gsapApi.quickTo(ring, "y", { duration: 0.34, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "y", { duration: 0.22, ease: "power3.out" })
     : null;
 
   window.addEventListener("mousemove", (event) => {
@@ -718,7 +719,7 @@ function initCustomCursor() {
     }
 
     dot.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
-    ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+    ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-10%, -10%)`;
   }, { passive: true });
 
   document.querySelectorAll("a, button, input, select, textarea, .service-card, .package-card, .lane-panel, .specialty-panel, .review-card, .why-credential, .route-step").forEach((item) => {
