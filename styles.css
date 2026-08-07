@@ -10211,7 +10211,117 @@ body.js .section-heading.is-visible h2::after {
   padding: 6px 10px !important;
 }
 
-/* 8. Why Us Section Layout Alignment */
+/* Step 2 Heading Compact Space Fix */
+.quote-step[data-quote-step="2"] h3 {
+  font-size: 1.15rem !important;
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+}
+
+.quote-step[data-quote-step="2"] .package-label {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em !important;
+  margin-bottom: 2px !important;
+  color: var(--blue) !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+}
+
+/* Quote Sidebar Chat Support Premium Overhaul */
+.quote-support.chat-support {
+  padding: 32px 28px !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(97, 183, 255, 0.28) !important;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(97, 183, 255, 0.15), transparent 60%),
+    linear-gradient(160deg, rgba(12, 26, 46, 0.88), rgba(4, 9, 17, 0.96)) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(97, 183, 255, 0.12) !important;
+}
+
+.chat-status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(0, 230, 153, 0.4) !important;
+  background: rgba(0, 230, 153, 0.1) !important;
+  color: #00e699 !important;
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 0 14px rgba(0, 230, 153, 0.2) !important;
+}
+
+.chat-status-badge .status-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #00e699 !important;
+  box-shadow: 0 0 8px #00e699 !important;
+  animation: statusPulse 1.8s infinite ease-in-out !important;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.chat-head h3 {
+  font-size: 1.65rem !important;
+  font-family: var(--font-display) !important;
+  color: #ffffff !important;
+  margin: 0 0 6px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.chat-head p {
+  font-size: 0.95rem !important;
+  color: #9ac2ea !important;
+  margin: 0 0 10px !important;
+  font-weight: 600 !important;
+}
+
+.chat-warm {
+  font-size: 0.84rem !important;
+  color: #b0c4d8 !important;
+  line-height: 1.55 !important;
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(184, 205, 227, 0.1) !important;
+  margin-bottom: 20px !important;
+}
+
+/* First Responder Service Section Header Badges */
+.fr-service-groups section h3 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 0.98rem !important;
+  color: #8bc9ff !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+  font-weight: 800 !important;
+}
+
+.fr-sec-icon {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 8px !important;
+  background: rgba(97, 183, 255, 0.15) !important;
+  border: 1px solid rgba(97, 183, 255, 0.35) !important;
+  font-size: 0.85rem !important;
+}
+
+/* 8. Why Us Section Credentials Downward Offset */
 .why-grid {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) !important;
@@ -10251,7 +10361,7 @@ body.js .section-heading.is-visible h2::after {
 }
 
 .why-credentials {
-  margin-top: 22px !important;
+  margin-top: 56px !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 20px !important;
