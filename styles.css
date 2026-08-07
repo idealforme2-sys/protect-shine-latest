@@ -923,7 +923,6 @@ ul {
 .package-card,
 .trust-card,
 .quote-card,
-.quote-step,
 .service-promise article,
 .testimonial-stack article,
 .map-frame,
@@ -948,7 +947,6 @@ ul {
 .package-card::before,
 .trust-card::before,
 .quote-card::before,
-.quote-step::before,
 .service-promise article::before,
 .testimonial-stack article::before,
 .map-frame::before,
@@ -11185,5 +11183,32 @@ span.stat-icon-box svg,
   color: #61b7ff !important;
   margin: 0 !important;
   white-space: nowrap !important;
+}
+
+/* ============================================================
+   QUOTE FORM STEP 2: REMOVE SECOND UPPER FRAME & FIX HEADING CLIPPING
+   ============================================================ */
+.quote-step {
+  position: relative !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.quote-step::before,
+.quote-step::after {
+  display: none !important;
+  content: none !important;
+}
+
+.quote-step h3 {
+  padding-left: 3px !important;
+  margin-left: 0 !important;
+  overflow: visible !important;
+  letter-spacing: 0.04em !important;
 }
 
