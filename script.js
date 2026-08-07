@@ -683,42 +683,53 @@ function initCustomCursor() {
 
   const dot = document.querySelector("[data-cursor-dot]");
   const ring = document.querySelector("[data-cursor-ring]");
-  if (!dot || !ring) return;
+  if (!ring) return;
+  if (dot) dot.style.display = "none";
 
   document.body.classList.add("has-custom-cursor");
-  ring.innerHTML = "";
+
+  // Inject unified Crosshair with Split Red/Blue Center Point
+  ring.innerHTML = `<svg viewBox="0 0 40 40" width="40" height="40" style="display:block; overflow:visible;">
+    <defs>
+      <linearGradient id="psSplitRedBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="50%" stop-color="#42b9ff" />
+        <stop offset="50%" stop-color="#ff3e4f" />
+      </linearGradient>
+      <filter id="psCrosshairGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#42b9ff" flood-opacity="0.8"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#ff3e4f" flood-opacity="0.8"/>
+      </filter>
+    </defs>
+    <g filter="url(#psCrosshairGlow)">
+      <line x1="20" y1="2" x2="20" y2="13" stroke="#42b9ff" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="20" y1="27" x2="20" y2="38" stroke="#ff3e4f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="2" y1="20" x2="13" y2="20" stroke="#42b9ff" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="20" x2="38" y2="20" stroke="#ff3e4f" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="3.5" fill="url(#psSplitRedBlue)" stroke="#ffffff" stroke-width="0.8" />
+    </g>
+  </svg>`;
 
   const gsapApi = window.gsap;
   if (gsapApi) {
-    gsapApi.set([dot, ring], { xPercent: -50, yPercent: -50 });
+    gsapApi.set(ring, { xPercent: -50, yPercent: -50 });
   }
 
-  const moveDot = gsapApi
-    ? gsapApi.quickTo(dot, "x", { duration: 0.12, ease: "power3.out" })
-    : null;
-  const moveDotY = gsapApi
-    ? gsapApi.quickTo(dot, "y", { duration: 0.12, ease: "power3.out" })
-    : null;
   const moveRing = gsapApi
-    ? gsapApi.quickTo(ring, "x", { duration: 0.34, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "x", { duration: 0.08, ease: "power3.out" })
     : null;
   const moveRingY = gsapApi
-    ? gsapApi.quickTo(ring, "y", { duration: 0.34, ease: "power3.out" })
+    ? gsapApi.quickTo(ring, "y", { duration: 0.08, ease: "power3.out" })
     : null;
 
   window.addEventListener("mousemove", (event) => {
-    dot.classList.add("is-visible");
     ring.classList.add("is-visible");
 
     if (gsapApi) {
-      moveDot(event.clientX);
-      moveDotY(event.clientY);
       moveRing(event.clientX);
       moveRingY(event.clientY);
       return;
     }
 
-    dot.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
     ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
   }, { passive: true });
 
