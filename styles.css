@@ -83,7 +83,7 @@ body::before {
 }
 
 /* ============================================================
-   TACTICAL POLICE OFFICER DETAILING RETICLE CURSOR (CURVED EDGES)
+   TACTICAL CROSSHAIR CURSOR: 4 DIRECTIONAL ARROWS + CENTER DOT
    ============================================================ */
 .cursor-dot,
 .cursor-ring {
@@ -94,10 +94,11 @@ body::before {
   pointer-events: none;
   opacity: 0;
   transform: translate3d(-50%, -50%, 0);
-  transition: opacity 200ms ease, width 240ms cubic-bezier(0.16, 1, 0.3, 1), height 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms ease, background 240ms ease, border-radius 240ms ease, box-shadow 240ms ease;
+  transition: opacity 200ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1), filter 240ms ease;
   isolation: isolate;
 }
 
+/* Middle Centered Point */
 .cursor-dot {
   width: 6px;
   height: 6px;
@@ -119,50 +120,19 @@ body::before {
   opacity: 0.85;
 }
 
+/* 4 Directional Arrows (NO round frame or box) */
 .cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(97, 183, 255, 0.55);
-  border-radius: 16px 8px 16px 8px; /* Smooth Curved Tactical Shield Badge */
-  background:
-    radial-gradient(circle at 20% 20%, rgba(66, 185, 255, 0.16), transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 62, 79, 0.16), transparent 50%),
-    rgba(3, 8, 16, 0.35);
-  box-shadow:
-    0 0 20px rgba(66, 185, 255, 0.25),
-    0 0 20px rgba(255, 62, 79, 0.2),
-    inset 0 0 14px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px);
-  animation: cursorPatrolPulse 3.8s ease-in-out infinite alternate;
-}
-
-/* Tactical Precision Reticle Crosshair Ticks (Curved Rounded Pill Caps) */
-.cursor-ring::before,
-.cursor-ring::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px; /* Smooth curved pill ends */
-  pointer-events: none;
-}
-
-/* Vertical crosshair notch with rounded caps */
-.cursor-ring::before {
-  top: -5px;
-  bottom: -5px;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(66, 185, 255, 0.9) 0%, transparent 28%, transparent 72%, rgba(255, 62, 79, 0.9) 100%);
-}
-
-/* Horizontal crosshair notch with rounded caps */
-.cursor-ring::after {
-  left: -5px;
-  right: -5px;
-  top: 50%;
-  height: 2px;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, rgba(66, 185, 255, 0.9) 0%, transparent 28%, transparent 72%, rgba(255, 62, 79, 0.9) 100%);
+  width: 44px;
+  height: 44px;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M22 14 L17 4 L27 4 Z' fill='%2342b9ff' filter='drop-shadow(0 0 4px %2342b9ff)'/%3E%3Cpath d='M22 30 L17 40 L27 40 Z' fill='%23ff3e4f' filter='drop-shadow(0 0 4px %23ff3e4f)'/%3E%3Cpath d='M14 22 L4 17 L4 27 Z' fill='%2342b9ff' filter='drop-shadow(0 0 4px %2342b9ff)'/%3E%3Cpath d='M30 22 L40 17 L40 27 Z' fill='%23ff3e4f' filter='drop-shadow(0 0 4px %23ff3e4f)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cursor-dot.is-visible,
@@ -170,35 +140,10 @@ body::before {
   opacity: 1;
 }
 
-/* Interactive Target Acquired Hover State (Curved Tactical Badge Shield) */
+/* Interactive Target Acquired Hover State (Arrows Expand & Rotate into Target Star) */
 .cursor-ring.is-hovering {
-  width: 52px;
-  height: 52px;
-  border-color: rgba(255, 215, 0, 0.85); /* Tactical Gold Badge Highlight */
-  border-radius: 20px 10px 20px 10px; /* Smooth Curved Target Shield */
-  background:
-    radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(66, 185, 255, 0.18) 50%, rgba(255, 62, 79, 0.18) 100%),
-    rgba(12, 28, 48, 0.5);
-  box-shadow:
-    0 0 32px rgba(255, 215, 0, 0.45),
-    0 0 40px rgba(66, 185, 255, 0.35),
-    inset 0 0 16px rgba(255, 255, 255, 0.22);
-  transform: translate3d(-50%, -50%, 0) scale(1.1);
-}
-
-@keyframes cursorPatrolPulse {
-  0% {
-    border-color: rgba(66, 185, 255, 0.65);
-    box-shadow: 0 0 18px rgba(66, 185, 255, 0.35), 0 0 28px rgba(255, 62, 79, 0.18);
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 24px rgba(255, 255, 255, 0.45), 0 0 32px rgba(66, 185, 255, 0.3);
-  }
-  100% {
-    border-color: rgba(255, 62, 79, 0.65);
-    box-shadow: 0 0 18px rgba(255, 62, 79, 0.35), 0 0 28px rgba(66, 185, 255, 0.18);
-  }
+  transform: translate3d(-50%, -50%, 0) scale(1.22) rotate(45deg);
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.95));
 }
 
 img {
