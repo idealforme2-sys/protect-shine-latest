@@ -9801,6 +9801,7 @@ body.js .section-heading.is-visible h2::after {
   }
 }
 
+/* FAQ Items (Closed Accordion by Default) */
 .faq-item {
   border: 1px solid rgba(184, 205, 227, 0.16) !important;
   border-radius: 14px !important;
@@ -9829,7 +9830,8 @@ body.js .section-heading.is-visible h2::after {
   color: #ffffff !important;
 }
 
-.faq-col:last-child .faq-item button > span {
+/* Yellow Number Badges 01-10 across ALL FAQ items */
+.faq-item button > span {
   display: grid !important;
   place-items: center !important;
   width: 36px !important;
@@ -9840,20 +9842,6 @@ body.js .section-heading.is-visible h2::after {
   color: var(--gold) !important;
   font-family: var(--font-display) !important;
   font-size: 1rem !important;
-  font-weight: 800 !important;
-  flex-shrink: 0 !important;
-}
-
-.faq-col:first-child .faq-item button > span {
-  display: grid !important;
-  place-items: center !important;
-  width: 36px !important;
-  height: 36px !important;
-  border: 1px solid rgba(97, 183, 255, 0.45) !important;
-  border-radius: 10px !important;
-  background: rgba(97, 183, 255, 0.12) !important;
-  color: var(--blue) !important;
-  font-size: 1.2rem !important;
   font-weight: 800 !important;
   flex-shrink: 0 !important;
 }
@@ -9872,6 +9860,21 @@ body.js .section-heading.is-visible h2::after {
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
 }
 
+/* CLOSED BY DEFAULT FIX */
+.faq-item p {
+  display: none !important;
+  color: #b0c4d8 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+  padding-bottom: 16px !important;
+  margin-top: 0 !important;
+}
+
+.faq-item.is-open p {
+  display: block !important;
+  margin-top: 6px !important;
+}
+
 .faq-item.is-open i {
   transform: rotate(45deg) !important;
   border-color: rgba(97, 183, 255, 0.5) !important;
@@ -9879,14 +9882,7 @@ body.js .section-heading.is-visible h2::after {
   color: var(--blue) !important;
 }
 
-.faq-item p {
-  color: #b0c4d8 !important;
-  font-size: 0.92rem !important;
-  line-height: 1.6 !important;
-  padding-bottom: 16px !important;
-}
-
-/* 5. Complete Overhaul of Quote Section & Matching Navbar Secondary Colors */
+/* Quote Section Form & Signature Red & Blue Primary Next Button */
 .quote-shell {
   align-items: flex-start !important;
 }
@@ -9900,7 +9896,24 @@ body.js .section-heading.is-visible h2::after {
 }
 
 #quote-next-btn,
-.quote-step-actions .button,
+.quote-step-actions .button {
+  background: linear-gradient(120deg, #ff1e35, #1678ff) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 40px rgba(22, 120, 255, 0.35), 0 0 20px rgba(255, 30, 53, 0.3) !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+  min-height: 48px !important;
+  padding: 10px 28px !important;
+}
+
+#quote-next-btn:hover,
+.quote-step-actions .button:hover {
+  background: linear-gradient(120deg, #ff334b, #2b85ff) !important;
+  box-shadow: 0 18px 50px rgba(22, 120, 255, 0.45), 0 0 28px rgba(255, 30, 53, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
 .quote-support-path .button,
 .unit-program-btn {
   border: 1px solid rgba(255, 255, 255, 0.22) !important;
@@ -9913,8 +9926,6 @@ body.js .section-heading.is-visible h2::after {
   padding: 10px 24px !important;
 }
 
-#quote-next-btn:hover,
-.quote-step-actions .button:hover,
 .quote-support-path .button:hover,
 .unit-program-btn:hover {
   border-color: rgba(255, 255, 255, 0.45) !important;
@@ -9974,6 +9985,51 @@ body.js .section-heading.is-visible h2::after {
   border: 1px solid rgba(184, 205, 227, 0.4) !important;
   color: #ffffff !important;
   box-shadow: 0 0 14px rgba(97, 183, 255, 0.2) !important;
+}
+
+/* First Responder Section Framed Converter Box & Panel Overhaul */
+.fr-dispatch {
+  margin: 44px auto 0 !important;
+  padding: 32px 36px !important;
+  border: 1px solid rgba(97, 183, 255, 0.35) !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(97, 183, 255, 0.15), transparent 70%),
+    linear-gradient(155deg, rgba(14, 34, 62, 0.85), rgba(4, 9, 17, 0.95)) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 30px rgba(97, 183, 255, 0.18) !important;
+  max-width: 820px !important;
+  text-align: center !important;
+}
+
+.fr-dispatch h3 {
+  margin: 0 0 10px !important;
+  font-size: 1.55rem !important;
+  color: #ffffff !important;
+  font-family: var(--font-display) !important;
+}
+
+.fr-dispatch p {
+  margin: 0 0 20px !important;
+  color: #b0c4d8 !important;
+  font-size: 0.95rem !important;
+}
+
+.fr-dispatch-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.fr-dispatch-note {
+  font-size: 0.78rem !important;
+  color: #889bb0 !important;
+  opacity: 0.8;
+  font-style: italic;
+  margin-top: 16px !important;
+  margin-bottom: 0 !important;
+  text-align: center !important;
 }
 
 /* 6. Compact Package Cards */
@@ -10135,6 +10191,7 @@ body.js .section-heading.is-visible h2::after {
 }
 
 .why-credentials {
+  margin-top: 22px !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 20px !important;
