@@ -688,16 +688,12 @@ function initCustomCursor() {
 
   document.body.classList.add("has-custom-cursor");
 
-  // Inject unified Crosshair with Split Red/Blue Center Point
+  // Inject unified Crosshair with Red Center Point
   ring.innerHTML = `<svg viewBox="0 0 40 40" width="40" height="40" style="display:block; overflow:visible;">
     <defs>
-      <linearGradient id="psSplitRedBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="50%" stop-color="#42b9ff" />
-        <stop offset="50%" stop-color="#ff3e4f" />
-      </linearGradient>
       <filter id="psCrosshairGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#42b9ff" flood-opacity="0.8"/>
-        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#ff3e4f" flood-opacity="0.8"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#42b9ff" flood-opacity="0.8"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#ff3e4f" flood-opacity="0.8"/>
       </filter>
     </defs>
     <g filter="url(#psCrosshairGlow)">
@@ -705,7 +701,7 @@ function initCustomCursor() {
       <line x1="20" y1="27" x2="20" y2="38" stroke="#ff3e4f" stroke-width="2.2" stroke-linecap="round"/>
       <line x1="2" y1="20" x2="13" y2="20" stroke="#42b9ff" stroke-width="2.2" stroke-linecap="round"/>
       <line x1="27" y1="20" x2="38" y2="20" stroke="#ff3e4f" stroke-width="2.2" stroke-linecap="round"/>
-      <circle cx="20" cy="20" r="3.5" fill="url(#psSplitRedBlue)" stroke="#ffffff" stroke-width="0.8" />
+      <circle cx="20" cy="20" r="3.2" fill="#ff3e4f" stroke="#ffffff" stroke-width="0.8" />
     </g>
   </svg>`;
 

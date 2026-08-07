@@ -130,10 +130,10 @@ body.has-custom-cursor [role="button"] {
   opacity: 1 !important;
 }
 
-/* Interactive Target Acquired Hover State (Crosshair Rotates 45deg & Glows Gold) */
+/* Interactive Target Hover State (Slightly scales bigger without rotation or gold shine) */
 .cursor-ring.is-hovering {
-  transform: translate3d(-50%, -50%, 0) scale(1.25) rotate(45deg);
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.95));
+  transform: translate(-50%, -50%) scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(66, 185, 255, 0.85)) drop-shadow(0 0 8px rgba(255, 62, 79, 0.85));
 }
 
 img {
