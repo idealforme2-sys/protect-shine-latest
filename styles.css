@@ -11086,12 +11086,14 @@ span.stat-icon-box svg,
   position: relative !important;
   z-index: 10 !important;
   margin-top: 8px !important;
-  padding: 8px !important;
+  padding: 6px !important;
   border: 1px solid rgba(97, 183, 255, 0.3) !important;
   border-radius: 14px !important;
   background: rgba(6, 12, 22, 0.98) !important;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
   backdrop-filter: blur(16px) !important;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
 }
 
 /* LINE-BY-LINE DROPDOWN OPTIONS LIST */
@@ -11101,9 +11103,22 @@ span.stat-icon-box svg,
   grid-template-columns: 1fr !important;
   gap: 4px !important;
   max-height: 320px !important;
+  overflow-x: hidden !important;
   overflow-y: auto !important;
   padding: 2px !important;
   margin: 0 !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(97, 183, 255, 0.4) transparent !important;
+}
+
+.service-selector-options .quote-package-grid::-webkit-scrollbar {
+  width: 5px !important;
+  height: 0px !important;
+}
+
+.service-selector-options .quote-package-grid::-webkit-scrollbar-thumb {
+  background: rgba(97, 183, 255, 0.4) !important;
+  border-radius: 10px !important;
 }
 
 .service-selector-options .quote-package-card {
@@ -11112,6 +11127,7 @@ span.stat-icon-box svg,
   align-items: center !important;
   justify-content: space-between !important;
   width: 100% !important;
+  box-sizing: border-box !important;
   min-height: 50px !important;
   padding: 10px 14px !important;
   border: 1px solid rgba(184, 205, 227, 0.12) !important;
@@ -11120,13 +11136,13 @@ span.stat-icon-box svg,
   box-shadow: none !important;
   text-align: left !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
 }
 
 .service-selector-options .quote-package-card:hover {
-  background: linear-gradient(90deg, rgba(22, 120, 255, 0.18), rgba(6, 12, 22, 0.9)) !important;
-  border-color: rgba(97, 183, 255, 0.4) !important;
-  transform: translateX(4px) !important;
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.22), rgba(6, 12, 22, 0.95)) !important;
+  border-color: rgba(97, 183, 255, 0.5) !important;
+  transform: none !important;
 }
 
 .service-selector-options .quote-package-card.is-selected {
