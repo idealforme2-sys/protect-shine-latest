@@ -10778,3 +10778,157 @@ body.js .section-heading.is-visible h2::after {
 .truck-command-grid {
   margin-top: 24px !important;
 }
+
+/* ============================================================
+   1. REAL RESULTS ENERGY / WORD OF MOUTH UNDERLINE LEFT-ALIGNMENT
+   ============================================================ */
+.reviews-intro {
+  text-align: left !important;
+}
+
+.reviews-intro p {
+  margin-inline: 0 !important;
+  text-align: left !important;
+}
+
+.reviews-intro h2::after {
+  left: 0 !important;
+  right: auto !important;
+  transform-origin: left center !important;
+  transform: scaleX(1) !important;
+}
+
+body.js .reviews-intro h2::after {
+  transform: scaleX(0) !important;
+}
+
+body.js .reviews-intro.is-visible h2::after {
+  transform: scaleX(1) !important;
+}
+
+/* ============================================================
+   2. STAT ICON BOX PERFECT DEAD-CENTER SVG ALIGNMENT
+   ============================================================ */
+.stat-icon-box {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(97, 183, 255, 0.3) !important;
+  background: rgba(97, 183, 255, 0.12) !important;
+  color: var(--blue) !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.stat-icon-box svg {
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.stat-card-v2.stat-red .stat-icon-box {
+  border-color: rgba(255, 77, 77, 0.35) !important;
+  background: rgba(255, 77, 77, 0.12) !important;
+  color: var(--red) !important;
+}
+
+.stat-card-v2.stat-gold .stat-icon-box {
+  border-color: rgba(240, 196, 121, 0.35) !important;
+  background: rgba(240, 196, 121, 0.12) !important;
+  color: var(--gold) !important;
+}
+
+/* ============================================================
+   3. QUOTE PACKAGE SELECTOR — NO SCROLLBAR, 2-COLUMN CLICKABLE GRID
+   ============================================================ */
+.quote-package-grid,
+.service-selector-options .quote-package-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  max-height: none !important;
+  overflow: visible !important;
+  margin-bottom: 20px !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .quote-package-grid,
+  .service-selector-options .quote-package-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.quote-package-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 16px 18px !important;
+  border: 1px solid rgba(184, 205, 227, 0.2) !important;
+  border-radius: 14px !important;
+  background: linear-gradient(145deg, rgba(12, 24, 42, 0.82), rgba(4, 9, 17, 0.92)) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  min-height: 105px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+.quote-package-card:hover {
+  border-color: rgba(97, 183, 255, 0.45) !important;
+  background: linear-gradient(145deg, rgba(16, 36, 64, 0.9), rgba(4, 9, 17, 0.95)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35), 0 0 20px rgba(97, 183, 255, 0.15) !important;
+}
+
+.quote-package-card.is-selected {
+  border: 1.5px solid #61b7ff !important;
+  background: linear-gradient(145deg, rgba(22, 120, 255, 0.25), rgba(10, 24, 44, 0.95)) !important;
+  box-shadow: 0 0 25px rgba(97, 183, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.quote-package-card.is-selected::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: 12px !important;
+  right: 14px !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  background: #61b7ff !important;
+  color: #040911 !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+}
+
+.quote-pkg-name {
+  font-size: 0.98rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin-bottom: 4px !important;
+}
+
+.quote-pkg-best {
+  font-size: 0.8rem !important;
+  color: #a0b6cd !important;
+  line-height: 1.4 !important;
+  margin-bottom: 10px !important;
+}
+
+.quote-pkg-price {
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  color: #61b7ff !important;
+  letter-spacing: 0.03em !important;
+  margin-top: auto !important;
+}
