@@ -11578,38 +11578,16 @@ span.stat-icon-box svg,
   }
 }
 
-/* 5. Zero-Gap Hero Image Stretch Across Desktop & Mobile */
-.hero,
-.commercial-hero,
-.fr-hero {
-  margin-top: -120px !important;
-  padding-top: 150px !important;
-}
-
-.hero-image,
-.hero-shade,
-.hero-grid,
-.commercial-hero::before,
-.fr-hero::before {
-  top: -120px !important;
-  height: calc(100% + 120px) !important;
-}
-
-@media (max-width: 768px) {
-  .hero,
-  .commercial-hero,
-  .fr-hero {
-    margin-top: -90px !important;
-    padding-top: 125px !important;
-  }
-
-  .hero-image,
-  .hero-shade,
-  .hero-grid,
-  .commercial-hero::before,
-  .fr-hero::before {
-    top: -90px !important;
-    height: calc(100% + 90px) !important;
-  }
+/* 5. Seamless Top-Edge Ambient Vignette Blend Above Floating Navbar */
+.site-backdrop::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(3, 7, 14, 0.96) 0%, rgba(3, 7, 14, 0.55) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 30;
 }
 
