@@ -679,7 +679,7 @@ function initQuoteForm() {
 
 function initCustomCursor() {
   const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  if (!window.matchMedia("(pointer: fine)").matches || isTouch) return;
+  if (isTouch) return;
 
   const dot = document.querySelector("[data-cursor-dot]");
   const ring = document.querySelector("[data-cursor-ring]");
@@ -709,29 +709,13 @@ function initCustomCursor() {
     </g>
   </svg>`;
 
-  const gsapApi = window.gsap;
-  if (gsapApi) {
-    gsapApi.set(ring, { xPercent: -50, yPercent: -50 });
-  }
-
-  const moveRing = gsapApi
-    ? gsapApi.quickTo(ring, "x", { duration: 0.08, ease: "power3.out" })
-    : null;
-  const moveRingY = gsapApi
-    ? gsapApi.quickTo(ring, "y", { duration: 0.08, ease: "power3.out" })
-    : null;
-
-  window.addEventListener("mousemove", (event) => {
+  const updatePosition = (event) => {
+    ring.style.left = `${event.clientX}px`;
+    ring.style.top = `${event.clientY}px`;
     ring.classList.add("is-visible");
+  };
 
-    if (gsapApi) {
-      moveRing(event.clientX);
-      moveRingY(event.clientY);
-      return;
-    }
-
-    ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
-  }, { passive: true });
+  window.addEventListener("mousemove", updatePosition, { passive: true });
 
   document.querySelectorAll("a, button, input, select, textarea, .service-card, .package-card, .lane-panel, .specialty-panel, .review-card, .why-credential, .route-step").forEach((item) => {
     item.addEventListener("mouseenter", () => ring.classList.add("is-hovering"));
