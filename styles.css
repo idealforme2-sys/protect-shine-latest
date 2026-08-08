@@ -14945,7 +14945,7 @@ span.stat-icon-box svg,
   color: #61b7ff !important;
 }
 .hero-cred-cards li:nth-child(1) .hero-cred-icon svg {
-  stroke: #94c9ff !important;
+  stroke: #b4c5d8 !important;
 }
 
 /* Card 2 — Specialty (Champagne Gold Accent) */
@@ -14962,7 +14962,7 @@ span.stat-icon-box svg,
   color: #f4cf6a !important;
 }
 .hero-cred-cards li:nth-child(2) .hero-cred-icon svg {
-  stroke: #ffe59e !important;
+  stroke: #b4c5d8 !important;
 }
 
 /* Card 3 — Reputation (Siren Crimson-Red Accent) */
@@ -14979,7 +14979,7 @@ span.stat-icon-box svg,
   color: #ff9aa6 !important;
 }
 .hero-cred-cards li:nth-child(3) .hero-cred-icon svg {
-  stroke: #ffc1c9 !important;
+  stroke: #b4c5d8 !important;
 }
 
 /* Card Hover Animations */
