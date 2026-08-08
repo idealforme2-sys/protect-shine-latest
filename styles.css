@@ -12354,30 +12354,162 @@ span.stat-icon-box svg,
 }
 
 /* ============================================================
-   CHAT SUPPORT LOGO ROW STYLING
+   CHAT SUPPORT LOGO ROW STYLING (ENLARGED)
    ============================================================ */
 .chat-h3-row {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
-  margin: 10px 0 6px !important;
+  gap: 14px !important;
+  margin: 12px 0 8px !important;
 }
 
 .chat-title-logo {
   display: inline-block !important;
-  width: 56px !important;
-  height: 56px !important;
-  min-width: 56px !important;
+  width: 76px !important;
+  height: 76px !important;
+  min-width: 76px !important;
   object-fit: cover !important;
-  border-radius: 10px !important;
-  border: 1px solid rgba(97, 183, 255, 0.5) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 16px rgba(97, 183, 255, 0.35) !important;
+  border-radius: 14px !important;
+  border: 1.5px solid rgba(97, 183, 255, 0.6) !important;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(97, 183, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
 }
 
 .chat-h3-row h3 {
   margin: 0 !important;
   padding: 0 !important;
-  font-size: 1.35rem !important;
-  line-height: 1.15 !important;
+  font-size: 1.42rem !important;
+  line-height: 1.18 !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   ULTRA-HIGH-END PREMIUM TEXTURED QUOTE OVERHAUL
+   ============================================================ */
+.quote-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(22, 120, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 30, 53, 0.1), transparent 45%),
+    linear-gradient(180deg, rgba(6, 9, 16, 0.95), rgba(3, 5, 10, 0.98)) !important;
+}
+
+.quote-section .quote-card {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 16px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 6px),
+    linear-gradient(90deg, #1678ff, rgba(255, 255, 255, 0.85) 50%, #ff1e35) top / 100% 2.5px no-repeat,
+    linear-gradient(145deg, rgba(14, 21, 35, 0.94), rgba(6, 9, 16, 0.97)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7),
+    0 32px 80px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+.quote-support.chat-support {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 16px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 20% 20%, rgba(97, 183, 255, 0.12), transparent 60%),
+    linear-gradient(145deg, rgba(12, 18, 30, 0.94), rgba(5, 8, 14, 0.97)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7),
+    0 32px 80px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+.chat-status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(97, 183, 255, 0.3) !important;
+  background: rgba(97, 183, 255, 0.1) !important;
+  color: var(--gold) !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.chat-status-badge .status-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #20e070 !important;
+  box-shadow: 0 0 10px #20e070 !important;
+}
+
+.chat-cards .chat-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 5px),
+    linear-gradient(145deg, rgba(16, 24, 40, 0.85), rgba(7, 11, 19, 0.92)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease !important;
+}
+
+.chat-cards .chat-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(97, 183, 255, 0.45) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 14px 32px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(22, 120, 255, 0.2) !important;
+}
+
+.chat-icon {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(97, 183, 255, 0.25), rgba(5, 8, 15, 0.85)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+.chat-card:nth-child(2) .chat-icon {
+  border-color: rgba(255, 77, 77, 0.3) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 77, 77, 0.25), rgba(5, 8, 15, 0.85)) !important;
+}
+
+.chat-card:nth-child(3) .chat-icon {
+  border-color: rgba(240, 196, 121, 0.3) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(240, 196, 121, 0.25), rgba(5, 8, 15, 0.85)) !important;
+}
+
+.quote-fields input,
+.quote-fields select,
+.quote-fields textarea {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 10px !important;
+  background: rgba(3, 8, 16, 0.85) !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+  color: #ffffff !important;
+  transition: border-color 200ms ease, box-shadow 200ms ease !important;
+}
+
+.quote-fields input:focus,
+.quote-fields select:focus,
+.quote-fields textarea:focus {
+  border-color: rgba(97, 183, 255, 0.65) !important;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(22, 120, 255, 0.3) !important;
+  outline: none !important;
 }
 
