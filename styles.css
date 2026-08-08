@@ -833,39 +833,36 @@ ul {
 
 .hero-instagram {
   display: inline-grid;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   margin-top: 10px;
-  border: 1px solid rgba(97, 183, 255, 0.34);
-  border-radius: 8px;
-  animation: neonSmooth 5s ease-in-out infinite;
+  border: 2px solid #ff2a4b;
+  border-radius: 9px;
+  background: rgba(16, 95, 215, 0.55);
+  box-shadow:
+    0 0 14px rgba(255, 42, 75, 0.55),
+    inset 0 0 10px rgba(16, 95, 215, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-@keyframes neonSmooth {
-  0%, 100% {
-    border-color: rgba(97, 183, 255, 0.8);
-    box-shadow: 0 0 10px rgba(97, 183, 255, 0.45);
-    background: rgba(97, 183, 255, 0.14);
-  }
-  33% {
-    border-color: rgba(255, 77, 77, 0.8);
-    box-shadow: 0 0 10px rgba(255, 77, 77, 0.45);
-    background: rgba(255, 77, 77, 0.14);
-  }
-  66% {
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
-    background: rgba(255, 255, 255, 0.14);
-  }
+.hero-instagram:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 20px rgba(255, 42, 75, 0.8),
+    inset 0 0 14px rgba(22, 120, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .hero-instagram svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: var(--text);
-  stroke-width: 1.8;
+  width: 19px;
+  height: 19px;
+  fill: rgba(97, 183, 255, 0.35);
+  stroke: #7ec4ff;
+  stroke-width: 1.9;
+  filter: drop-shadow(0 0 5px rgba(97, 183, 255, 0.7));
 }
 
 
@@ -7045,10 +7042,16 @@ main > section:not(.hero):not(.page-hero):not(.ps-marquee),
   gap: 8px;
   margin-top: 12px;
   padding: 10px 20px;
-  border: 1px solid rgba(255, 107, 139, 0.45);
+  border: 1px solid rgba(255, 220, 140, 0.85);
   border-radius: 999px;
-  color: #0f131f !important;
-  background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 5px), linear-gradient(115deg, #ff4b72 0%, #ff8da1 35%, #ffffff 75%, #fff0f2 100%);
+  color: #0b0f17 !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.07) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #d4951b 0%, #f6c851 35%, #fff1b0 70%, #c5860d 100%);
+  box-shadow:
+    0 4px 16px rgba(212, 149, 27, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.25);
   font-size: .72rem !important;
   font-weight: 900;
   letter-spacing: .11em;
@@ -7056,7 +7059,15 @@ main > section:not(.hero):not(.page-hero):not(.ps-marquee),
   text-transform: uppercase;
   overflow: hidden;
   isolation: isolate;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+.hero-badge-cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(212, 149, 27, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.06);
 }
 .hero-badge-cta::before {
   content: "";
@@ -12280,33 +12291,46 @@ span.stat-icon-box svg,
 /* ============================================================
    ULTRA-SMOOTH HERO TEXT ROTATOR (ELEGANT SLIDE & FADE)
    ============================================================ */
+/* ============================================================
+   ULTRA-SMOOTH HERO TEXT ROTATOR (ELEGANT SLIDE & FADE)
+   ============================================================ */
 .hero-rotator {
-  position: relative !important;
-  display: block !important;
+  display: grid !important;
+  grid-template-areas: "rotator" !important;
+  align-items: center !important;
   margin-top: 6px !important;
   min-height: 1.25em !important;
   overflow: hidden !important;
 }
 
 .rotator-item {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
+  grid-area: rotator !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  transform: translateY(14px) !important;
-  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1), visibility 400ms ease !important;
+  transform: translateY(20px) scale(0.97) !important;
+  filter: blur(5px) !important;
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 650ms ease !important;
   white-space: nowrap !important;
   pointer-events: none !important;
-  will-change: transform, opacity !important;
+  will-change: transform, opacity, filter !important;
   color: #ffffff !important;
 }
 
+.rotator-item.is-leaving {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-20px) scale(0.97) !important;
+  filter: blur(5px) !important;
+}
+
 .rotator-item.is-active {
-  position: relative !important;
   opacity: 1 !important;
   visibility: visible !important;
-  transform: translateY(0) !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0px) !important;
   pointer-events: auto !important;
 }
 

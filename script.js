@@ -56,6 +56,20 @@ function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
   if (!preloader) return;
 
+  const navEntry = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0]) || null;
+  const isReload = navEntry ? navEntry.type === "reload" : false;
+  const hasVisitedSession = sessionStorage.getItem("ps_has_loaded_session");
+
+  // Skip preloader on internal page navigation (only show on page reload or fresh visit)
+  if (hasVisitedSession && !isReload) {
+    preloader.remove();
+    document.body.classList.add("is-loaded");
+    updateHeaderState();
+    return;
+  }
+
+  sessionStorage.setItem("ps_has_loaded_session", "true");
+
   const bar = preloader.querySelector("[data-preloader-bar]");
   const percent = preloader.querySelector("[data-preloader-percent]");
   let progress = 0;
@@ -900,11 +914,26 @@ function initHeroRotators() {
     const items = Array.from(rotator.querySelectorAll(".rotator-item"));
     if (items.length <= 1) return;
     let index = 0;
+
+    items.forEach((item, i) => {
+      if (i === 0) {
+        item.classList.add("is-active");
+        item.classList.remove("is-leaving");
+      } else {
+        item.classList.remove("is-active", "is-leaving");
+      }
+    });
+
     setInterval(() => {
-      items[index].classList.remove("is-active");
+      const prevIndex = index;
       index = (index + 1) % items.length;
+
+      items[prevIndex].classList.remove("is-active");
+      items[prevIndex].classList.add("is-leaving");
+
+      items[index].classList.remove("is-leaving");
       items[index].classList.add("is-active");
-    }, 1800);
+    }, 3500);
   });
 }
 
