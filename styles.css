@@ -15186,10 +15186,18 @@ span.stat-icon-box svg,
 /* ============================================================
    FAQ HELP CARD ("Need help? We've got answers.") GRADIENT LOOK
    ============================================================ */
-.faq-help,
+.faq-help {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 620px !important;
+  margin: 26px auto 36px !important;
+}
+
 .faq-help-inner {
   position: relative !important;
-  padding: 32px 36px !important;
+  padding: 28px 32px !important;
   border-radius: 20px !important;
   border: 1px solid rgba(97, 183, 255, 0.42) !important;
   background:
@@ -15204,6 +15212,7 @@ span.stat-icon-box svg,
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   overflow: hidden !important;
+  text-align: center !important;
 }
 
 .faq-help h3,
@@ -15225,6 +15234,7 @@ span.stat-icon-box svg,
   line-height: 1.55 !important;
   margin-bottom: 20px !important;
 }
+
 
 /* ============================================================
    SERVICE LANE PANELS (INDEX HERO LANE CARDS) — GRADIENT LOOK
@@ -15350,7 +15360,7 @@ span.stat-icon-box svg,
     background-position: 0% 0;
   }
   100% {
-    background-position: -200% 0;
+    background-position: 200% 0;
   }
 }
 
