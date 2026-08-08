@@ -13136,6 +13136,83 @@ span.stat-icon-box svg,
   text-shadow: 0 0 22px rgba(97, 183, 255, 0.25) !important;
 }
 
+/* ============================================================
+   QUOTE FORM GRADIENT TEXT (ALL 3 PAGES — index / commercial-truck / first-responder)
+   Same white→ice-blue→gold family as the chat cards. Blue/red
+   accent text is re-asserted below and kept out of the gradient.
+   ============================================================ */
+.quote-form .quote-step h3,
+.quote-form .package-label,
+.quote-form .quote-fields label,
+.quote-form .quote-step-indicator strong,
+.quote-form .quote-time-label,
+.quote-form .quote-pkg-name,
+.quote-form .service-selector-toggle strong,
+.quote-form .service-selector-toggle small,
+.quote-form .quote-support-title {
+  background: linear-gradient(90deg, #ffffff 0%, #cfe7ff 58%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 24px rgba(97, 183, 255, 0.18) !important;
+}
+
+/* Keep the intentional 01 / 02 step numbers in their gold accent (not gradient) */
+.quote-form .quote-step-indicator span {
+  color: var(--gold) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: 0 0 12px rgba(240, 196, 121, 0.35) !important;
+}
+
+/* Keep discreet dropdown meta text (tags / small notes) neutral, not gradient */
+.quote-form .quote-pkg-badge-tag,
+.quote-form .quote-pkg-time,
+.quote-form .quote-next-note {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: #92b8de !important;
+  text-shadow: none !important;
+}
+
+/* Blue accent text — keep blue as-is (Preferred Window label + selected price) */
+.quote-form .quote-step[data-quote-step="2"] .package-label,
+.quote-form .quote-package-card.is-selected .quote-pkg-price {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--blue) !important;
+  text-shadow: none !important;
+}
+
+/* Red accent text — keep red as-is */
+.quote-form .quote-pkg-badge,
+.quote-form .quote-pkg-price.is-special,
+.quote-form .quote-step .quote-red-price {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--red) !important;
+  text-shadow: 0 0 14px rgba(255, 77, 77, 0.3) !important;
+}
+
+/* Give the dropdown package price a soft front-blue instead of the flat white default */
+.quote-form .service-selector-options .quote-pkg-price {
+  background: linear-gradient(90deg, #bfe4ff 0%, #f4cf6a 130%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 18px rgba(56, 182, 255, 0.25) !important;
+}
+
 /* Bring "Working Unit?" slightly up inside the unit program path */
 .chat-support .quote-support-path .eyebrow {
   margin: -8px 0 10px !important;
