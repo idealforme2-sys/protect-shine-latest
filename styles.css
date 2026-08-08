@@ -13452,6 +13452,433 @@ span.stat-icon-box svg,
 }
 
 /* ============================================================
+   1. INDEX.HTML — DISPATCH CONTAINER MARGIN DOWN
+   ============================================================ */
+.fr-dispatch {
+  margin-top: 38px !important;
+}
+
+/* ============================================================
+   2. QUOTE FORM SIDEBAR — "WORKING UNIT?" PERFECT PARALLEL ALIGNMENT
+   ============================================================ */
+.quote-path-badge-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.quote-path-badge-header svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.quote-path-badge-header .eyebrow,
+.quote-support-path .eyebrow {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.72rem !important;
+  display: inline-block !important;
+  transform: translateY(2px) !important;
+}
+
+/* ============================================================
+   3. MONTHLY MAINTENANCE CARD CADENCE LIST — PUSH TEXT TO RIGHT
+   ============================================================ */
+.fr-cadence {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 18px 0 22px !important;
+  padding: 0 !important;
+  list-style: none !important;
+  counter-reset: readiness !important;
+}
+
+.fr-cadence li {
+  counter-increment: readiness !important;
+  position: relative !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 16px 10px 68px !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  color: #f0f6fc !important;
+  -webkit-text-fill-color: #f0f6fc !important;
+  background: linear-gradient(90deg, rgba(255, 45, 75, 0.14), rgba(14, 18, 28, 0.68)) !important;
+  border: 1px solid rgba(255, 77, 77, 0.25) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.fr-cadence li::before {
+  content: "0" counter(readiness) !important;
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: grid !important;
+  width: 32px !important;
+  height: 32px !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 119, 135, 0.5) !important;
+  border-radius: 50% !important;
+  color: #ffc1c9 !important;
+  -webkit-text-fill-color: #ffc1c9 !important;
+  font-size: 0.7rem !important;
+  font-weight: 900 !important;
+  background: radial-gradient(circle, rgba(255, 45, 75, 0.4), rgba(30, 8, 16, 0.95)) !important;
+  box-shadow: 0 0 10px rgba(255, 45, 75, 0.45) !important;
+}
+
+.fr-cadence li:not(:last-child)::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 29px !important;
+  top: 40px !important;
+  bottom: -14px !important;
+  width: 2px !important;
+  z-index: 2 !important;
+  background: linear-gradient(180deg, rgba(255, 77, 77, 0.8), rgba(255, 77, 77, 0.2)) !important;
+}
+
+/* ============================================================
+   4. INDEX HERO CREDENTIAL CARDS — VISUAL OVERHAUL FROM SCRATCH
+   ============================================================ */
+.hero-cred-cards {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+  gap: 16px !important;
+  margin: 30px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hero-cred-cards li {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 18px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: linear-gradient(135deg, rgba(14, 22, 38, 0.82), rgba(6, 10, 18, 0.94)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 12px 30px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease !important;
+}
+
+.hero-cred-cards li:nth-child(1) {
+  border-left: 3px solid rgba(97, 183, 255, 0.75) !important;
+}
+
+.hero-cred-cards li:nth-child(2) {
+  border-left: 3px solid rgba(240, 196, 121, 0.75) !important;
+}
+
+.hero-cred-cards li:nth-child(3) {
+  border-left: 3px solid rgba(255, 77, 77, 0.75) !important;
+}
+
+.hero-cred-cards li:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.hero-cred-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.hero-cred-copy span {
+  font-size: 0.64rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #8fa5c0 !important;
+}
+
+.hero-cred-copy strong {
+  font-size: 0.94rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+
+.hero-cred-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(215, 228, 240, 0.3) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(225, 235, 248, 0.16), rgba(12, 16, 26, 0.88)) !important;
+  color: #e2eaf4 !important;
+  box-shadow: 0 0 10px rgba(215, 228, 240, 0.18) !important;
+}
+
+.hero-cred-icon svg {
+  stroke: #e2eaf4 !important;
+  width: 17px !important;
+  height: 17px !important;
+}
+
+/* "View recent work →" button text set to SOLID BLACK */
+.hero-badge-cta,
+.hero-badge-card .hero-badge-cta {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  font-weight: 900 !important;
+}
+.hero-badge-cta i {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* ============================================================
+   5. COMMERCIAL TRUCK PAGE — REMOVE BOTTOM HERO EMPTY GAP & PARALLEL BUTTONS
+   ============================================================ */
+.commercial-hero {
+  padding: 120px 24px 28px !important;
+}
+
+.truck-services-section {
+  padding-top: 48px !important;
+}
+
+.truck-panel-grid-v3 {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+.truck-panel-v3 {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+}
+
+.tcp-v3-top {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
+.tcp-v3-list {
+  flex: 1 1 auto !important;
+}
+
+.tcp-v3-action {
+  margin-top: auto !important;
+  padding-top: 18px !important;
+}
+
+/* Driver Reset Feature Box Metallic Gradient */
+.driver-reset-box {
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 5px),
+    linear-gradient(145deg, rgba(14, 32, 60, 0.88), rgba(30, 10, 22, 0.92)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.38) !important;
+  border-radius: 22px !important;
+  padding: 32px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 24px 60px rgba(0, 0, 0, 0.55) !important;
+}
+
+.driver-reset-grid h2 {
+  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 55%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ============================================================
+   6. FIRST RESPONDER PAGE — SPECIALIZED ADD-ONS TILES IMPROVEMENT
+   ============================================================ */
+.addons-grid-v2 {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 18px !important;
+  margin-top: 28px !important;
+}
+
+.addon-tile-v2 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 16px 20px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(97, 183, 255, 0.28) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(56, 182, 255, 0.02) 0 1px, transparent 1px 5px),
+    linear-gradient(145deg, rgba(14, 30, 54, 0.82), rgba(4, 10, 18, 0.92)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 10px 24px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(14px) !important;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease !important;
+}
+
+.addon-tile-v2:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(97, 183, 255, 0.55) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+}
+
+.addon-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 10px !important;
+  background: rgba(22, 120, 255, 0.18) !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  color: #61b7ff !important;
+  box-shadow: 0 0 10px rgba(22, 120, 255, 0.25) !important;
+}
+
+.addon-tile-v2 h3 {
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* ============================================================
+   7. SPECIALTY NAV BUTTON GLOWING ANIMATION ON SPECIALTY PAGES
+   ============================================================ */
+.site-nav .nav-dropdown-toggle.is-active,
+.nav-dropdown.is-active .nav-dropdown-toggle,
+.site-nav .nav-dropdown-toggle[aria-expanded="true"] {
+  color: var(--text) !important;
+  text-shadow:
+    0 0 14px rgba(97, 183, 255, 0.45),
+    0 0 14px rgba(255, 77, 77, 0.38) !important;
+  position: relative !important;
+}
+
+.site-nav .nav-dropdown-toggle.is-active::after,
+.nav-dropdown.is-active .nav-dropdown-toggle::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -6px !important;
+  height: 2px !important;
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+  background: repeating-linear-gradient(
+    90deg,
+    #1678ff 0%,
+    #9fd0ff 20%,
+    #ffffff 40%,
+    #ff9aa6 60%,
+    #ff1e35 80%,
+    #1678ff 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: policeSiren 3.4s linear infinite !important;
+}
+
+/* Explore The Unit Program Button — Yellow Text, One-Way Inclined Fine Stripes, No Hover Color Swap */
+.quote-support-path .button-unit-program,
+.button-unit-program,
+.quote-support-path .button-unit-program:hover,
+.button-unit-program:hover,
+.quote-support-path .button-unit-program:focus,
+.button-unit-program:focus,
+.quote-support-path .button-unit-program:active,
+.button-unit-program:active {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 12px 28px !important;
+  border: 1px solid rgba(244, 207, 106, 0.65) !important;
+  border-radius: 8px !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(244, 207, 106, 0.14) 0 1px, transparent 1px 4px),
+    linear-gradient(115deg, #0a2f6d 0%, #1256b8 38%, #1f83f5 62%, #0c3f94 100%) !important;
+  background-color: #0c3f94 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.3),
+    0 12px 28px rgba(15, 90, 190, 0.4),
+    0 0 24px rgba(244, 207, 106, 0.18) !important;
+  transition: transform 200ms ease !important;
+}
+
+.quote-support-path .button-unit-program:hover,
+.button-unit-program:hover {
+  transform: translateY(-2px) !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  border-color: rgba(244, 207, 106, 0.65) !important;
+}
+
+.button-unit-program::after {
+  content: "→" !important;
+  margin-left: 10px !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  font-size: 0.9rem !important;
+}
+
+/* Floating Popular Badge for Commercial Truck Card 03 */
+.truck-panel-v3.tcp-v3-featured {
+  position: relative !important;
+  overflow: visible !important;
+  margin-top: 14px !important;
+}
+
+.tcp-v3-popular-badge {
+  position: absolute !important;
+  top: -15px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 12 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  padding: 6px 20px !important;
+  border-radius: 50px !important;
+  background: linear-gradient(135deg, #ff2d4b 0%, #ff6b81 50%, #f4cf6a 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 6px 20px rgba(255, 45, 75, 0.6), 0 0 16px rgba(244, 207, 106, 0.5) !important;
+  animation: badgeGlowPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes badgeGlowPulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(255, 45, 75, 0.6), 0 0 16px rgba(244, 207, 106, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 26px rgba(255, 45, 75, 0.85), 0 0 22px rgba(244, 207, 106, 0.75);
+  }
+}
+
+/* ============================================================
    1. HERO CREDENTIAL CARDS (INDEX.HTML HERO SECTION)
       — OVERHAULED SLIM MATTE LUXURY DESIGN (NON-AI LOOK)
    ============================================================ */
