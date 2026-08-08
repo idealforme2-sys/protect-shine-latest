@@ -833,17 +833,16 @@ ul {
 
 .hero-instagram {
   display: inline-grid;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   place-items: center;
   margin-top: 10px;
-  border: 2px solid #ff2a4b;
+  border: 2px solid #ff2d4b !important;
   border-radius: 9px;
-  background: rgba(16, 95, 215, 0.55);
+  background: transparent !important;
   box-shadow:
-    0 0 14px rgba(255, 42, 75, 0.55),
-    inset 0 0 10px rgba(16, 95, 215, 0.8),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 0 14px rgba(255, 45, 75, 0.55),
+    inset 0 0 6px rgba(255, 45, 75, 0.25);
   backdrop-filter: blur(8px);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
@@ -851,18 +850,17 @@ ul {
 .hero-instagram:hover {
   transform: scale(1.08);
   box-shadow:
-    0 0 20px rgba(255, 42, 75, 0.8),
-    inset 0 0 14px rgba(22, 120, 255, 0.9),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 0 22px rgba(255, 45, 75, 0.85),
+    inset 0 0 10px rgba(255, 45, 75, 0.4);
 }
 
 .hero-instagram svg {
-  width: 19px;
-  height: 19px;
-  fill: rgba(97, 183, 255, 0.35);
-  stroke: #7ec4ff;
-  stroke-width: 1.9;
-  filter: drop-shadow(0 0 5px rgba(97, 183, 255, 0.7));
+  width: 20px;
+  height: 20px;
+  fill: none !important;
+  stroke: #38b6ff !important;
+  stroke-width: 2.2 !important;
+  filter: drop-shadow(0 0 6px rgba(56, 182, 255, 0.85)) !important;
 }
 
 
@@ -12511,5 +12509,116 @@ span.stat-icon-box svg,
     inset 0 2px 6px rgba(0, 0, 0, 0.5),
     0 0 18px rgba(22, 120, 255, 0.3) !important;
   outline: none !important;
+}
+
+/* ============================================================
+   COMMERCIAL TRUCK $10K+ LUXURY CARDS OVERHAUL (DISTINCT THEMES)
+   ============================================================ */
+.truck-panel-v3 {
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 32px 30px !important;
+  border-radius: 18px !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 280ms ease,
+              box-shadow 280ms ease !important;
+  isolation: isolate !important;
+}
+
+.truck-panel-v3:hover {
+  transform: translateY(-6px) scale(1.012) !important;
+}
+
+/* --- Card 01: Exterior Degrease & Spray (Tactical Sapphire & Cobalt) --- */
+.tcp-v3-exterior {
+  border: 1px solid rgba(97, 183, 255, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(56, 182, 255, 0.035) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(22, 120, 255, 0.24), transparent 60%),
+    linear-gradient(145deg, rgba(14, 25, 44, 0.96), rgba(5, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.38),
+    inset 3.5px 0 0 rgba(97, 183, 255, 0.85),
+    0 20px 50px rgba(0, 0, 0, 0.45) !important;
+}
+.tcp-v3-exterior:hover {
+  border-color: rgba(97, 183, 255, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.6),
+    inset 3.5px 0 0 rgba(97, 183, 255, 1),
+    0 26px 60px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(22, 120, 255, 0.32) !important;
+}
+
+/* --- Card 02: Working Cab Upkeep (Platinum Gold & Warm Champagne) --- */
+.tcp-v3-interior {
+  border: 1px solid rgba(240, 196, 121, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(246, 200, 81, 0.035) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(240, 196, 121, 0.22), transparent 60%),
+    linear-gradient(145deg, rgba(24, 25, 38, 0.96), rgba(7, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.38),
+    inset 3.5px 0 0 rgba(240, 196, 121, 0.85),
+    0 20px 50px rgba(0, 0, 0, 0.45) !important;
+}
+.tcp-v3-interior:hover {
+  border-color: rgba(240, 196, 121, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.6),
+    inset 3.5px 0 0 rgba(240, 196, 121, 1),
+    0 26px 60px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(240, 196, 121, 0.32) !important;
+}
+
+/* --- Card 03: Complete Driver Reset (Siren Crimson & Police Shield) --- */
+.tcp-v3-featured {
+  position: relative !important;
+  border: 1px solid rgba(255, 77, 77, 0.48) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 45, 75, 0.035) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(255, 45, 75, 0.25), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(22, 120, 255, 0.2), transparent 55%),
+    linear-gradient(145deg, rgba(30, 17, 30, 0.96), rgba(8, 9, 17, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.48),
+    inset 3.5px 0 0 rgba(255, 45, 75, 0.95),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.75),
+    0 24px 60px rgba(0, 0, 0, 0.52) !important;
+}
+.tcp-v3-featured:hover {
+  border-color: rgba(255, 77, 77, 0.8) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.65),
+    inset 3.5px 0 0 rgba(255, 45, 75, 1),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.95),
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    0 0 36px rgba(255, 45, 75, 0.35) !important;
+}
+
+/* --- Card 04: Heavy Duty Armor (Emerald Titanium & Polished Chrome) --- */
+.tcp-v3-protection {
+  border: 1px solid rgba(16, 185, 129, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(16, 185, 129, 0.035) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.22), transparent 60%),
+    linear-gradient(145deg, rgba(14, 30, 28, 0.96), rgba(6, 12, 14, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(190, 245, 220, 0.38),
+    inset 3.5px 0 0 rgba(16, 185, 129, 0.85),
+    0 20px 50px rgba(0, 0, 0, 0.45) !important;
+}
+.tcp-v3-protection:hover {
+  border-color: rgba(16, 185, 129, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(190, 245, 220, 0.6),
+    inset 3.5px 0 0 rgba(16, 185, 129, 1),
+    0 26px 60px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(16, 185, 129, 0.32) !important;
 }
 
