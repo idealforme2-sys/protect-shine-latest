@@ -14937,15 +14937,15 @@ span.stat-icon-box svg,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(22, 120, 255, 0.15) !important;
 }
 .hero-cred-cards li:nth-child(1) .hero-cred-icon {
-  background: linear-gradient(135deg, rgba(22, 120, 255, 0.3), rgba(8, 24, 48, 0.95)) !important;
-  border: 1px solid rgba(97, 183, 255, 0.55) !important;
-  box-shadow: 0 0 14px rgba(22, 120, 255, 0.35) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(24, 30, 42, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 14px rgba(255, 255, 255, 0.08) !important;
 }
 .hero-cred-cards li:nth-child(1) .hero-cred-copy span {
   color: #61b7ff !important;
 }
 .hero-cred-cards li:nth-child(1) .hero-cred-icon svg {
-  stroke: #b4c5d8 !important;
+  stroke: #ffffff !important;
 }
 
 /* Card 2 — Specialty (Champagne Gold Accent) */
@@ -14954,15 +14954,15 @@ span.stat-icon-box svg,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(244, 207, 106, 0.15) !important;
 }
 .hero-cred-cards li:nth-child(2) .hero-cred-icon {
-  background: linear-gradient(135deg, rgba(244, 207, 106, 0.3), rgba(48, 38, 8, 0.95)) !important;
-  border: 1px solid rgba(244, 207, 106, 0.55) !important;
-  box-shadow: 0 0 14px rgba(244, 207, 106, 0.35) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(24, 30, 42, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 14px rgba(255, 255, 255, 0.08) !important;
 }
 .hero-cred-cards li:nth-child(2) .hero-cred-copy span {
   color: #f4cf6a !important;
 }
 .hero-cred-cards li:nth-child(2) .hero-cred-icon svg {
-  stroke: #b4c5d8 !important;
+  stroke: #ffffff !important;
 }
 
 /* Card 3 — Reputation (Siren Crimson-Red Accent) */
@@ -14971,15 +14971,15 @@ span.stat-icon-box svg,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 30, 53, 0.15) !important;
 }
 .hero-cred-cards li:nth-child(3) .hero-cred-icon {
-  background: linear-gradient(135deg, rgba(255, 30, 53, 0.3), rgba(48, 8, 16, 0.95)) !important;
-  border: 1px solid rgba(255, 119, 135, 0.55) !important;
-  box-shadow: 0 0 14px rgba(255, 30, 53, 0.35) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(24, 30, 42, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 14px rgba(255, 255, 255, 0.08) !important;
 }
 .hero-cred-cards li:nth-child(3) .hero-cred-copy span {
   color: #ff9aa6 !important;
 }
 .hero-cred-cards li:nth-child(3) .hero-cred-icon svg {
-  stroke: #b4c5d8 !important;
+  stroke: #ffffff !important;
 }
 
 /* Card Hover Animations */
