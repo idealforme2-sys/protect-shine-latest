@@ -15183,6 +15183,86 @@ span.stat-icon-box svg,
   margin-top: 4px !important;
 }
 
+/* ============================================================
+   FAQ HELP CARD ("Need help? We've got answers.") GRADIENT LOOK
+   ============================================================ */
+.faq-help,
+.faq-help-inner {
+  position: relative !important;
+  padding: 32px 36px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(97, 183, 255, 0.42) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 20%, rgba(22, 120, 255, 0.28), transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(255, 30, 53, 0.22), transparent 50%),
+    linear-gradient(145deg, rgba(14, 32, 60, 0.92), rgba(6, 12, 22, 0.96) 55%, rgba(30, 10, 22, 0.92)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(22, 120, 255, 0.2) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  overflow: hidden !important;
+}
+
+.faq-help h3,
+.faq-help-inner h3 {
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 55%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 20px rgba(97, 183, 255, 0.3) !important;
+  margin-bottom: 10px !important;
+}
+
+.faq-help p,
+.faq-help-inner p {
+  color: #c0d4e8 !important;
+  font-size: 0.94rem !important;
+  line-height: 1.55 !important;
+  margin-bottom: 20px !important;
+}
+
+/* ============================================================
+   GPU-ACCELERATED SIREN LINE ANIMATION (SITE FOOTER RAIL)
+   ============================================================ */
+.site-footer {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.site-footer::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 200% !important;
+  height: 4px !important;
+  border-radius: 0 !important;
+  background: var(--siren-rail) !important;
+  background-size: 100% 100% !important;
+  box-shadow:
+    0 0 20px rgba(97, 183, 255, 0.85),
+    0 0 20px rgba(255, 77, 77, 0.75) !important;
+  will-change: transform !important;
+  animation: sirenTranslateFlow 3.5s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+@keyframes sirenTranslateFlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+
 
 
 
