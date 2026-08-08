@@ -189,7 +189,6 @@ function initHeadlineAccents() {
     .querySelectorAll(
       [
         ".brand-mark strong",
-        "#hero-title > span",
         "main section h2",
         ".service-card h3",
         ".service-promise article h3",
@@ -219,8 +218,7 @@ function initHeadlineAccents() {
         ".fr-no-surprise strong",
         ".quote-pkg-name",
         ".car-seat-copy h2",
-        ".fr-heading h2",
-        ".page-hero-content h1"
+        ".fr-heading h2"
       ].join(", ")
     )
     .forEach(accentHeadlineElement);
@@ -678,45 +676,22 @@ function initQuoteForm() {
 }
 
 function initCustomCursor() {
-  const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  if (isTouch) return;
+  const arrowSVG = `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M7 2 7 25 12.6 20.2 16 29 20.6 27 17.2 18.6 25 18.6Z' fill='#14356f' stroke='#fff' stroke-width='2' stroke-linejoin='round'/><path d='M12.5 9.5 13.6 12.5 16.8 12.6 14.3 14.6 15.2 17.6 12.5 15.9 9.9 17.6 10.7 14.6 8.2 12.6 11.4 12.5Z' fill='#ffd34d' stroke='#c9971c' stroke-width='1' stroke-linejoin='round'/></svg>`;
 
-  const dot = document.querySelector("[data-cursor-dot]");
-  const ring = document.querySelector("[data-cursor-ring]");
-  if (!ring) return;
-  if (dot) dot.style.display = "none";
+  const badgeSVG = `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 2 L27 6 L27 14 C27 21.5 22.4 26.8 16 29.5 C9.6 26.8 5 21.5 5 14 L5 6 Z' fill='#ffd34d' stroke='#14356f' stroke-width='2' stroke-linejoin='round'/><path d='M16 9 17.5 12.9 21.7 13.2 18.5 15.8 19.5 19.9 16 17.6 12.5 19.9 13.5 15.8 10.3 13.2 14.5 12.9Z' fill='#14356f'/></svg>`;
 
-  document.body.classList.add("has-custom-cursor");
+  const cur = (svg, x, y, fb) =>
+    `url("data:image/svg+xml,${encodeURIComponent(svg)}") ${x} ${y}, ${fb}`;
 
-  // Inject unified Crosshair with Dark & Deep Red (#a00014) & Blue (#0038a8)
-  ring.innerHTML = `<svg viewBox="0 0 40 40" width="40" height="40" style="display:block; overflow:visible;">
-    <defs>
-      <filter id="psCrosshairGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#0038a8" flood-opacity="0.9"/>
-        <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#a00014" flood-opacity="0.9"/>
-      </filter>
-    </defs>
-    <g filter="url(#psCrosshairGlow)">
-      <line x1="20" y1="2" x2="20" y2="13" stroke="#0038a8" stroke-width="2.6" stroke-linecap="round"/>
-      <line x1="20" y1="27" x2="20" y2="38" stroke="#a00014" stroke-width="2.6" stroke-linecap="round"/>
-      <line x1="2" y1="20" x2="13" y2="20" stroke="#0038a8" stroke-width="2.6" stroke-linecap="round"/>
-      <line x1="27" y1="20" x2="38" y2="20" stroke="#a00014" stroke-width="2.6" stroke-linecap="round"/>
-      <circle cx="20" cy="20" r="3" fill="#a00014" />
-    </g>
-  </svg>`;
+  document.documentElement.style.setProperty('--cur-default', cur(arrowSVG, 7, 2, 'auto'));
+  document.documentElement.style.setProperty('--cur-pointer', cur(badgeSVG, 16, 16, 'pointer'));
 
-  const updatePosition = (event) => {
-    ring.style.left = `${event.clientX}px`;
-    ring.style.top = `${event.clientY}px`;
-    ring.classList.add("is-visible");
-  };
-
-  window.addEventListener("mousemove", updatePosition, { passive: true });
-
-  document.querySelectorAll("a, button, input, select, textarea, .service-card, .package-card, .lane-panel, .specialty-panel, .review-card, .why-credential, .route-step").forEach((item) => {
-    item.addEventListener("mouseenter", () => ring.classList.add("is-hovering"));
-    item.addEventListener("mouseleave", () => ring.classList.remove("is-hovering"));
-  });
+  const siren = document.getElementById('siren');
+  if (siren) {
+    window.addEventListener('mousemove', (e) => {
+      siren.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    }, { passive: true });
+  }
 }
 
 function initGsapAnimations() {
@@ -919,6 +894,20 @@ function initCrossPagePreselect() {
   }
 }
 
+function initHeroRotators() {
+  const rotators = document.querySelectorAll("[data-hero-rotator], [data-hero-rotator-commercial], [data-hero-rotator-fr]");
+  rotators.forEach((rotator) => {
+    const items = Array.from(rotator.querySelectorAll(".rotator-item"));
+    if (items.length <= 1) return;
+    let index = 0;
+    setInterval(() => {
+      items[index].classList.remove("is-active");
+      index = (index + 1) % items.length;
+      items[index].classList.add("is-active");
+    }, 1800);
+  });
+}
+
 normalizePageState();
 window.addEventListener("pageshow", (event) => {
   if (!event.persisted) return;
@@ -928,6 +917,7 @@ window.addEventListener("pageshow", (event) => {
 initPreloader();
 initHeader();
 initHeadlineAccents();
+initHeroRotators();
 initShowcases();
 initPackages();
 initServiceLinks();

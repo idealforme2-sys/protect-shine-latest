@@ -57,47 +57,29 @@ body {
   letter-spacing: 0.01em;
 }
 
-@media (pointer: fine) and (hover: hover) {
-  body.has-custom-cursor,
-  body.has-custom-cursor a,
-  body.has-custom-cursor button,
-  body.has-custom-cursor input,
-  body.has-custom-cursor select,
-  body.has-custom-cursor textarea,
-  body.has-custom-cursor [role="button"] {
-    cursor: none !important;
-  }
+:root {
+  --cur-default: auto;
+  --cur-pointer: pointer;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 78%);
+body, body * {
+  cursor: var(--cur-default) !important;
 }
 
-/* ============================================================
-   UNIFIED CROSSHAIR CURSOR WITH HALFWAY SPLIT RED/BLUE CENTER POINT
-   ============================================================ */
-body.has-custom-cursor,
-body.has-custom-cursor a,
-body.has-custom-cursor button,
-body.has-custom-cursor input,
-body.has-custom-cursor select,
-body.has-custom-cursor textarea,
-body.has-custom-cursor [role="button"] {
-  cursor: none !important;
+a, button, input, select, textarea, [role="button"], .button, .lane-panel, .package-card, .truck-panel-v3, .unit-card-v2, .showcase-card, .quote-package-card, .hero-cred-cards li {
+  cursor: var(--cur-pointer) !important;
 }
 
-.cursor-dot {
-  display: none !important;
-}
+/* Animated siren "busy/loading" cursor */
+body.loading, body.loading * { cursor: none !important; }
+#siren { position: fixed; left: 0; top: 0; width: 36px; height: 30px; margin: -6px 0 0 -18px; pointer-events: none; display: none; z-index: 9999999; }
+body.loading #siren { display: block; }
+#siren .base { position: absolute; bottom: 0; left: 3px; width: 30px; height: 8px; background: #e8e8e8; border-radius: 3px; }
+#siren .light { position: absolute; bottom: 7px; width: 14px; height: 14px; border-radius: 7px 7px 2px 2px; }
+#siren .red { left: 4px; background: #ff2d2d; animation: blinkR .5s steps(1) infinite; }
+#siren .blue { left: 18px; background: #2d7bff; animation: blinkB .5s steps(1) infinite; }
+@keyframes blinkR { 0%,100%{box-shadow:0 0 12px 4px rgba(255,45,45,.8)} 50%{box-shadow:none;filter:brightness(.45)} }
+@keyframes blinkB { 0%,100%{box-shadow:none;filter:brightness(.45)} 50%{box-shadow:0 0 12px 4px rgba(45,123,255,.8)} }
 
 .cursor-ring {
   position: fixed;
@@ -6192,7 +6174,43 @@ body.js .process-intro h2::after { transform:translateX(-50%) scaleX(0); } body.
 .fr-inner { position:relative; z-index:1; max-width:1320px; }.fr-heading { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.38fr); column-gap:70px; max-width:none; margin-bottom:54px; text-align:left; }.fr-heading .eyebrow,.fr-heading h2,.fr-heading > p { grid-column:1; }.fr-heading .eyebrow { justify-self:start; }.fr-heading h2 { max-width:13ch; margin-bottom:18px; font-size:clamp(2.8rem,5vw,5rem); }.fr-heading > p { max-width:60ch; }.fr-heading::after { grid-column:2; grid-row:1 / span 3; align-self:center; margin:0; padding:28px 0 28px 28px; border-left:2px solid rgba(135,198,255,.7); color:#d1e8ff; font-size:.7rem; letter-spacing:.17em; line-height:2.1; }
 .fr-panels { grid-template-columns:minmax(0,1.42fr) minmax(300px,.72fr); gap:22px; align-items:stretch; margin-bottom:28px; }.fr-panel { min-height:500px; padding:36px; border:1px solid rgba(180,213,245,.16); border-radius:0 36px 0 0; background:linear-gradient(140deg,rgba(18,71,133,.6),rgba(4,10,18,.95) 52%,rgba(6,14,25,.9)); box-shadow:inset 0 1px 0 rgba(238,247,255,.17),inset 32px 0 62px rgba(22,120,255,.05),0 28px 54px rgba(0,0,0,.28); }.fr-panel::after { content:"UNIT DETAIL / 01"; position:absolute; right:28px; top:27px; color:rgba(210,231,250,.45); font-family:var(--font-display); font-size:.9rem; letter-spacing:.12em; }.fr-panel:nth-child(2) { min-height:500px; border-radius:36px 0 0 0; background:linear-gradient(225deg,rgba(115,14,39,.5),rgba(4,10,18,.95) 56%,rgba(19,47,91,.28)); }.fr-panel:nth-child(2)::after { content:"READINESS / 02"; }.fr-panel-label { max-width:16ch; color:#c8e5ff; font-size:.78rem; }.fr-panel-price { display:flex; align-items:baseline; gap:14px; width:max-content; margin:28px 0 8px; padding:0 0 16px; border-bottom:1px solid rgba(220,237,255,.25); }.fr-panel-price strong { color:#fff; font-size:5.4rem; line-height:.8; text-shadow:0 0 32px rgba(22,120,255,.28); }.fr-panel:nth-child(2) .fr-panel-price strong { text-shadow:0 0 32px rgba(255,30,53,.25); }.fr-panel-tag { max-width:26ch; color:#adc4dc; }.fr-panel ul { gap:0 28px; margin:22px 0 28px; }.fr-panel ul li { padding:8px 0 8px 18px; border-bottom:1px solid rgba(209,229,247,.09); color:#d1deeb; }.fr-panel ul .fr-list-heading { margin-top:12px; padding:12px 0 5px; border-top:1px solid rgba(209,229,247,.18); color:#94c9ff; }.fr-panel .button { margin-top:auto; }.fr-actions { justify-content:flex-start; margin:0; padding:20px 0 0; border-top:1px solid rgba(207,228,248,.16); }.fr-spotlight .fine-print { max-width:62ch; margin:24px 0 0; text-align:left; }
 
-.commercial-hero,.fr-hero { margin-top:0; min-height:clamp(560px,76svh,760px); padding:78px 24px 72px; background-size:cover; background-position:center; }.commercial-hero { background:linear-gradient(90deg,rgba(3,8,14,.93),rgba(3,8,14,.45)),url('./assets/truck-detail.jpg') center/cover; }.fr-hero { background:linear-gradient(90deg,rgba(3,8,14,.95),rgba(3,8,14,.5)),url('./policE.jpg') center 56%/cover; }.commercial-hero::before,.fr-hero::before { background:radial-gradient(circle at 17% 21%,rgba(22,120,255,.22),transparent 25%),radial-gradient(circle at 86% 22%,rgba(255,30,53,.22),transparent 23%),linear-gradient(180deg,rgba(3,5,11,.14),rgba(3,5,11,.82)); }.page-hero-content { max-width:800px; }.page-hero-content h1 { font-size:clamp(3rem,6vw,6rem); line-height:.9; }.page-hero-content > p { font-size:1.04rem; }.fr-trust-points { margin:26px 0; }.fr-trust-points span { border-radius:2px; background:rgba(4,15,30,.56); }
+.commercial-hero, .fr-hero {
+  margin-top: 0 !important;
+  min-height: auto !important;
+  padding: 100px 24px 36px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.commercial-hero {
+  background: linear-gradient(90deg, rgba(3,8,14,0.92), rgba(3,8,14,0.55)), url('./TRUCKSs.jpg') center/cover !important;
+}
+
+.fr-hero {
+  background: linear-gradient(90deg, rgba(3,8,14,0.92), rgba(3,8,14,0.55)), url('./policE.jpg') center 56%/cover !important;
+}
+
+.commercial-hero::before, .fr-hero::before {
+  background: radial-gradient(circle at 17% 21%, rgba(22,120,255,.22), transparent 25%), radial-gradient(circle at 86% 22%, rgba(255,30,53,.22), transparent 23%), linear-gradient(180deg, rgba(3,5,11,.14), rgba(3,5,11,.82));
+}
+
+.page-hero-content {
+  max-width: 800px;
+}
+
+.page-hero-content h1 {
+  font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+  line-height: 0.96;
+}
+
+.page-hero-content > p {
+  font-size: 0.98rem;
+  margin-block: 10px 18px;
+}
+
+.fr-trust-points {
+  margin: 16px 0;
+}
 
 .truck-services-section { position:relative; padding-block:110px; background:linear-gradient(180deg,#050a11,#071522); }.truck-services-section .section-heading { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.44fr); align-items:end; gap:56px; max-width:1280px; margin:0 auto 42px; }.truck-services-section .section-heading p { margin:0; }.truck-groups { grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; max-width:1280px; }.truck-group { min-height:340px; padding:25px; border:0; border-top:2px solid rgba(135,198,255,.72); border-radius:0; background:linear-gradient(180deg,rgba(20,61,108,.3),rgba(4,8,14,.92) 34%); box-shadow:inset 1px 0 0 rgba(220,238,255,.1); }.truck-group:nth-child(2) { border-top-color:rgba(183,211,239,.65); }.truck-group:nth-child(3) { border-top-color:rgba(255,89,105,.68); }.truck-group:nth-child(4) { border-top-color:rgba(173,90,178,.68); }.truck-group h3 { min-height:44px; color:#e7f1fa; font-size:1.15rem; }.truck-group ul { gap:0; }.truck-group ul li { padding:7px 0 7px 16px; border-bottom:1px solid rgba(220,238,255,.08); }.driver-reset-section { padding:112px 0; background:radial-gradient(circle at 50% 0,rgba(22,120,255,.17),transparent 40%),linear-gradient(180deg,#071522,#05070c); }.driver-reset-inner { max-width:960px; text-align:left; }.driver-reset-inner h2 { max-width:14ch; font-size:clamp(2.7rem,5vw,4.8rem); }.driver-reset-highlights { justify-content:flex-start; }.driver-reset-highlights li { border-radius:2px; background:rgba(255,255,255,.035); }
 
@@ -9086,85 +9104,195 @@ a.chat-card:hover {
   text-transform: uppercase;
 }
 
-/* Interactive Unit Cards Grid (First Responder) */
+/* Interactive Unit Cards Grid (First Responder — $10K+ Luxury Overhaul) */
 .unit-grid-v2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-  margin-top: 36px;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  margin-top: 36px !important;
+}
+
+@media (max-width: 960px) {
+  .unit-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .unit-grid-v2 {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .unit-card-v2 {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  border: 1px solid rgba(184, 205, 227, 0.18);
-  border-radius: 18px;
-  background: linear-gradient(150deg, rgba(13, 30, 54, 0.75), rgba(4, 9, 17, 0.85));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 44px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 270px !important;
+  padding: 30px 26px !important;
+  border-radius: 22px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(14px) !important;
+  overflow: hidden !important;
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.unit-card-v2:hover {
-  transform: translateY(-4px);
-  border-color: rgba(97, 183, 255, 0.45);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 24px rgba(97, 183, 255, 0.2);
+/* Card 1: Patrol Units (Sapphire Blue Theme) */
+.unit-card-v2.unit-patrol {
+  border-color: rgba(97, 183, 255, 0.45) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(8, 26, 52, 0.88) 0%, rgba(3, 10, 22, 0.95) 100%),
+    url('./patrol.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(97, 183, 255, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(97, 183, 255, 0.15) !important;
 }
 
-.unit-card-v2.unit-red:hover {
-  border-color: rgba(255, 77, 77, 0.45);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 77, 77, 0.2);
+/* Card 2: K9 Tactical (Amber Gold Theme) */
+.unit-card-v2.unit-k9 {
+  border-color: rgba(240, 196, 121, 0.45) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(46, 34, 14, 0.88) 0%, rgba(18, 12, 4, 0.95) 100%),
+    url('./K9.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(240, 196, 121, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(240, 196, 121, 0.15) !important;
+}
+
+/* Card 3: Fire Personnel (Tactical Fire Orange Theme) */
+.unit-card-v2.unit-fire {
+  border-color: rgba(255, 119, 0, 0.55) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(54, 22, 6, 0.88) 0%, rgba(22, 8, 2, 0.96) 100%),
+    url('./firefighter.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(255, 140, 0, 0.45), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 22px rgba(255, 119, 0, 0.25) !important;
+}
+
+.unit-card-v2.unit-fire:hover {
+  border-color: rgba(255, 140, 0, 0.85) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 180, 80, 0.55), 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 38px rgba(255, 119, 0, 0.45) !important;
+}
+
+/* Card 4: EMS Ambulance (Medical Electric Cyan Theme) */
+.unit-card-v2.unit-ems {
+  border-color: rgba(64, 224, 208, 0.45) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(12, 44, 48, 0.88) 0%, rgba(4, 18, 20, 0.95) 100%),
+    url('./ambulance.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(64, 224, 208, 0.15) !important;
+}
+
+/* Card 5: Detective + Unmarked (Stealth Platinum Silver Theme) */
+.unit-card-v2.unit-undercover {
+  border-color: rgba(226, 232, 240, 0.45) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(32, 38, 48, 0.88) 0%, rgba(12, 16, 22, 0.95) 100%),
+    url('./undercover.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(226, 232, 240, 0.15) !important;
+}
+
+/* Card 6: Personal Vehicles (Executive Gold Theme) */
+.unit-card-v2.unit-personal {
+  border-color: rgba(255, 215, 0, 0.45) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(48, 38, 12, 0.88) 0%, rgba(18, 14, 4, 0.95) 100%),
+    url('./personal.jpg') !important;
+  background-size: auto, cover, cover !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 1px 0 rgba(255, 215, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 215, 0, 0.15) !important;
 }
 
 .unit-card-icon {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  margin-bottom: 16px;
-  border: 1px solid rgba(97, 183, 255, 0.3);
-  border-radius: 12px;
-  background: rgba(97, 183, 255, 0.1);
-  color: var(--blue);
+  display: grid !important;
+  width: 48px !important;
+  height: 48px !important;
+  place-items: center !important;
+  margin-bottom: 18px !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  border-radius: 12px !important;
+  background: rgba(97, 183, 255, 0.12) !important;
+  color: #61b7ff !important;
+  box-shadow: 0 0 16px rgba(97, 183, 255, 0.2) !important;
 }
 
-.unit-card-v2.unit-red .unit-card-icon {
-  border-color: rgba(255, 77, 77, 0.3);
-  background: rgba(255, 77, 77, 0.1);
-  color: var(--red);
+.unit-card-v2.unit-k9 .unit-card-icon,
+.unit-card-v2.unit-personal .unit-card-icon {
+  border-color: rgba(240, 196, 121, 0.4) !important;
+  background: rgba(240, 196, 121, 0.12) !important;
+  color: var(--gold) !important;
+  box-shadow: 0 0 16px rgba(240, 196, 121, 0.2) !important;
 }
 
-.unit-card-v2.unit-gold .unit-card-icon {
-  border-color: rgba(240, 196, 121, 0.3);
-  background: rgba(240, 196, 121, 0.1);
-  color: var(--gold);
+.unit-card-v2.unit-fire .unit-card-icon {
+  border-color: rgba(255, 119, 0, 0.5) !important;
+  background: rgba(255, 119, 0, 0.16) !important;
+  color: #ff7700 !important;
+  box-shadow: 0 0 18px rgba(255, 119, 0, 0.3) !important;
+}
+
+.unit-card-v2.unit-ems .unit-card-icon {
+  border-color: rgba(64, 224, 208, 0.4) !important;
+  background: rgba(64, 224, 208, 0.12) !important;
+  color: #40e0d0 !important;
+  box-shadow: 0 0 16px rgba(64, 224, 208, 0.2) !important;
+}
+
+.unit-card-v2.unit-undercover .unit-card-icon {
+  border-color: rgba(226, 232, 240, 0.4) !important;
+  background: rgba(226, 232, 240, 0.12) !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 0 16px rgba(226, 232, 240, 0.2) !important;
 }
 
 .unit-card-v2 h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-  color: #ffffff;
+  margin: 0 0 10px !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
 }
 
 .unit-card-v2 p {
-  margin: 0 0 16px;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  flex: 1;
+  margin: 0 0 20px !important;
+  color: #9cb8d4 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  flex: 1 !important;
 }
 
 .unit-card-tag {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--silver);
+  display: inline-flex !important;
+  align-self: flex-start !important;
+  padding: 4px 11px !important;
+  border-radius: 999px !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #d6e8fa !important;
+  margin-top: auto !important;
 }
+
+.tag-blue { border-color: rgba(97, 183, 255, 0.4) !important; background: rgba(97, 183, 255, 0.1) !important; color: #80e5ff !important; }
+.tag-gold { border-color: rgba(240, 196, 121, 0.4) !important; background: rgba(240, 196, 121, 0.1) !important; color: #ffdf9e !important; }
+.tag-red { border-color: rgba(255, 77, 77, 0.4) !important; background: rgba(255, 77, 77, 0.1) !important; color: #ff9999 !important; }
+.tag-orange { border-color: rgba(255, 119, 0, 0.5) !important; background: rgba(255, 119, 0, 0.14) !important; color: #ffaa55 !important; }
+.tag-cyan { border-color: rgba(64, 224, 208, 0.4) !important; background: rgba(64, 224, 208, 0.1) !important; color: #80f5ea !important; }
+.tag-silver { border-color: rgba(226, 232, 240, 0.4) !important; background: rgba(226, 232, 240, 0.1) !important; color: #e2e8f0 !important; }
 
 /* Specialty Service Comparison Cards (V2 Plans) */
 .plans-comparison-v2 {
@@ -11595,5 +11723,474 @@ span.stat-icon-box svg,
   .showcase-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ============================================================
+   CUSTOM REFINEMENTS: CARD BORDERS, GREY TINT OVERLAYS,
+   GLASS SHINE ANIMATION & WORKING ANIMATED FOOTER SIREN LINE
+   ============================================================ */
+
+/* 1. High-End Borders for Cards 01, 02, and 03 (.lane-panel) */
+.lane-panel {
+  position: relative !important;
+  border-radius: 24px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 50px rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(14px) !important;
+  overflow: hidden !important;
+  transition: all 380ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.lane-panel:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: rgba(97, 183, 255, 0.75) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 75px rgba(0, 0, 0, 0.82), 0 0 35px rgba(97, 183, 255, 0.4) !important;
+}
+
+.lane-panel.lane-red:hover {
+  border-color: rgba(255, 77, 77, 0.75) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 75px rgba(0, 0, 0, 0.82), 0 0 35px rgba(255, 77, 77, 0.4) !important;
+}
+
+/* 2. Keyframes for Moving Glass Light Beam & Pulsing Aura */
+@keyframes glassRaySweep {
+  0% {
+    transform: translateX(-160%) skewX(-25deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  48% {
+    transform: translateX(190%) skewX(-25deg);
+    opacity: 0.85;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(190%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glassPulseAuraBlue {
+  0%, 100% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 16px rgba(0, 195, 255, 0.18);
+    border-color: rgba(97, 183, 255, 0.32);
+  }
+  50% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 28px 75px rgba(0, 0, 0, 0.8), 0 0 42px rgba(0, 195, 255, 0.52);
+    border-color: rgba(97, 183, 255, 0.75);
+  }
+}
+
+@keyframes glassPulseAuraRed {
+  0%, 100% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 16px rgba(255, 77, 77, 0.18);
+    border-color: rgba(255, 77, 77, 0.32);
+  }
+  50% {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 28px 75px rgba(0, 0, 0, 0.8), 0 0 42px rgba(255, 77, 77, 0.52);
+    border-color: rgba(255, 77, 77, 0.75);
+  }
+}
+
+/* 3. Dark Slate Grey Tint Overlays for Unit Detail 01 & Monthly Maintenance Plan Cards */
+.fr-panel,
+.fr-panel.fr-panel-blue {
+  position: relative !important;
+  border-radius: 26px !important;
+  border: 1.5px solid rgba(97, 183, 255, 0.4) !important;
+  backdrop-filter: blur(14px) !important;
+  background-image:
+    linear-gradient(160deg, rgba(24, 30, 42, 0.72) 0%, rgba(12, 16, 24, 0.85) 100%),
+    url('./a-police-car.jpg') !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  animation: glassPulseAuraBlue 5s ease-in-out infinite !important;
+  overflow: hidden !important;
+}
+
+.fr-panel.fr-panel-red,
+.fr-panel:nth-child(2) {
+  position: relative !important;
+  border-radius: 26px !important;
+  border: 1.5px solid rgba(255, 77, 77, 0.4) !important;
+  backdrop-filter: blur(14px) !important;
+  background-image:
+    linear-gradient(160deg, rgba(32, 24, 28, 0.72) 0%, rgba(16, 10, 14, 0.85) 100%),
+    url('./driving-patrol-car.jpg') !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  animation: glassPulseAuraRed 5s ease-in-out infinite !important;
+  overflow: hidden !important;
+}
+
+/* Moving Glass Light Beam Sweep Overlay */
+.fr-panel::before,
+.fr-panel:nth-child(2)::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -30% !important;
+  left: 0 !important;
+  width: 70% !important;
+  height: 160% !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.38) 50%,
+    rgba(255, 255, 255, 0.04) 75%,
+    transparent 100%
+  ) !important;
+  transform: translateX(-160%) skewX(-25deg) !important;
+  animation: glassRaySweep 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* Curved Header Badges for Unit Detail 01 & Monthly Maintenance Plan */
+.fr-panel-label,
+.fr-panel.fr-panel-red .fr-panel-label {
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Centered High-Contact Care Section */
+.fr-service-groups {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.fr-service-groups section:nth-child(3) {
+  grid-column: 1 / -1 !important;
+  width: calc(100% - 20px) !important;
+  max-width: 480px !important;
+  margin-inline: auto !important;
+  justify-self: center !important;
+}
+
+/* 4. FIXED WORKING ANIMATED FOOTER SIREN LINE */
+@keyframes footerSirenFlow {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+.site-footer {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+  padding-inline: max(16px, calc((100% - 1200px) / 2 + 16px)) !important;
+  position: relative !important;
+}
+
+.site-footer::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 3.5px !important;
+  border-radius: 0 !important;
+  background: linear-gradient(
+    90deg,
+    #00c3ff 0%,
+    #ffffff 20%,
+    #ff2d2d 40%,
+    #00c3ff 60%,
+    #ffffff 80%,
+    #ff2d2d 100%
+  ) repeat-x !important;
+  background-size: 600px 100% !important;
+  box-shadow: 0 0 18px rgba(97, 183, 255, 0.6), 0 0 18px rgba(255, 77, 77, 0.5) !important;
+  animation: footerSirenFlow 3.6s linear infinite !important;
+}
+
+/* ============================================================
+   COMMERCIAL TRUCK PAGE — $10K+ ULTRA-LUXURY 4-LANE PANELS (TCP-V3)
+   ============================================================ */
+.truck-panel-grid-v3 {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  margin-top: 36px !important;
+}
+
+@media (max-width: 1100px) {
+  .truck-panel-grid-v3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .truck-panel-grid-v3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.truck-panel-v3 {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 32px 26px !important;
+  border-radius: 22px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 6px),
+    linear-gradient(160deg, rgba(10, 24, 46, 0.95), rgba(3, 8, 18, 0.98)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 20px 50px rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(14px) !important;
+  overflow: hidden !important;
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.truck-panel-v3:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: rgba(97, 183, 255, 0.65) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 28px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(97, 183, 255, 0.35) !important;
+}
+
+.tcp-v3-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 18px !important;
+}
+
+.tcp-v3-num-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  background: rgba(97, 183, 255, 0.14) !important;
+  border: 1px solid rgba(97, 183, 255, 0.35) !important;
+  color: #61b7ff !important;
+}
+
+.pill-gold {
+  background: rgba(240, 196, 121, 0.14) !important;
+  border-color: rgba(240, 196, 121, 0.35) !important;
+  color: var(--gold) !important;
+}
+
+.pill-red {
+  background: rgba(255, 77, 77, 0.14) !important;
+  border-color: rgba(255, 77, 77, 0.35) !important;
+  color: var(--red) !important;
+}
+
+.pill-magenta {
+  background: rgba(230, 97, 255, 0.14) !important;
+  border-color: rgba(230, 97, 255, 0.35) !important;
+  color: #e661ff !important;
+}
+
+.tcp-v3-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.tcp-v3-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+  stroke: #61b7ff !important;
+}
+
+.icon-gold svg { stroke: var(--gold) !important; }
+.icon-red svg { stroke: var(--red) !important; }
+.icon-magenta svg { stroke: #e661ff !important; }
+
+.tcp-v3-tag {
+  display: inline-flex !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #d6e8fa !important;
+}
+
+.tag-cyan { border-color: rgba(97, 183, 255, 0.4) !important; background: rgba(97, 183, 255, 0.1) !important; color: #80e5ff !important; }
+.tag-gold { border-color: rgba(240, 196, 121, 0.4) !important; background: rgba(240, 196, 121, 0.1) !important; color: #ffdf9e !important; }
+.tag-red { border-color: rgba(255, 77, 77, 0.4) !important; background: rgba(255, 77, 77, 0.1) !important; color: #ff9999 !important; }
+.tag-magenta { border-color: rgba(230, 97, 255, 0.4) !important; background: rgba(230, 97, 255, 0.1) !important; color: #f0a3ff !important; }
+
+.tcp-v3-title {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 8px !important;
+}
+
+.tcp-v3-desc {
+  font-size: 0.88rem !important;
+  line-height: 1.45 !important;
+  color: #9cb8d4 !important;
+  margin: 0 0 20px !important;
+}
+
+.tcp-v3-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  margin: 0 0 24px !important;
+  list-style: none !important;
+}
+
+.tcp-v3-list li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 0.85rem !important;
+  color: #d0e4f7 !important;
+}
+
+.tcp-v3-list li svg {
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #61b7ff !important;
+  flex-shrink: 0 !important;
+}
+
+.list-gold li svg { stroke: var(--gold) !important; }
+.list-red li svg { stroke: var(--red) !important; }
+.list-magenta li svg { stroke: #e661ff !important; }
+
+.button-tcp {
+  width: 100% !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+  justify-content: center !important;
+  text-align: center !important;
+  transition: all 250ms ease !important;
+}
+
+.button-cyan {
+  background: linear-gradient(135deg, rgba(22, 120, 255, 0.35), rgba(12, 60, 130, 0.6)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.45) !important;
+  color: #d6f0ff !important;
+}
+
+.button-cyan:hover {
+  background: linear-gradient(135deg, rgba(22, 120, 255, 0.6), rgba(12, 60, 130, 0.85)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(97, 183, 255, 0.4) !important;
+}
+
+/* ============================================================
+   POLICE BLUE & GOLD TACTICAL MOUSE CURSOR
+   ============================================================ */
+.cursor-dot {
+  display: block !important;
+  position: fixed !important;
+  left: -100px;
+  top: -100px;
+  z-index: 9999999 !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #f0c479 !important;
+  box-shadow: 0 0 10px #ffd700, 0 0 18px #61b7ff, 0 0 28px rgba(255, 255, 255, 0.9) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.cursor-ring {
+  display: block !important;
+  position: fixed !important;
+  left: -100px;
+  top: -100px;
+  z-index: 9999998 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border: 1.5px solid rgba(97, 183, 255, 0.75) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 16px rgba(97, 183, 255, 0.4), inset 0 0 10px rgba(97, 183, 255, 0.2) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 150ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible {
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   ULTRA-SMOOTH HERO TEXT ROTATOR (ELEGANT SLIDE & FADE)
+   ============================================================ */
+.hero-rotator {
+  position: relative !important;
+  display: block !important;
+  margin-top: 6px !important;
+  min-height: 1.25em !important;
+  overflow: hidden !important;
+}
+
+.rotator-item {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(14px) !important;
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1), visibility 400ms ease !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  will-change: transform, opacity !important;
+  color: #ffffff !important;
+}
+
+.rotator-item.is-active {
+  position: relative !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.page-hero-content h1,
+#hero-title {
+  color: #ffffff !important;
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem) !important;
+  line-height: 1.05 !important;
+  margin-block: 8px 12px !important;
+}
+
+/* Specific targeted word accents */
+.accent-text-blue {
+  color: #61b7ff !important;
+  text-shadow: 0 0 16px rgba(97, 183, 255, 0.5) !important;
+}
+
+.accent-text-red {
+  color: #ff4d4d !important;
+  text-shadow: 0 0 16px rgba(255, 77, 77, 0.5) !important;
 }
 
