@@ -12752,3 +12752,224 @@ span.stat-icon-box svg,
   color: #a0c4f0 !important;
 }
 
+/* ============================================================
+   ULTRA-PREMIUM TEXTURED HERO CREDENTIAL CARDS (ALL 3 PAGES)
+   ============================================================ */
+
+/* Base Card Styling for index.html hero cred cards */
+.hero-cred-cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+  margin: 28px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hero-cred-cards li {
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-width: 185px !important;
+  padding: 14px 18px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(97, 183, 255, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(56, 182, 255, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(22, 120, 255, 0.2), transparent 60%),
+    linear-gradient(145deg, rgba(14, 25, 44, 0.94), rgba(5, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.38),
+    inset 3.5px 0 0 rgba(97, 183, 255, 0.85),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms ease,
+              box-shadow 260ms ease !important;
+}
+
+.hero-cred-cards li:hover {
+  transform: translateY(-4px) scale(1.015) !important;
+  border-color: rgba(97, 183, 255, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.6),
+    inset 3.5px 0 0 rgba(97, 183, 255, 1),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(22, 120, 255, 0.32) !important;
+}
+
+.hero-cred-cards li:nth-child(2) {
+  border-color: rgba(240, 196, 121, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(246, 200, 81, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(240, 196, 121, 0.22), transparent 60%),
+    linear-gradient(145deg, rgba(24, 25, 38, 0.96), rgba(7, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.38),
+    inset 3.5px 0 0 rgba(240, 196, 121, 0.85),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+}
+
+.hero-cred-cards li:nth-child(2):hover {
+  border-color: rgba(240, 196, 121, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.6),
+    inset 3.5px 0 0 rgba(240, 196, 121, 1),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(240, 196, 121, 0.32) !important;
+}
+
+.hero-cred-cards li:nth-child(3) {
+  border-color: rgba(255, 77, 77, 0.45) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 45, 75, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(255, 45, 75, 0.22), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(22, 120, 255, 0.18), transparent 55%),
+    linear-gradient(145deg, rgba(30, 17, 30, 0.96), rgba(8, 9, 17, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.45),
+    inset 3.5px 0 0 rgba(255, 45, 75, 0.95),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.75),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+}
+
+.hero-cred-cards li:nth-child(3):hover {
+  border-color: rgba(255, 77, 77, 0.8) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.65),
+    inset 3.5px 0 0 rgba(255, 45, 75, 1),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.95),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(255, 45, 75, 0.35) !important;
+}
+
+.hero-cred-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.hero-cred-copy span {
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #a4caff !important;
+}
+
+.hero-cred-copy strong {
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+}
+
+.hero-cred-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(97, 183, 255, 0.45) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(97, 183, 255, 0.3), rgba(5, 8, 15, 0.85)) !important;
+  color: #61b7ff !important;
+  box-shadow: 0 0 12px rgba(97, 183, 255, 0.3) !important;
+}
+
+.hero-cred-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: none !important;
+  stroke: #7ec4ff !important;
+  stroke-width: 2 !important;
+}
+
+/* Stat Cards for commercial-truck-detailing.html and first-responder-detailing.html */
+.stat-rail-v2 {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin-top: 24px !important;
+}
+
+.stat-card-v2 {
+  position: relative !important;
+  overflow: hidden !important;
+  min-width: 180px !important;
+  flex: 1 1 180px !important;
+  padding: 20px 22px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(97, 183, 255, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(56, 182, 255, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(22, 120, 255, 0.22), transparent 60%),
+    linear-gradient(145deg, rgba(14, 25, 44, 0.94), rgba(5, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.38),
+    inset 3.5px 0 0 rgba(97, 183, 255, 0.85),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms ease,
+              box-shadow 260ms ease !important;
+}
+
+.stat-card-v2:hover {
+  transform: translateY(-4px) scale(1.015) !important;
+  border-color: rgba(97, 183, 255, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.6),
+    inset 3.5px 0 0 rgba(97, 183, 255, 1),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(22, 120, 255, 0.32) !important;
+}
+
+.stat-card-v2.stat-gold {
+  border-color: rgba(240, 196, 121, 0.38) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(246, 200, 81, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(240, 196, 121, 0.22), transparent 60%),
+    linear-gradient(145deg, rgba(24, 25, 38, 0.96), rgba(7, 9, 16, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.38),
+    inset 3.5px 0 0 rgba(240, 196, 121, 0.85),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+}
+
+.stat-card-v2.stat-gold:hover {
+  border-color: rgba(240, 196, 121, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 190, 0.6),
+    inset 3.5px 0 0 rgba(240, 196, 121, 1),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(240, 196, 121, 0.32) !important;
+}
+
+.stat-card-v2.stat-red {
+  border-color: rgba(255, 77, 77, 0.45) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 45, 75, 0.025) 0 1px, transparent 1px 6px),
+    radial-gradient(circle at 15% 15%, rgba(255, 45, 75, 0.22), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(22, 120, 255, 0.18), transparent 55%),
+    linear-gradient(145deg, rgba(30, 17, 30, 0.96), rgba(8, 9, 17, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.45),
+    inset 3.5px 0 0 rgba(255, 45, 75, 0.95),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.75),
+    0 16px 44px rgba(0, 0, 0, 0.45) !important;
+}
+
+.stat-card-v2.stat-red:hover {
+  border-color: rgba(255, 77, 77, 0.8) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.65),
+    inset 3.5px 0 0 rgba(255, 45, 75, 1),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.95),
+    0 22px 54px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(255, 45, 75, 0.35) !important;
+}
+
