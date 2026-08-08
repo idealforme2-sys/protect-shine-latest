@@ -837,12 +837,12 @@ ul {
   height: 38px;
   place-items: center;
   margin-top: 10px;
-  border: 2px solid #ff2d4b !important;
+  border: 2px solid #38b6ff !important;
   border-radius: 9px;
   background: transparent !important;
   box-shadow:
-    0 0 14px rgba(255, 45, 75, 0.55),
-    inset 0 0 6px rgba(255, 45, 75, 0.25);
+    0 0 14px rgba(56, 182, 255, 0.55),
+    inset 0 0 6px rgba(56, 182, 255, 0.25);
   backdrop-filter: blur(8px);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
@@ -850,17 +850,17 @@ ul {
 .hero-instagram:hover {
   transform: scale(1.08);
   box-shadow:
-    0 0 22px rgba(255, 45, 75, 0.85),
-    inset 0 0 10px rgba(255, 45, 75, 0.4);
+    0 0 22px rgba(56, 182, 255, 0.85),
+    inset 0 0 10px rgba(56, 182, 255, 0.4);
 }
 
 .hero-instagram svg {
   width: 20px;
   height: 20px;
   fill: none !important;
-  stroke: #38b6ff !important;
+  stroke: #ffffff !important;
   stroke-width: 2.2 !important;
-  filter: drop-shadow(0 0 6px rgba(56, 182, 255, 0.85)) !important;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55)) !important;
 }
 
 
@@ -10218,13 +10218,63 @@ body.js .section-heading.is-visible h2::after {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -8px 12px rgba(0, 0, 0, 0.25), 0 10px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* Explore The Unit Program — premium blue + yellow textured */
+.quote-support-path .button-unit-program,
+.button-unit-program {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 12px 28px !important;
+  border: 1px solid rgba(244, 207, 106, 0.55) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(45deg, rgba(244, 207, 106, 0.12) 0 1px, transparent 1px 7px),
+    linear-gradient(115deg, #0a2f6d 0%, #1256b8 38%, #1f83f5 62%, #0c3f94 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.3),
+    0 12px 28px rgba(15, 90, 190, 0.4),
+    0 0 24px rgba(244, 207, 106, 0.18) !important;
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease !important;
+}
+.button-unit-program::after {
+  content: "→" !important;
+  margin-left: 10px !important;
+  color: #f4cf6a !important;
+  font-size: 0.9rem !important;
+}
+.quote-support-path .button-unit-program:hover,
+.button-unit-program:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(244, 207, 106, 0.85) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.3),
+    0 16px 36px rgba(18, 86, 184, 0.5),
+    0 0 34px rgba(244, 207, 106, 0.32) !important;
+}
+
 .quote-step-actions .button.button-secondary.quote-next-btn:hover {
-  border-color: rgba(255, 77, 77, 0.42) !important;
+  transform: translateY(-2px) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
   background-image:
     repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px),
     linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -8px 12px rgba(0, 0, 0, 0.25), 0 10px 24px rgba(0, 0, 0, 0.2) !important;
-  transform: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.2),
+    0 0 22px rgba(22, 120, 255, 0.28) !important;
 }
 
 /* Back to Details button matches GET QUOTE (Primary Gradient) */
@@ -10243,6 +10293,96 @@ body.js .section-heading.is-visible h2::after {
   background: linear-gradient(120deg, #2b85ff, #ff334b) !important;
   box-shadow: 0 18px 50px rgba(22, 120, 255, 0.45), 0 0 28px rgba(255, 30, 53, 0.4) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Send Quote Request → matches navbar "972-338-5781" (siren CTA) */
+.quote-step-actions .button[type="submit"] {
+  position: relative !important;
+  border: 1px solid rgba(255, 77, 77, 0.42) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  min-height: 46px !important;
+  padding: 10px 26px !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.2) !important;
+}
+.quote-step-actions .button[type="submit"]:hover {
+  transform: translateY(-2px) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.2),
+    0 0 22px rgba(22, 120, 255, 0.28) !important;
+}
+
+/* Back to Details → matches the "Get Quote" (blue nav-social) */
+.quote-step-actions .button[data-prev-step] {
+  position: relative !important;
+  border: 1px solid rgba(97, 183, 255, 0.42) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  min-height: 46px !important;
+  padding: 10px 26px !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(220, 241, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #071b35, #0c4d9d 60%, #08234a) !important;
+  box-shadow:
+    inset 0 0 18px rgba(97, 183, 255, 0.14),
+    0 0 24px rgba(97, 183, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+.quote-step-actions .button[data-prev-step]:hover {
+  transform: translateY(-2px) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(220, 241, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #071b35, #0c4d9d 60%, #08234a) !important;
+  border-color: rgba(199, 229, 255, 0.5) !important;
+  box-shadow:
+    inset 0 0 22px rgba(97, 183, 255, 0.22),
+    0 0 26px rgba(97, 183, 255, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Next — Pick a Time → same colors + behavior as navbar "972-338-5781" (siren CTA) */
+.quote-step-actions .quote-next-btn,
+.quote-step-actions .button.quote-next-btn {
+  border: 1px solid rgba(255, 77, 77, 0.42) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  min-height: 48px !important;
+  padding: 10px 28px !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.2) !important;
+}
+.quote-step-actions .quote-next-btn:hover,
+.quote-step-actions .button.quote-next-btn:hover {
+  transform: translateY(-2px) !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(115deg, #07152b 0%, #0c3f94 34%, #44215c 57%, #941b32 78%, #2f0710 100%) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.2),
+    0 0 22px rgba(22, 120, 255, 0.28) !important;
 }
 
 /* Time Slot Responsive Grid */
@@ -12005,18 +12145,19 @@ span.stat-icon-box svg,
   }
 }
 
-/* 3. Dark Slate Grey Tint Overlays for Unit Detail 01 & Monthly Maintenance Plan Cards */
+/* 3. Unit Detail 01 & Monthly Maintenance Plan Cards — contained media band + body panel */
 .fr-panel,
 .fr-panel.fr-panel-blue {
   position: relative !important;
-  border-radius: 26px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+  border-radius: 24px !important;
   border: 1.5px solid rgba(97, 183, 255, 0.4) !important;
   backdrop-filter: blur(14px) !important;
-  background-image:
-    linear-gradient(160deg, rgba(24, 30, 42, 0.72) 0%, rgba(12, 16, 24, 0.85) 100%),
-    url('./a-police-car.jpg') !important;
-  background-size: cover, cover !important;
-  background-position: center, center !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(22, 120, 255, 0.16), transparent 60%),
+    linear-gradient(160deg, rgba(12, 32, 60, 0.92), rgba(4, 9, 17, 0.97)) !important;
   animation: glassPulseAuraBlue 5s ease-in-out infinite !important;
   overflow: hidden !important;
 }
@@ -12024,16 +12165,73 @@ span.stat-icon-box svg,
 .fr-panel.fr-panel-red,
 .fr-panel:nth-child(2) {
   position: relative !important;
-  border-radius: 26px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+  border-radius: 24px !important;
   border: 1.5px solid rgba(255, 77, 77, 0.4) !important;
   backdrop-filter: blur(14px) !important;
-  background-image:
-    linear-gradient(160deg, rgba(32, 24, 28, 0.72) 0%, rgba(16, 10, 14, 0.85) 100%),
-    url('./driving-patrol-car.jpg') !important;
-  background-size: cover, cover !important;
-  background-position: center, center !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 77, 77, 0.15), transparent 60%),
+    linear-gradient(160deg, rgba(36, 10, 22, 0.94), rgba(4, 9, 17, 0.97)) !important;
   animation: glassPulseAuraRed 5s ease-in-out infinite !important;
   overflow: hidden !important;
+}
+
+/* Contained media band (top of card) — mirrors the lane-panel media treatment */
+.fr-panel .fr-panel-media {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  height: clamp(130px, 18vw, 180px);
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.fr-panel .fr-panel-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(3, 5, 11, 0.18), transparent 45%, rgba(3, 5, 11, 0.9)),
+    linear-gradient(120deg, rgba(3, 5, 11, 0.42), transparent 60%);
+}
+
+.fr-panel.fr-panel-blue .fr-panel-media::after {
+  background:
+    radial-gradient(circle at 0 0, rgba(97, 183, 255, 0.28), transparent 45%),
+    linear-gradient(180deg, rgba(3, 5, 11, 0.16), transparent 42%, rgba(3, 5, 11, 0.9));
+}
+
+.fr-panel.fr-panel-red .fr-panel-media::after {
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 77, 77, 0.26), transparent 45%),
+    linear-gradient(180deg, rgba(3, 5, 11, 0.16), transparent 42%, rgba(3, 5, 11, 0.9));
+}
+
+.fr-panel .fr-panel-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 22px 24px 24px;
+}
+
+/* Siren accent rail atop the media band */
+.fr-panel .fr-panel-media::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 4px;
+  background: linear-gradient(90deg, #1678ff, rgba(255, 255, 255, 0.55), #ff1e35);
 }
 
 /* Moving Glass Light Beam Sweep Overlay */
@@ -12083,11 +12281,11 @@ span.stat-icon-box svg,
 
 /* 4. FIXED WORKING ANIMATED FOOTER SIREN LINE */
 @keyframes footerSirenFlow {
-  0% {
-    background-position: 0px 0;
+  from {
+    background-position: 0 50%;
   }
-  100% {
-    background-position: 1200px 0;
+  to {
+    background-position: -50% 50%;
   }
 }
 
@@ -12106,20 +12304,21 @@ span.stat-icon-box svg,
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  height: 3.5px !important;
+  height: 4px !important;
   border-radius: 0 !important;
-  background: linear-gradient(
+  background: repeating-linear-gradient(
     90deg,
-    #00c3ff 0%,
-    #ffffff 20%,
-    #ff2d2d 40%,
-    #00c3ff 60%,
-    #ffffff 80%,
-    #ff2d2d 100%
-  ) repeat-x !important;
-  background-size: 600px 100% !important;
-  box-shadow: 0 0 18px rgba(97, 183, 255, 0.6), 0 0 18px rgba(255, 77, 77, 0.5) !important;
-  animation: footerSirenFlow 3.6s linear infinite !important;
+    #1678ff 0%,
+    #9fd0ff 12%,
+    #ffffff 22%,
+    #ff9aa6 32%,
+    #ff1e35 44%,
+    #1678ff 50%
+  ) !important;
+  background-size: 200% 100% !important;
+  box-shadow: 0 0 18px rgba(97, 183, 255, 0.55), 0 0 18px rgba(255, 77, 77, 0.45) !important;
+  animation: footerSirenFlow 4.5s linear infinite !important;
+  pointer-events: none !important;
 }
 
 /* ============================================================
@@ -12309,6 +12508,88 @@ span.stat-icon-box svg,
   box-shadow: 0 0 20px rgba(97, 183, 255, 0.4) !important;
 }
 
+/* Card 02 — Working Cab Upkeep (Platinum Gold) */
+.button-gold {
+  background: linear-gradient(135deg, rgba(240, 196, 121, 0.32), rgba(120, 82, 28, 0.6)) !important;
+  border: 1px solid rgba(240, 196, 121, 0.48) !important;
+  color: #fff3d9 !important;
+}
+.button-gold:hover {
+  background: linear-gradient(135deg, rgba(240, 196, 121, 0.55), rgba(150, 102, 34, 0.82)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(240, 196, 121, 0.42) !important;
+}
+
+/* Card 03 — Complete Driver Reset (Siren Crimson) */
+.button-siren {
+  background: linear-gradient(135deg, rgba(255, 45, 75, 0.36), rgba(120, 14, 30, 0.62)) !important;
+  border: 1px solid rgba(255, 77, 77, 0.52) !important;
+  color: #ffe4e8 !important;
+}
+.button-siren:hover {
+  background: linear-gradient(135deg, rgba(255, 45, 75, 0.6), rgba(150, 20, 40, 0.85)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(255, 45, 75, 0.45) !important;
+}
+
+/* Card 04 — Heavy Duty Armor (Emerald Titanium) */
+.button-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.32), rgba(5, 90, 66, 0.6)) !important;
+  border: 1px solid rgba(16, 185, 129, 0.48) !important;
+  color: #d9fff0 !important;
+}
+.button-emerald:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.55), rgba(8, 110, 80, 0.85)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.42) !important;
+}
+
+/* Missing palette variants so every lane uses its own card color */
+.tcp-v3-num-pill.pill-cyan { background: rgba(97, 183, 255, 0.14) !important; border-color: rgba(97, 183, 255, 0.35) !important; color: #61b7ff !important; }
+.pill-siren { background: rgba(255, 45, 75, 0.14) !important; border-color: rgba(255, 77, 77, 0.35) !important; color: #ff6b81 !important; }
+.pill-emerald { background: rgba(16, 185, 129, 0.14) !important; border-color: rgba(16, 185, 129, 0.35) !important; color: #34d399 !important; }
+
+.icon-cyan svg { stroke: #61b7ff !important; }
+.icon-siren svg { stroke: #ff6b81 !important; }
+.icon-emerald svg { stroke: #34d399 !important; }
+
+.tag-cyan { border-color: rgba(97, 183, 255, 0.4) !important; background: rgba(97, 183, 255, 0.1) !important; color: #80e5ff !important; }
+.tag-siren { border-color: rgba(255, 77, 77, 0.42) !important; background: rgba(255, 45, 75, 0.12) !important; color: #ffb3bf !important; }
+.tag-emerald { border-color: rgba(16, 185, 129, 0.42) !important; background: rgba(16, 185, 129, 0.12) !important; color: #7be0c0 !important; }
+
+.list-cyan li svg { stroke: #61b7ff !important; }
+.list-siren li svg { stroke: #ff6b81 !important; }
+.list-emerald li svg { stroke: #34d399 !important; }
+
+/* Featured Driver Reset button — raised, pop-up CTA */
+.tcp-v3-featured .tcp-v3-action {
+  position: relative;
+}
+.tcp-v3-featured .button-siren {
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 77, 77, 0.65) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 45, 75, 0.42), rgba(120, 14, 30, 0.68)),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 6px) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 3.5px 0 0 rgba(255, 45, 75, 0.95),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.85),
+    0 12px 26px rgba(0, 0, 0, 0.55),
+    0 0 26px rgba(255, 45, 75, 0.4) !important;
+}
+.tcp-v3-featured .button-siren:hover {
+  background:
+    linear-gradient(135deg, rgba(255, 45, 75, 0.62), rgba(150, 20, 40, 0.85)),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 6px) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 3.5px 0 0 rgba(255, 45, 75, 1),
+    inset -3.5px 0 0 rgba(22, 120, 255, 0.95),
+    0 16px 34px rgba(0, 0, 0, 0.6),
+    0 0 34px rgba(255, 45, 75, 0.55) !important;
+}
+
 /* ============================================================
    POLICE BLUE & GOLD TACTICAL MOUSE CURSOR
    ============================================================ */
@@ -12447,6 +12728,38 @@ span.stat-icon-box svg,
   line-height: 1.18 !important;
   font-weight: 800 !important;
   color: #ffffff !important;
+}
+
+/* Premium enhancement: "Prefer to talk it through?" heading + intro copy */
+.chat-head .chat-h3-row h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #cfe7ff 55%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 26px rgba(97, 183, 255, 0.28) !important;
+}
+
+.chat-head > p {
+  position: relative !important;
+  margin: 4px 0 6px !important;
+  padding-left: 16px !important;
+  border-left: 2px solid rgba(244, 207, 106, 0.65) !important;
+  color: #b9d0e6 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+}
+
+.chat-status-badge {
+  position: relative !important;
+  padding: 7px 16px !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(97, 183, 255, 0.12) 0 1px, transparent 1px 5px),
+    rgba(97, 183, 255, 0.08) !important;
+  color: var(--gold) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 16px rgba(97, 183, 255, 0.18) !important;
 }
 
 /* ============================================================
@@ -12809,12 +13122,23 @@ span.stat-icon-box svg,
   filter: drop-shadow(0 0 4px rgba(97, 183, 255, 0.6)) !important;
 }
 
-.chat-text strong {
-  color: #ffffff !important;
-}
-
 .chat-text small {
   color: #a0c4f0 !important;
+}
+
+/* Gradient-values on the quote cards — matches the "Prefer to talk it through?" / "Need help scoping the job?" headline */
+.chat-card .chat-text strong {
+  background: linear-gradient(90deg, #ffffff 0%, #cfe7ff 58%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 22px rgba(97, 183, 255, 0.25) !important;
+}
+
+/* Bring "Working Unit?" slightly up inside the unit program path */
+.chat-support .quote-support-path .eyebrow {
+  margin: -8px 0 10px !important;
 }
 
 /* ============================================================
@@ -12839,14 +13163,16 @@ span.stat-icon-box svg,
   justify-content: space-between !important;
   min-width: 185px !important;
   padding: 14px 18px !important;
-  border-radius: 16px !important;
-  border: 1px solid rgba(97, 183, 255, 0.38) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(97, 183, 255, 0.3) !important;
   background:
     repeating-linear-gradient(135deg, rgba(56, 182, 255, 0.025) 0 1px, transparent 1px 6px),
     radial-gradient(circle at 15% 15%, rgba(22, 120, 255, 0.2), transparent 60%),
     linear-gradient(145deg, rgba(14, 25, 44, 0.94), rgba(5, 9, 16, 0.98)) !important;
   box-shadow:
-    inset 0 1px 0 rgba(198, 230, 255, 0.38),
+    inset 0 1px 0 rgba(198, 230, 255, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
     inset 3.5px 0 0 rgba(97, 183, 255, 0.85),
     0 16px 44px rgba(0, 0, 0, 0.45) !important;
   backdrop-filter: blur(20px) !important;
@@ -12858,53 +13184,63 @@ span.stat-icon-box svg,
 
 .hero-cred-cards li:hover {
   transform: translateY(-4px) scale(1.015) !important;
-  border-color: rgba(97, 183, 255, 0.75) !important;
+  border-color: rgba(97, 183, 255, 0.6) !important;
   box-shadow:
-    inset 0 1px 0 rgba(198, 230, 255, 0.6),
+    inset 0 1px 0 rgba(198, 230, 255, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7),
     inset 3.5px 0 0 rgba(97, 183, 255, 1),
     0 22px 54px rgba(0, 0, 0, 0.55),
     0 0 32px rgba(22, 120, 255, 0.32) !important;
 }
 
 .hero-cred-cards li:nth-child(2) {
-  border-color: rgba(240, 196, 121, 0.38) !important;
+  border-color: rgba(240, 196, 121, 0.3) !important;
   background:
     repeating-linear-gradient(135deg, rgba(246, 200, 81, 0.025) 0 1px, transparent 1px 6px),
     radial-gradient(circle at 15% 15%, rgba(240, 196, 121, 0.22), transparent 60%),
     linear-gradient(145deg, rgba(24, 25, 38, 0.96), rgba(7, 9, 16, 0.98)) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 235, 190, 0.38),
+    inset 0 1px 0 rgba(255, 235, 190, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
     inset 3.5px 0 0 rgba(240, 196, 121, 0.85),
     0 16px 44px rgba(0, 0, 0, 0.45) !important;
 }
 
 .hero-cred-cards li:nth-child(2):hover {
-  border-color: rgba(240, 196, 121, 0.75) !important;
+  border-color: rgba(240, 196, 121, 0.6) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 235, 190, 0.6),
+    inset 0 1px 0 rgba(255, 235, 190, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7),
     inset 3.5px 0 0 rgba(240, 196, 121, 1),
     0 22px 54px rgba(0, 0, 0, 0.55),
     0 0 32px rgba(240, 196, 121, 0.32) !important;
 }
 
 .hero-cred-cards li:nth-child(3) {
-  border-color: rgba(255, 77, 77, 0.45) !important;
+  border-color: rgba(255, 77, 77, 0.4) !important;
   background:
     repeating-linear-gradient(135deg, rgba(255, 45, 75, 0.025) 0 1px, transparent 1px 6px),
     radial-gradient(circle at 15% 15%, rgba(255, 45, 75, 0.22), transparent 55%),
     radial-gradient(circle at 85% 85%, rgba(22, 120, 255, 0.18), transparent 55%),
     linear-gradient(145deg, rgba(30, 17, 30, 0.96), rgba(8, 9, 17, 0.98)) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 210, 215, 0.45),
+    inset 0 1px 0 rgba(255, 210, 215, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
     inset 3.5px 0 0 rgba(255, 45, 75, 0.95),
     inset -3.5px 0 0 rgba(22, 120, 255, 0.75),
     0 16px 44px rgba(0, 0, 0, 0.45) !important;
 }
 
 .hero-cred-cards li:nth-child(3):hover {
-  border-color: rgba(255, 77, 77, 0.8) !important;
+  border-color: rgba(255, 77, 77, 0.7) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 210, 215, 0.65),
+    inset 0 1px 0 rgba(255, 210, 215, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7),
     inset 3.5px 0 0 rgba(255, 45, 75, 1),
     inset -3.5px 0 0 rgba(22, 120, 255, 0.95),
     0 22px 54px rgba(0, 0, 0, 0.55),
@@ -12948,7 +13284,7 @@ span.stat-icon-box svg,
   width: 18px !important;
   height: 18px !important;
   fill: none !important;
-  stroke: #7ec4ff !important;
+  stroke: #dfe7ec !important;
   stroke-width: 2 !important;
 }
 
