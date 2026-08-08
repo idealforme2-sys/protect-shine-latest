@@ -9306,21 +9306,21 @@ a.chat-card:hover {
   box-shadow: inset 0 1px 0 rgba(240, 196, 121, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(240, 196, 121, 0.15) !important;
 }
 
-/* Card 3: Fire Personnel (Tactical Fire Orange Theme) */
+/* Card 3: Fire Personnel (Crimson Red Theme) */
 .unit-card-v2.unit-fire {
-  border-color: rgba(255, 119, 0, 0.55) !important;
+  border-color: rgba(255, 45, 75, 0.55) !important;
   background-image:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
-    linear-gradient(160deg, rgba(54, 22, 6, 0.88) 0%, rgba(22, 8, 2, 0.96) 100%),
+    repeating-linear-gradient(135deg, rgba(255, 77, 77, 0.04) 0px, rgba(255, 77, 77, 0.04) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(52, 14, 22, 0.92) 0%, rgba(18, 6, 10, 0.97) 100%),
     url('./firefighter.jpg') !important;
   background-size: auto, cover, cover !important;
   background-position: center, center, center !important;
-  box-shadow: inset 0 1px 0 rgba(255, 140, 0, 0.45), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 22px rgba(255, 119, 0, 0.25) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 150, 160, 0.45), inset 3.5px 0 0 rgba(255, 45, 75, 0.95), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 22px rgba(255, 45, 75, 0.28) !important;
 }
 
 .unit-card-v2.unit-fire:hover {
-  border-color: rgba(255, 140, 0, 0.85) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 180, 80, 0.55), 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 38px rgba(255, 119, 0, 0.45) !important;
+  border-color: rgba(255, 77, 77, 0.85) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 210, 215, 0.6), inset 3.5px 0 0 rgba(255, 45, 75, 1), 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 38px rgba(255, 45, 75, 0.45) !important;
 }
 
 /* Card 4: EMS Ambulance (Medical Electric Cyan Theme) */
@@ -9347,16 +9347,21 @@ a.chat-card:hover {
   box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(226, 232, 240, 0.15) !important;
 }
 
-/* Card 6: Personal Vehicles (Executive Gold Theme) */
+/* Card 6: Personal Vehicles (Warm Fire Orange Theme) */
 .unit-card-v2.unit-personal {
-  border-color: rgba(255, 215, 0, 0.45) !important;
+  border-color: rgba(255, 130, 45, 0.55) !important;
   background-image:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
-    linear-gradient(160deg, rgba(48, 38, 12, 0.88) 0%, rgba(18, 14, 4, 0.95) 100%),
+    repeating-linear-gradient(135deg, rgba(255, 130, 45, 0.04) 0px, rgba(255, 130, 45, 0.04) 1px, transparent 1px, transparent 5px),
+    linear-gradient(160deg, rgba(48, 28, 10, 0.92) 0%, rgba(18, 10, 4, 0.97) 100%),
     url('./personal.jpg') !important;
   background-size: auto, cover, cover !important;
   background-position: center, center, center !important;
-  box-shadow: inset 0 1px 0 rgba(255, 215, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 215, 0, 0.15) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 200, 150, 0.45), inset 3.5px 0 0 rgba(255, 119, 0, 0.95), 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 22px rgba(255, 119, 0, 0.28) !important;
+}
+
+.unit-card-v2.unit-personal:hover {
+  border-color: rgba(255, 130, 45, 0.85) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 220, 180, 0.6), inset 3.5px 0 0 rgba(255, 119, 0, 1), 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 38px rgba(255, 119, 0, 0.45) !important;
 }
 
 .unit-card-icon {
@@ -9372,19 +9377,25 @@ a.chat-card:hover {
   box-shadow: 0 0 16px rgba(97, 183, 255, 0.2) !important;
 }
 
-.unit-card-v2.unit-k9 .unit-card-icon,
-.unit-card-v2.unit-personal .unit-card-icon {
+.unit-card-v2.unit-k9 .unit-card-icon {
   border-color: rgba(240, 196, 121, 0.4) !important;
   background: rgba(240, 196, 121, 0.12) !important;
   color: var(--gold) !important;
   box-shadow: 0 0 16px rgba(240, 196, 121, 0.2) !important;
 }
 
+.unit-card-v2.unit-personal .unit-card-icon {
+  border-color: rgba(255, 130, 45, 0.5) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 119, 0, 0.3), rgba(7, 9, 16, 0.85)) !important;
+  color: #ff9d5c !important;
+  box-shadow: 0 0 18px rgba(255, 119, 0, 0.35) !important;
+}
+
 .unit-card-v2.unit-fire .unit-card-icon {
-  border-color: rgba(255, 119, 0, 0.5) !important;
-  background: rgba(255, 119, 0, 0.16) !important;
-  color: #ff7700 !important;
-  box-shadow: 0 0 18px rgba(255, 119, 0, 0.3) !important;
+  border-color: rgba(255, 77, 77, 0.5) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 77, 77, 0.3), rgba(7, 9, 16, 0.85)) !important;
+  color: #ff6b81 !important;
+  box-shadow: 0 0 18px rgba(255, 77, 77, 0.35) !important;
 }
 
 .unit-card-v2.unit-ems .unit-card-icon {
@@ -11874,26 +11885,80 @@ span.stat-icon-box svg,
    GLASS SHINE ANIMATION & WORKING ANIMATED FOOTER SIREN LINE
    ============================================================ */
 
-/* 1. High-End Borders for Cards 01, 02, and 03 (.lane-panel) */
+/* 1. Ultra-Premium Textured Borders for Cards 01, 02, and 03 (.lane-panel) */
 .lane-panel {
   position: relative !important;
   border-radius: 24px !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 50px rgba(0, 0, 0, 0.65) !important;
-  backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   overflow: hidden !important;
-  transition: all 380ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 320ms ease,
+              box-shadow 320ms ease !important;
 }
 
-.lane-panel:hover {
+/* Card 01 — Vehicle Detail Packages (Tactical Sapphire) */
+.lane-panel.lane-blue {
+  border: 1.5px solid rgba(97, 183, 255, 0.48) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.42),
+    inset 3.5px 0 0 rgba(97, 183, 255, 0.9),
+    0 20px 54px rgba(0, 0, 0, 0.6),
+    0 0 18px rgba(22, 120, 255, 0.18) !important;
+}
+
+.lane-panel.lane-blue:hover {
   transform: translateY(-6px) scale(1.015) !important;
-  border-color: rgba(97, 183, 255, 0.75) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 75px rgba(0, 0, 0, 0.82), 0 0 35px rgba(97, 183, 255, 0.4) !important;
+  border-color: rgba(97, 183, 255, 0.85) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(198, 230, 255, 0.65),
+    inset 3.5px 0 0 rgba(97, 183, 255, 1),
+    0 28px 75px rgba(0, 0, 0, 0.82),
+    0 0 38px rgba(22, 120, 255, 0.42) !important;
+}
+
+/* Card 02 — Commercial + Semi Trucks (Siren Crimson) */
+.lane-panel.lane-red {
+  border: 1.5px solid rgba(255, 77, 77, 0.48) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.42),
+    inset 3.5px 0 0 rgba(255, 45, 75, 0.9),
+    0 20px 54px rgba(0, 0, 0, 0.6),
+    0 0 18px rgba(255, 45, 75, 0.18) !important;
 }
 
 .lane-panel.lane-red:hover {
-  border-color: rgba(255, 77, 77, 0.75) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 75px rgba(0, 0, 0, 0.82), 0 0 35px rgba(255, 77, 77, 0.4) !important;
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: rgba(255, 77, 77, 0.85) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 210, 215, 0.65),
+    inset 3.5px 0 0 rgba(255, 45, 75, 1),
+    0 28px 75px rgba(0, 0, 0, 0.82),
+    0 0 38px rgba(255, 45, 75, 0.42) !important;
+}
+
+/* Card 03 — First Responder Units (Dual Siren Blue/Red) */
+.lane-panel.lane-mix {
+  border: 1.5px solid rgba(200, 200, 255, 0.42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(220, 230, 255, 0.42),
+    inset 3.5px 0 0 rgba(22, 120, 255, 0.85),
+    inset -3.5px 0 0 rgba(255, 45, 75, 0.75),
+    0 20px 54px rgba(0, 0, 0, 0.6),
+    0 0 14px rgba(22, 120, 255, 0.14),
+    0 0 14px rgba(255, 45, 75, 0.12) !important;
+}
+
+.lane-panel.lane-mix:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: rgba(200, 200, 255, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(220, 230, 255, 0.65),
+    inset 3.5px 0 0 rgba(22, 120, 255, 1),
+    inset -3.5px 0 0 rgba(255, 45, 75, 0.95),
+    0 28px 75px rgba(0, 0, 0, 0.82),
+    0 0 32px rgba(22, 120, 255, 0.35),
+    0 0 32px rgba(255, 45, 75, 0.3) !important;
 }
 
 /* 2. Keyframes for Moving Glass Light Beam & Pulsing Aura */
