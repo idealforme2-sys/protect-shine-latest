@@ -15345,24 +15345,33 @@ span.stat-icon-box svg,
   width: 100% !important;
   height: 4px !important;
   border-radius: 999px !important;
-  background: var(--siren-rail) !important;
-  background-size: 200% 100% !important;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #1678ff 0px,
+    #8ecbff 80px,
+    #ffffff 160px,
+    #ff9aa6 240px,
+    #ff1e35 320px,
+    #1678ff 400px
+  ) !important;
+  background-size: 800px 100% !important;
   box-shadow:
-    0 0 18px rgba(97, 183, 255, 0.75),
-    0 0 18px rgba(255, 77, 77, 0.65) !important;
-  animation: footerSirenSweep 3.6s linear infinite !important;
+    0 0 20px rgba(97, 183, 255, 0.85),
+    0 0 20px rgba(255, 77, 77, 0.75) !important;
+  animation: siteFooterSirenRun 2.8s linear infinite !important;
   pointer-events: none !important;
   z-index: 10 !important;
 }
 
-@keyframes footerSirenSweep {
+@keyframes siteFooterSirenRun {
   0% {
-    background-position: 0% 0;
+    background-position: 0 0;
   }
   100% {
-    background-position: 200% 0;
+    background-position: 400px 0;
   }
 }
+
 
 .footer-brand {
   display: flex !important;
@@ -15530,13 +15539,13 @@ span.stat-icon-box svg,
 }
 
 .credit-creative {
-  color: #61b7ff !important;
   font-weight: 900 !important;
+  animation: creditCreative 2.4s ease-in-out infinite !important;
 }
 
 .credit-webflow {
-  color: #ff7787 !important;
   font-weight: 900 !important;
+  animation: creditWebflow 2.4s ease-in-out infinite !important;
 }
 
 
