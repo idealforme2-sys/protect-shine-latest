@@ -15342,23 +15342,27 @@ span.stat-icon-box svg,
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  width: calc(100% + 400px) !important;
+  width: 200% !important;
   height: 4px !important;
   border-radius: 999px !important;
-  background-image: repeating-linear-gradient(
+  background: linear-gradient(
     90deg,
-    #1678ff 0px,
-    #8ecbff 80px,
-    #ffffff 160px,
-    #ff9aa6 240px,
-    #ff1e35 320px,
-    #1678ff 400px
+    #1678ff 0%,
+    #8ecbff 15%,
+    #ffffff 25%,
+    #ff9aa6 35%,
+    #ff1e35 50%,
+    #1678ff 50%,
+    #8ecbff 65%,
+    #ffffff 75%,
+    #ff9aa6 85%,
+    #ff1e35 100%
   ) !important;
   box-shadow:
-    0 0 20px rgba(97, 183, 255, 0.85),
-    0 0 20px rgba(255, 77, 77, 0.75) !important;
+    0 0 22px rgba(97, 183, 255, 0.85),
+    0 0 22px rgba(255, 77, 77, 0.75) !important;
   will-change: transform !important;
-  animation: siteFooterSirenRun 2.8s linear infinite !important;
+  animation: siteFooterSirenRun 3.8s linear infinite !important;
   pointer-events: none !important;
   z-index: 10 !important;
 }
@@ -15368,7 +15372,7 @@ span.stat-icon-box svg,
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-400px, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
