@@ -13453,6 +13453,406 @@ span.stat-icon-box svg,
 
 /* ============================================================
    1. HERO CREDENTIAL CARDS (INDEX.HTML HERO SECTION)
+      — OVERHAULED SLIM MATTE LUXURY DESIGN (NON-AI LOOK)
+   ============================================================ */
+.hero-cred-cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin: 32px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hero-cred-cards li {
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-width: 215px !important;
+  flex: 1 1 215px !important;
+  padding: 14px 20px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(16, 24, 40, 0.82), rgba(6, 10, 18, 0.92)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 14px 36px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease !important;
+}
+
+.hero-cred-cards li:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(97, 183, 255, 0.45) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 18px 44px rgba(0, 0, 0, 0.5) !important;
+}
+
+.hero-cred-cards li:nth-child(2) {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background:
+    repeating-linear-gradient(90deg, rgba(246, 200, 81, 0.012) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(24, 24, 36, 0.82), rgba(8, 10, 18, 0.92)) !important;
+}
+
+.hero-cred-cards li:nth-child(3) {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 45, 75, 0.012) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(28, 16, 28, 0.82), rgba(9, 10, 18, 0.92)) !important;
+}
+
+.hero-cred-copy span {
+  font-size: 0.65rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #92b0d0 !important;
+}
+
+.hero-cred-copy strong {
+  font-size: 0.96rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin-top: 3px !important;
+}
+
+.hero-cred-icon,
+.hero-cred-cards li:nth-child(1) .hero-cred-icon,
+.hero-cred-cards li:nth-child(2) .hero-cred-icon,
+.hero-cred-cards li:nth-child(3) .hero-cred-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(215, 228, 240, 0.35) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(225, 235, 248, 0.18), rgba(12, 16, 26, 0.88)) !important;
+  color: #e2eaf4 !important;
+  box-shadow: 0 0 10px rgba(215, 228, 240, 0.2) !important;
+}
+
+.hero-cred-icon svg,
+.hero-cred-cards li .hero-cred-icon svg {
+  stroke: #e2eaf4 !important;
+  color: #e2eaf4 !important;
+  width: 17px !important;
+  height: 17px !important;
+}
+
+/* "View recent work →" button text set to SOLID BLACK */
+.hero-badge-cta,
+.hero-badge-card .hero-badge-cta {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  font-weight: 900 !important;
+}
+.hero-badge-cta i {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* ============================================================
+   2. SPECIALTY NAV BUTTON GLOWING ANIMATION ON SPECIALTY PAGES
+   ============================================================ */
+.site-nav .nav-dropdown-toggle.is-active,
+.nav-dropdown.is-active .nav-dropdown-toggle,
+.site-nav .nav-dropdown-toggle[aria-expanded="true"] {
+  color: var(--text) !important;
+  text-shadow:
+    0 0 14px rgba(97, 183, 255, 0.45),
+    0 0 14px rgba(255, 77, 77, 0.38) !important;
+  position: relative !important;
+}
+
+.site-nav .nav-dropdown-toggle.is-active::after,
+.nav-dropdown.is-active .nav-dropdown-toggle::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -6px !important;
+  height: 2px !important;
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+  background: repeating-linear-gradient(
+    90deg,
+    #1678ff 0%,
+    #9fd0ff 20%,
+    #ffffff 40%,
+    #ff9aa6 60%,
+    #ff1e35 80%,
+    #1678ff 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: policeSiren 3.4s linear infinite !important;
+}
+
+/* ============================================================
+   3. QUOTE SIDEBAR — "WORKING UNIT?" PARALLEL & BUTTON FIX
+   ============================================================ */
+.quote-path-badge-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 6px !important;
+}
+
+.quote-path-badge-header svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.quote-path-badge-header .eyebrow,
+.quote-support-path .eyebrow {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 22px !important;
+  font-size: 0.72rem !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Explore The Unit Program Button — Yellow Text, One-Way Inclined Fine Stripes, No Hover Color Swap */
+.quote-support-path .button-unit-program,
+.button-unit-program,
+.quote-support-path .button-unit-program:hover,
+.button-unit-program:hover,
+.quote-support-path .button-unit-program:focus,
+.button-unit-program:focus,
+.quote-support-path .button-unit-program:active,
+.button-unit-program:active {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 12px 28px !important;
+  border: 1px solid rgba(244, 207, 106, 0.65) !important;
+  border-radius: 8px !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(244, 207, 106, 0.14) 0 1px, transparent 1px 4px),
+    linear-gradient(115deg, #0a2f6d 0%, #1256b8 38%, #1f83f5 62%, #0c3f94 100%) !important;
+  background-color: #0c3f94 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.3),
+    0 12px 28px rgba(15, 90, 190, 0.4),
+    0 0 24px rgba(244, 207, 106, 0.18) !important;
+  transition: transform 200ms ease !important;
+}
+
+.quote-support-path .button-unit-program:hover,
+.button-unit-program:hover {
+  transform: translateY(-2px) !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  border-color: rgba(244, 207, 106, 0.65) !important;
+}
+
+.button-unit-program::after {
+  content: "→" !important;
+  margin-left: 10px !important;
+  color: #f4cf6a !important;
+  -webkit-text-fill-color: #f4cf6a !important;
+  font-size: 0.9rem !important;
+}
+
+/* ============================================================
+   4. UNIT DETAIL 01 & MONTHLY MAINTENANCE CARDS CONTENT & ICONS FIX
+   ============================================================ */
+.fr-service-groups h3 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.fr-sec-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 8px !important;
+  background: rgba(22, 120, 255, 0.18) !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  color: #61b7ff !important;
+  -webkit-text-fill-color: initial !important;
+  isolation: isolate !important;
+}
+
+.fr-sec-icon svg {
+  display: block !important;
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #61b7ff !important;
+  fill: none !important;
+  stroke-width: 2.2 !important;
+}
+
+.fr-panel.fr-panel-red .fr-sec-icon {
+  background: rgba(255, 45, 75, 0.18) !important;
+  border-color: rgba(255, 77, 77, 0.4) !important;
+  color: #ff6b81 !important;
+}
+
+.fr-panel.fr-panel-red .fr-sec-icon svg {
+  stroke: #ff7486 !important;
+}
+
+.fr-cadence {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 18px 0 22px !important;
+  padding: 0 !important;
+  list-style: none !important;
+  counter-reset: readiness !important;
+}
+
+.fr-cadence li {
+  counter-increment: readiness !important;
+  position: relative !important;
+  min-height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 14px 10px 52px !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  color: #f0f6fc !important;
+  -webkit-text-fill-color: #f0f6fc !important;
+  background: linear-gradient(90deg, rgba(255, 45, 75, 0.14), rgba(14, 18, 28, 0.68)) !important;
+  border: 1px solid rgba(255, 77, 77, 0.25) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.fr-cadence li::before {
+  content: "0" counter(readiness) !important;
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: grid !important;
+  width: 30px !important;
+  height: 30px !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 119, 135, 0.5) !important;
+  border-radius: 50% !important;
+  color: #ffc1c9 !important;
+  -webkit-text-fill-color: #ffc1c9 !important;
+  font-size: 0.7rem !important;
+  font-weight: 900 !important;
+  background: radial-gradient(circle, rgba(255, 45, 75, 0.4), rgba(30, 8, 16, 0.95)) !important;
+  box-shadow: 0 0 10px rgba(255, 45, 75, 0.45) !important;
+}
+
+.fr-cadence li:not(:last-child)::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 24px !important;
+  top: 38px !important;
+  bottom: -14px !important;
+  width: 2px !important;
+  z-index: 2 !important;
+  background: linear-gradient(180deg, rgba(255, 77, 77, 0.8), rgba(255, 77, 77, 0.2)) !important;
+}
+
+/* ============================================================
+   5. FIRST RESPONDER PAGE STAT CARDS METALLIC GRADIENT METRICS
+   ============================================================ */
+.stat-card-v2.stat-blue strong {
+  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.stat-card-v2.stat-gold strong {
+  background: linear-gradient(90deg, #ffffff 0%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.stat-card-v2.stat-red strong {
+  background: linear-gradient(90deg, #ffffff 0%, #ff9aa6 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ============================================================
+   6. FIRST RESPONDER UNIT TYPES CARDS IMAGE VISIBILITY IMPROVEMENT
+   ============================================================ */
+.unit-card-v2.unit-patrol {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(8, 26, 52, 0.52) 0%, rgba(3, 10, 22, 0.82) 100%),
+    url('./patrol.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+.unit-card-v2.unit-k9 {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(46, 34, 14, 0.52) 0%, rgba(18, 12, 4, 0.82) 100%),
+    url('./K9.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+.unit-card-v2.unit-fire {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(52, 14, 22, 0.55) 0%, rgba(18, 6, 10, 0.84) 100%),
+    url('./firefighter.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+.unit-card-v2.unit-ems {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(12, 44, 48, 0.52) 0%, rgba(4, 18, 20, 0.82) 100%),
+    url('./ambulance.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+.unit-card-v2.unit-undercover {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(32, 38, 48, 0.52) 0%, rgba(12, 16, 22, 0.82) 100%),
+    url('./undercover.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+.unit-card-v2.unit-personal {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 130, 45, 0.02) 0px, transparent 4px),
+    linear-gradient(160deg, rgba(48, 28, 10, 0.55) 0%, rgba(18, 10, 4, 0.84) 100%),
+    url('./personal.jpg') !important;
+  background-size: auto, cover, cover !important;
+}
+
+/* ============================================================
+   1. HERO CREDENTIAL CARDS (INDEX.HTML HERO SECTION)
       — SIMPLIFIED OUTER FRAME, ELEGANT METALLIC TEXTURE & SOFT CTA
    ============================================================ */
 .hero-cred-cards li {
