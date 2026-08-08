@@ -15227,11 +15227,97 @@ span.stat-icon-box svg,
 }
 
 /* ============================================================
-   GPU-ACCELERATED SIREN LINE ANIMATION (SITE FOOTER RAIL)
+   SERVICE LANE PANELS (INDEX HERO LANE CARDS) — GRADIENT LOOK
+   ============================================================ */
+.lane-panel {
+  border-radius: 22px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease !important;
+}
+
+.lane-panel.lane-blue {
+  background:
+    repeating-linear-gradient(135deg, rgba(97, 183, 255, 0.03) 0 1px, transparent 1px 6px),
+    linear-gradient(140deg, rgba(16, 44, 88, 0.88), rgba(4, 10, 20, 0.95) 55%, rgba(8, 22, 44, 0.92)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.45) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(22, 120, 255, 0.22) !important;
+}
+
+.lane-panel.lane-blue h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 60%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.lane-panel.lane-blue .lane-label {
+  background: linear-gradient(135deg, rgba(22, 120, 255, 0.35), rgba(8, 24, 48, 0.95)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.55) !important;
+  color: #8ecbff !important;
+}
+
+.lane-panel.lane-red {
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 77, 77, 0.03) 0 1px, transparent 1px 6px),
+    linear-gradient(140deg, rgba(78, 14, 28, 0.85), rgba(4, 10, 20, 0.95) 55%, rgba(26, 8, 16, 0.92)) !important;
+  border: 1px solid rgba(255, 119, 135, 0.45) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 30, 53, 0.22) !important;
+}
+
+.lane-panel.lane-red h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #ff9aa6 60%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.lane-panel.lane-red .lane-label {
+  background: linear-gradient(135deg, rgba(255, 30, 53, 0.35), rgba(48, 8, 16, 0.95)) !important;
+  border: 1px solid rgba(255, 119, 135, 0.55) !important;
+  color: #ff9aa6 !important;
+}
+
+.lane-panel.lane-mix {
+  background:
+    repeating-linear-gradient(135deg, rgba(244, 207, 106, 0.03) 0 1px, transparent 1px 6px),
+    linear-gradient(140deg, rgba(18, 44, 84, 0.88), rgba(4, 10, 20, 0.95) 55%, rgba(56, 10, 26, 0.92)) !important;
+  border: 1px solid rgba(244, 207, 106, 0.45) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(244, 207, 106, 0.22) !important;
+}
+
+.lane-panel.lane-mix h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #ffe59e 60%, #94c9ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.lane-panel.lane-mix .lane-label {
+  background: linear-gradient(135deg, rgba(244, 207, 106, 0.35), rgba(48, 38, 8, 0.95)) !important;
+  border: 1px solid rgba(244, 207, 106, 0.55) !important;
+  color: #f4cf6a !important;
+}
+
+.lane-panel:hover {
+  transform: translateY(-5px) !important;
+}
+
+/* ============================================================
+   SIREN LINE ANIMATION (SITE FOOTER RAIL — FULL UNCLIPPED)
    ============================================================ */
 .site-footer {
   position: relative !important;
-  overflow: hidden !important;
+  padding-top: 30px !important;
 }
 
 .site-footer::before {
@@ -15239,28 +15325,29 @@ span.stat-icon-box svg,
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  width: 200% !important;
+  right: 0 !important;
+  width: 100% !important;
   height: 4px !important;
-  border-radius: 0 !important;
+  border-radius: 999px !important;
   background: var(--siren-rail) !important;
-  background-size: 100% 100% !important;
+  background-size: 200% 100% !important;
   box-shadow:
-    0 0 20px rgba(97, 183, 255, 0.85),
-    0 0 20px rgba(255, 77, 77, 0.75) !important;
-  will-change: transform !important;
-  animation: sirenTranslateFlow 3.5s linear infinite !important;
+    0 0 18px rgba(97, 183, 255, 0.75),
+    0 0 18px rgba(255, 77, 77, 0.65) !important;
+  animation: footerSirenSweep 3.6s linear infinite !important;
   pointer-events: none !important;
   z-index: 10 !important;
 }
 
-@keyframes sirenTranslateFlow {
+@keyframes footerSirenSweep {
   0% {
-    transform: translate3d(0, 0, 0);
+    background-position: 0% 0;
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    background-position: -200% 0;
   }
 }
+
 
 
 
