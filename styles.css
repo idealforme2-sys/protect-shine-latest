@@ -13451,3 +13451,210 @@ span.stat-icon-box svg,
     0 0 32px rgba(255, 45, 75, 0.35) !important;
 }
 
+/* ============================================================
+   1. QUOTE FORM SIDEBAR — SHIFT "WORKING UNIT?" SLIGHTLY UP
+   ============================================================ */
+.quote-support-path,
+.chat-support .quote-support-path {
+  margin-top: 6px !important;
+  padding: 16px 18px !important;
+  transform: translateY(-4px) !important;
+}
+
+.quote-path-badge-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 4px !important;
+}
+
+.quote-support-path .eyebrow {
+  margin: 0 !important;
+}
+
+/* ============================================================
+   2. COMMERCIAL TRUCK PAGE — FLOATING POPUP BADGE FOR CARD 03
+   ============================================================ */
+.truck-panel-v3.tcp-v3-featured {
+  position: relative !important;
+  overflow: visible !important;
+  margin-top: 14px !important;
+}
+
+.tcp-v3-popular-badge {
+  position: absolute !important;
+  top: -15px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 12 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  padding: 6px 20px !important;
+  border-radius: 50px !important;
+  background: linear-gradient(135deg, #ff2d4b 0%, #ff6b81 50%, #f4cf6a 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 6px 20px rgba(255, 45, 75, 0.6), 0 0 16px rgba(244, 207, 106, 0.5) !important;
+  animation: badgeGlowPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes badgeGlowPulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(255, 45, 75, 0.6), 0 0 16px rgba(244, 207, 106, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 26px rgba(255, 45, 75, 0.85), 0 0 22px rgba(244, 207, 106, 0.75);
+  }
+}
+
+/* ============================================================
+   3. INDEX.HTML HERO SECTION — GRAYISH WHITE CARD ICONS (IMAGE 1)
+   ============================================================ */
+.hero-cred-icon,
+.hero-cred-cards li:nth-child(1) .hero-cred-icon,
+.hero-cred-cards li:nth-child(2) .hero-cred-icon,
+.hero-cred-cards li:nth-child(3) .hero-cred-icon {
+  border: 1px solid rgba(215, 228, 240, 0.45) !important;
+  background: radial-gradient(circle at 35% 30%, rgba(225, 235, 248, 0.22), rgba(12, 16, 26, 0.88)) !important;
+  color: #e2eaf4 !important;
+  box-shadow: 0 0 14px rgba(215, 228, 240, 0.28) !important;
+}
+
+.hero-cred-icon svg,
+.hero-cred-cards li .hero-cred-icon svg {
+  stroke: #e2eaf4 !important;
+  color: #e2eaf4 !important;
+}
+
+/* ============================================================
+   4. UNIT DETAIL CARDS ("UNIT DETAIL 01" & "MONTHLY MAINTENANCE")
+      — BLEEDING FIX, COMPACT VERTICAL SPACING & GRADIENT CONTENT
+   ============================================================ */
+
+/* Fix Image Bleeding (Image 2) */
+.fr-panel .fr-panel-media {
+  height: 140px !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  border-top-left-radius: 24px !important;
+  border-top-right-radius: 24px !important;
+}
+
+.fr-panel .fr-panel-media::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.fr-panel.fr-panel-blue .fr-panel-media::after {
+  background:
+    radial-gradient(circle at 0 0, rgba(97, 183, 255, 0.28), transparent 45%),
+    linear-gradient(180deg, rgba(12, 32, 60, 0) 0%, rgba(12, 32, 60, 0.75) 60%, rgba(12, 32, 60, 1) 100%) !important;
+}
+
+.fr-panel.fr-panel-red .fr-panel-media::after,
+.fr-panel:nth-child(2) .fr-panel-media::after {
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 77, 77, 0.26), transparent 45%),
+    linear-gradient(180deg, rgba(36, 10, 22, 0) 0%, rgba(36, 10, 22, 0.75) 60%, rgba(36, 10, 22, 1) 100%) !important;
+}
+
+/* Compact Vertical Space Taken */
+.fr-panel .fr-panel-body {
+  padding: 16px 22px 20px !important;
+  margin-top: -8px !important;
+}
+
+.fr-panel-head {
+  margin-bottom: 8px !important;
+}
+
+.fr-panel-price {
+  margin: 8px 0 6px !important;
+}
+
+.fr-panel-price strong {
+  font-size: 3.4rem !important;
+  line-height: 1 !important;
+}
+
+.fr-panel-tag {
+  margin-bottom: 12px !important;
+  font-size: 0.86rem !important;
+}
+
+/* Compact Grid for Service Sections */
+.fr-service-groups {
+  gap: 10px !important;
+  margin: 10px 0 16px !important;
+}
+
+.fr-service-groups section {
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.fr-service-groups h3 {
+  font-size: 0.88rem !important;
+  margin-bottom: 6px !important;
+}
+
+.fr-service-groups ul {
+  gap: 4px !important;
+}
+
+.fr-service-groups li {
+  font-size: 0.82rem !important;
+  line-height: 1.35 !important;
+  padding-left: 14px !important;
+}
+
+.fr-cadence {
+  gap: 6px !important;
+  margin: 12px 0 18px !important;
+}
+
+.fr-cadence li {
+  padding: 8px 12px !important;
+  font-size: 0.84rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 77, 77, 0.15) !important;
+  background: rgba(255, 77, 77, 0.04) !important;
+}
+
+/* Gradient Look to Card Content */
+.fr-panel.fr-panel-blue .fr-panel-price strong,
+.fr-panel.fr-panel-blue .fr-panel-head .fr-panel-label,
+.fr-panel.fr-panel-blue .fr-service-groups h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 55%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 20px rgba(97, 183, 255, 0.25) !important;
+}
+
+.fr-panel.fr-panel-red .fr-panel-price strong,
+.fr-panel.fr-panel-red .fr-panel-head .fr-panel-label,
+.fr-panel.fr-panel-red .fr-cadence li {
+  background: linear-gradient(90deg, #ffffff 0%, #ff9aa6 55%, #f4cf6a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 20px rgba(255, 77, 77, 0.25) !important;
+}
+
+
