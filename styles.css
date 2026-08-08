@@ -14903,5 +14903,140 @@ span.stat-icon-box svg,
   text-shadow: 0 0 20px rgba(255, 77, 77, 0.25) !important;
 }
 
+/* ============================================================
+   REWORKED HERO CREDENTIAL CARDS (FROM SCRATCH)
+   ============================================================ */
+.hero-cred-cards {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin: 32px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hero-cred-cards li {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 20px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 6px),
+    linear-gradient(145deg, rgba(16, 26, 44, 0.92) 0%, rgba(6, 12, 22, 0.96) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Card 1 — Service Area (Sapphire Blue Accent) */
+.hero-cred-cards li:nth-child(1) {
+  border-top: 2px solid rgba(97, 183, 255, 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(22, 120, 255, 0.15) !important;
+}
+.hero-cred-cards li:nth-child(1) .hero-cred-icon {
+  background: linear-gradient(135deg, rgba(22, 120, 255, 0.3), rgba(8, 24, 48, 0.95)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.55) !important;
+  box-shadow: 0 0 14px rgba(22, 120, 255, 0.35) !important;
+}
+.hero-cred-cards li:nth-child(1) .hero-cred-copy span {
+  color: #61b7ff !important;
+}
+.hero-cred-cards li:nth-child(1) .hero-cred-icon svg {
+  stroke: #94c9ff !important;
+}
+
+/* Card 2 — Specialty (Champagne Gold Accent) */
+.hero-cred-cards li:nth-child(2) {
+  border-top: 2px solid rgba(244, 207, 106, 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(244, 207, 106, 0.15) !important;
+}
+.hero-cred-cards li:nth-child(2) .hero-cred-icon {
+  background: linear-gradient(135deg, rgba(244, 207, 106, 0.3), rgba(48, 38, 8, 0.95)) !important;
+  border: 1px solid rgba(244, 207, 106, 0.55) !important;
+  box-shadow: 0 0 14px rgba(244, 207, 106, 0.35) !important;
+}
+.hero-cred-cards li:nth-child(2) .hero-cred-copy span {
+  color: #f4cf6a !important;
+}
+.hero-cred-cards li:nth-child(2) .hero-cred-icon svg {
+  stroke: #ffe59e !important;
+}
+
+/* Card 3 — Reputation (Siren Crimson-Red Accent) */
+.hero-cred-cards li:nth-child(3) {
+  border-top: 2px solid rgba(255, 77, 77, 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 30, 53, 0.15) !important;
+}
+.hero-cred-cards li:nth-child(3) .hero-cred-icon {
+  background: linear-gradient(135deg, rgba(255, 30, 53, 0.3), rgba(48, 8, 16, 0.95)) !important;
+  border: 1px solid rgba(255, 119, 135, 0.55) !important;
+  box-shadow: 0 0 14px rgba(255, 30, 53, 0.35) !important;
+}
+.hero-cred-cards li:nth-child(3) .hero-cred-copy span {
+  color: #ff9aa6 !important;
+}
+.hero-cred-cards li:nth-child(3) .hero-cred-icon svg {
+  stroke: #ffc1c9 !important;
+}
+
+/* Card Hover Animations */
+.hero-cred-cards li:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+.hero-cred-cards li:nth-child(1):hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(22, 120, 255, 0.35) !important;
+}
+.hero-cred-cards li:nth-child(2):hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(244, 207, 106, 0.35) !important;
+}
+.hero-cred-cards li:nth-child(3):hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 30, 53, 0.35) !important;
+}
+
+.hero-cred-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.hero-cred-copy span {
+  font-size: 0.66rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+}
+
+.hero-cred-copy strong {
+  font-size: 0.96rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.01em !important;
+}
+
+.hero-cred-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  border-radius: 12px !important;
+  transition: transform 200ms ease !important;
+}
+
+.hero-cred-cards li:hover .hero-cred-icon {
+  transform: scale(1.08) !important;
+}
+
+.hero-cred-icon svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2.2px !important;
+}
+
+
 
 
