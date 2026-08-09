@@ -3406,7 +3406,14 @@ a.showcase-card {
   border-radius: 24px 8px 24px 8px;
   background: rgba(3, 5, 11, 0.5);
   box-shadow: 0 0 44px rgba(97, 183, 255, 0.14), 0 0 44px rgba(255, 77, 77, 0.12);
-  animation: pulseBadge 3.4s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+.why-crest:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(97, 183, 255, 0.4);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 54px rgba(97, 183, 255, 0.3), 0 0 44px rgba(255, 77, 77, 0.22);
 }
 
 .why-crest img {
@@ -3416,6 +3423,13 @@ a.showcase-card {
   border: 1px solid var(--line);
   object-fit: cover;
   box-shadow: 0 0 38px rgba(97, 183, 255, 0.24), 0 0 38px rgba(255, 77, 77, 0.18);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.why-crest:hover img {
+  transform: scale(1.05) rotate(1deg);
+  border-color: rgba(97, 183, 255, 0.6);
+  box-shadow: 0 0 48px rgba(97, 183, 255, 0.45), 0 0 38px rgba(255, 77, 77, 0.3);
 }
 
 .why-crest-label {
@@ -6105,10 +6119,79 @@ main > section:not(.hero):not(.page-hero):not(.ps-marquee),
 .hero-badge-card img { width:64px; height:64px; }
 .hero-badge-card h2 { font-size:1.32rem; }
 .hero-badge-card span { font-size:.84rem; }
-.hero-cred-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:22px 0 0; }
-.hero-cred-cards li { min-width:0; margin:0; }
-.scroll-cue { position:relative; inset:auto; z-index:4; align-self:center; justify-self:center; transform:none; margin:0; }
-body.js .hero .eyebrow, body.js #hero-title > span, body.js .hero-copy, body.js .hero-actions, body.js .hero-cred-cards { opacity:1; transform:none; clip-path:none; }
+.hero-proof-rail {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  margin-top: 26px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(97, 183, 255, 0.05), rgba(3, 5, 11, 0.75) 50%, rgba(255, 77, 77, 0.04));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+}
+
+.proof-rail-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+}
+
+.proof-rail-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+.proof-rail-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.proof-rail-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.proof-rail-val {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.proof-rail-divider {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+@media (max-width: 768px) {
+  .hero-proof-rail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+  .proof-rail-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  }
+}
+
+body.js .hero .eyebrow, body.js #hero-title > span, body.js .hero-copy, body.js .hero-actions, body.js .hero-proof-rail { opacity:1; transform:none; clip-path:none; }
 
 
 .quote-shell { width:min(1380px,calc(100% - 48px)); grid-template-columns:minmax(0,2.15fr) minmax(280px,.85fr); gap:32px; padding:74px 0; }
@@ -13213,9 +13296,9 @@ span.stat-icon-box svg,
   text-shadow: 0 0 18px rgba(56, 182, 255, 0.25) !important;
 }
 
-/* Bring "Working Unit?" slightly up inside the unit program path */
+/* Align "Working Unit?" badge pill in unit program path */
 .chat-support .quote-support-path .eyebrow {
-  margin: -8px 0 10px !important;
+  margin: 0 !important;
 }
 
 /* ============================================================
@@ -14667,12 +14750,22 @@ span.stat-icon-box svg,
 .quote-path-badge-header {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  margin-bottom: 4px !important;
+  gap: 6px !important;
+  margin-bottom: 6px !important;
 }
 
-.quote-support-path .eyebrow {
+.quote-path-badge-header svg {
+  display: block !important;
+  flex-shrink: 0 !important;
   margin: 0 !important;
+}
+
+.quote-support-path .eyebrow,
+.chat-support .quote-support-path .eyebrow,
+.quote-path-badge-header .eyebrow {
+  margin: 0 !important;
+  transform: translateY(1px) !important;
+  align-self: center !important;
 }
 
 /* ============================================================
@@ -15547,6 +15640,150 @@ span.stat-icon-box svg,
 .credit-webflow {
   font-weight: 900 !important;
   animation: creditWebflow 2.4s ease-in-out infinite !important;
+}
+
+/* ============================================================
+   MOVING TRUCK LOADER — continuation of the
+   "Four lanes. Every truck covered." headline
+   (commercial-truck-detailing.html)
+   Loader CSS adapted from Uiverse.io by vinodjangid07 (MIT).
+   ============================================================ */
+.covered-anchor {
+  position: relative;
+  display: inline-block;
+}
+
+.covered-anchor .road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  width: 100%;
+}
+
+.headline-truck {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 0.4em;
+  transform: translateY(10px);
+  zoom: 0.68;
+  pointer-events: none;
+}
+
+.headline-truck .loader {
+  justify-content: flex-start;
+}
+
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation */
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+}
+.truckTires svg {
+  width: 24px;
+}
+
+.road {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #1678ff 0%, #1678ff 45%, #ff4d6d 55%, #ff4d6d 100%);
+  box-shadow: 0 0 12px rgba(22, 120, 255, 0.7), 0 0 12px rgba(255, 77, 109, 0.7);
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .truckBody,
+  .road::before,
+  .road::after,
+  .lampPost {
+    animation: none !important;
+  }
 }
 
 
