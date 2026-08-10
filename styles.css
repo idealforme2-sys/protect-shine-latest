@@ -11059,33 +11059,33 @@ body.js .section-heading.is-visible h2::after {
   box-shadow: 0 0 14px rgba(240, 196, 121, 0.2);
 }
 
-/* Sidebar Tactical Note Cards with Button-Style Micro-Pinstripe Red & Blue Line Overlay */
+/* Sidebar Tactical Note Cards with Full-Surface Red & Blue Multi Fine Inclined Texture Overlay */
 .sidebar-tactical-note {
   position: relative !important;
   margin-top: 14px !important;
-  padding: 16px 18px !important;
+  padding: 18px 20px !important;
   border-radius: 14px !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  background-color: #070c17 !important;
+  border: 1px solid rgba(120, 190, 255, 0.35) !important;
+  background-color: #050912 !important;
   background-image:
     repeating-linear-gradient(
       135deg,
-      rgba(97, 183, 255, 0.35) 0px,
-      rgba(97, 183, 255, 0.35) 1px,
-      transparent 1px,
-      transparent 5px
+      rgba(97, 183, 255, 0.55) 0px,
+      rgba(97, 183, 255, 0.55) 1.5px,
+      transparent 1.5px,
+      transparent 5.5px
     ),
     repeating-linear-gradient(
       135deg,
       transparent 0px,
-      transparent 2.5px,
-      rgba(255, 77, 77, 0.35) 2.5px,
-      rgba(255, 77, 77, 0.35) 3.5px,
-      transparent 3.5px,
-      transparent 5px
+      transparent 2.75px,
+      rgba(255, 77, 77, 0.55) 2.75px,
+      rgba(255, 77, 77, 0.55) 4.25px,
+      transparent 4.25px,
+      transparent 5.5px
     ),
-    linear-gradient(135deg, rgba(97, 183, 255, 0.12) 0%, rgba(5, 8, 15, 0.96) 50%, rgba(255, 77, 77, 0.12) 100%) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(97, 183, 255, 0.18) !important;
+    linear-gradient(135deg, rgba(97, 183, 255, 0.22) 0%, rgba(5, 9, 18, 0.96) 50%, rgba(255, 77, 77, 0.22) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 14px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(97, 183, 255, 0.25) !important;
   overflow: hidden !important;
   backdrop-filter: blur(14px) !important;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
@@ -11093,19 +11093,12 @@ body.js .section-heading.is-visible h2::after {
 
 .sidebar-tactical-note:hover {
   transform: translateY(-2px) !important;
-  border-color: rgba(97, 183, 255, 0.5) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 28px rgba(97, 183, 255, 0.28) !important;
+  border-color: rgba(97, 183, 255, 0.65) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 18px 44px rgba(0, 0, 0, 0.7), 0 0 34px rgba(97, 183, 255, 0.35) !important;
 }
 
 .sidebar-tactical-note::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 2px !important;
-  background: linear-gradient(90deg, #61b7ff 0%, rgba(255, 255, 255, 0.9) 50%, #ff4d4d 100%) !important;
-  box-shadow: 0 0 12px rgba(97, 183, 255, 0.7) !important;
+  display: none !important;
 }
 
 .stn-header {
