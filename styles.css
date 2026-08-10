@@ -11123,19 +11123,29 @@ body.js .section-heading.is-visible h2::after {
   font-weight: 800;
 }
 
-/* pkg badge for "Most Requested" inside quote package cards */
+/* pkg badge for "Most Requested" & "Most Popular" inside quote package cards */
 .quote-pkg-badge {
+  position: relative;
   display: inline-block;
   margin-bottom: 6px;
-  padding: 2px 9px;
+  padding: 3px 11px;
   border-radius: 999px;
-  border: 1px solid rgba(240, 196, 121, 0.5);
-  background: rgba(240, 196, 121, 0.12);
-  color: var(--gold);
+  border: 1px solid rgba(255, 77, 77, 0.6);
+  background-color: rgba(255, 30, 53, 0.15);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 77, 77, 0.28) 0px,
+    rgba(255, 77, 77, 0.28) 4px,
+    transparent 4px,
+    transparent 9px
+  );
+  color: #ff4d4d;
   font-size: 0.65rem;
   font-weight: 900;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 12px rgba(255, 77, 77, 0.35);
+  overflow: hidden;
 }
 
 @media (max-width: 900px) {
