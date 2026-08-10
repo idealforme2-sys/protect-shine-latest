@@ -1272,3 +1272,152 @@ function init3DCircularCarousel() {
 }
 
 init3DCircularCarousel();
+
+/* ── TARGET CURSOR CONTROLLER (.package-target 4-CORNER BRACKETS) ── */
+function initTargetCursor() {
+  const cursor = document.getElementById('targetCursor');
+  if (!cursor) return;
+
+  const gsapApi = window.gsap;
+  if (!gsapApi) return;
+
+  const targetSelector = '.package-target';
+  const hoverDuration = 0.22;
+  const corners = Array.from(cursor.querySelectorAll('.target-cursor-corner'));
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentTarget = null;
+
+  // Start completely invisible
+  gsapApi.set(cursor, { autoAlpha: 0, x: mouseX, y: mouseY });
+
+  const updateTargetPosition = () => {
+    if (!currentTarget) return;
+
+    const rect = currentTarget.getBoundingClientRect();
+    const cursorRect = cursor.getBoundingClientRect();
+
+    const cursorCenterX = cursorRect.left + cursorRect.width / 2;
+    const cursorCenterY = cursorRect.top + cursorRect.height / 2;
+    const gap = 3;
+
+    const positions = [
+      // Top left
+      { x: rect.left - cursorCenterX - gap, y: rect.top - cursorCenterY - gap },
+      // Top right
+      { x: rect.right - cursorCenterX + gap - 14, y: rect.top - cursorCenterY - gap },
+      // Bottom right
+      { x: rect.right - cursorCenterX + gap - 14, y: rect.bottom - cursorCenterY + gap - 14 },
+      // Bottom left
+      { x: rect.left - cursorCenterX - gap, y: rect.bottom - cursorCenterY + gap - 14 }
+    ];
+
+    corners.forEach((corner, index) => {
+      if (!corner) return;
+      gsapApi.to(corner, {
+        x: positions[index].x,
+        y: positions[index].y,
+        duration: 0.16,
+        ease: 'power2.out',
+        overwrite: true
+      });
+    });
+  };
+
+  const handleMouseMove = (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    gsapApi.to(cursor, {
+      x: mouseX,
+      y: mouseY,
+      duration: 0.08,
+      ease: 'power3.out',
+      overwrite: true
+    });
+
+    if (currentTarget) {
+      updateTargetPosition();
+    }
+  };
+
+  const handleMouseOver = (event) => {
+    const target = event.target.closest(targetSelector);
+    if (!target) return;
+    if (currentTarget === target) return;
+
+    currentTarget = target;
+
+    corners.forEach((corner) => {
+      gsapApi.killTweensOf(corner);
+    });
+
+    gsapApi.set(cursor, { x: mouseX, y: mouseY });
+    updateTargetPosition();
+
+    gsapApi.to(cursor, {
+      autoAlpha: 1,
+      duration: hoverDuration,
+      ease: 'power2.out'
+    });
+
+    corners.forEach((corner) => {
+      gsapApi.fromTo(
+        corner,
+        { scale: 0.7, opacity: 0.3 },
+        { scale: 1, opacity: 1, duration: hoverDuration, ease: 'power3.out' }
+      );
+    });
+  };
+
+  const handleMouseOut = (event) => {
+    if (!currentTarget) return;
+
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget && currentTarget.contains(relatedTarget)) {
+      return;
+    }
+    if (relatedTarget && relatedTarget.closest && relatedTarget.closest(targetSelector) === currentTarget) {
+      return;
+    }
+
+    currentTarget = null;
+
+    corners.forEach((corner) => {
+      gsapApi.to(corner, {
+        scale: 0.65,
+        opacity: 0,
+        duration: 0.16,
+        ease: 'power2.in'
+      });
+    });
+
+    gsapApi.to(cursor, {
+      autoAlpha: 0,
+      duration: 0.14,
+      delay: 0.06,
+      ease: 'power2.out'
+    });
+  };
+
+  const handleResize = () => {
+    if (currentTarget) updateTargetPosition();
+  };
+
+  const handleScroll = () => {
+    if (currentTarget) updateTargetPosition();
+  };
+
+  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener('mouseover', handleMouseOver);
+  window.addEventListener('mouseout', handleMouseOut);
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTargetCursor);
+} else {
+  initTargetCursor();
+}

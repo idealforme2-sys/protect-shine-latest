@@ -16348,6 +16348,65 @@ span.stat-icon-box svg,
   margin: 0;
 }
 
+/* ============================================================
+   TARGET CURSOR (4 L-SHAPED CORNER BRACKETS FOR .PACKAGE-TARGET)
+   ============================================================ */
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.target-cursor-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+  border-style: solid;
+  box-sizing: border-box;
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.corner-tl {
+  left: 0;
+  top: 0;
+  border-right: none;
+  border-bottom: none;
+  transform: translate(-3px, -3px);
+}
+
+.corner-tr {
+  left: 0;
+  top: 0;
+  border-left: none;
+  border-bottom: none;
+  transform: translate(-11px, -3px);
+}
+
+.corner-br {
+  left: 0;
+  top: 0;
+  border-left: none;
+  border-top: none;
+  transform: translate(-11px, -11px);
+}
+
+.corner-bl {
+  left: 0;
+  top: 0;
+  border-right: none;
+  border-top: none;
+  transform: translate(-3px, -11px);
+}
+
 
 
 

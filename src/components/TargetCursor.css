@@ -1,0 +1,98 @@
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  transform: translate(-50%, -50%);
+
+  /* IMPORTANT:
+     This is the additional targeting effect.
+     It does NOT replace your real cursor.
+  */
+  opacity: 0;
+}
+
+.target-cursor-corner {
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  border-width: 2px;
+  border-style: solid;
+
+  box-sizing: border-box;
+
+  opacity: 0;
+
+  will-change: transform, opacity;
+
+  pointer-events: none;
+}
+
+
+/* -------------------------------
+   TOP LEFT
+-------------------------------- */
+
+.corner-tl {
+  left: 0;
+  top: 0;
+
+  border-right: none;
+  border-bottom: none;
+
+  transform: translate(-3px, -3px);
+}
+
+
+/* -------------------------------
+   TOP RIGHT
+-------------------------------- */
+
+.corner-tr {
+  left: 0;
+  top: 0;
+
+  border-left: none;
+  border-bottom: none;
+
+  transform: translate(-11px, -3px);
+}
+
+
+/* -------------------------------
+   BOTTOM RIGHT
+-------------------------------- */
+
+.corner-br {
+  left: 0;
+  top: 0;
+
+  border-left: none;
+  border-top: none;
+
+  transform: translate(-11px, -11px);
+}
+
+
+/* -------------------------------
+   BOTTOM LEFT
+-------------------------------- */
+
+.corner-bl {
+  left: 0;
+  top: 0;
+
+  border-right: none;
+  border-top: none;
+
+  transform: translate(-3px, -11px);
+}
