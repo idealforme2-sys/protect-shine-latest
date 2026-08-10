@@ -2,97 +2,56 @@
   position: fixed;
   top: 0;
   left: 0;
-
   width: 0;
   height: 0;
-
   pointer-events: none;
-
-  z-index: 99999;
-
+  z-index: 9999;
+  mix-blend-mode: difference;
   transform: translate(-50%, -50%);
+}
 
-  /* IMPORTANT:
-     This is the additional targeting effect.
-     It does NOT replace your real cursor.
-  */
-  opacity: 0;
+.target-cursor-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 .target-cursor-corner {
   position: absolute;
-
-  width: 14px;
-  height: 14px;
-
-  border-width: 2px;
-  border-style: solid;
-
-  box-sizing: border-box;
-
-  opacity: 0;
-
-  will-change: transform, opacity;
-
-  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #fff;
+  will-change: transform;
 }
-
-
-/* -------------------------------
-   TOP LEFT
--------------------------------- */
 
 .corner-tl {
-  left: 0;
-  top: 0;
-
+  transform: translate(-150%, -150%);
   border-right: none;
   border-bottom: none;
-
-  transform: translate(-3px, -3px);
 }
-
-
-/* -------------------------------
-   TOP RIGHT
--------------------------------- */
 
 .corner-tr {
-  left: 0;
-  top: 0;
-
+  transform: translate(50%, -150%);
   border-left: none;
   border-bottom: none;
-
-  transform: translate(-11px, -3px);
 }
-
-
-/* -------------------------------
-   BOTTOM RIGHT
--------------------------------- */
 
 .corner-br {
-  left: 0;
-  top: 0;
-
+  transform: translate(50%, 50%);
   border-left: none;
   border-top: none;
-
-  transform: translate(-11px, -11px);
 }
 
-
-/* -------------------------------
-   BOTTOM LEFT
--------------------------------- */
-
 .corner-bl {
-  left: 0;
-  top: 0;
-
+  transform: translate(-150%, 50%);
   border-right: none;
   border-top: none;
-
-  transform: translate(-3px, -11px);
 }
