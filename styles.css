@@ -13199,9 +13199,9 @@ span.stat-icon-box svg,
 .chat-card .chat-icon svg {
   width: 20px !important;
   height: 20px !important;
-  stroke: #7ec4ff !important;
+  stroke: currentColor !important;
+  fill: currentColor !important;
   color: #7ec4ff !important;
-  fill: none !important;
   filter: drop-shadow(0 0 4px rgba(97, 183, 255, 0.6)) !important;
 }
 
