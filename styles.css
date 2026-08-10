@@ -12569,24 +12569,22 @@ span.stat-icon-box svg,
 }
 
 /* Card 3D transform positions driven deterministically via relative data-slot model */
-.truck-3d-stage .truck-panel-v3 {
+.truck-3d-stage .truck-panel-v3,
+.truck-3d-stage .truck-panel-v3.tcp-v3-featured,
+.truck-3d-stage .tcp-v3-featured {
   position: absolute !important;
   width: 380px !important;
   max-width: 86vw !important;
   top: 50% !important;
   left: 50% !important;
-  margin: 0 !important; /* Override any legacy card margin-top */
+  margin: 0 !important; /* Overrides legacy position: relative and margin-top */
+  overflow: visible !important; /* Keeps floating badge visible above Card 03 */
   transform-style: preserve-3d !important;
   will-change: transform, opacity;
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
   transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease, box-shadow 450ms ease, border-color 450ms ease !important;
-}
-
-/* Ensure Card 03 inside 3D stage stays aligned vertically */
-.truck-3d-stage .truck-panel-v3.tcp-v3-featured {
-  margin-top: 0 !important;
 }
 
 /* Deterministic Relative Position Matrix */
@@ -12599,14 +12597,14 @@ span.stat-icon-box svg,
 }
 
 .truck-3d-stage .truck-panel-v3[data-slot="-1"] { /* PREVIOUS CARD — Left */
-  transform: translate(-50%, -50%) translate3d(clamp(-420px, -70vw, -320px), 0, -100px) rotateY(18deg) scale(0.86) !important;
+  transform: translate(-50%, -50%) translate3d(clamp(-360px, -34vw, -280px), 0, -90px) rotateY(18deg) scale(0.86) !important;
   z-index: 10 !important;
   opacity: 0.65 !important;
   pointer-events: auto !important;
 }
 
 .truck-3d-stage .truck-panel-v3[data-slot="1"] { /* NEXT CARD — Right */
-  transform: translate(-50%, -50%) translate3d(clamp(320px, 70vw, 420px), 0, -100px) rotateY(-18deg) scale(0.86) !important;
+  transform: translate(-50%, -50%) translate3d(clamp(280px, 34vw, 360px), 0, -90px) rotateY(-18deg) scale(0.86) !important;
   z-index: 10 !important;
   opacity: 0.65 !important;
   pointer-events: auto !important;
@@ -12614,7 +12612,7 @@ span.stat-icon-box svg,
 
 /* Hidden slots during wrap */
 .truck-3d-stage .truck-panel-v3[data-slot="hidden"] {
-  transform: translate(-50%, -50%) translate3d(0, 0, -450px) rotateY(0deg) scale(0.5) !important;
+  transform: translate(-50%, -50%) translate3d(0, 0, -400px) rotateY(0deg) scale(0.5) !important;
   opacity: 0 !important;
   pointer-events: none !important;
   z-index: 0 !important;
@@ -14191,9 +14189,7 @@ span.stat-icon-box svg,
 
 /* Floating Popular Badge for Commercial Truck Card 03 */
 .truck-panel-v3.tcp-v3-featured {
-  position: relative !important;
   overflow: visible !important;
-  margin-top: 14px !important;
 }
 
 .tcp-v3-popular-badge {
@@ -14967,9 +14963,7 @@ span.stat-icon-box svg,
 
 /* Floating Popular Badge for Commercial Truck Card 03 */
 .truck-panel-v3.tcp-v3-featured {
-  position: relative !important;
   overflow: visible !important;
-  margin-top: 14px !important;
 }
 
 .tcp-v3-popular-badge {
@@ -15040,9 +15034,7 @@ span.stat-icon-box svg,
    2. COMMERCIAL TRUCK PAGE — FLOATING POPUP BADGE FOR CARD 03
    ============================================================ */
 .truck-panel-v3.tcp-v3-featured {
-  position: relative !important;
   overflow: visible !important;
-  margin-top: 14px !important;
 }
 
 .tcp-v3-popular-badge {
