@@ -12627,6 +12627,7 @@ span.stat-icon-box svg,
   opacity: 0 !important;
   pointer-events: none !important;
   z-index: 0 !important;
+  visibility: hidden !important;
 }
 
 /* Flip Buttons */

@@ -1174,14 +1174,18 @@ function init3DCircularCarousel() {
   function updateSlots() {
     cards.forEach((card) => {
       const cardIndex = parseInt(card.dataset.cardIndex, 10);
-      // Compute relative circular offset in range [-2, 2]
       let rawDiff = cardIndex - currentIndex;
-      // Normalize to [-2, 1] for 4 items
       let diff = ((rawDiff % total) + total) % total;
       if (diff > total / 2) diff -= total;
       if (diff < -total / 2) diff += total;
 
-      card.setAttribute('data-slot', String(diff));
+      // For 4 cards, distance 2 is the opposite card.
+      // Hide it so every active card displays the exact same balanced 3-card layout (-1, 0, 1)
+      if (Math.abs(diff) >= 2) {
+        card.setAttribute('data-slot', 'hidden');
+      } else {
+        card.setAttribute('data-slot', String(diff));
+      }
     });
   }
 
