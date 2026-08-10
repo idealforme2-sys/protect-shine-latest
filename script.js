@@ -1156,3 +1156,101 @@ initStickyBar();
 initSpotlight();
 initCrossPagePreselect();
 initRoutePrefetch();
+
+/* ── 3D INFINITE FLIP CAROUSEL CONTROLLER ────────────────────────── */
+function init3DCircularCarousel() {
+  const wrapper = document.querySelector('[data-truck-carousel]');
+  const stage   = wrapper && wrapper.querySelector('[data-carousel-stage]');
+  const prevBtn = wrapper && wrapper.querySelector('[data-carousel-prev]');
+  const nextBtn = wrapper && wrapper.querySelector('[data-carousel-next]');
+  if (!wrapper || !stage) return;
+
+  const cards = Array.from(stage.querySelectorAll('.truck-panel-v3'));
+  const total = cards.length;
+  if (total === 0) return;
+
+  let currentIndex = 0; // Starts with Card 01 in front center
+
+  function updateSlots() {
+    cards.forEach((card) => {
+      const cardIndex = parseInt(card.dataset.cardIndex, 10);
+      // Compute relative circular offset in range [-2, 2]
+      let rawDiff = cardIndex - currentIndex;
+      // Normalize to [-2, 1] for 4 items
+      let diff = ((rawDiff % total) + total) % total;
+      if (diff > total / 2) diff -= total;
+      if (diff < -total / 2) diff += total;
+
+      card.setAttribute('data-slot', String(diff));
+    });
+  }
+
+  function goNext() {
+    currentIndex = (currentIndex + 1) % total;
+    updateSlots();
+  }
+
+  function goPrev() {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateSlots();
+  }
+
+  /* ── Event Handlers ── */
+  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); goPrev(); });
+  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); goNext(); });
+
+  // Direct card click to bring into center
+  cards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      // Don't intercept button or link clicks inside the card
+      if (e.target.closest('a, button')) return;
+      const cardIndex = parseInt(card.dataset.cardIndex, 10);
+      if (cardIndex !== currentIndex) {
+        currentIndex = cardIndex;
+        updateSlots();
+      }
+    });
+  });
+
+  // Touch / Pointer swipe step flip (NO wheel hijacking)
+  let startX = 0;
+  let isSwiping = false;
+
+  stage.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+  }, { passive: true });
+
+  stage.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+    isSwiping = false;
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+    if (deltaX < -40) goNext();
+    else if (deltaX > 40) goPrev();
+  }, { passive: true });
+
+  stage.addEventListener('mousedown', (e) => {
+    startX = e.clientX;
+    isSwiping = true;
+  });
+
+  window.addEventListener('mouseup', (e) => {
+    if (!isSwiping) return;
+    isSwiping = false;
+    const deltaX = e.clientX - startX;
+    if (deltaX < -50) goNext();
+    else if (deltaX > 50) goPrev();
+  });
+
+  // Keyboard navigation when stage or page focus
+  stage.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); goPrev(); }
+  });
+
+  // Initial slot render
+  updateSlots();
+}
+
+init3DCircularCarousel();
