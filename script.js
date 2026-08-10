@@ -1170,7 +1170,11 @@ function init3DCircularCarousel() {
   if (total === 0) return;
 
   let currentIndex = 0; // Starts with Card 01 in front center
+  let isAnimating  = false;
 
+  /* Deterministic Relative Position Calculation:
+     Calculates every card's slot (-1, 0, 1, hidden) relative to currentIndex from scratch.
+     Zero accumulated transforms. Same active index = 100% identical layout state every time. */
   function updateSlots() {
     cards.forEach((card) => {
       const cardIndex = parseInt(card.dataset.cardIndex, 10);
@@ -1179,8 +1183,7 @@ function init3DCircularCarousel() {
       if (diff > total / 2) diff -= total;
       if (diff < -total / 2) diff += total;
 
-      // For 4 cards, distance 2 is the opposite card.
-      // Hide it so every active card displays the exact same balanced 3-card layout (-1, 0, 1)
+      // Distance >= 2 hides behind stage so active card always has 1 prev (-1) & 1 next (1)
       if (Math.abs(diff) >= 2) {
         card.setAttribute('data-slot', 'hidden');
       } else {
@@ -1189,30 +1192,41 @@ function init3DCircularCarousel() {
     });
   }
 
-  function goNext() {
-    currentIndex = (currentIndex + 1) % total;
+  function navigate(direction) {
+    if (isAnimating) return; // Prevent race conditions during CSS transition
+    isAnimating = true;
+
+    currentIndex = (currentIndex + direction + total) % total;
     updateSlots();
+
+    // Release animation lock after transition duration (450ms)
+    setTimeout(() => {
+      isAnimating = false;
+    }, 450);
   }
 
-  function goPrev() {
-    currentIndex = (currentIndex - 1 + total) % total;
+  function jumpTo(targetIndex) {
+    if (isAnimating || targetIndex === currentIndex) return;
+    isAnimating = true;
+
+    currentIndex = (targetIndex % total + total) % total;
     updateSlots();
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 450);
   }
 
   /* ── Event Handlers ── */
-  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); goPrev(); });
-  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); goNext(); });
+  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(1); });
 
   // Direct card click to bring into center
   cards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      // Don't intercept button or link clicks inside the card
       if (e.target.closest('a, button')) return;
       const cardIndex = parseInt(card.dataset.cardIndex, 10);
-      if (cardIndex !== currentIndex) {
-        currentIndex = cardIndex;
-        updateSlots();
-      }
+      jumpTo(cardIndex);
     });
   });
 
@@ -1230,8 +1244,8 @@ function init3DCircularCarousel() {
     isSwiping = false;
     const endX = e.changedTouches[0].clientX;
     const deltaX = endX - startX;
-    if (deltaX < -40) goNext();
-    else if (deltaX > 40) goPrev();
+    if (deltaX < -40) navigate(1);
+    else if (deltaX > 40) navigate(-1);
   }, { passive: true });
 
   stage.addEventListener('mousedown', (e) => {
@@ -1243,17 +1257,17 @@ function init3DCircularCarousel() {
     if (!isSwiping) return;
     isSwiping = false;
     const deltaX = e.clientX - startX;
-    if (deltaX < -50) goNext();
-    else if (deltaX > 50) goPrev();
+    if (deltaX < -50) navigate(1);
+    else if (deltaX > 50) navigate(-1);
   });
 
   // Keyboard navigation when stage or page focus
   stage.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); goPrev(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); navigate(-1); }
   });
 
-  // Initial slot render
+  // Initial slot render from scratch
   updateSlots();
 }
 
