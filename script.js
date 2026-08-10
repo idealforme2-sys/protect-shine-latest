@@ -937,6 +937,197 @@ function initHeroRotators() {
   });
 }
 
+function initKineticHoverSpotlight() {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  if (isMobile) return;
+
+  const UNIT_DATA = {
+    "patrol": {
+      title: "Patrol + Take-Home Units",
+      desc: "High-contact surface sanitation, center console crevice detailing, light stain cleanup, and complete glass clarity for maximum field visibility.",
+      tag: "Standard Patrol Units",
+      tagClass: "tag-blue",
+      image: "./patrol.jpg"
+    },
+    "k9": {
+      title: "K9 Tactical Vehicles",
+      desc: "Specialized heavy pet hair removal, odor neutralization, thermal steam extraction on rear kennels, and bio-safe interior surface treatment.",
+      tag: "K9 Specialized Care",
+      tagClass: "tag-gold",
+      image: "./K9.jpg"
+    },
+    "fire": {
+      title: "Fire Personnel Rides",
+      desc: "Soot and smoke film removal, heavy soil wash, wheel metal polish, and deep interior upholstery deodorization.",
+      tag: "Fire & Rescue Personnel",
+      tagClass: "tag-red",
+      image: "./firefighter.jpg"
+    },
+    "ems": {
+      title: "EMS Ambulance Units",
+      desc: "Medical-grade steam sanitation of high-touch driver cabins, door handles, gear selectors, and dashboard controls.",
+      tag: "EMS Cab Sanitation",
+      tagClass: "tag-cyan",
+      image: "./ambulance.jpg"
+    },
+    "undercover": {
+      title: "Detective + Unmarked",
+      desc: "Low-profile, ultra-discreet mobile service. Deep interior upholstery steam clean, stain recovery, and fresh cabin restoration.",
+      tag: "Discreet & Unmarked",
+      tagClass: "tag-silver",
+      image: "./undercover.jpg"
+    },
+    "personal": {
+      title: "Personal Vehicles",
+      desc: "First responders get dedicated officer-rate pricing on their personal cars, trucks, and SUVs so off-duty rides stay pristine.",
+      tag: "Personal Officer Rates",
+      tagClass: "tag-orange",
+      image: "./personal.jpg"
+    }
+  };
+
+  // Create floating card DOM if missing
+  let floatingCard = document.querySelector(".kinetic-floating-card");
+  if (!floatingCard) {
+    floatingCard = document.createElement("div");
+    floatingCard.className = "kinetic-floating-card";
+    floatingCard.setAttribute("aria-hidden", "true");
+    floatingCard.innerHTML = `
+      <div class="kinetic-card-media" data-kinetic-media>
+        <div class="kinetic-card-badge">
+          <span class="kinetic-badge-dot"></span>
+          <span>ACTIVE UNIT</span>
+        </div>
+      </div>
+      <div class="kinetic-card-content">
+        <span class="kinetic-card-tag" data-kinetic-tag>TAG</span>
+        <h4 class="kinetic-card-title" data-kinetic-title>Title</h4>
+        <p class="kinetic-card-desc" data-kinetic-desc>Description</p>
+      </div>
+    `;
+    document.body.appendChild(floatingCard);
+  }
+
+  const mediaEl = floatingCard.querySelector("[data-kinetic-media]");
+  const tagEl = floatingCard.querySelector("[data-kinetic-tag]");
+  const titleEl = floatingCard.querySelector("[data-kinetic-title]");
+  const descEl = floatingCard.querySelector("[data-kinetic-desc]");
+
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let activeUnitKey = null;
+  let animationFrameId = null;
+
+  function updateCardPosition() {
+    // Smooth lerp physics
+    currentX += (targetX - currentX) * 0.15;
+    currentY += (targetY - currentY) * 0.15;
+
+    floatingCard.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(${activeUnitKey ? 1 : 0.85})`;
+
+    if (activeUnitKey || Math.abs(targetX - currentX) > 0.5 || Math.abs(targetY - currentY) > 0.5) {
+      animationFrameId = requestAnimationFrame(updateCardPosition);
+    } else {
+      animationFrameId = null;
+    }
+  }
+
+  function showUnitCard(key, e) {
+    const data = UNIT_DATA[key];
+    if (!data) return;
+
+    activeUnitKey = key;
+    mediaEl.style.backgroundImage = `url('${data.image}')`;
+    tagEl.textContent = data.tag;
+    tagEl.className = `kinetic-card-tag ${data.tagClass}`;
+    titleEl.textContent = data.title;
+    descEl.textContent = data.desc;
+
+    targetX = e.clientX + 24;
+    targetY = e.clientY + 24;
+
+    // Constrain within viewport bounds
+    const cardWidth = 340;
+    const cardHeight = 320;
+    if (targetX + cardWidth > window.innerWidth - 20) {
+      targetX = e.clientX - cardWidth - 20;
+    }
+    if (targetY + cardHeight > window.innerHeight - 20) {
+      targetY = e.clientY - cardHeight - 20;
+    }
+
+    if (!animationFrameId) {
+      currentX = targetX;
+      currentY = targetY;
+      animationFrameId = requestAnimationFrame(updateCardPosition);
+    }
+
+    floatingCard.classList.add("is-active");
+  }
+
+  function hideUnitCard() {
+    activeUnitKey = null;
+    floatingCard.classList.remove("is-active");
+  }
+
+  // Bind unit-card-v2 elements
+  document.querySelectorAll(".unit-card-v2").forEach((card) => {
+    let key = "patrol";
+    if (card.classList.contains("unit-k9")) key = "k9";
+    else if (card.classList.contains("unit-fire")) key = "fire";
+    else if (card.classList.contains("unit-ems")) key = "ems";
+    else if (card.classList.contains("unit-undercover")) key = "undercover";
+    else if (card.classList.contains("unit-personal")) key = "personal";
+
+    card.addEventListener("mouseenter", (e) => showUnitCard(key, e));
+    card.addEventListener("mousemove", (e) => {
+      if (!activeUnitKey) return;
+      targetX = e.clientX + 24;
+      targetY = e.clientY + 24;
+      if (targetX + 340 > window.innerWidth - 20) targetX = e.clientX - 360;
+      if (targetY + 320 > window.innerHeight - 20) targetY = e.clientY - 340;
+      if (!animationFrameId) animationFrameId = requestAnimationFrame(updateCardPosition);
+    });
+    card.addEventListener("mouseleave", hideUnitCard);
+  });
+
+  // Global Keyword triggers excluding header/nav & quote forms
+  document.body.addEventListener("mouseover", (e) => {
+    // Exclude header, nav, quote forms
+    if (e.target.closest("header, nav, .site-header, #quote, .quote-section, #first-responder-quote, #commercial-quote")) {
+      return;
+    }
+
+    const trigger = e.target.closest("[data-kinetic-key], .kinetic-keyword-trigger");
+    if (trigger) {
+      const key = trigger.getAttribute("data-kinetic-key") || trigger.dataset.key;
+      if (key) showUnitCard(key, e);
+    }
+  });
+
+  document.body.addEventListener("mousemove", (e) => {
+    if (!activeUnitKey) return;
+    if (e.target.closest("header, nav, .site-header, #quote, .quote-section, #first-responder-quote, #commercial-quote")) {
+      hideUnitCard();
+      return;
+    }
+    targetX = e.clientX + 24;
+    targetY = e.clientY + 24;
+    if (targetX + 340 > window.innerWidth - 20) targetX = e.clientX - 360;
+    if (targetY + 320 > window.innerHeight - 20) targetY = e.clientY - 340;
+    if (!animationFrameId) animationFrameId = requestAnimationFrame(updateCardPosition);
+  });
+
+  document.body.addEventListener("mouseout", (e) => {
+    const trigger = e.target.closest("[data-kinetic-key], .kinetic-keyword-trigger");
+    if (trigger && !e.relatedTarget?.closest("[data-kinetic-key], .kinetic-keyword-trigger")) {
+      hideUnitCard();
+    }
+  });
+}
+
 normalizePageState();
 window.addEventListener("pageshow", (event) => {
   if (!event.persisted) return;
@@ -956,6 +1147,7 @@ initQuoteForm();
 initCustomCursor();
 initReveal();
 initGsapAnimations();
+initKineticHoverSpotlight();
 initScrollProgress();
 initScrollSpy();
 initBackToTop();

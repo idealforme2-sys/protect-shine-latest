@@ -15954,6 +15954,140 @@ span.stat-icon-box svg,
   }
 }
 
+/* ============================================================
+   KINETIC FLOATING CURSOR SPOTLIGHT (Unit Cards Preview Engine)
+   ============================================================ */
+
+.kinetic-keyword-trigger {
+  position: relative;
+  display: inline-block;
+  color: var(--blue);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(97, 183, 255, 0.4);
+  transition: color 0.25s ease, border-color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.kinetic-keyword-trigger:hover {
+  color: #ffffff;
+  border-bottom-color: var(--blue-strong);
+  text-shadow: 0 0 12px rgba(97, 183, 255, 0.6);
+}
+
+/* Global Floating Cursor Card Container */
+.kinetic-floating-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+  width: 340px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(8, 14, 26, 0.95);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(97, 183, 255, 0.2);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.85) translateZ(0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.kinetic-floating-card.is-active {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
+.kinetic-card-media {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.kinetic-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 14, 26, 0.98) 100%);
+}
+
+.kinetic-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.kinetic-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.kinetic-card-badge span {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.kinetic-card-content {
+  padding: 16px 20px 20px;
+}
+
+.kinetic-card-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.kinetic-card-tag.tag-blue { background: rgba(97, 183, 255, 0.15); border: 1px solid rgba(97, 183, 255, 0.35); color: var(--blue); }
+.kinetic-card-tag.tag-gold { background: rgba(240, 196, 121, 0.15); border: 1px solid rgba(240, 196, 121, 0.35); color: var(--gold); }
+.kinetic-card-tag.tag-red { background: rgba(255, 77, 77, 0.15); border: 1px solid rgba(255, 77, 77, 0.35); color: var(--red); }
+.kinetic-card-tag.tag-cyan { background: rgba(64, 224, 208, 0.15); border: 1px solid rgba(64, 224, 208, 0.35); color: #40e0d0; }
+.kinetic-card-tag.tag-silver { background: rgba(226, 232, 240, 0.15); border: 1px solid rgba(226, 232, 240, 0.35); color: #e2e8f0; }
+.kinetic-card-tag.tag-orange { background: rgba(255, 130, 45, 0.15); border: 1px solid rgba(255, 130, 45, 0.35); color: #ff822d; }
+
+.kinetic-card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.kinetic-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
 
 
 
