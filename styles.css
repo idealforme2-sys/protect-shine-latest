@@ -16382,116 +16382,73 @@ span.stat-icon-box svg,
 }
 
 /* ============================================================
-   ANIMATED ELECTRIC BORDER OVERLAY (.electric-border)
+   REACT BITS CANVAS ELECTRIC BORDER OVERLAY (.electric-border)
    ============================================================ */
 .electric-border {
-  --electric-color: #7df9ff;
-  --electric-speed: 1s;
-  --electric-chaos: 0.12;
-  --electric-thickness: 2px;
-  --electric-radius: 16px;
-
+  --electric-border-color: #7df9ff;
+  --electric-light-color: #7df9ff;
   position: relative;
-  isolation: isolate;
-  border-radius: var(--electric-radius);
+  border-radius: 20px;
   overflow: visible;
+  isolation: isolate;
   width: 100%;
 }
 
-/* Main animated electric edge */
-.electric-border__edge {
+.eb-canvas-container {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  padding: var(--electric-thickness);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 25deg,
-      var(--electric-color) 45deg,
-      transparent 65deg,
-      transparent 105deg,
-      var(--electric-color) 125deg,
-      transparent 145deg,
-      transparent 205deg,
-      var(--electric-color) 225deg,
-      transparent 245deg,
-      transparent 305deg,
-      var(--electric-color) 325deg,
-      transparent 345deg,
-      transparent 360deg
-    );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  animation:
-    electric-border-spin
-    calc(var(--electric-speed) * 4)
-    linear infinite;
-
-  filter:
-    drop-shadow(0 0 3px var(--electric-color))
-    drop-shadow(0 0 8px var(--electric-color));
-
-  opacity: 0.95;
+  z-index: 2;
 }
 
-/* Soft surrounding glow */
-.electric-border__glow {
-  position: absolute;
-  inset: -4px;
-  z-index: -2;
-  border-radius: calc(var(--electric-radius) + 4px);
-  pointer-events: none;
-
-  background: var(--electric-color);
-  opacity: 0.18;
-
-  filter: blur(
-    calc(8px + (var(--electric-chaos) * 20px))
-  );
-
-  animation:
-    electric-border-pulse
-    calc(var(--electric-speed) * 2)
-    ease-in-out infinite alternate;
+.eb-canvas {
+  display: block;
 }
 
-/* Keeps actual card content untouched */
-.electric-border__content {
+.eb-content {
   position: relative;
+  border-radius: inherit;
   z-index: 1;
   width: 100%;
   height: 100%;
+}
+
+.eb-layers {
+  position: absolute;
+  inset: 0;
   border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes electric-border-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.eb-glow-1,
+.eb-glow-2,
+.eb-background-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-sizing: border-box;
 }
 
-@keyframes electric-border-pulse {
-  0% { opacity: 0.08; transform: scale(0.995); }
-  35% { opacity: 0.2; transform: scale(1); }
-  65% { opacity: 0.12; transform: scale(1.005); }
-  100% { opacity: 0.24; transform: scale(1); }
+.eb-glow-1 {
+  border: 2px solid rgba(125, 249, 255, 0.6);
+  filter: blur(1px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .electric-border__edge,
-  .electric-border__glow {
-    animation: none;
-  }
+.eb-glow-2 {
+  border: 2px solid #7df9ff;
+  filter: blur(4px);
+}
+
+.eb-background-glow {
+  z-index: -1;
+  transform: scale(1.04);
+  filter: blur(28px);
+  opacity: 0.25;
+  background: linear-gradient(-30deg, rgba(125, 249, 255, 0.6), transparent, #7df9ff);
 }
 
 

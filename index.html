@@ -452,10 +452,16 @@
           </div>
 
           <div class="tilt-card-wrapper">
-            <div class="electric-border" style="--electric-color: #7df9ff; --electric-speed: 1s; --electric-chaos: 0.12; --electric-thickness: 2px; --electric-radius: 16px;">
-              <div class="electric-border__glow"></div>
-              <div class="electric-border__edge"></div>
-              <div class="electric-border__content">
+            <div class="electric-border" id="electricBorderPriority" style="--electric-border-color: #7df9ff;">
+              <div class="eb-canvas-container">
+                <canvas class="eb-canvas" id="ebCanvasPriority"></canvas>
+              </div>
+              <div class="eb-layers">
+                <div class="eb-glow-1"></div>
+                <div class="eb-glow-2"></div>
+                <div class="eb-background-glow"></div>
+              </div>
+              <div class="eb-content">
                 <article class="package-card featured tilt-card" data-tilt-card>
                   <p class="package-label">Most Requested</p>
                   <h3>Priority Detail</h3>
