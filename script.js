@@ -1506,9 +1506,26 @@ function initCanvasElectricBorder() {
   requestAnimationFrame(draw);
 }
 
+/* ── EDITORIAL PROOF RAIL GSAP ENTRANCE ── */
+function initProofRailAnimation() {
+  if (typeof gsap === 'undefined') return;
+  const railColumns = document.querySelectorAll('[data-proof-rail] .proof-column');
+  if (!railColumns.length) return;
+
+  gsap.from(railColumns, {
+    opacity: 0,
+    y: 14,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power2.out',
+    delay: 0.2
+  });
+}
+
 function initPageInteractions() {
   initTiltCards();
   initCanvasElectricBorder();
+  initProofRailAnimation();
 }
 
 if (document.readyState === 'loading') {
