@@ -1522,10 +1522,116 @@ function initProofRailAnimation() {
   });
 }
 
+/* ── TRUE FOCUS INTERACTIVE WORD FOCUS ENGINE ── */
+function initTrueFocusEngine() {
+  const titleEl = document.querySelector('[data-true-focus-title]');
+  if (titleEl) {
+    const text = titleEl.textContent.trim();
+    const words = text.split(/\s+/);
+    titleEl.innerHTML = '';
+    titleEl.className = 'focus-container';
+
+    const wordEls = words.map((word) => {
+      const span = document.createElement('span');
+      span.className = 'focus-word';
+      span.style.filter = 'blur(3px)';
+      span.style.transition = 'filter 0.5s ease, color 0.3s ease';
+      span.textContent = word;
+      titleEl.appendChild(span);
+      return span;
+    });
+
+    const frame = document.createElement('div');
+    frame.className = 'focus-frame';
+    frame.style.borderColor = '#61b7ff';
+    frame.style.glowColor = 'rgba(97, 183, 255, 0.6)';
+    frame.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    frame.innerHTML = `
+      <span class="corner top-left"></span>
+      <span class="corner top-right"></span>
+      <span class="corner bottom-left"></span>
+      <span class="corner bottom-right"></span>
+    `;
+    titleEl.appendChild(frame);
+
+    let currentIndex = 0;
+    const updateFocus = (index) => {
+      wordEls.forEach((el, idx) => {
+        if (idx === index) {
+          el.classList.add('active');
+          el.style.filter = 'blur(0px)';
+          el.style.color = '#ffffff';
+        } else {
+          el.classList.remove('active');
+          el.style.filter = 'blur(3px)';
+          el.style.color = 'rgba(255, 255, 255, 0.6)';
+        }
+      });
+
+      const parentRect = titleEl.getBoundingClientRect();
+      const activeRect = wordEls[index].getBoundingClientRect();
+
+      frame.style.transform = `translate(${activeRect.left - parentRect.left}px, ${activeRect.top - parentRect.top}px)`;
+      frame.style.width = `${activeRect.width}px`;
+      frame.style.height = `${activeRect.height}px`;
+      frame.style.opacity = '1';
+    };
+
+    updateFocus(0);
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % wordEls.length;
+      updateFocus(currentIndex);
+    }, 1500);
+
+    wordEls.forEach((el, idx) => {
+      el.addEventListener('mouseenter', () => {
+        currentIndex = idx;
+        updateFocus(idx);
+      });
+    });
+  }
+
+  // Interactive focus on Driver Reset Checklist items
+  const checklistItems = document.querySelectorAll('[data-focus-word-item]');
+  if (checklistItems.length) {
+    checklistItems.forEach((item) => {
+      const textSpan = item.querySelector('span');
+      if (!textSpan) return;
+
+      item.style.cursor = 'pointer';
+      item.style.transition = 'all 0.3s ease';
+
+      item.addEventListener('mouseenter', () => {
+        checklistItems.forEach((other) => {
+          if (other !== item) {
+            other.style.opacity = '0.45';
+            other.style.filter = 'blur(1.5px)';
+          }
+        });
+        item.style.opacity = '1';
+        item.style.filter = 'blur(0px)';
+        item.style.transform = 'translateX(4px)';
+        textSpan.style.color = '#61b7ff';
+      });
+
+      item.addEventListener('mouseleave', () => {
+        checklistItems.forEach((other) => {
+          other.style.opacity = '1';
+          other.style.filter = 'blur(0px)';
+          other.style.transform = 'none';
+          const span = other.querySelector('span');
+          if (span) span.style.color = '';
+        });
+      });
+    });
+  }
+}
+
 function initPageInteractions() {
   initTiltCards();
   initCanvasElectricBorder();
   initProofRailAnimation();
+  initTrueFocusEngine();
 }
 
 if (document.readyState === 'loading') {
