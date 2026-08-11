@@ -295,7 +295,7 @@ ul {
   height: 132px;
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 30px 8px 30px 8px;
+  border-radius: 30px;
   background: rgba(255, 255, 255, 0.04);
   box-shadow:
     0 0 45px rgba(97, 183, 255, 0.18),
@@ -307,7 +307,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 22px 6px 22px 6px;
+  border-radius: 24px;
 }
 
 .preloader strong {
@@ -14121,7 +14121,7 @@ span.stat-icon-box svg,
   height: 2px !important;
   opacity: 1 !important;
   transform: scaleX(1) !important;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     90deg,
     #1678ff 0%,
     #9fd0ff 20%,
@@ -14352,7 +14352,7 @@ span.stat-icon-box svg,
   height: 2px !important;
   opacity: 1 !important;
   transform: scaleX(1) !important;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     90deg,
     #1678ff 0%,
     #9fd0ff 20%,
@@ -17281,6 +17281,310 @@ span.stat-icon-box svg,
 @media (max-width: 720px) {
   .pkg-v3 .pkgv3-row strong { font-size: 1.5rem; }
   .pkg-v3 .package-card.pkgv3-card::after { inset: 6px; }
+}
+
+/* ============================================================
+   COMMERCIAL TRUCK PAGE V5 — "CONVOY DECK" PASS
+   1. Editorial proof rail — smooth minimal transitions
+   2. Four-lane carousel — ambient float, machined frames,
+      premium interior type + hardware
+   ============================================================ */
+
+/* ---- 1. PROOF RAIL — SMOOTH MINIMAL TRANSITIONS ---- */
+@keyframes proofRailRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.editorial-proof-rail .proof-column {
+  animation: proofRailRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: background 360ms ease;
+}
+
+.editorial-proof-rail .proof-column:nth-child(1) { animation-delay: 100ms; }
+.editorial-proof-rail .proof-column:nth-child(2) { animation-delay: 230ms; }
+.editorial-proof-rail .proof-column:nth-child(3) { animation-delay: 360ms; }
+
+.editorial-proof-rail .proof-num,
+.editorial-proof-rail .proof-micro,
+.editorial-proof-rail .proof-title,
+.editorial-proof-rail .proof-desc {
+  transition: color 300ms ease, text-shadow 300ms ease;
+}
+
+.editorial-proof-rail .proof-dot {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease;
+}
+
+.editorial-proof-rail .proof-column:hover .proof-num { color: #f2f7fc; }
+.editorial-proof-rail .proof-column:hover .proof-micro { color: #d5e2ee; }
+.editorial-proof-rail .proof-column:hover .proof-desc { color: #c1d0de; }
+.editorial-proof-rail .proof-column:hover .proof-dot { transform: scale(1.4); }
+
+.editorial-proof-rail .proof-column:nth-child(1):hover { background: linear-gradient(180deg, rgba(240, 196, 121, 0.06), transparent 68%); }
+.editorial-proof-rail .proof-column:nth-child(1):hover .proof-title { text-shadow: 0 0 22px rgba(240, 196, 121, 0.4); }
+.editorial-proof-rail .proof-column:nth-child(1):hover .proof-dot { box-shadow: 0 0 12px rgba(240, 196, 121, 0.95); }
+
+.editorial-proof-rail .proof-column:nth-child(2):hover { background: linear-gradient(180deg, rgba(97, 183, 255, 0.06), transparent 68%); }
+.editorial-proof-rail .proof-column:nth-child(2):hover .proof-title { text-shadow: 0 0 22px rgba(97, 183, 255, 0.4); }
+.editorial-proof-rail .proof-column:nth-child(2):hover .proof-dot { box-shadow: 0 0 12px rgba(97, 183, 255, 0.95); }
+
+.editorial-proof-rail .proof-column:nth-child(3):hover { background: linear-gradient(180deg, rgba(52, 211, 153, 0.06), transparent 68%); }
+.editorial-proof-rail .proof-column:nth-child(3):hover .proof-title { text-shadow: 0 0 22px rgba(52, 211, 153, 0.4); }
+.editorial-proof-rail .proof-column:nth-child(3):hover .proof-dot { box-shadow: 0 0 12px rgba(52, 211, 153, 0.95); }
+
+/* ---- 2. STAGE AMBIENT GLOW ---- */
+.truck-3d-stage::before {
+  content: "";
+  position: absolute;
+  inset: 6% 4%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(46% 62% at 22% 42%, rgba(22, 120, 255, 0.15), transparent 72%),
+    radial-gradient(46% 62% at 78% 42%, rgba(255, 30, 53, 0.13), transparent 72%),
+    radial-gradient(58% 40% at 50% 104%, rgba(97, 183, 255, 0.1), transparent 70%);
+}
+
+/* ---- STAGE HEIGHT — give the premium cards vertical room so the
+       CTA never spills past the frame ---- */
+.truck-3d-stage { height: 640px; }
+@media (max-width: 900px) { .truck-3d-stage { height: 600px; } }
+@media (max-width: 600px) { .truck-3d-stage { height: 668px; } }
+
+/* ---- GENTLE AMBIENT FLOAT (individual translate so the 3D slot
+       transforms on `transform` keep full control) ---- */
+@keyframes truckLaneFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+/* ---- LANE PALETTES ---- */
+.truck-3d-stage .truck-panel-v3 {
+  --lane: #61b7ff;
+  --lane-glow: rgba(22, 120, 255, 0.3);
+  --lane-soft: rgba(97, 183, 255, 0.1);
+  --lane-border: rgba(97, 183, 255, 0.4);
+  --card-base: linear-gradient(150deg, rgba(13, 26, 48, 0.97), rgba(4, 8, 16, 0.985) 62%);
+  animation: truckLaneFloat 6.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.truck-3d-stage .tcp-v3-interior {
+  --lane: #f0c479;
+  --lane-glow: rgba(240, 196, 121, 0.32);
+  --lane-soft: rgba(240, 196, 121, 0.1);
+  --lane-border: rgba(240, 196, 121, 0.42);
+  --card-base: linear-gradient(150deg, rgba(31, 26, 18, 0.96), rgba(8, 8, 13, 0.985) 60%);
+}
+
+.truck-3d-stage .tcp-v3-featured {
+  --lane: #ff5b6d;
+  --lane-glow: rgba(255, 45, 75, 0.36);
+  --lane-soft: rgba(255, 45, 75, 0.11);
+  --lane-border: rgba(255, 77, 77, 0.5);
+  --card-base: linear-gradient(150deg, rgba(38, 15, 28, 0.97), rgba(8, 9, 17, 0.985) 54%, rgba(13, 25, 50, 0.94));
+}
+
+.truck-3d-stage .tcp-v3-protection {
+  --lane: #34d399;
+  --lane-glow: rgba(16, 185, 129, 0.32);
+  --lane-soft: rgba(16, 185, 129, 0.1);
+  --lane-border: rgba(16, 185, 129, 0.42);
+  --card-base: linear-gradient(150deg, rgba(9, 29, 25, 0.96), rgba(5, 9, 14, 0.985) 62%);
+}
+
+/* Phase each card so the convoy never bobs in unison; keyed to the
+   static data-card-index so rotation never causes a phase jump */
+.truck-3d-stage .truck-panel-v3[data-card-index="0"] { animation-delay: 0s; }
+.truck-3d-stage .truck-panel-v3[data-card-index="1"] { animation-delay: -1.7s; }
+.truck-3d-stage .truck-panel-v3[data-card-index="2"] { animation-delay: -3.3s; }
+.truck-3d-stage .truck-panel-v3[data-card-index="3"] { animation-delay: -4.9s; }
+.truck-3d-stage .truck-panel-v3[data-slot="hidden"] { animation: none; }
+
+/* ---- MACHINED FRAME: grain + brushed lines + gradient border ---- */
+.truck-3d-stage .truck-panel-v3 {
+  border: 1px solid transparent !important;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 16% 8%, var(--lane-glow), transparent 56%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 7px),
+    var(--card-base) padding-box,
+    linear-gradient(155deg, var(--lane-border), rgba(255, 255, 255, 0.08) 28%, var(--lane-border) 54%, rgba(255, 255, 255, 0.05) 78%, var(--lane-border)) border-box !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 26px 62px rgba(0, 0, 0, 0.62) !important;
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 450ms ease,
+    border-color 420ms ease,
+    box-shadow 420ms ease,
+    scale 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Flagship lane runs a full siren border */
+.truck-3d-stage .truck-panel-v3.tcp-v3-featured {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 14% 6%, var(--lane-glow), transparent 52%),
+    radial-gradient(circle at 88% 96%, rgba(22, 120, 255, 0.22), transparent 55%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 7px),
+    var(--card-base) padding-box,
+    linear-gradient(115deg, rgba(22, 120, 255, 0.85), rgba(230, 242, 255, 0.78) 26%, rgba(244, 207, 106, 0.92) 50%, rgba(255, 45, 75, 0.88) 74%, rgba(22, 120, 255, 0.85)) border-box !important;
+}
+
+/* Inner hairline — milled double-wall frame */
+.truck-panel-v3::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  z-index: 0;
+  border-radius: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  pointer-events: none;
+  transition: border-color 420ms ease;
+}
+
+.truck-panel-v3:hover::after { border-color: rgba(255, 255, 255, 0.13); }
+
+/* Active-slot and hover lighting */
+.truck-3d-stage .truck-panel-v3[data-slot="0"] {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 42px 96px rgba(0, 0, 0, 0.85),
+    0 0 56px -8px var(--lane-glow) !important;
+}
+
+.truck-3d-stage .truck-panel-v3:hover {
+  scale: 1.015;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 36px 84px rgba(0, 0, 0, 0.78),
+    0 0 46px -4px var(--lane-glow) !important;
+}
+
+/* ---- INTERIOR HARDWARE ---- */
+.truck-3d-stage .tcp-v3-tag {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(90deg, var(--lane-soft), transparent 78%) padding-box,
+    linear-gradient(90deg, var(--lane-border), rgba(255, 255, 255, 0.1), var(--lane-border)) border-box !important;
+  letter-spacing: 0.12em !important;
+  color: #eaf4fd !important;
+  margin-bottom: 10px !important;
+}
+
+.truck-3d-stage .tcp-v3-header { margin-bottom: 14px !important; }
+
+.truck-3d-stage .tcp-v3-action { padding-top: 14px !important; }
+
+.truck-3d-stage .tcp-v3-num-pill {
+  width: 47px !important;
+  height: 47px !important;
+  border-radius: 14px !important;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(155deg, var(--lane-soft), rgba(0, 0, 0, 0.3)) padding-box,
+    linear-gradient(155deg, var(--lane-border), rgba(255, 255, 255, 0.14) 45%, var(--lane-border)) border-box !important;
+  color: var(--lane) !important;
+  text-shadow: 0 0 16px var(--lane-glow) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 18px rgba(0, 0, 0, 0.35) !important;
+}
+
+.truck-3d-stage .tcp-v3-icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 13px;
+  border: 1px solid transparent !important;
+  background:
+    radial-gradient(circle at 30% 20%, var(--lane-soft), transparent 72%) padding-box,
+    linear-gradient(155deg, var(--lane-border), rgba(255, 255, 255, 0.08), var(--lane-border)) border-box !important;
+}
+
+.truck-3d-stage .tcp-v3-icon svg {
+  filter: drop-shadow(0 0 7px var(--lane-glow)) !important;
+}
+
+.truck-3d-stage .tcp-v3-title {
+  font-family: var(--font-display) !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.04 !important;
+  text-transform: uppercase !important;
+  color: #f7fafd !important;
+}
+
+.truck-3d-stage .tcp-v3-desc {
+  color: #a9bed3 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.42 !important;
+  margin-bottom: 12px !important;
+}
+
+/* ---- LEDGER LIST ---- */
+.truck-3d-stage .tcp-v3-list { gap: 0 !important; margin: 0 0 14px !important; }
+
+.truck-3d-stage .tcp-v3-list li {
+  padding: 5.5px 4px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055) !important;
+  color: #d9e6f2 !important;
+  transition: background 260ms ease, color 260ms ease !important;
+}
+
+.truck-3d-stage .tcp-v3-list li:last-child { border-bottom: 0 !important; }
+
+.truck-3d-stage .tcp-v3-list li:hover {
+  background: linear-gradient(90deg, transparent 6%, var(--lane-soft));
+  color: #ffffff !important;
+}
+
+.truck-3d-stage .tcp-v3-list li svg {
+  width: 20px !important;
+  height: 20px !important;
+  padding: 3px !important;
+  border: 1px solid var(--lane-border) !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ---- CTA ---- */
+.truck-3d-stage .button-tcp {
+  min-height: 50px !important;
+  border-radius: 14px !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  font-size: 0.82rem !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.25),
+    0 14px 30px rgba(0, 0, 0, 0.5) !important;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    background 260ms ease,
+    color 260ms ease !important;
+}
+
+.truck-3d-stage .button-tcp:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.28),
+    0 18px 38px rgba(0, 0, 0, 0.55),
+    0 0 26px var(--lane-glow) !important;
+}
+
+@media (max-width: 600px) {
+  .truck-3d-stage .tcp-v3-title { font-size: 1.48rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-proof-rail .proof-column,
+  .truck-3d-stage .truck-panel-v3 {
+    animation: none !important;
+  }
 }
 
 
