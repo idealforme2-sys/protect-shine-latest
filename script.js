@@ -1534,8 +1534,9 @@ function initTrueFocusEngine() {
     const wordEls = words.map((word) => {
       const span = document.createElement('span');
       span.className = 'focus-word';
-      span.style.filter = 'blur(3px)';
-      span.style.transition = 'filter 0.5s ease, color 0.3s ease';
+      span.style.filter = 'blur(6px)';
+      span.style.opacity = '0.45';
+      span.style.transition = 'filter 0.4s ease, opacity 0.4s ease, color 0.3s ease';
       span.textContent = word;
       titleEl.appendChild(span);
       return span;
@@ -1545,7 +1546,7 @@ function initTrueFocusEngine() {
     frame.className = 'focus-frame';
     frame.style.borderColor = '#61b7ff';
     frame.style.glowColor = 'rgba(97, 183, 255, 0.6)';
-    frame.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    frame.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
     frame.innerHTML = `
       <span class="corner top-left"></span>
       <span class="corner top-right"></span>
@@ -1560,11 +1561,13 @@ function initTrueFocusEngine() {
         if (idx === index) {
           el.classList.add('active');
           el.style.filter = 'blur(0px)';
+          el.style.opacity = '1';
           el.style.color = '#ffffff';
         } else {
           el.classList.remove('active');
-          el.style.filter = 'blur(3px)';
-          el.style.color = 'rgba(255, 255, 255, 0.6)';
+          el.style.filter = 'blur(6px)';
+          el.style.opacity = '0.45';
+          el.style.color = 'rgba(255, 255, 255, 0.5)';
         }
       });
 

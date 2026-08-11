@@ -16436,14 +16436,18 @@ span.stat-icon-box svg,
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
-  transition: filter 0.3s ease, color 0.3s ease;
+  filter: blur(6px);
+  opacity: 0.45;
+  transition: filter 0.4s ease, opacity 0.4s ease, color 0.4s ease;
   outline: none;
   user-select: none;
   display: inline-block;
 }
 
 .focus-word.active {
-  filter: blur(0);
+  filter: blur(0px) !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
 }
 
 .focus-frame {
