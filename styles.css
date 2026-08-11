@@ -16381,6 +16381,119 @@ span.stat-icon-box svg,
   }
 }
 
+/* ============================================================
+   ANIMATED ELECTRIC BORDER OVERLAY (.electric-border)
+   ============================================================ */
+.electric-border {
+  --electric-color: #7df9ff;
+  --electric-speed: 1s;
+  --electric-chaos: 0.12;
+  --electric-thickness: 2px;
+  --electric-radius: 16px;
+
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--electric-radius);
+  overflow: visible;
+  width: 100%;
+}
+
+/* Main animated electric edge */
+.electric-border__edge {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: var(--electric-thickness);
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 25deg,
+      var(--electric-color) 45deg,
+      transparent 65deg,
+      transparent 105deg,
+      var(--electric-color) 125deg,
+      transparent 145deg,
+      transparent 205deg,
+      var(--electric-color) 225deg,
+      transparent 245deg,
+      transparent 305deg,
+      var(--electric-color) 325deg,
+      transparent 345deg,
+      transparent 360deg
+    );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  animation:
+    electric-border-spin
+    calc(var(--electric-speed) * 4)
+    linear infinite;
+
+  filter:
+    drop-shadow(0 0 3px var(--electric-color))
+    drop-shadow(0 0 8px var(--electric-color));
+
+  opacity: 0.95;
+}
+
+/* Soft surrounding glow */
+.electric-border__glow {
+  position: absolute;
+  inset: -4px;
+  z-index: -2;
+  border-radius: calc(var(--electric-radius) + 4px);
+  pointer-events: none;
+
+  background: var(--electric-color);
+  opacity: 0.18;
+
+  filter: blur(
+    calc(8px + (var(--electric-chaos) * 20px))
+  );
+
+  animation:
+    electric-border-pulse
+    calc(var(--electric-speed) * 2)
+    ease-in-out infinite alternate;
+}
+
+/* Keeps actual card content untouched */
+.electric-border__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+@keyframes electric-border-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes electric-border-pulse {
+  0% { opacity: 0.08; transform: scale(0.995); }
+  35% { opacity: 0.2; transform: scale(1); }
+  65% { opacity: 0.12; transform: scale(1.005); }
+  100% { opacity: 0.24; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .electric-border__edge,
+  .electric-border__glow {
+    animation: none;
+  }
+}
+
 
 
 
