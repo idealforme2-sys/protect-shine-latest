@@ -4,10 +4,10 @@ import "./TiltCard.css";
 export default function TiltCard({
   children,
   className = "",
-  maxTilt = 8,
-  scale = 1.035,
-  perspective = 1100,
-  speed = 0.18,
+  maxTilt = 3.5,
+  scale = 1.015,
+  perspective = 1400,
+  speed = 0.22,
 }) {
   const cardRef = useRef(null);
   const [transform, setTransform] = useState(
@@ -48,7 +48,7 @@ export default function TiltCard({
   };
 
   return (
-    <div class="tilt-card-wrapper">
+    <div className="tilt-card-wrapper">
       <div
         ref={cardRef}
         className={`tilt-card ${className}`}

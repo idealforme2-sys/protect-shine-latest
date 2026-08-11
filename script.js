@@ -1278,9 +1278,9 @@ function initTiltCards() {
   const cards = document.querySelectorAll('[data-tilt-card]');
   if (!cards.length) return;
 
-  const maxTilt = 8;
-  const scale = 1.035;
-  const perspective = 1100;
+  const maxTilt = 3.5;
+  const scale = 1.015;
+  const perspective = 1400;
 
   cards.forEach((card) => {
     card.addEventListener('mousemove', (e) => {
