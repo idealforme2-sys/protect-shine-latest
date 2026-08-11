@@ -1272,3 +1272,39 @@ function init3DCircularCarousel() {
 }
 
 init3DCircularCarousel();
+
+/* ── LIGHTWEIGHT 3D MOUSE-TRACKING TILT ENGINE ([data-tilt-card]) ── */
+function initTiltCards() {
+  const cards = document.querySelectorAll('[data-tilt-card]');
+  if (!cards.length) return;
+
+  const maxTilt = 8;
+  const scale = 1.035;
+  const perspective = 1100;
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * maxTilt;
+      const rotateX = ((y - centerY) / centerY) * -maxTilt;
+
+      card.style.transform = `perspective(${perspective}px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale})`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTiltCards);
+} else {
+  initTiltCards();
+}

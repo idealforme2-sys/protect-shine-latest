@@ -1,0 +1,35 @@
+.tilt-card-wrapper {
+  perspective: 1100px;
+  width: 100%;
+}
+
+.tilt-card {
+  width: 100%;
+
+  transform-style: preserve-3d;
+  transform-origin: center center;
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+
+  /* Prevents weird rendering artifacts */
+  -webkit-backface-visibility: hidden;
+
+  /* Makes sure the card doesn't get clipped */
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-card {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .tilt-card {
+    transform: none !important;
+    transition: none !important;
+  }
+}
