@@ -17160,14 +17160,29 @@ span.stat-icon-box svg,
 
 /* Inner hairline so the frame reads as a milled double wall.
    Scoped to .pkgv3-card so it out-specifics the legacy
-   `.package-card.featured::after { content: none }` kill-switch. */
+   `.package-card.featured::after { content: none }` kill-switch,
+   and explicitly wipes the legacy featured-badge styles (filled
+   gradient + pill display) so they can never leak back in. */
 .pkg-v3 .package-card.pkgv3-card::after {
   content: "";
   position: absolute;
   inset: 7px;
   z-index: 0;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  display: block;
+  align-items: initial;
+  padding: 0;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  background: none;
+  color: transparent;
+  font-size: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
   pointer-events: none;
   transition: border-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
