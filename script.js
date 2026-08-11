@@ -1303,8 +1303,134 @@ function initTiltCards() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTiltCards);
-} else {
+/* ── CODROPS TYPOGRAPHY EFFECT CONTROLLERS ── */
+
+// 1. Bulge Text Effect (romanjeanelie/bulge-text-effect-codrops)
+function initBulgeTextEffect() {
+  const titles = document.querySelectorAll('.hero-bulge-title');
+  if (!titles.length) return;
+
+  titles.forEach((title) => {
+    if (title.querySelector('.bulge-char')) return;
+
+    const text = title.textContent;
+    title.innerHTML = '';
+    const chars = [];
+
+    Array.from(text).forEach((char) => {
+      const span = document.createElement('span');
+      span.className = 'bulge-char';
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      title.appendChild(span);
+      chars.push(span);
+    });
+
+    const maxScale = 0.32;
+    const radius = 110;
+
+    const handleMouseMove = (e) => {
+      chars.forEach((charSpan) => {
+        const rect = charSpan.getBoundingClientRect();
+        const charCenterX = rect.left + rect.width / 2;
+        const charCenterY = rect.top + rect.height / 2;
+
+        const dist = Math.hypot(e.clientX - charCenterX, e.clientY - charCenterY);
+
+        if (dist < radius) {
+          const factor = Math.exp(-Math.pow(dist, 2) / Math.pow(radius, 2));
+          const scale = 1 + maxScale * factor;
+          const translateY = -4 * factor;
+          charSpan.style.transform = `scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`;
+        } else {
+          charSpan.style.transform = 'scale(1) translateY(0px)';
+        }
+      });
+    };
+
+    const handleMouseLeave = () => {
+      chars.forEach((charSpan) => {
+        charSpan.style.transform = 'scale(1) translateY(0px)';
+      });
+    };
+
+    title.addEventListener('mousemove', handleMouseMove);
+    title.addEventListener('mouseleave', handleMouseLeave);
+  });
+}
+
+// 2. Scroll Blur Typography (codrops/ScrollBlurTypography)
+function initScrollBlurTypography() {
+  const blurElements = document.querySelectorAll('.scroll-blur-text');
+  if (!blurElements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  blurElements.forEach((el) => observer.observe(el));
+}
+
+// 3. On-Scroll Text Highlight (codrops/OnScrollTextHighlight)
+function initOnScrollTextHighlight() {
+  const highlightContainers = document.querySelectorAll('.scroll-highlight-text');
+  if (!highlightContainers.length) return;
+
+  highlightContainers.forEach((container) => {
+    if (container.querySelector('.scroll-word')) return;
+
+    const words = container.textContent.trim().split(/\s+/);
+    container.innerHTML = '';
+    const wordSpans = [];
+
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'scroll-word';
+      span.textContent = word + (i < words.length - 1 ? ' ' : '');
+      container.appendChild(span);
+      wordSpans.push(span);
+    });
+
+    const updateHighlight = () => {
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      const start = viewportHeight * 0.85;
+      const end = viewportHeight * 0.25;
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
+
+      const highlightCount = Math.floor(progress * wordSpans.length);
+
+      wordSpans.forEach((span, index) => {
+        if (index <= highlightCount) {
+          span.classList.add('is-highlighted');
+        } else {
+          span.classList.remove('is-highlighted');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', updateHighlight, { passive: true });
+    updateHighlight();
+  });
+}
+
+function initAllTypographyEffects() {
   initTiltCards();
+  initBulgeTextEffect();
+  initScrollBlurTypography();
+  initOnScrollTextHighlight();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAllTypographyEffects);
+} else {
+  initAllTypographyEffects();
 }

@@ -16381,6 +16381,70 @@ span.stat-icon-box svg,
   }
 }
 
+/* ============================================================
+   CODROPS TYPOGRAPHY EFFECTS (BULGE, SCROLL BLUR, SCROLL HIGHLIGHT)
+   ============================================================ */
+
+/* 1. BULGE TEXT DISTORTION (.hero-bulge-title & .bulge-char) */
+.hero-bulge-title {
+  display: inline-block;
+  cursor: default;
+}
+
+.bulge-char {
+  display: inline-block;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+  white-space: pre;
+}
+
+/* 2. SCROLL BLUR FOCUS REVEAL (.scroll-blur-text) */
+.scroll-blur-text {
+  filter: blur(10px);
+  opacity: 0.15;
+  transform: translateY(22px) translateZ(0);
+  will-change: filter, opacity, transform;
+  transition: filter 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-blur-text.is-in-view {
+  filter: blur(0px) !important;
+  opacity: 1 !important;
+  transform: translateY(0) translateZ(0) !important;
+}
+
+/* 3. ON-SCROLL TEXT HIGHLIGHT (.scroll-highlight-text) */
+.scroll-highlight-text {
+  display: block;
+}
+
+.scroll-highlight-text .scroll-word {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.28);
+  transition: color 0.22s ease-out, text-shadow 0.22s ease-out;
+  will-change: color;
+}
+
+.scroll-highlight-text .scroll-word.is-highlighted {
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-blur-text {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .scroll-highlight-text .scroll-word {
+    color: #ffffff !important;
+  }
+  .bulge-char {
+    transform: none !important;
+  }
+}
+
 
 
 
