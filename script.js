@@ -1630,11 +1630,54 @@ function initTrueFocusEngine() {
   }
 }
 
+/* ── ON-SCROLL TEXT HIGHLIGHT ENGINE ([data-scroll-highlight]) ── */
+function initScrollHighlightEngine() {
+  const elements = document.querySelectorAll('[data-scroll-highlight]');
+  if (!elements.length) return;
+
+  elements.forEach((el) => {
+    const text = el.textContent.trim();
+    const words = text.split(/\s+/);
+    el.innerHTML = '';
+
+    const wordSpans = words.map((word) => {
+      const span = document.createElement('span');
+      span.className = 'sh-word';
+      span.textContent = word + ' ';
+      el.appendChild(span);
+      return span;
+    });
+
+    const updateProgress = () => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      const start = windowHeight * 0.85;
+      const end = windowHeight * 0.35;
+
+      const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+      const activeCount = Math.floor(progress * wordSpans.length);
+
+      wordSpans.forEach((span, idx) => {
+        if (idx <= activeCount) {
+          span.classList.add('is-highlighted');
+        } else {
+          span.classList.remove('is-highlighted');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  });
+}
+
 function initPageInteractions() {
   initTiltCards();
   initCanvasElectricBorder();
   initProofRailAnimation();
   initTrueFocusEngine();
+  initScrollHighlightEngine();
 }
 
 if (document.readyState === 'loading') {
