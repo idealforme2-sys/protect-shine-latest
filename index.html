@@ -33,7 +33,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=block"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=ps-update-94" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-95" />
     <link rel="preload" as="image" href="./POLICECAR.jpg" />
     <script type="application/ld+json">
       {
@@ -428,30 +428,44 @@
             Select the package that fits the vehicle, then use the quote form or text path to confirm timing and location.
           </p>
         </div>
-        <div class="package-grid">
-          <div class="tilt-card-wrapper">
-            <article class="package-card tilt-card" data-tilt-card>
-              <p class="package-label">Basic Maintenance</p>
+        <div class="package-grid pkg-v3">
+          <div class="tilt-card-wrapper pkgv3-wrap">
+            <article class="package-card tilt-card pkgv3-card pkgv3-blue" data-tilt-card>
+              <span class="pkgv3-ghost" aria-hidden="true">01</span>
+              <i class="pkgv3-corner pkgv3-corner-tl" aria-hidden="true"></i>
+              <i class="pkgv3-corner pkgv3-corner-br" aria-hidden="true"></i>
+              <header class="pkgv3-head">
+                <p class="pkgv3-label"><span class="pkgv3-dot" aria-hidden="true"></span>Basic Maintenance</p>
+                <div class="pkgv3-meter" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+              </header>
               <h3>Quick Response Wash</h3>
-              <p class="package-tagline">Fast. Reliable. Ready.</p>
-              <p class="package-best"><strong>Best for:</strong> Maintenance &amp; already clean vehicles.</p>
-              <div class="price-stack">
-                <div><span>Sedan / Small SUV</span><strong>$80</strong></div>
-                <div><span>Mid-Size SUV / Truck</span><strong>$100</strong></div>
-                <div><span>3rd Row / Large Truck</span><strong>$120</strong></div>
+              <p class="pkgv3-tagline">Fast. Reliable. Ready.</p>
+              <p class="pkgv3-best"><strong>Best for:</strong> Maintenance &amp; already clean vehicles.</p>
+              <div class="pkgv3-prices">
+                <p class="pkgv3-prices-key" aria-hidden="true"><span>Vehicle class</span><span>Rate</span></p>
+                <div class="pkgv3-row"><span>Sedan / Small SUV</span><strong><em>$</em>80</strong></div>
+                <div class="pkgv3-row"><span>Mid-Size SUV / Truck</span><strong><em>$</em>100</strong></div>
+                <div class="pkgv3-row"><span>3rd Row / Large Truck</span><strong><em>$</em>120</strong></div>
               </div>
-              <p class="package-time"><span>Estimated time</span><strong data-eta="~1 hr">~1 hr</strong></p>
-              <ul>
+              <p class="pkgv3-time">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 7.5v4.8l3.1 1.9"/></svg>
+                <span>Estimated time</span>
+                <strong data-eta="~1 hr">~1 hr</strong>
+              </p>
+              <ul class="pkgv3-list">
                 <li>Exterior hand wash and dry</li>
                 <li>Wheels and tires cleaned plus shine</li>
                 <li>Interior windows</li>
                 <li>Door jamb wipe</li>
               </ul>
-              <button type="button" class="choose-package" data-package="Quick Response Wash">Choose Package</button>
+              <button type="button" class="choose-package" data-package="Quick Response Wash">
+                <span>Choose Package</span>
+                <span class="pkgv3-cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+              </button>
             </article>
           </div>
 
-          <div class="tilt-card-wrapper">
+          <div class="tilt-card-wrapper pkgv3-wrap pkgv3-wrap-featured">
             <div class="electric-border" id="electricBorderPriority" style="--electric-border-color: #7df9ff;">
               <div class="eb-canvas-container">
                 <canvas class="eb-canvas" id="ebCanvasPriority"></canvas>
@@ -462,53 +476,88 @@
                 <div class="eb-background-glow"></div>
               </div>
               <div class="eb-content">
-                <article class="package-card featured tilt-card" data-tilt-card>
-                  <p class="package-label">Most Requested</p>
+                <article class="package-card featured tilt-card pkgv3-card pkgv3-flagship" data-tilt-card>
+                  <p class="pkgv3-flag">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8L12 2z"/></svg>
+                    Most Picked
+                  </p>
+                  <span class="pkgv3-ghost" aria-hidden="true">02</span>
+                  <i class="pkgv3-corner pkgv3-corner-tl" aria-hidden="true"></i>
+                  <i class="pkgv3-corner pkgv3-corner-br" aria-hidden="true"></i>
+                  <header class="pkgv3-head">
+                    <p class="pkgv3-label"><span class="pkgv3-dot" aria-hidden="true"></span>Most Requested</p>
+                    <div class="pkgv3-meter" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i></div>
+                  </header>
                   <h3>Priority Detail</h3>
-                  <p class="package-tagline">When your vehicle needs attention.</p>
-                  <p class="package-best"><strong>Best for:</strong> Daily drivers that need a full reset.</p>
-                  <p class="package-recommended">Recommended for most daily drivers</p>
-                  <div class="price-stack">
-                    <div><span>Sedan / Small SUV</span><strong>$180</strong></div>
-                    <div><span>Mid-Size SUV / Truck</span><strong>$220</strong></div>
-                    <div><span>3rd Row / Large Truck</span><strong>$240</strong></div>
+                  <p class="pkgv3-tagline">When your vehicle needs attention.</p>
+                  <p class="pkgv3-best"><strong>Best for:</strong> Daily drivers that need a full reset.</p>
+                  <p class="pkgv3-rec">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8L12 2z"/></svg>
+                    Recommended for most daily drivers
+                  </p>
+                  <div class="pkgv3-prices">
+                    <p class="pkgv3-prices-key" aria-hidden="true"><span>Vehicle class</span><span>Rate</span></p>
+                    <div class="pkgv3-row"><span>Sedan / Small SUV</span><strong><em>$</em>180</strong></div>
+                    <div class="pkgv3-row"><span>Mid-Size SUV / Truck</span><strong><em>$</em>220</strong></div>
+                    <div class="pkgv3-row"><span>3rd Row / Large Truck</span><strong><em>$</em>240</strong></div>
                   </div>
-                  <p class="package-time"><span>Estimated time</span><strong data-eta="~2.5 hrs">~2.5 hrs</strong></p>
-                  <ul>
-                    <li>Everything in Quick Response, plus:</li>
+                  <p class="pkgv3-time">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 7.5v4.8l3.1 1.9"/></svg>
+                    <span>Estimated time</span>
+                    <strong data-eta="~2.5 hrs">~2.5 hrs</strong>
+                  </p>
+                  <ul class="pkgv3-list">
+                    <li class="pkgv3-lead">Everything in Quick Response, plus:</li>
                     <li>Hand wax (exterior)</li>
                     <li>Spot shampoo (seats &amp; carpets)</li>
                     <li>Steam cleaning (interior)</li>
                     <li>Deep crevice / detail brush work</li>
                     <li>Light stain removal</li>
                   </ul>
-                  <button type="button" class="choose-package" data-package="Priority Detail">Choose Package</button>
+                  <button type="button" class="choose-package" data-package="Priority Detail">
+                    <span>Choose Package</span>
+                    <span class="pkgv3-cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+                  </button>
                 </article>
               </div>
             </div>
           </div>
 
-          <div class="tilt-card-wrapper">
-            <article class="package-card tilt-card" data-tilt-card>
-              <p class="package-label">Full Reset</p>
+          <div class="tilt-card-wrapper pkgv3-wrap">
+            <article class="package-card tilt-card pkgv3-card pkgv3-red" data-tilt-card>
+              <span class="pkgv3-ghost" aria-hidden="true">03</span>
+              <i class="pkgv3-corner pkgv3-corner-tl" aria-hidden="true"></i>
+              <i class="pkgv3-corner pkgv3-corner-br" aria-hidden="true"></i>
+              <header class="pkgv3-head">
+                <p class="pkgv3-label"><span class="pkgv3-dot" aria-hidden="true"></span>Full Reset</p>
+                <div class="pkgv3-meter" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></div>
+              </header>
               <h3>Lifesaver Detail</h3>
-              <p class="package-tagline">We bring your vehicle back to life.</p>
-              <p class="package-best"><strong>Best for:</strong> Vehicles needing a full interior recovery and deeper attention.</p>
-              <div class="price-stack">
-                <div><span>Sedan / Small SUV</span><strong>$260+</strong></div>
-                <div><span>Mid-Size SUV / Truck</span><strong>$280+</strong></div>
-                <div><span>3rd Row / Large Truck</span><strong>$300+</strong></div>
+              <p class="pkgv3-tagline">We bring your vehicle back to life.</p>
+              <p class="pkgv3-best"><strong>Best for:</strong> Vehicles needing a full interior recovery and deeper attention.</p>
+              <div class="pkgv3-prices">
+                <p class="pkgv3-prices-key" aria-hidden="true"><span>Vehicle class</span><span>Rate</span></p>
+                <div class="pkgv3-row"><span>Sedan / Small SUV</span><strong><em>$</em>260+</strong></div>
+                <div class="pkgv3-row"><span>Mid-Size SUV / Truck</span><strong><em>$</em>280+</strong></div>
+                <div class="pkgv3-row"><span>3rd Row / Large Truck</span><strong><em>$</em>300+</strong></div>
               </div>
-              <p class="package-time"><span>Estimated time</span><strong data-eta="~4+ hrs">~4+ hrs</strong></p>
-              <ul>
-                <li>Everything in Priority Detail, plus:</li>
+              <p class="pkgv3-time">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 7.5v4.8l3.1 1.9"/></svg>
+                <span>Estimated time</span>
+                <strong data-eta="~4+ hrs">~4+ hrs</strong>
+              </p>
+              <ul class="pkgv3-list">
+                <li class="pkgv3-lead">Everything in Priority Detail, plus:</li>
                 <li>Full interior deep cleaning (top to bottom)</li>
                 <li>Deep cleaning of vents, cracks &amp; crevices</li>
                 <li>Door panels, cupholders &amp; console detailed</li>
                 <li>Light pet hair removal *</li>
                 <li>Minor trim restoration *</li>
               </ul>
-              <button type="button" class="choose-package" data-package="Lifesaver Detail">Choose Package</button>
+              <button type="button" class="choose-package" data-package="Lifesaver Detail">
+                <span>Choose Package</span>
+                <span class="pkgv3-cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+              </button>
             </article>
           </div>
         </div>
