@@ -4,8 +4,8 @@ import './ElectricBorder.css';
 const ElectricBorder = ({
   children,
   color = '#7df9ff',
-  speed = 1,
-  chaos = 0.12,
+  speed = 0.8,
+  chaos = 0.03,
   borderRadius = 20,
   className,
   style
@@ -16,7 +16,6 @@ const ElectricBorder = ({
   const timeRef = useRef(0);
   const lastFrameTimeRef = useRef(0);
 
-  // Noise functions
   const random = useCallback(x => {
     return (Math.sin(x * 12.9898) * 43758.5453) % 1;
   }, []);
@@ -80,56 +79,48 @@ const ElectricBorder = ({
 
       let accumulated = 0;
 
-      // Top edge
       if (distance <= accumulated + straightWidth) {
         const progress = (distance - accumulated) / straightWidth;
         return { x: left + radius + progress * straightWidth, y: top };
       }
       accumulated += straightWidth;
 
-      // Top-right corner
       if (distance <= accumulated + cornerArc) {
         const progress = (distance - accumulated) / cornerArc;
         return getCornerPoint(left + width - radius, top + radius, radius, -Math.PI / 2, Math.PI / 2, progress);
       }
       accumulated += cornerArc;
 
-      // Right edge
       if (distance <= accumulated + straightHeight) {
         const progress = (distance - accumulated) / straightHeight;
         return { x: left + width, y: top + radius + progress * straightHeight };
       }
       accumulated += straightHeight;
 
-      // Bottom-right corner
       if (distance <= accumulated + cornerArc) {
         const progress = (distance - accumulated) / cornerArc;
         return getCornerPoint(left + width - radius, top + height - radius, radius, 0, Math.PI / 2, progress);
       }
       accumulated += cornerArc;
 
-      // Bottom edge
       if (distance <= accumulated + straightWidth) {
         const progress = (distance - accumulated) / straightWidth;
         return { x: left + width - radius - progress * straightWidth, y: top + height };
       }
       accumulated += straightWidth;
 
-      // Bottom-left corner
       if (distance <= accumulated + cornerArc) {
         const progress = (distance - accumulated) / cornerArc;
         return getCornerPoint(left + radius, top + height - radius, radius, Math.PI / 2, Math.PI / 2, progress);
       }
       accumulated += cornerArc;
 
-      // Left edge
       if (distance <= accumulated + straightHeight) {
         const progress = (distance - accumulated) / straightHeight;
         return { x: left, y: top + height - radius - progress * straightHeight };
       }
       accumulated += straightHeight;
 
-      // Top-left corner
       const progress = (distance - accumulated) / cornerArc;
       return getCornerPoint(left + radius, top + radius, radius, Math.PI, Math.PI / 2, progress);
     },
@@ -144,14 +135,14 @@ const ElectricBorder = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const octaves = 10;
+    const octaves = 5;
     const lacunarity = 1.6;
-    const gain = 0.7;
+    const gain = 0.6;
     const amplitude = chaos;
-    const frequency = 10;
+    const frequency = 4;
     const baseFlatness = 0;
-    const displacement = 60;
-    const borderOffset = 60;
+    const displacement = 14;
+    const borderOffset = 30;
 
     const updateSize = () => {
       const rect = container.getBoundingClientRect();
@@ -214,7 +205,7 @@ const ElectricBorder = ({
         const point = getRoundedRectPoint(progress, left, top, borderWidth, borderHeight, radius);
 
         const xNoise = octavedNoise(
-          progress * 8,
+          progress * 4,
           octaves,
           lacunarity,
           gain,
@@ -226,7 +217,7 @@ const ElectricBorder = ({
         );
 
         const yNoise = octavedNoise(
-          progress * 8,
+          progress * 4,
           octaves,
           lacunarity,
           gain,

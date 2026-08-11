@@ -1313,18 +1313,18 @@ function initCanvasElectricBorder() {
   if (!ctx) return;
 
   const color = '#7df9ff';
-  const speed = 1;
-  const chaos = 0.12;
+  const speed = 0.8;
+  const chaos = 0.03;
   const borderRadius = 20;
 
-  const octaves = 10;
+  const octaves = 5;
   const lacunarity = 1.6;
-  const gain = 0.7;
+  const gain = 0.6;
   const amplitude = chaos;
-  const frequency = 10;
+  const frequency = 4;
   const baseFlatness = 0;
-  const displacement = 60;
-  const borderOffset = 60;
+  const displacement = 14;
+  const borderOffset = 30;
 
   let time = 0;
   let lastFrameTime = performance.now();
@@ -1477,8 +1477,8 @@ function initCanvasElectricBorder() {
       const progress = i / sampleCount;
       const point = getRoundedRectPoint(progress, left, top, borderWidth, borderHeight, radius);
 
-      const xNoise = octavedNoise(progress * 8, 0);
-      const yNoise = octavedNoise(progress * 8, 1);
+      const xNoise = octavedNoise(progress * 4, 0);
+      const yNoise = octavedNoise(progress * 4, 1);
 
       const displacedX = point.x + xNoise * displacement;
       const displacedY = point.y + yNoise * displacement;
