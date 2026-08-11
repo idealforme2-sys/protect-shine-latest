@@ -16510,8 +16510,6 @@ span.stat-icon-box svg,
 
 .pkg-v3 .tilt-card-wrapper { height: 100%; }
 
-.pkg-v3 .electric-border { border-radius: 6px 28px 6px 28px; }
-
 .pkg-v3 .package-card {
   --tier: #61b7ff;
   --tier-strong: #1678ff;
@@ -16525,7 +16523,7 @@ span.stat-icon-box svg,
   padding: 34px 28px 28px !important;
   overflow: visible !important;
   border: 1px solid rgba(166, 199, 231, 0.16) !important;
-  border-radius: 6px 28px 6px 28px !important;
+  border-radius: 20px !important;
   background:
     radial-gradient(120% 90% at 12% 0%, var(--tier-glow), transparent 44%),
     repeating-linear-gradient(135deg, rgba(214, 232, 250, 0.028) 0 1px, transparent 1px 6px),
@@ -16557,12 +16555,12 @@ span.stat-icon-box svg,
   --tier-glow: rgba(240, 196, 121, 0.14);
   --tier-tint: rgba(240, 196, 121, 0.1);
   --tier-border: rgba(240, 196, 121, 0.42);
-  border: 1px solid transparent !important;
+  border: 2px solid transparent !important;
   background:
     radial-gradient(130% 80% at 50% 0%, rgba(125, 249, 255, 0.1), transparent 46%),
     repeating-linear-gradient(125deg, rgba(255, 255, 255, 0.024) 0 1px, transparent 1px 6px),
     linear-gradient(160deg, rgba(12, 34, 62, 0.97), rgba(6, 10, 18, 0.98) 48%, rgba(44, 9, 22, 0.95)) padding-box,
-    linear-gradient(115deg, rgba(22, 120, 255, 0.85), rgba(220, 238, 255, 0.75) 26%, rgba(240, 196, 121, 0.9) 50%, rgba(255, 30, 53, 0.8) 74%, rgba(22, 120, 255, 0.85)) border-box !important;
+    linear-gradient(115deg, rgba(22, 120, 255, 0.9), rgba(220, 238, 255, 0.8) 26%, rgba(240, 196, 121, 0.95) 50%, rgba(255, 30, 53, 0.85) 74%, rgba(22, 120, 255, 0.9)) border-box !important;
   box-shadow:
     0 40px 90px rgba(0, 0, 0, 0.52),
     0 0 46px rgba(22, 120, 255, 0.16),
@@ -16594,7 +16592,7 @@ span.stat-icon-box svg,
   left: 0;
   right: 0;
   height: 3px;
-  border-radius: 6px 28px 0 0;
+  border-radius: 20px 20px 0 0;
   background: linear-gradient(90deg, var(--tier-strong), var(--tier) 42%, transparent 82%);
   opacity: 0.85;
   transition: opacity 380ms cubic-bezier(0.22, 1, 0.36, 1), filter 380ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -16800,25 +16798,65 @@ span.stat-icon-box svg,
 
 /* Price ledger */
 .pkgv3-prices {
-  margin: 0 0 16px;
-  padding: 4px 14px 6px;
-  border: 1px solid rgba(173, 203, 232, 0.14);
-  border-radius: 14px 5px 14px 5px;
-  background: rgba(3, 7, 13, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 26%),
+    linear-gradient(168deg, rgba(10, 19, 32, 0.94), rgba(3, 7, 13, 0.97) 62%) padding-box,
+    linear-gradient(155deg, var(--tier-border), rgba(255, 255, 255, 0.05) 30%, var(--tier-border) 52%, rgba(255, 255, 255, 0.04) 74%, var(--tier-border)) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 10px 28px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+}
+
+.pkgv3-prices::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80%;
+  width: 46%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.028), transparent);
+  transform: skewX(-18deg);
+  animation: pkgv3PlateShine 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pkgv3PlateShine {
+  0% { left: -80%; }
+  42%, 100% { left: 140%; }
 }
 
 .pkgv3-prices-key {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 9px 0 7px;
-  border-bottom: 1px solid rgba(173, 203, 232, 0.12);
-  color: #76879a;
-  font-size: 0.58rem;
+  padding: 11px 16px 9px;
+  border-bottom: 1px solid rgba(173, 203, 232, 0.14);
+  background: linear-gradient(90deg, var(--tier-tint), transparent 65%);
+  color: #8fa3b8;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
+}
+
+.pkgv3-prices-key span:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 8px;
+  background: var(--tier);
+  box-shadow: 0 0 6px var(--tier-glow);
+  transform: rotate(45deg) translateY(-2px);
 }
 
 .pkgv3-row {
@@ -16826,32 +16864,40 @@ span.stat-icon-box svg,
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  margin-inline: -8px;
-  padding: 9px 8px;
-  border-bottom: 1px dashed rgba(173, 203, 232, 0.1);
-  border-radius: 6px;
+  padding: 11px 16px;
+  border-bottom: 1px solid rgba(173, 203, 232, 0.08);
   transition: background 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pkgv3-row:last-child { border-bottom: 0; }
 
-.pkgv3-row:hover { background: linear-gradient(90deg, transparent 8%, var(--tier-tint)); }
+.pkgv3-row:hover { background: linear-gradient(90deg, transparent 4%, var(--tier-tint)); }
 
 .pkgv3-row span { color: #a6b6c6; font-size: 0.86rem; font-weight: 600; }
 
+.pkgv3-row:hover span { color: #c8d6e4; }
+
 .pkgv3-row strong {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.62rem;
   letter-spacing: 0.05em;
   line-height: 1;
-  color: #ffffff;
+  background: linear-gradient(180deg, #ffffff 6%, var(--tier-light) 40%, var(--tier) 72%, var(--tier-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+  transition: filter 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pkgv3-row:hover strong {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px var(--tier-glow));
 }
 
 .pkgv3-row strong em {
   font-style: normal;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   letter-spacing: 0.08em;
-  color: var(--tier);
 }
 
 /* ETA pill */
@@ -16887,20 +16933,20 @@ span.stat-icon-box svg,
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 10px !important;
-  flex: 1;
-  margin: 0 0 24px !important;
+  gap: 4px !important;
+  flex: 0 1 auto;
+  margin: 0 0 18px !important;
   padding: 0;
   list-style: none;
 }
 
 .pkg-v3 .package-card .pkgv3-list li {
   position: relative;
-  padding-left: 24px !important;
+  padding-left: 22px !important;
   color: #d3dde8;
-  font-size: 0.92rem !important;
+  font-size: 0.9rem !important;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
 .pkg-v3 .package-card .pkgv3-list li::before {
@@ -16945,7 +16991,7 @@ span.stat-icon-box svg,
   height: 52px !important;
   margin-top: auto !important;
   padding: 0 22px;
-  border-radius: 14px 5px 14px 5px !important;
+  border-radius: 999px !important;
   font-size: 0.9rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em;
@@ -16971,10 +17017,6 @@ span.stat-icon-box svg,
 /* Featured wrapper lift (on the wrapper so tilt inline transforms never crush it) */
 @media (min-width: 992px) {
   .pkgv3-wrap-featured { transform: translateY(-14px); }
-
-  .pkgv3-wrap-featured .electric-border {
-    box-shadow: 0 46px 96px rgba(0, 0, 0, 0.34);
-  }
 }
 
 /* Most Picked ribbon */
@@ -17049,9 +17091,181 @@ span.stat-icon-box svg,
 
 @media (prefers-reduced-motion: reduce) {
   .pkgv3-dot,
-  .pkgv3-flag::after {
+  .pkgv3-flag::after,
+  .pkgv3-prices::after {
     animation: none !important;
   }
+}
+
+/* ============================================================
+   PACKAGE CARDS V4 — "OBSIDIAN RATE PLATES" PREMIUM PASS
+   Elevates the three rate ledgers + card frames with real
+   material texture: brushed metal, film grain, machined
+   gradient borders, and struck-metal price typography.
+   ============================================================ */
+
+/* Metallic tier endpoints used by the struck-metal price type */
+.pkg-v3 .package-card {
+  --tier-light: #cfe6ff;
+  --tier-deep: #0d5ab8;
+}
+
+.pkg-v3 .package-card.pkgv3-red {
+  --tier-light: #ffc9d1;
+  --tier-deep: #c8102a;
+}
+
+.pkg-v3 .package-card.pkgv3-flagship {
+  --tier-light: #ffe7bd;
+  --tier-deep: #b07a26;
+}
+
+/* --- Card frame: machined double border + grain + depth --- */
+.pkg-v3 .package-card {
+  border: 1px solid transparent !important;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E"),
+    radial-gradient(120% 90% at 12% 0%, var(--tier-glow), transparent 44%),
+    repeating-linear-gradient(135deg, rgba(214, 232, 250, 0.03) 0 1px, transparent 1px 6px),
+    linear-gradient(165deg, rgba(13, 27, 46, 0.92), rgba(4, 8, 15, 0.96) 58%) padding-box,
+    linear-gradient(150deg, var(--tier-border), rgba(255, 255, 255, 0.06) 26%, var(--tier-border) 50%, rgba(255, 255, 255, 0.05) 74%, var(--tier-border)) border-box !important;
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.46),
+    0 2px 0 rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(232, 244, 255, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
+}
+
+.pkg-v3 .package-card.pkgv3-red {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E"),
+    radial-gradient(120% 90% at 88% 0%, var(--tier-glow), transparent 44%),
+    repeating-linear-gradient(135deg, rgba(255, 214, 220, 0.028) 0 1px, transparent 1px 6px),
+    linear-gradient(195deg, rgba(52, 11, 24, 0.9), rgba(5, 8, 15, 0.96) 56%) padding-box,
+    linear-gradient(210deg, var(--tier-border), rgba(255, 255, 255, 0.06) 26%, var(--tier-border) 50%, rgba(255, 255, 255, 0.05) 74%, var(--tier-border)) border-box !important;
+}
+
+.pkg-v3 .package-card.pkgv3-flagship {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.05'/%3E%3C/svg%3E"),
+    radial-gradient(130% 80% at 50% 0%, rgba(125, 249, 255, 0.1), transparent 46%),
+    repeating-linear-gradient(125deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 6px),
+    linear-gradient(160deg, rgba(12, 34, 62, 0.97), rgba(6, 10, 18, 0.98) 48%, rgba(44, 9, 22, 0.95)) padding-box,
+    linear-gradient(115deg, rgba(22, 120, 255, 0.9), rgba(220, 238, 255, 0.85) 26%, rgba(240, 196, 121, 0.98) 50%, rgba(255, 30, 53, 0.88) 74%, rgba(22, 120, 255, 0.9)) border-box !important;
+}
+
+/* Gradient border must stay transparent on hover so the border-box
+   gradient keeps showing through (earlier rule tints border-color). */
+.pkg-v3 .package-card:hover { border-color: transparent !important; }
+
+/* Inner hairline so the frame reads as a milled double wall.
+   Scoped to .pkgv3-card so it out-specifics the legacy
+   `.package-card.featured::after { content: none }` kill-switch. */
+.pkg-v3 .package-card.pkgv3-card::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  z-index: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  transition: border-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pkg-v3 .package-card.pkgv3-card:hover::after { border-color: rgba(255, 255, 255, 0.1); }
+
+/* --- Rate plate: deeper well, brighter machined rim --- */
+.pkg-v3 .pkgv3-prices {
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 22px rgba(0, 0, 0, 0.28),
+    0 12px 30px rgba(0, 0, 0, 0.36);
+}
+
+.pkg-v3 .package-card:hover .pkgv3-prices {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 22px rgba(0, 0, 0, 0.24),
+    0 14px 34px rgba(0, 0, 0, 0.4),
+    0 0 24px var(--tier-glow);
+}
+
+/* Key row: foil-stamped header with tier tint */
+.pkg-v3 .pkgv3-prices-key {
+  color: #9db1c4;
+  background: linear-gradient(90deg, var(--tier-tint), transparent 70%);
+  border-bottom: 1px solid rgba(173, 203, 232, 0.16);
+}
+
+.pkg-v3 .pkgv3-flagship .pkgv3-prices-key { color: #e6cf9f; }
+
+/* Rows: ledger rules with a struck-metal hover */
+.pkg-v3 .pkgv3-row {
+  border-bottom: 1px solid rgba(173, 203, 232, 0.09);
+}
+
+.pkg-v3 .pkgv3-row:hover {
+  background: linear-gradient(90deg, transparent 2%, var(--tier-tint) 42%, transparent 96%);
+}
+
+.pkg-v3 .pkgv3-row span {
+  color: #b4c2d1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pkg-v3 .pkgv3-row:hover span { color: #e2ebf4; }
+
+/* Price type: raised struck-metal with a top specular band */
+.pkg-v3 .pkgv3-row strong {
+  font-size: 1.72rem;
+  background: linear-gradient(180deg, #ffffff 4%, var(--tier-light) 34%, var(--tier) 66%, var(--tier-deep) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.14));
+}
+
+.pkg-v3 .pkgv3-row:hover strong {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px var(--tier-glow));
+}
+
+.pkg-v3 .pkgv3-row strong em {
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  background: linear-gradient(180deg, var(--tier-light), var(--tier));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Flagship prices run hotter — gold metal */
+.pkg-v3 .pkgv3-flagship .pkgv3-row strong {
+  background: linear-gradient(180deg, #fffdf6 4%, var(--tier-light) 32%, var(--tier) 62%, var(--tier-deep) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Corner brackets: brighter, machined */
+.pkgv3-corner {
+  width: 17px;
+  height: 17px;
+  border-width: 2px;
+  opacity: 0.55;
+}
+
+/* Top rail: a touch more presence */
+.pkg-v3 .package-card::before { height: 3px; opacity: 0.92; }
+
+@media (max-width: 720px) {
+  .pkg-v3 .pkgv3-row strong { font-size: 1.5rem; }
+  .pkg-v3 .package-card.pkgv3-card::after { inset: 6px; }
 }
 
 
