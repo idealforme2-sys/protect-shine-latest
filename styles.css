@@ -16497,22 +16497,6 @@ span.stat-icon-box svg,
   border-top: none;
 }
 
-/* ============================================================
-   ON-SCROLL TEXT HIGHLIGHT (.sh-word)
-   ============================================================ */
-.sh-word {
-  opacity: 0.28;
-  color: var(--muted, #94a3b8);
-  transition: opacity 0.35s ease, color 0.35s ease, text-shadow 0.35s ease;
-  will-change: opacity, color;
-}
-
-.sh-word.is-highlighted {
-  opacity: 1;
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
 
 
 
