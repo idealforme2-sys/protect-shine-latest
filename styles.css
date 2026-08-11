@@ -16497,6 +16497,48 @@ span.stat-icon-box svg,
   border-top: none;
 }
 
+/* ============================================================
+   PURPLE BORDER TEXT HIGHLIGHTER (.purple-highlight-border)
+   ============================================================ */
+.purple-highlight-border {
+  position: relative;
+  display: inline-block;
+  padding: 1px 6px;
+  margin: 0 1px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 4px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.purple-highlight-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1.5px solid #a855f7;
+  opacity: 0;
+  transform: scale(1.04);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.purple-highlight-border.is-active {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: #a855f7;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
+}
+
+.purple-highlight-border.is-active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
 
 
 

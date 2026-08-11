@@ -1630,11 +1630,33 @@ function initTrueFocusEngine() {
   }
 }
 
+/* ── PURPLE BORDER TEXT HIGHLIGHT ENGINE ([data-purple-highlight]) ── */
+function initPurpleHighlightEngine() {
+  const highlights = document.querySelectorAll('[data-purple-highlight]');
+  if (!highlights.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-active');
+        } else {
+          entry.target.classList.remove('is-active');
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  highlights.forEach((el) => observer.observe(el));
+}
+
 function initPageInteractions() {
   initTiltCards();
   initCanvasElectricBorder();
   initProofRailAnimation();
   initTrueFocusEngine();
+  initPurpleHighlightEngine();
 }
 
 if (document.readyState === 'loading') {
