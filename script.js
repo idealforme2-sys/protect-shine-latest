@@ -1536,7 +1536,7 @@ function initTrueFocusEngine() {
       span.className = 'focus-word';
       span.style.filter = 'blur(6px)';
       span.style.opacity = '0.45';
-      span.style.transition = 'filter 0.4s ease, opacity 0.4s ease, color 0.3s ease';
+      span.style.transition = 'filter 0.2s ease, opacity 0.2s ease, color 0.15s ease';
       span.textContent = word;
       titleEl.appendChild(span);
       return span;
@@ -1546,7 +1546,7 @@ function initTrueFocusEngine() {
     frame.className = 'focus-frame';
     frame.style.borderColor = '#61b7ff';
     frame.style.glowColor = 'rgba(97, 183, 255, 0.6)';
-    frame.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    frame.style.transition = 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
     frame.innerHTML = `
       <span class="corner top-left"></span>
       <span class="corner top-right"></span>
@@ -1584,7 +1584,7 @@ function initTrueFocusEngine() {
     setInterval(() => {
       currentIndex = (currentIndex + 1) % wordEls.length;
       updateFocus(currentIndex);
-    }, 1500);
+    }, 600);
 
     wordEls.forEach((el, idx) => {
       el.addEventListener('mouseenter', () => {

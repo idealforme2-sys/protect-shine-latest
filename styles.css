@@ -16438,7 +16438,7 @@ span.stat-icon-box svg,
   cursor: pointer;
   filter: blur(6px);
   opacity: 0.45;
-  transition: filter 0.4s ease, opacity 0.4s ease, color 0.4s ease;
+  transition: filter 0.2s ease, opacity 0.2s ease, color 0.15s ease;
   outline: none;
   user-select: none;
   display: inline-block;
