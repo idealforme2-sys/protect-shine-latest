@@ -16113,6 +16113,11 @@ span.stat-icon-box svg,
   box-shadow: 0 0 6px rgba(52, 211, 153, 0.8);
 }
 
+.dot-red {
+  background: #ff4d4d;
+  box-shadow: 0 0 6px rgba(255, 77, 77, 0.8);
+}
+
 .proof-micro {
   font-family: var(--font-body);
   font-size: 0.65rem;
