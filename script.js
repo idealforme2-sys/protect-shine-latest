@@ -136,7 +136,7 @@ function normalizePageState() {
 
 function initRoutePrefetch() {
   if (!document.querySelector(".hero")) return;
-  const prefetch = () => ["commercial-truck-detailing.html", "first-responder-detailing.html"].forEach((href) => {
+    const prefetch = () => ["/commercial-truck-detailing", "/first-responder-detailing"].forEach((href) => {
     const link = document.createElement("link");
     link.rel = "prefetch";
     link.href = href;
@@ -712,7 +712,7 @@ function initGsapAnimations() {
   const gsapApi = window.gsap;
   if (!gsapApi || reducedMotion()) return;
 
-  if (window.ScrollTrigger) {
+  if (window.ScrollTrigger && window.matchMedia("(min-width: 821px)").matches) {
     gsapApi.registerPlugin(window.ScrollTrigger);
 
     gsapApi.to(".hero-content", {
@@ -726,7 +726,15 @@ function initGsapAnimations() {
       ease: "none",
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
+  } else {
+    gsapApi.set(".hero-content, .hero-badge-card", { clearProps: "transform" });
   }
+
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(max-width: 820px)").matches) {
+      gsapApi.set(".hero-content, .hero-badge-card", { clearProps: "transform" });
+    }
+  }, { passive: true });
 
   document.querySelectorAll(".package-card").forEach((card) => {
     card.addEventListener("mousemove", (event) => {
@@ -751,7 +759,7 @@ function initGsapAnimations() {
 function initReveal() {
   const items = Array.from(document.querySelectorAll(
     ".section-kicker, .section-heading, .lane-panel, .route-step, .route-end, .route-actions, .process-intro, .showcase-card, .package-card, .package-note, .finish-media, .finish-copy, .truck-service-grid article, .finish-actions, .car-seat-copy, .car-seat-details, .fr-heading, .fr-panel, .fr-dispatch, .why-identity, .why-credential, .why-footer, .area-map, .area-copy, .area-tags, .faq-item, .reviews-intro, .quote-copy, .quote-card, .quote-progress, .hero-cred-cards, .faq-heading, .truck-group, .driver-reset-inner, .unit-type-card, .fr-detail-inner, .fr-monthly-inner, .fr-addons-inner, .fr-trust-inner, .fr-conversion-banner, .page-hero-content"
-  )).filter((item) => !item.closest(".packages"));
+  )).filter((item) => !item.closest(".packages, [data-no-reveal]"));
 
   if (!("IntersectionObserver" in window) || reducedMotion()) {
     items.forEach((item) => item.classList.add("is-visible"));
@@ -940,6 +948,7 @@ function initHeroRotators() {
 function initKineticHoverSpotlight() {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (isMobile) return;
+  if (!document.querySelector("[data-kinetic-key], .kinetic-keyword-trigger")) return;
 
   const UNIT_DATA = {
     "patrol": {
@@ -1073,7 +1082,7 @@ function initKineticHoverSpotlight() {
   }
 
   // Bind unit-card-v2 elements
-  document.querySelectorAll(".unit-card-v2").forEach((card) => {
+  document.querySelectorAll(".unit-card-v2[data-kinetic-preview]").forEach((card) => {
     let key = "patrol";
     if (card.classList.contains("unit-k9")) key = "k9";
     else if (card.classList.contains("unit-fire")) key = "fire";

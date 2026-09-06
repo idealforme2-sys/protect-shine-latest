@@ -6064,6 +6064,24 @@ body.js.is-loaded .hero-cred-cards {
   }
 }
 
+/* Shared non-mobile stacking corrections. */
+.fr-spotlight::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+@media (min-width: 821px) {
+  .site-nav {
+    position: relative;
+    z-index: 5;
+  }
+
+  .nav-dropdown-menu {
+    z-index: 10;
+  }
+}
+
 /* Shared correction layer: one canvas, one symmetric light rail, one complete service perimeter. */
 html { background: #07101d; }
 body::before,
@@ -7491,6 +7509,10 @@ main > .section,
 .ps-header > .site-nav {
   position: relative;
   z-index: 1;
+}
+
+.ps-header > .site-nav {
+  z-index: 3;
 }
 
 .ps-header .header-patrol-light {
@@ -17589,6 +17611,418 @@ span.stat-icon-box svg,
   .editorial-proof-rail .proof-column,
   .truck-3d-stage .truck-panel-v3 {
     animation: none !important;
+  }
+}
+
+/* Shared layering fixes. */
+.fr-spotlight::after { content: none !important; display: none !important; }
+
+@media (min-width: 821px) {
+  .site-nav { position: relative; z-index: 5; }
+  .nav-dropdown-menu { z-index: 10; }
+}
+
+/* Authoritative mobile hero system. Desktop begins above 768px. */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .hero,
+  .page-hero {
+    min-height: 0 !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    overflow: hidden;
+  }
+
+  .hero {
+    display: block;
+    padding: 32px 16px 0 !important;
+  }
+
+  .hero-image {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 68% 62%;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero-shade {
+    background:
+      radial-gradient(circle at 78% 62%, rgba(97, 183, 255, .08), transparent 34%),
+      linear-gradient(90deg, rgba(3, 5, 11, .94) 0%, rgba(3, 5, 11, .78) 60%, rgba(3, 5, 11, .48) 100%),
+      linear-gradient(180deg, rgba(3, 5, 11, .5) 0%, rgba(3, 5, 11, .16) 52%, rgba(3, 5, 11, .78) 100%);
+  }
+
+  .hero-layout,
+  .hero-content {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero .eyebrow {
+    margin: 0 0 10px;
+    font-size: .66rem;
+  }
+
+  #hero-title {
+    max-width: 13ch;
+    margin: 0 0 14px !important;
+    font-size: clamp(2.12rem, 10.4vw, 2.8rem) !important;
+    line-height: .94 !important;
+    text-wrap: balance;
+  }
+
+  .hero-rotator {
+    min-height: 1.9em;
+    overflow: visible;
+  }
+
+  .rotator-item {
+    max-width: 13ch;
+    white-space: normal !important;
+  }
+
+  .hero-copy {
+    max-width: 36ch;
+    margin: 0 0 16px;
+    font-size: .86rem;
+    line-height: 1.45;
+  }
+
+  .hero .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+  }
+
+  .hero .hero-actions .button {
+    width: 100%;
+    min-height: 46px;
+    padding-inline: 8px;
+    font-size: .65rem;
+    letter-spacing: .07em;
+  }
+
+  .hero .hero-actions .button-social {
+    grid-column: 1 / -1;
+  }
+
+  .hero-proof-rail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 16px;
+    padding: 4px 0;
+    border-block: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 0;
+    background: rgba(3, 7, 14, .38);
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-proof-rail .proof-rail-col {
+    min-width: 0;
+    padding: 7px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .hero-proof-rail .proof-rail-col:last-child {
+    border-bottom: 0;
+  }
+
+  .hero-proof-rail .proof-rail-divider {
+    display: none;
+  }
+
+  .hero-proof-rail .proof-rail-num {
+    width: 28px;
+    font-size: .85rem;
+  }
+
+  .hero-proof-rail .proof-rail-label {
+    font-size: .56rem;
+  }
+
+  .hero-proof-rail .proof-rail-val {
+    font-size: .7rem;
+    white-space: normal;
+  }
+
+  .hero .hero-badge-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 8px 10px;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 14px 0 0;
+    padding: 10px;
+    border-radius: 14px 4px 14px 4px;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero .hero-badge-card img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px 3px 8px 3px;
+  }
+
+  .hero .hero-badge-card > div {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 4px 8px;
+  }
+
+  .hero .hero-badge-card p,
+  .hero .hero-badge-card h2,
+  .hero .hero-badge-card > div > span:not(.hero-badge-cta) {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .hero .hero-badge-card p {
+    font-size: .58rem;
+  }
+
+  .hero .hero-badge-card h2 {
+    font-size: .94rem;
+    line-height: 1.04;
+  }
+
+  .hero .hero-badge-card > div > span:not(.hero-badge-cta) {
+    font-size: .69rem;
+    line-height: 1.32;
+  }
+
+  .hero .hero-instagram {
+    grid-column: 1;
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero .hero-badge-cta {
+    grid-column: 2;
+    align-self: center;
+    margin: 0;
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: .62rem;
+  }
+
+  .scroll-cue {
+    display: none !important;
+  }
+
+  .signal-strip.ps-marquee {
+    position: relative;
+    width: 100vw;
+    margin: 18px calc(50% - 50vw) 0;
+    padding: 7px 0;
+    overflow: hidden;
+    border-block: 1px solid rgba(255, 255, 255, .14);
+    background:
+      var(--siren-rail),
+      linear-gradient(90deg, rgba(97, 183, 255, .22), rgba(255, 255, 255, .05) 50%, rgba(255, 77, 77, .2)),
+      #050a13;
+    background-size: var(--siren-size), 100% 100%, auto;
+  }
+
+  .ps-marquee .signal-band {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: rgba(3, 5, 11, .82);
+    transform: none;
+  }
+
+  .ps-marquee .signal-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    min-width: max-content;
+    justify-content: flex-start;
+    animation: psSignalMove 22s linear infinite;
+  }
+
+  .ps-marquee .signal-group {
+    display: flex;
+    flex: 0 0 auto;
+    width: max-content;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .ps-marquee .signal-group span {
+    flex: 0 0 auto;
+    padding: 9px 18px;
+    font-size: .94rem;
+    white-space: nowrap;
+  }
+
+  .ps-marquee .signal-group span::after {
+    width: 16px;
+    height: 5px;
+    margin-left: 18px;
+  }
+
+  .page-hero {
+    display: block;
+    padding: 30px 16px 28px !important;
+    background-attachment: scroll !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+
+  .commercial-hero {
+    background-image: url('./TRUCKSs.jpg') !important;
+    background-position: 45% 56% !important;
+  }
+
+  .fr-hero {
+    background-image: url('./policE.jpg') !important;
+    background-position: 61% 58% !important;
+  }
+
+  .commercial-hero::before,
+  .fr-hero::before {
+    background:
+      linear-gradient(90deg, rgba(3, 8, 14, .93) 0%, rgba(3, 8, 14, .78) 66%, rgba(3, 8, 14, .52) 100%),
+      linear-gradient(180deg, rgba(3, 5, 11, .48) 0%, rgba(3, 5, 11, .18) 48%, rgba(3, 5, 11, .78) 100%);
+  }
+
+  .page-hero-content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .page-hero .tactical-badge {
+    max-width: 100%;
+    margin: 0 0 10px;
+    padding: 7px 9px;
+    font-size: .62rem;
+    line-height: 1.25;
+  }
+
+  .page-hero-content h1 {
+    max-width: 13ch;
+    margin: 0 0 12px !important;
+    font-size: clamp(2.05rem, 10vw, 2.7rem) !important;
+    line-height: .94 !important;
+    text-wrap: balance;
+  }
+
+  .page-hero .hero-rotator {
+    min-height: 1.9em;
+  }
+
+  .page-hero-content > p {
+    max-width: 39ch;
+    margin: 0;
+    font-size: .82rem;
+    line-height: 1.42;
+  }
+
+  .page-hero .editorial-proof-rail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 14px 0 16px;
+    padding: 3px 0;
+    border-block: 1px solid rgba(255, 255, 255, .14);
+  }
+
+  .page-hero .proof-column {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 3px 10px;
+    min-width: 0;
+    padding: 9px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .09);
+    animation: none;
+  }
+
+  .page-hero .proof-column:last-child {
+    padding-bottom: 9px;
+    border-bottom: 0;
+  }
+
+  .page-hero .proof-header {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-content: start;
+    align-items: center;
+    gap: 3px 6px;
+    min-width: 0;
+    margin: 1px 0 0;
+  }
+
+  .page-hero .proof-num {
+    font-size: .68rem;
+  }
+
+  .page-hero .proof-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .page-hero .proof-micro {
+    grid-column: 1 / -1;
+    font-size: .52rem;
+    line-height: 1.25;
+    letter-spacing: .1em;
+  }
+
+  .page-hero .proof-title {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.08;
+  }
+
+  .page-hero .proof-hero-num {
+    margin-right: 2px;
+    font-size: 1rem;
+  }
+
+  .page-hero .proof-desc {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    font-size: .7rem;
+    line-height: 1.32;
+  }
+
+  .page-hero .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .page-hero .hero-actions .button {
+    width: 100%;
+    min-height: 46px;
+    padding-inline: 12px;
+    font-size: .68rem;
+  }
+
+  .commercial-hero + .truck-services-section,
+  .fr-hero + .unit-types-section {
+    padding-top: 42px !important;
   }
 }
 
