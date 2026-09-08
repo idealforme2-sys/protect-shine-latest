@@ -833,9 +833,17 @@ function initBackToTop() {
   const button = document.querySelector("[data-back-to-top]");
   if (!button) return;
 
-  const sync = () => button.classList.toggle("is-visible", window.scrollY > 600);
+  const featureSections = document.querySelectorAll("#car-seat, #trucks");
+  const sync = () => {
+    const overlapsFeature = window.innerWidth < 768 && Array.from(featureSections).some((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    });
+    button.classList.toggle("is-visible", window.scrollY > 600 && !overlapsFeature);
+  };
   sync();
   window.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
 
   button.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });

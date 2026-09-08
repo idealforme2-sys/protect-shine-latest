@@ -1539,6 +1539,36 @@ a.showcase-card {
   padding-block: 54px;
 }
 
+.finish-intro,
+.car-seat-intro {
+  display: contents;
+}
+
+.finish-section > .truck-service-grid,
+.finish-section > .finish-actions {
+  grid-column: 2;
+}
+
+.finish-intro > .finish-media {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.finish-intro > .finish-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.finish-section > .truck-service-grid {
+  grid-row: 2;
+  margin-top: 0;
+}
+
+.finish-section > .finish-actions {
+  grid-row: 3;
+  margin-top: 4px;
+}
+
 .finish-media {
   position: relative;
   overflow: hidden;
@@ -2484,6 +2514,22 @@ a.showcase-card {
   .finish-media img,
   .finish-media video {
     min-height: 300px;
+  }
+
+  .finish-section > .truck-service-grid,
+  .finish-section > .finish-actions {
+    grid-column: 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1120px) {
+  .finish-section {
+    grid-template-columns: minmax(220px, .48fr) minmax(0, 1.52fr);
+  }
+
+  .finish-section > .truck-service-grid,
+  .finish-section > .finish-actions {
+    grid-column: 2;
   }
 }
 
@@ -17717,25 +17763,32 @@ span.stat-icon-box svg,
 
   .hero-proof-rail {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    margin-top: 16px;
-    padding: 4px 0;
+    margin-top: 14px;
+    padding: 5px 0;
     border-block: 1px solid rgba(255, 255, 255, .12);
     border-radius: 0;
     background: rgba(3, 7, 14, .38);
     box-shadow: none;
     backdrop-filter: blur(8px);
+    align-items: stretch;
   }
 
   .hero-proof-rail .proof-rail-col {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(3px, 1vw, 7px);
     min-width: 0;
-    padding: 7px 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    padding: 5px clamp(4px, 1.5vw, 8px);
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 0;
+    align-self: stretch;
   }
 
   .hero-proof-rail .proof-rail-col:last-child {
-    border-bottom: 0;
+    border-right: 0;
   }
 
   .hero-proof-rail .proof-rail-divider {
@@ -17743,50 +17796,61 @@ span.stat-icon-box svg,
   }
 
   .hero-proof-rail .proof-rail-num {
-    width: 28px;
-    font-size: .85rem;
+    width: auto;
+    font-size: clamp(.72rem, 2.35vw, .84rem);
+    line-height: 1;
+  }
+
+  .hero-proof-rail .proof-rail-details {
+    min-width: 0;
+    gap: 2px;
   }
 
   .hero-proof-rail .proof-rail-label {
-    font-size: .56rem;
+    font-size: clamp(.48rem, 1.6vw, .56rem);
+    line-height: 1.15;
   }
 
   .hero-proof-rail .proof-rail-val {
-    font-size: .7rem;
+    font-size: clamp(.58rem, 1.9vw, .68rem);
+    line-height: 1.16;
     white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .hero .hero-badge-card {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 8px 10px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 6px 9px;
     width: 100%;
     max-width: none;
     min-height: 0;
-    margin: 14px 0 0;
-    padding: 10px;
+    margin: 12px 0 0;
+    padding: 8px;
     border-radius: 14px 4px 14px 4px;
     transform: none !important;
     animation: none !important;
   }
 
   .hero .hero-badge-card img {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     border-radius: 8px 3px 8px 3px;
   }
 
   .hero .hero-badge-card > div {
     display: grid;
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 4px 8px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 8px;
+    min-width: 0;
   }
 
   .hero .hero-badge-card p,
   .hero .hero-badge-card h2,
   .hero .hero-badge-card > div > span:not(.hero-badge-cta) {
-    grid-column: 1 / -1;
+    grid-column: 1;
     margin: 0;
+    min-width: 0;
   }
 
   .hero .hero-badge-card p {
@@ -17794,28 +17858,42 @@ span.stat-icon-box svg,
   }
 
   .hero .hero-badge-card h2 {
-    font-size: .94rem;
+    font-size: .86rem;
     line-height: 1.04;
   }
 
   .hero .hero-badge-card > div > span:not(.hero-badge-cta) {
-    font-size: .69rem;
-    line-height: 1.32;
+    font-size: .64rem;
+    line-height: 1.25;
   }
 
   .hero .hero-instagram {
-    grid-column: 1;
-    width: 30px;
-    height: 30px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    width: 27px;
+    height: 27px;
   }
 
   .hero .hero-badge-cta {
     grid-column: 2;
-    align-self: center;
+    grid-row: 3;
+    align-self: end;
     margin: 0;
-    min-height: 30px;
-    padding: 0 10px;
-    font-size: .62rem;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: none !important;
+    box-shadow: none !important;
+    color: var(--gold) !important;
+    -webkit-text-fill-color: currentColor !important;
+    font-size: .55rem;
+    white-space: nowrap;
+  }
+
+  .hero .hero-badge-card:hover,
+  .hero .hero-badge-card:active {
+    transform: none !important;
   }
 
   .scroll-cue {
@@ -18024,6 +18102,384 @@ span.stat-icon-box svg,
   .fr-hero + .unit-types-section {
     padding-top: 42px !important;
   }
+
+  @media (max-width: 767px) {
+    /* Homepage feature sections: media belongs only to the intro split. */
+    .finish-section,
+    .car-seat-section {
+      padding: 34px 10px 30px !important;
+    }
+
+    .finish-section,
+    .car-seat-inner {
+      display: block;
+    }
+
+    .finish-intro,
+    .car-seat-intro {
+      display: grid;
+      grid-template-columns: minmax(108px, 38%) minmax(0, 1fr);
+      gap: 0 12px;
+      align-items: start;
+    }
+
+    .finish-intro > *,
+    .car-seat-intro > *,
+    .finish-copy > *,
+    .car-seat-copy > *,
+    .car-seat-details > * {
+      min-width: 0;
+    }
+
+    .finish-media,
+    .car-seat-media {
+      position: relative;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      align-self: start;
+      width: 100%;
+      height: auto;
+      min-height: 0 !important;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 16px 5px 16px 5px;
+    }
+
+    .finish-media {
+      aspect-ratio: 9 / 16;
+    }
+
+    .finish-media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .finish-copy {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      align-self: start;
+    }
+
+    .finish-copy > .eyebrow {
+      margin: 0 0 7px;
+      font-size: .61rem;
+      line-height: 1.22;
+    }
+
+    .finish-copy > h2 {
+      max-width: none;
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 6vw, 1.9rem);
+      line-height: .98;
+      overflow-wrap: anywhere;
+    }
+
+    .finish-copy > p:not(.eyebrow):not(.finish-cred) {
+      margin: 0;
+      font-size: .76rem;
+      line-height: 1.34;
+    }
+
+    .finish-copy > .finish-cred {
+      margin: 9px 0 0;
+      padding: 7px 8px;
+      border-left-width: 2px;
+      font-size: .71rem;
+      line-height: 1.3;
+    }
+
+    .finish-section > .truck-service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+
+    .finish-section .truck-service-grid article {
+      min-height: 0;
+      padding: 9px;
+      border-radius: 10px 3px 10px 3px;
+    }
+
+    .finish-section .truck-service-grid article h3 {
+      margin: 0 0 4px;
+      font-size: .78rem;
+      line-height: 1.15;
+    }
+
+    .finish-section .truck-service-grid article p {
+      margin: 0;
+      font-size: .69rem;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .finish-actions,
+    .car-seat-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0 0;
+    }
+
+    .finish-actions .button,
+    .car-seat-actions .button {
+      width: 100%;
+      min-height: 42px;
+      padding-inline: 5px;
+      font-size: clamp(.56rem, 2.2vw, .64rem);
+      letter-spacing: .045em;
+      text-align: center;
+    }
+
+    .car-seat-inner {
+      min-height: 0 !important;
+      padding: 12px;
+      border-radius: 22px 7px 22px 7px;
+    }
+
+    .car-seat-eyebrow {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: start;
+      margin: 0 0 7px;
+      font-size: .61rem;
+      line-height: 1.22;
+    }
+
+    .car-seat-media {
+      aspect-ratio: 2 / 3;
+      background: #f5f7fb;
+    }
+
+    .car-seat-media::after {
+      content: none;
+    }
+
+    .car-seat-media img {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: inherit;
+      filter: none;
+    }
+
+    .car-seat-copy {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+    }
+
+    .car-seat-copy > h2 {
+      max-width: none;
+      margin: 0 0 8px;
+      font-size: clamp(1.62rem, 6.3vw, 1.95rem);
+      line-height: .97;
+      overflow-wrap: anywhere;
+    }
+
+    .car-seat-copy > p:not(.car-seat-price) {
+      margin: 0;
+      font-size: .76rem;
+      line-height: 1.34;
+    }
+
+    .car-seat-price {
+      width: auto;
+      max-width: none;
+      margin: 9px 0 0;
+      padding: 6px 0 5px 8px;
+      border-left: 2px solid var(--blue);
+      font-size: .63rem;
+      line-height: 1.1;
+    }
+
+    .car-seat-price::before,
+    .car-seat-price::after {
+      content: none;
+    }
+
+    .car-seat-price strong {
+      margin-inline: 3px;
+      font-size: 2rem;
+      line-height: .85;
+    }
+
+    .car-seat-details {
+      display: block;
+      margin-top: 14px;
+    }
+
+    .car-seat-inner .care-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 8px !important;
+      margin: 0 !important;
+    }
+
+    .car-seat-inner .care-group {
+      width: 100%;
+      max-width: none;
+      min-height: 0;
+      padding: 9px !important;
+      border-radius: 10px 3px 10px 3px;
+    }
+
+    .car-seat-inner .care-group:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+
+    .car-seat-inner .care-group h3 {
+      margin: 0 0 4px !important;
+      font-size: .76rem !important;
+      line-height: 1.1;
+    }
+
+    .car-seat-inner .care-group ul {
+      gap: 3px !important;
+    }
+
+    .car-seat-inner .care-group li {
+      min-height: 0;
+      padding: 2px 0 2px 11px !important;
+      font-size: .69rem !important;
+      line-height: 1.25 !important;
+      overflow-wrap: anywhere;
+    }
+
+    .car-seat-details > .fine-print {
+      margin: 10px 0 0;
+      padding: 9px 0 0;
+      border-top: 1px solid rgba(202, 222, 239, .14);
+      font-size: .7rem;
+      line-height: 1.35;
+    }
+  }
+
+  .fr-panel.fr-panel-blue {
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-media {
+    width: 100%;
+    height: 132px !important;
+    min-height: 0 !important;
+    flex: none;
+    background-position: 50% 52%;
+  }
+
+  .fr-panel.fr-panel-blue > .fr-panel-body {
+    display: block;
+    margin-top: 0 !important;
+    padding: 10px !important;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 !important;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-label,
+  .fr-panel.fr-panel-blue .fr-panel-flag {
+    min-height: 0;
+    margin: 0;
+    font-size: .62rem;
+    line-height: 1.2;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    width: auto;
+    margin: 7px 0 1px !important;
+    padding: 0;
+    border: 0;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-price strong {
+    font-size: 2.65rem !important;
+    line-height: .86;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-price em {
+    font-size: .66rem;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-tag {
+    min-height: 0;
+    margin: 0 0 8px !important;
+    font-size: .7rem !important;
+    line-height: 1.25;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px !important;
+    margin: 0 0 10px !important;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups section {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    padding: 7px !important;
+    border-radius: 8px 3px 8px 3px;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups section:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups h3 {
+    margin: 0 0 5px !important;
+    padding: 0 0 5px;
+    font-size: .7rem !important;
+    line-height: 1.15;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups ul {
+    gap: 3px !important;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups li {
+    min-height: 0;
+    padding: 4px 0 4px 9px !important;
+    font-size: .65rem !important;
+    line-height: 1.22 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .fr-panel.fr-panel-blue .fr-service-groups section:nth-child(3) ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px 10px;
+  }
+
+  .fr-panel.fr-panel-blue .fr-panel-body > .button {
+    width: 100%;
+    min-height: 44px;
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 340px) {
+  .fr-panel.fr-panel-blue .fr-service-groups section:nth-child(3) ul {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -18037,3 +18493,230 @@ span.stat-icon-box svg,
 
 
 
+
+/* ============================================================
+   PS UPDATE 6 - clean-route media alignment, compact mobile
+   service area, contact-first quote order on mobile.
+   ============================================================ */
+
+/* Car seat: remove the thin white separator between the Care card
+   and the disclaimer. The spacing gap stays; the Care card keeps
+   its own border. */
+.car-seat-details .fine-print {
+  border-top: 0;
+}
+
+/* The quote form must never be reveal-animated into view. It already
+   carries data-no-reveal; this is a hard CSS guard. */
+.quote-form[data-no-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+@media (max-width: 767px) {
+  /* --- Car seat media: bottom edge aligns with the price block,
+         stops before the feature cards. Four equal corners. --- */
+  .car-seat-media {
+    aspect-ratio: auto;
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+    border-radius: 16px;
+  }
+
+  .car-seat-media img {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  /* --- Truck media: bottom edge aligns with the intro copy only,
+         never the service-card grid. --- */
+  .finish-media {
+    aspect-ratio: auto;
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+  }
+
+  .finish-media video {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* --- Service area: compact mobile composition --- */
+  .area-section {
+    padding: 40px 0 46px;
+  }
+
+  .area-grid {
+    gap: 16px;
+    align-items: start;
+  }
+
+  .area-map {
+    min-height: 0;
+    height: clamp(150px, 46vw, 180px);
+    border-radius: 16px 6px 16px 6px;
+  }
+
+  .area-map-legend {
+    left: 10px;
+    bottom: 10px;
+    gap: 5px;
+  }
+
+  .area-legend-chip {
+    padding: 4px 8px;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+  }
+
+  .area-copy .eyebrow {
+    margin: 0 0 8px !important;
+    padding: 4px 10px !important;
+    gap: 6px !important;
+    font-size: 0.56rem !important;
+  }
+
+  .area-copy h2 {
+    margin: 0 0 8px;
+    padding-bottom: 10px;
+    font-size: clamp(1.72rem, 8.2vw, 2.4rem);
+    line-height: 0.95;
+  }
+
+  .area-copy h2::after {
+    width: 64px;
+    height: 2px;
+  }
+
+  .area-copy > p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .area-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 12px 0 0;
+  }
+
+  .area-tags span {
+    min-height: 32px;
+    justify-content: center;
+    padding: 4px 8px;
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .area-tags span:last-child {
+    grid-column: 1 / -1;
+    justify-self: start;
+    width: max-content;
+    max-width: 100%;
+    padding-inline: 12px;
+  }
+
+  .area-actions {
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .area-actions .button {
+    width: auto;
+    min-height: 46px;
+    padding-inline: 18px;
+    font-size: 0.66rem;
+  }
+
+  /* --- Quote section: contact panel before the form --- */
+  .quote-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-copy {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .quote-support {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: none;
+  }
+
+  .quote-section .quote-card {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  /* Compact contact panel */
+  .quote-support.chat-support {
+    padding: 12px;
+  }
+
+  .quote-support.chat-support::before {
+    display: none;
+  }
+
+  .chat-head {
+    padding: 14px;
+  }
+
+  .chat-h3-row {
+    gap: 10px !important;
+    margin: 10px 0 6px !important;
+  }
+
+  .chat-title-logo {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+  }
+
+  .chat-head h3 {
+    font-size: 1.15rem !important;
+  }
+
+  .chat-cards {
+    gap: 8px !important;
+    margin: 12px 0 !important;
+  }
+
+  .chat-cards .chat-card,
+  .chat-card {
+    min-height: 52px;
+    padding: 10px 12px !important;
+    gap: 10px !important;
+  }
+
+  .chat-icon,
+  .chat-card .chat-icon,
+  .chat-card:nth-child(2) .chat-icon,
+  .chat-card:nth-child(3) .chat-icon {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+
+  .chat-text strong {
+    font-size: 0.88rem;
+  }
+
+  .quote-support-path {
+    margin-top: 10px;
+    padding: 14px !important;
+  }
+
+  .sidebar-tactical-note {
+    margin-top: 10px !important;
+    padding: 12px 14px !important;
+  }
+}

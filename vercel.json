@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/commercial-truck-detailing.html",
+      "destination": "/commercial-truck-detailing",
+      "permanent": true
+    },
+    {
+      "source": "/first-responder-detailing.html",
+      "destination": "/first-responder-detailing",
+      "permanent": true
+    }
+  ]
 }

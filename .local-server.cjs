@@ -17,10 +17,19 @@ const types = {
 http
   .createServer((req, res) => {
     const url = decodeURI(req.url.split("?")[0]);
+    const legacyRedirects = {
+      "/commercial-truck-detailing.html": "/commercial-truck-detailing",
+      "/first-responder-detailing.html": "/first-responder-detailing"
+    };
+    if (legacyRedirects[url]) {
+      res.writeHead(301, { Location: legacyRedirects[url] });
+      res.end();
+      return;
+    }
     const routeFiles = {
       "/": "index.html",
-      "/commercial-truck-detailing": "commercial-truck-detailing.html",
-      "/first-responder-detailing": "first-responder-detailing.html"
+      "/commercial-truck-detailing": "commercial-truck-detailing/index.html",
+      "/first-responder-detailing": "first-responder-detailing/index.html"
     };
     const requestedPath = routeFiles[url] || url;
     const file = path.join(root, requestedPath);
