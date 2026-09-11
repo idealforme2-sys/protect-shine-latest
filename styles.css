@@ -5785,8 +5785,8 @@ body.js.is-loaded .hero-cred-cards {
   display: grid;
   min-height: clamp(480px, calc(70svh - 80px), 640px);
   align-items: center;
-  margin-top: -104px;
-  padding: 149px 24px 60px;
+  margin-top: -82px;
+  padding: 127px 24px 60px;
   overflow: hidden;
 }
 
@@ -17876,7 +17876,7 @@ span.stat-icon-box svg,
   .page-hero {
     min-height: 0 !important;
     height: auto !important;
-    margin-top: 0 !important;
+    margin-top: -82px !important;
     overflow: hidden;
   }
 
@@ -17896,7 +17896,7 @@ span.stat-icon-box svg,
     display: block;
     position: relative;
     margin-top: -82px !important;
-    padding: 98px 16px 0 !important;
+    padding: 104px 16px 0 !important;
     background: #04060c;
   }
 
@@ -17937,17 +17937,17 @@ span.stat-icon-box svg,
     order: 1;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    align-self: flex-start;
     width: fit-content;
     margin: 4px 0 2px !important;
-    padding: 2px 9px;
+    padding: 3px 9px !important;
     border-radius: 999px;
     border: 1px solid rgba(97, 183, 255, 0.32);
     background: linear-gradient(90deg, rgba(97, 183, 255, 0.14), rgba(6, 12, 22, 0.85));
     color: #dbeaff;
-    font-size: 0.58rem;
+    font-size: 0.58rem !important;
     font-weight: 800;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.08em !important;
     text-transform: uppercase;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
@@ -17970,11 +17970,10 @@ span.stat-icon-box svg,
 
   #hero-title {
     order: 2;
-    max-width: 14ch;
     margin: 0 0 2px !important;
     font-size: clamp(1.65rem, 6.8vw, 1.95rem) !important;
     line-height: 0.90 !important;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     text-wrap: balance;
   }
 
@@ -17990,14 +17989,13 @@ span.stat-icon-box svg,
 
   .hero-copy {
     order: 3;
-    max-width: 42ch;
     margin: 0 0 2px !important;
     font-size: 0.70rem !important;
     line-height: 1.18 !important;
     color: rgba(230, 238, 250, 0.85);
   }
 
-  /* Built Different Card Overhaul on Mobile - Ultra-Compact Profile */
+  /* Built Different Card Overhaul on Mobile - Refined & Harmonious Typography */
   .hero .hero-badge-card {
     order: 4;
     display: flex !important;
@@ -18007,8 +18005,8 @@ span.stat-icon-box svg,
     max-width: none;
     min-height: 0;
     margin: 0 0 2px 0 !important;
-    padding: 4px 7px;
-    border-radius: 9px;
+    padding: 4px 8px;
+    border-radius: 10px;
     border: 1px solid rgba(97, 183, 255, 0.32);
     border-right: 2px solid rgba(255, 77, 77, 0.42);
     background:
@@ -18024,7 +18022,7 @@ span.stat-icon-box svg,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
     width: 100%;
     margin-bottom: 1px !important;
   }
@@ -18032,18 +18030,18 @@ span.stat-icon-box svg,
   .hero .hbc-identity {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
   }
 
   .hero .hbc-avatar-shell,
   .hero-badge-card .hbc-avatar-shell {
-    flex: 0 0 26px !important;
-    width: 26px !important;
-    height: 26px !important;
-    min-width: 26px !important;
-    min-height: 26px !important;
-    max-width: 26px !important;
-    max-height: 26px !important;
+    flex: 0 0 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
     position: relative !important;
     overflow: visible !important;
   }
@@ -18051,70 +18049,102 @@ span.stat-icon-box svg,
   .hero .hbc-avatar-shell img,
   .hero-badge-card .hbc-avatar-shell img,
   .hero .hero-badge-card img {
-    width: 26px !important;
-    height: 26px !important;
-    min-width: 26px !important;
-    min-height: 26px !important;
-    max-width: 26px !important;
-    max-height: 26px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
     object-fit: cover !important;
-    border-radius: 5px !important;
+    border-radius: 7px !important;
     display: block !important;
   }
 
   .hero .hbc-verified-pill {
     position: absolute !important;
-    width: 11px !important;
-    height: 11px !important;
+    width: 13px !important;
+    height: 13px !important;
     bottom: -2px !important;
     right: -2px !important;
   }
 
   .hero .hbc-verified-pill svg {
-    width: 5px !important;
-    height: 5px !important;
+    width: 7px !important;
+    height: 7px !important;
   }
 
   .hero .hbc-badge-tag {
-    font-size: 0.48rem;
-    letter-spacing: 0.07em;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-transform: uppercase;
   }
 
   .hero .hbc-badge-sub {
-    font-size: 0.42rem;
-    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+    font-size: 0.60rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #61b7ff;
+    text-transform: uppercase;
   }
 
   .hero .hbc-heading {
-    margin: 1px 0 1px 0 !important;
-    font-size: 0.72rem !important;
-    line-height: 1.10 !important;
-    letter-spacing: 0.01em;
+    margin: 0 0 1px 0 !important;
+    font-family: var(--font-body);
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.02em;
+    color: #ffffff !important;
     clear: both !important;
     display: block !important;
   }
 
+  .hero .hbc-heading span,
+  .hero-badge-card .hbc-heading span {
+    color: #ffffff !important;
+  }
+
   .hero .hbc-ig-pill {
-    font-size: 0.46rem;
-    padding: 2px 4px;
+    font-family: var(--font-body);
+    font-size: 0.56rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
   }
 
   .hero .hbc-cred-cards {
     display: flex !important;
     flex-direction: column !important;
-    padding: 2px 4px !important;
-    gap: 1px !important;
-    border-radius: 4px !important;
+    padding: 4px 7px !important;
+    gap: 2px !important;
+    border-radius: 6px !important;
+    background: rgba(4, 7, 14, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .hero .hbc-cred-row {
-    font-size: 0.54rem !important;
-    gap: 3px !important;
-    line-height: 1.10 !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: var(--font-body);
+    font-size: 0.70rem !important;
+    gap: 5px !important;
+    line-height: 1.22 !important;
+    color: rgba(240, 244, 252, 0.90) !important;
   }
 
   .hero .hbc-cred-bullet {
-    font-size: 0.58rem;
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+
+  .hero .hbc-cred-desc strong {
+    color: #ffffff;
+    font-weight: 700;
   }
 
   .hero .hbc-cta-strip {
@@ -18122,11 +18152,14 @@ span.stat-icon-box svg,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 4px;
+    gap: 6px;
     width: 100%;
-    padding: 2px 5px !important;
-    font-size: 0.50rem !important;
-    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-family: var(--font-body);
+    font-size: 0.64rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
+    border-radius: 6px !important;
     white-space: nowrap;
   }
 
@@ -18136,7 +18169,7 @@ span.stat-icon-box svg,
 
   .hero .hbc-cta-arrow {
     flex-shrink: 0;
-    font-size: 0.70rem;
+    font-size: 0.78rem;
   }
 
   .hero .hero-badge-card:hover,
@@ -18158,17 +18191,18 @@ span.stat-icon-box svg,
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
     width: 100%;
-    min-height: 33px !important;
+    min-height: 35px !important;
     padding: 0 12px !important;
     border-radius: 999px;
     border: 1px solid rgba(97, 183, 255, 0.42);
     background: repeating-linear-gradient(135deg, rgba(220, 241, 255, 0.12) 0 1px, transparent 1px 5px), linear-gradient(115deg, #071b35, #0c4d9d 60%, #08234a);
     color: #ffffff;
-    font-size: 0.64rem !important;
-    font-weight: 900;
-    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-size: 0.70rem !important;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 16px rgba(12, 77, 157, 0.35);
     text-decoration: none;
@@ -18191,14 +18225,15 @@ span.stat-icon-box svg,
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 4px;
     width: 100%;
-    min-height: 29px !important;
-    padding: 0 5px !important;
+    min-height: 30px !important;
+    padding: 0 6px !important;
     border-radius: 999px;
-    font-size: 0.56rem !important;
+    font-family: var(--font-body);
+    font-size: 0.64rem !important;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
     transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
@@ -18244,10 +18279,10 @@ span.stat-icon-box svg,
     justify-content: center;
     gap: 1px;
     min-width: 0;
-    padding: 2px 4px;
+    padding: 3px 5px;
     border-radius: 7px;
-    border: 1px solid rgba(97, 183, 255, 0.18);
-    background: linear-gradient(160deg, rgba(12, 18, 28, 0.88), rgba(6, 10, 18, 0.82));
+    border: 1px solid rgba(97, 183, 255, 0.20);
+    background: linear-gradient(160deg, rgba(12, 18, 28, 0.90), rgba(6, 10, 18, 0.85));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(12px);
   }
@@ -18267,10 +18302,10 @@ span.stat-icon-box svg,
   .hero-proof-rail .proof-rail-num {
     display: inline-block;
     font-family: var(--font-display);
-    font-size: 0.70rem;
+    font-size: 0.84rem;
     line-height: 1;
     color: var(--gold);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   .hero-proof-rail .proof-rail-details {
@@ -18282,10 +18317,11 @@ span.stat-icon-box svg,
   }
 
   .hero-proof-rail .proof-rail-label {
-    font-size: 0.40rem;
-    font-weight: 800;
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--muted);
+    color: rgba(180, 200, 225, 0.75);
     text-transform: uppercase;
     white-space: nowrap;
     overflow: hidden;
@@ -18293,13 +18329,14 @@ span.stat-icon-box svg,
   }
 
   .hero-proof-rail .proof-rail-val {
-    font-size: 0.54rem;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
     font-weight: 700;
-    line-height: 1.08;
+    line-height: 1.10;
     color: #ffffff;
     text-transform: uppercase;
     word-break: break-word;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
   }
 
   .scroll-cue {
@@ -18310,7 +18347,7 @@ span.stat-icon-box svg,
     position: relative;
     width: 100vw;
     margin: 0 calc(50% - 50vw) 0 !important;
-    padding: 3px 0 !important;
+    padding: 2px 0 !important;
     overflow: hidden;
     border-block: 1px solid rgba(255, 255, 255, .14);
     background:
@@ -18366,7 +18403,8 @@ span.stat-icon-box svg,
 
   .page-hero {
     display: block;
-    padding: 30px 16px 28px !important;
+    margin-top: -82px !important;
+    padding: 102px 16px 20px !important;
     background-attachment: scroll !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;

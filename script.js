@@ -215,7 +215,6 @@ function initHeadlineAccents() {
         ".trust-card h3",
         ".map-notes h3",
         ".quote-card h3",
-        ".hero-badge-card h2",
         ".preloader strong",
         ".testimonial-stack small",
         ".footer-brand p",
