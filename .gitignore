@@ -4,4 +4,5 @@
 .playwright-cli/
 .playwright-mcp/
 output/
+scratch/
 node_modules/
