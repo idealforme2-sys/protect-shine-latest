@@ -18000,12 +18000,13 @@ span.stat-icon-box svg,
     order: 4;
     display: flex !important;
     flex-direction: column;
+    align-items: center;
     gap: 2px;
     width: 100%;
     max-width: none;
     min-height: 0;
     margin: 0 0 2px 0 !important;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border-radius: 10px;
     border: 1px solid rgba(97, 183, 255, 0.32);
     border-right: 2px solid rgba(255, 77, 77, 0.42);
@@ -18021,8 +18022,8 @@ span.stat-icon-box svg,
   .hero .hbc-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    justify-content: center;
+    gap: 14px;
     width: 100%;
     margin-bottom: 1px !important;
   }
@@ -18099,6 +18100,7 @@ span.stat-icon-box svg,
     line-height: 1.18 !important;
     letter-spacing: 0.02em;
     color: #ffffff !important;
+    text-align: center;
     clear: both !important;
     display: block !important;
   }
@@ -18119,26 +18121,32 @@ span.stat-icon-box svg,
   .hero .hbc-cred-cards {
     display: flex !important;
     flex-direction: column !important;
-    padding: 4px 7px !important;
+    width: 100%;
+    padding: 4px 8px !important;
     gap: 2px !important;
     border-radius: 6px !important;
     background: rgba(4, 7, 14, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
   }
 
   .hero .hbc-cred-row {
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
     font-family: var(--font-body);
-    font-size: 0.70rem !important;
+    font-size: 0.63rem !important;
+    letter-spacing: -0.01em;
     gap: 5px !important;
-    line-height: 1.22 !important;
+    line-height: 1.20 !important;
     color: rgba(240, 244, 252, 0.90) !important;
+    white-space: nowrap;
+    text-align: center;
   }
 
   .hero .hbc-cred-bullet {
     flex: 0 0 auto;
-    font-size: 0.72rem;
+    font-size: 0.70rem;
     line-height: 1;
   }
 
@@ -18151,10 +18159,10 @@ span.stat-icon-box svg,
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    gap: 6px;
+    justify-content: center !important;
+    gap: 8px;
     width: 100%;
-    padding: 4px 8px !important;
+    padding: 4px 10px !important;
     font-family: var(--font-body);
     font-size: 0.64rem !important;
     font-weight: 800 !important;
