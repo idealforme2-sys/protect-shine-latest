@@ -18,9 +18,10 @@
    - On both desktop and mobile, hero background photos (`POLICECAR.jpg`, `TRUCKSs.jpg`, `policE.jpg`) extend to `Y = 0` behind, above, and around the floating header and patrol lights via `-82px` margin offset and calibrated top padding. Zero empty space or backdrop exposure when header contracts/detracts.
 3. **Git as Memory**:
    - Every meaningful update must be committed with structured commit format under Gemini Flash.
-4. **Mobile Hero Split 2-Column Layout**:
-   - The mobile hero section (`@media (max-width: 820px)`) is split down the middle into 2 parallel columns:
+4. **Mobile Hero Split 2-Column Layout & Extended Viewport**:
+   - The mobile hero section (`@media (max-width: 820px)`) fills the full mobile viewport (`min-height: 100svh`), extending the background image (`POLICECAR.jpg`) all the way down behind the marquee to prevent premature exposure of the next section.
+   - Split down the middle into 2 parallel columns:
      - Left Column: Eyebrow pill, dynamic rotating headline, and subcopy.
-     - Right Column: Compact Built Different tactical badge tile with officer avatar, gold command bar, verified check, and 3 service rank stripes (Police, CDL, Accountability).
-     - Full-Width Below: 3 primary action buttons, 3-column proof rail, and marquee ribbon.
+     - Right Column: Ultra-premium Built Different command emblem with obsidian crystal glass, 24px gold-bezel avatar, verified shield, gold command bar, and 3 distinct honor service crests (Police Blue, Amber CDL, Gold Accountability).
+     - Full-Width Shifted Down Below: 3 primary action buttons, 3-column proof rail, and marquee ribbon anchoring the base of the fold.
      - Desktop version remains 100% untouched.
