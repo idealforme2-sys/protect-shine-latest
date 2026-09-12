@@ -218,7 +218,6 @@ function initHeadlineAccents() {
         ".preloader strong",
         ".testimonial-stack small",
         ".footer-brand p",
-        ".lane-panel h3",
         ".route-step h3",
         ".specialty-panel h3",
         ".why-credential-body h3",
