@@ -18002,33 +18002,30 @@ span.stat-icon-box svg,
     color: rgba(230, 238, 250, 0.88);
   }
 
-  /* Built Different Card - Split Right-Side Tactical Badge Tile */
+  /* Built Different Card - Luxury Stealth Obsidian & Ice-Blue Crest */
   .hero .hero-badge-card {
     grid-column: 2 / 3 !important;
     grid-row: 2 / 4 !important;
     align-self: start !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 2px !important;
+    gap: 3px !important;
     width: 100% !important;
     max-width: 100% !important;
     min-height: 0 !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 4px 5px 4px !important;
-    border-radius: 9px !important;
-    border: 1px solid rgba(97, 183, 255, 0.38) !important;
-    border-top: 2px solid var(--gold) !important;
-    background:
-      radial-gradient(ellipse at 50% 10%, rgba(97, 183, 255, 0.20), transparent 60%),
-      linear-gradient(175deg, rgba(14, 22, 40, 0.97) 0%, rgba(6, 10, 18, 0.98) 100%) !important;
-    backdrop-filter: blur(18px) saturate(140%) !important;
+    padding: 6px 7px 5px !important;
+    border-radius: 11px !important;
+    border: 1px solid rgba(97, 183, 255, 0.22) !important;
+    background: linear-gradient(165deg, rgba(10, 16, 28, 0.96) 0%, rgba(5, 8, 15, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
     transform: none !important;
     animation: none !important;
     box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.70),
-      0 0 16px rgba(97, 183, 255, 0.14),
-      inset 0 1px 0 rgba(255, 215, 0, 0.30) !important;
+      0 10px 28px rgba(0, 0, 0, 0.75),
+      0 0 14px rgba(22, 120, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
     text-decoration: none !important;
     position: relative !important;
     box-sizing: border-box !important;
@@ -18039,10 +18036,10 @@ span.stat-icon-box svg,
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 3px !important;
+    gap: 4px !important;
     width: 100% !important;
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 2px !important;
   }
 
   .hero .hbc-identity {
@@ -18050,6 +18047,7 @@ span.stat-icon-box svg,
     align-items: center !important;
     gap: 4px !important;
     min-width: 0 !important;
+    flex: 1 1 auto !important;
   }
 
   .hero .hbc-avatar-shell,
@@ -18076,8 +18074,8 @@ span.stat-icon-box svg,
     max-height: 20px !important;
     object-fit: cover !important;
     border-radius: 50% !important;
-    border: 1.5px solid var(--gold) !important;
-    box-shadow: 0 0 6px rgba(240, 196, 121, 0.4) !important;
+    border: 1px solid rgba(97, 183, 255, 0.45) !important;
+    box-shadow: 0 0 6px rgba(22, 120, 255, 0.3) !important;
     display: block !important;
   }
 
@@ -18087,6 +18085,9 @@ span.stat-icon-box svg,
     height: 8px !important;
     bottom: -2px !important;
     right: -2px !important;
+    background: #1678ff !important;
+    border: 1.5px solid #060911 !important;
+    border-radius: 50% !important;
   }
 
   .hero .hbc-verified-pill svg {
@@ -18104,39 +18105,38 @@ span.stat-icon-box svg,
 
   .hero .hbc-badge-tag {
     font-family: var(--font-body);
-    font-size: 0.46rem !important;
+    font-size: 0.44rem !important;
     font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--gold);
+    letter-spacing: 0.04em;
+    color: #e6f0ff;
     text-transform: uppercase;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
   }
 
   .hero .hbc-badge-sub {
     font-family: var(--font-body);
-    font-size: 0.40rem !important;
+    font-size: 0.38rem !important;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     color: #61b7ff;
     text-transform: uppercase;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
   }
 
+  /* Frosted Monochrome Instagram Pill - ZERO PURPLE */
   .hero .hbc-ig-pill {
     display: inline-flex !important;
     align-items: center !important;
     gap: 2px !important;
-    padding: 1.5px 3.5px !important;
+    padding: 1.5px 4px !important;
     border-radius: 999px !important;
-    background: linear-gradient(135deg, rgba(225, 48, 108, 0.24), rgba(255, 91, 109, 0.16)) !important;
-    border: 1px solid rgba(225, 48, 108, 0.5) !important;
-    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: rgba(230, 240, 255, 0.85) !important;
     font-family: var(--font-body);
-    font-size: 0.40rem !important;
+    font-size: 0.38rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -18150,16 +18150,16 @@ span.stat-icon-box svg,
   }
 
   .hero .hbc-heading {
-    margin: 0 0 1px !important;
-    padding: 0 0 1px !important;
-    border-bottom: 1px solid rgba(97, 183, 255, 0.16) !important;
+    margin: 0 !important;
+    padding: 1px 0 2px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     width: 100% !important;
     font-family: var(--font-body);
-    font-size: 0.46rem !important;
+    font-size: 0.45rem !important;
     font-weight: 800 !important;
     line-height: 1.10 !important;
-    letter-spacing: 0.03em;
-    color: #ffffff !important;
+    letter-spacing: 0.04em;
+    color: rgba(240, 246, 255, 0.95) !important;
     text-align: center !important;
     text-transform: uppercase;
     clear: both !important;
@@ -18168,16 +18168,16 @@ span.stat-icon-box svg,
 
   .hero .hbc-heading span,
   .hero-badge-card .hbc-heading span {
-    color: #ffffff !important;
+    color: rgba(240, 246, 255, 0.95) !important;
   }
 
-  /* Right-side tactical credential service bars */
+  /* Clean Frosted Credential Blocks - NO RAINBOW BORDERS */
   .hero .hbc-cred-cards {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
     padding: 0 !important;
-    gap: 1.5px !important;
+    gap: 2px !important;
     margin: 0 !important;
     background: transparent !important;
     border: none !important;
@@ -18188,29 +18188,30 @@ span.stat-icon-box svg,
     display: flex !important;
     align-items: flex-start !important;
     font-family: var(--font-body);
-    font-size: 0.41rem !important;
-    gap: 3px !important;
+    font-size: 0.40rem !important;
+    gap: 4px !important;
     line-height: 1.12 !important;
-    color: rgba(235, 243, 255, 0.92) !important;
+    color: rgba(210, 225, 245, 0.85) !important;
     text-align: left !important;
-    padding: 1px 2.5px !important;
-    border-radius: 0 3px 3px 0 !important;
-    border: none !important;
+    padding: 2.5px 4.5px !important;
+    border-radius: 5px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
   }
 
   .hero .hbc-cred-row:nth-child(1) {
-    background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), transparent) !important;
-    border-left: 2px solid #1678ff !important;
+    background: linear-gradient(90deg, rgba(22, 120, 255, 0.08), rgba(255, 255, 255, 0.02)) !important;
+    border-color: rgba(97, 183, 255, 0.16) !important;
   }
 
   .hero .hbc-cred-row:nth-child(2) {
-    background: linear-gradient(90deg, rgba(255, 159, 67, 0.16), transparent) !important;
-    border-left: 2px solid #ff9f43 !important;
+    background: linear-gradient(90deg, rgba(22, 120, 255, 0.05), rgba(255, 255, 255, 0.02)) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
   }
 
   .hero .hbc-cred-row:nth-child(3) {
-    background: linear-gradient(90deg, rgba(240, 196, 121, 0.16), transparent) !important;
-    border-left: 2px solid var(--gold) !important;
+    background: linear-gradient(90deg, rgba(22, 120, 255, 0.08), rgba(255, 255, 255, 0.02)) !important;
+    border-color: rgba(97, 183, 255, 0.16) !important;
   }
 
   .hero .hbc-cred-bullet {
@@ -18234,6 +18235,7 @@ span.stat-icon-box svg,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    letter-spacing: 0.01em;
   }
 
   .hero .hbc-cta-strip {
@@ -18242,18 +18244,18 @@ span.stat-icon-box svg,
     align-items: center !important;
     justify-content: center !important;
     gap: 3px;
-    width: calc(100% - 4px) !important;
-    margin: 2px auto 0 !important;
-    padding: 2.5px 4px !important;
+    width: 100% !important;
+    margin: 2px 0 0 !important;
+    padding: 3px 5px !important;
     font-family: var(--font-body);
     font-size: 0.41rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.04em !important;
     border-radius: 5px !important;
     white-space: nowrap;
-    background: linear-gradient(90deg, rgba(97, 183, 255, 0.18), rgba(255, 77, 77, 0.14)) !important;
-    border: 1px solid rgba(97, 183, 255, 0.35) !important;
-    color: #ffffff !important;
+    background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), rgba(22, 120, 255, 0.08)) !important;
+    border: 1px solid rgba(97, 183, 255, 0.28) !important;
+    color: #dbeaff !important;
     text-transform: uppercase;
     box-sizing: border-box !important;
   }
@@ -18264,11 +18266,13 @@ span.stat-icon-box svg,
     line-height: 1 !important;
     letter-spacing: 0.02em !important;
     white-space: nowrap !important;
+    color: #ffffff !important;
   }
 
   .hero .hbc-cta-arrow {
     flex-shrink: 0 !important;
-    font-size: 0.42rem !important;
+    font-size: 0.44rem !important;
+    color: #61b7ff !important;
     line-height: 1 !important;
   }
 
