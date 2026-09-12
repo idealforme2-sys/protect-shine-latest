@@ -3192,48 +3192,142 @@ a.showcase-card {
   padding: 32px 34px;
 }
 
-.lane-label {
-  color: var(--gold);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
+.lane-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  margin-bottom: 2px;
+  transition: all 200ms ease;
+  box-sizing: border-box;
+}
+
+.lane-badge-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.lane-badge-code {
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.lane-badge-sep {
+  opacity: 0.45;
+  font-size: 0.6rem;
+}
+
+.lane-badge-name {
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .lane-panel h3 {
-  margin-bottom: 6px;
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
-  line-height: 0.96;
+  margin-bottom: 8px;
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  line-height: 1.05;
+  color: #ffffff !important;
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.lane-accent-blue {
+  color: #61b7ff !important;
+}
+
+.lane-accent-red {
+  color: #ff5e6c !important;
+}
+
+.lane-accent-mix {
+  color: #8ecbff !important;
 }
 
 .lane-panel p {
   margin: 0;
   max-width: 42ch;
-  color: var(--muted);
+  color: rgba(220, 232, 248, 0.82);
   line-height: 1.5;
+  font-size: 0.88rem;
 }
 
 .lane-cta {
-  display: inline-flex;
-  align-items: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
   width: max-content;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text);
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: transform 190ms ease, border-color 190ms ease, background 190ms ease;
+  margin-top: 14px;
+  padding: 9px 18px !important;
+  border-radius: 999px !important;
+  font-family: var(--font-body);
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  box-sizing: border-box;
+  transition: all 220ms ease !important;
 }
 
-.lane-cta:hover {
+.lane-panel.lane-blue .lane-cta {
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.22), rgba(22, 120, 255, 0.08)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  color: #e6f2ff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.lane-panel.lane-blue .lane-cta:hover {
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.38), rgba(22, 120, 255, 0.18)) !important;
+  border-color: rgba(97, 183, 255, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(22, 120, 255, 0.35) !important;
   transform: translateY(-2px);
-  border-color: rgba(97, 183, 255, 0.5);
-  background: linear-gradient(120deg, rgba(97, 183, 255, 0.18), rgba(255, 77, 77, 0.16));
+}
+
+.lane-panel.lane-red .lane-cta {
+  background: linear-gradient(90deg, rgba(255, 45, 75, 0.22), rgba(255, 45, 75, 0.08)) !important;
+  border: 1px solid rgba(255, 95, 115, 0.4) !important;
+  color: #ffeef0 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.lane-panel.lane-red .lane-cta:hover {
+  background: linear-gradient(90deg, rgba(255, 45, 75, 0.38), rgba(255, 45, 75, 0.18)) !important;
+  border-color: rgba(255, 95, 115, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(255, 45, 75, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+.lane-panel.lane-mix .lane-cta {
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.2), rgba(255, 45, 75, 0.12)) !important;
+  border: 1px solid rgba(160, 200, 255, 0.4) !important;
+  color: #f0f4ff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.lane-panel.lane-mix .lane-cta:hover {
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.35), rgba(255, 45, 75, 0.22)) !important;
+  border-color: rgba(160, 200, 255, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(97, 183, 255, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.lane-cta-arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+  color: currentColor;
+}
+
+.lane-cta:hover .lane-cta-arrow {
+  transform: translateX(4px);
 }
 
 /* ============================================================
@@ -15952,65 +16046,61 @@ span.stat-icon-box svg,
     0 0 30px rgba(22, 120, 255, 0.22) !important;
 }
 
-.lane-panel.lane-blue h3 {
-  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 60%, #f4cf6a 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+.lane-panel h3 {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
-.lane-panel.lane-blue .lane-label {
-  background: linear-gradient(135deg, rgba(22, 120, 255, 0.35), rgba(8, 24, 48, 0.95)) !important;
-  border: 1px solid rgba(97, 183, 255, 0.55) !important;
+.lane-panel.lane-blue .lane-badge {
+  background: rgba(22, 120, 255, 0.16) !important;
+  border: 1px solid rgba(97, 183, 255, 0.42) !important;
+  color: #61b7ff !important;
+  box-shadow: 0 0 14px rgba(22, 120, 255, 0.18) !important;
+}
+
+.lane-panel.lane-blue .lane-badge-code {
   color: #8ecbff !important;
+  font-weight: 900 !important;
 }
 
-.lane-panel.lane-red {
-  background:
-    repeating-linear-gradient(135deg, rgba(255, 77, 77, 0.03) 0 1px, transparent 1px 6px),
-    linear-gradient(140deg, rgba(78, 14, 28, 0.85), rgba(4, 10, 20, 0.95) 55%, rgba(26, 8, 16, 0.92)) !important;
-  border: 1px solid rgba(255, 119, 135, 0.45) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 20px 48px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 30, 53, 0.22) !important;
+.lane-panel.lane-blue .lane-badge-name {
+  color: #e6f2ff !important;
+  font-weight: 700 !important;
 }
 
-.lane-panel.lane-red h3 {
-  background: linear-gradient(90deg, #ffffff 0%, #ff9aa6 60%, #f4cf6a 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+.lane-panel.lane-red .lane-badge {
+  background: rgba(255, 45, 75, 0.16) !important;
+  border: 1px solid rgba(255, 95, 115, 0.42) !important;
+  color: #ff7787 !important;
+  box-shadow: 0 0 14px rgba(255, 45, 75, 0.18) !important;
 }
 
-.lane-panel.lane-red .lane-label {
-  background: linear-gradient(135deg, rgba(255, 30, 53, 0.35), rgba(48, 8, 16, 0.95)) !important;
-  border: 1px solid rgba(255, 119, 135, 0.55) !important;
+.lane-panel.lane-red .lane-badge-code {
   color: #ff9aa6 !important;
+  font-weight: 900 !important;
 }
 
-.lane-panel.lane-mix {
-  background:
-    repeating-linear-gradient(135deg, rgba(244, 207, 106, 0.03) 0 1px, transparent 1px 6px),
-    linear-gradient(140deg, rgba(18, 44, 84, 0.88), rgba(4, 10, 20, 0.95) 55%, rgba(56, 10, 26, 0.92)) !important;
-  border: 1px solid rgba(244, 207, 106, 0.45) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 20px 48px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(244, 207, 106, 0.22) !important;
+.lane-panel.lane-red .lane-badge-name {
+  color: #ffeef0 !important;
+  font-weight: 700 !important;
 }
 
-.lane-panel.lane-mix h3 {
-  background: linear-gradient(90deg, #ffffff 0%, #ffe59e 60%, #94c9ff 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+.lane-panel.lane-mix .lane-badge {
+  background: linear-gradient(90deg, rgba(22, 120, 255, 0.18), rgba(255, 45, 75, 0.14)) !important;
+  border: 1px solid rgba(160, 200, 255, 0.42) !important;
+  color: #8ecbff !important;
+  box-shadow: 0 0 14px rgba(97, 183, 255, 0.16) !important;
 }
 
-.lane-panel.lane-mix .lane-label {
-  background: linear-gradient(135deg, rgba(244, 207, 106, 0.35), rgba(48, 38, 8, 0.95)) !important;
-  border: 1px solid rgba(244, 207, 106, 0.55) !important;
-  color: #f4cf6a !important;
+.lane-panel.lane-mix .lane-badge-code {
+  color: #8ecbff !important;
+  font-weight: 900 !important;
+}
+
+.lane-panel.lane-mix .lane-badge-name {
+  color: #f0f4ff !important;
+  font-weight: 700 !important;
 }
 
 .lane-panel:hover {
