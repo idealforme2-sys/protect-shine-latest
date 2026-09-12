@@ -18,3 +18,5 @@
    - On both desktop and mobile, hero background photos (`POLICECAR.jpg`, `TRUCKSs.jpg`, `policE.jpg`) extend to `Y = 0` behind, above, and around the floating header and patrol lights via `-82px` margin offset and calibrated top padding. Zero empty space or backdrop exposure when header contracts/detracts.
 3. **Git as Memory**:
    - Every meaningful update must be committed with structured commit format under Gemini Flash.
+4. **Mobile Hero Built Different Card Layout**:
+   - Uses the Integrated Tactical Crest Badge layout (compact 280px width, no nested boxes or dark patch overlays, military/police rank service stripes with subtle gradient left borders, gold top command bar, circular officer avatar with gold tactical ring). Desktop layout remains untouched.
