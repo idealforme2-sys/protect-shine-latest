@@ -3103,13 +3103,26 @@ a.showcase-card {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(6, 10, 18, 0.15) 0%, rgba(6, 10, 18, 0.55) 45%, rgba(6, 10, 18, 0.98) 90%) !important;
+  background: linear-gradient(180deg, rgba(8, 15, 29, 0.1) 0%, rgba(8, 15, 29, 0.55) 45%, rgba(8, 15, 29, 0.96) 88%) !important;
 }
 
-.lane-blue .lane-overlay,
-.lane-red .lane-overlay,
+.lane-blue .lane-overlay {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(37, 99, 235, 0.22), transparent 48%),
+    linear-gradient(180deg, rgba(8, 15, 29, 0.1) 0%, rgba(8, 15, 29, 0.52) 42%, rgba(8, 15, 29, 0.96) 88%) !important;
+}
+
+.lane-red .lane-overlay {
+  background:
+    radial-gradient(circle at 85% 25%, rgba(239, 68, 68, 0.22), transparent 48%),
+    linear-gradient(180deg, rgba(8, 15, 29, 0.1) 0%, rgba(8, 15, 29, 0.52) 42%, rgba(8, 15, 29, 0.96) 88%) !important;
+}
+
 .lane-mix .lane-overlay {
-  background: linear-gradient(180deg, rgba(6, 10, 18, 0.12) 0%, rgba(6, 10, 18, 0.5) 42%, rgba(6, 10, 18, 0.98) 88%) !important;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(37, 99, 235, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(239, 68, 68, 0.16), transparent 45%),
+    linear-gradient(180deg, rgba(8, 15, 29, 0.1) 0%, rgba(8, 15, 29, 0.52) 42%, rgba(8, 15, 29, 0.96) 88%) !important;
 }
 
 .lane-panel::before {
@@ -3188,6 +3201,27 @@ a.showcase-card {
   box-sizing: border-box;
 }
 
+.lane-panel.lane-blue .lane-badge {
+  background: rgba(14, 25, 48, 0.85) !important;
+  border: 1px solid rgba(77, 169, 255, 0.4) !important;
+  color: #93c5fd !important;
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.22);
+}
+
+.lane-panel.lane-red .lane-badge {
+  background: rgba(48, 14, 20, 0.85) !important;
+  border: 1px solid rgba(255, 77, 77, 0.4) !important;
+  color: #fca5a5 !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.22);
+}
+
+.lane-panel.lane-mix .lane-badge {
+  background: rgba(22, 20, 44, 0.85) !important;
+  border: 1px solid rgba(165, 180, 252, 0.4) !important;
+  color: #c7d2fe !important;
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.22);
+}
+
 .lane-badge-icon {
   flex-shrink: 0;
   display: block;
@@ -3211,11 +3245,43 @@ a.showcase-card {
 .lane-panel h3 {
   margin-bottom: 8px;
   font-size: clamp(1.45rem, 2.4vw, 2.1rem);
-  line-height: 1.05;
-  color: #ffffff !important;
+  line-height: 1.08;
   font-family: var(--font-display);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+}
+
+.lane-panel h3 .headline-blue {
+  color: #4da9ff !important;
+  text-shadow: 0 0 16px rgba(77, 169, 255, 0.45);
+  font-weight: 800;
+}
+
+.lane-panel h3 .headline-red {
+  color: #ff4d4d !important;
+  text-shadow: 0 0 16px rgba(255, 77, 77, 0.45);
+  font-weight: 800;
+}
+
+.lane-panel h3 .headline-gold {
+  color: #f6c445 !important;
+  text-shadow: 0 0 14px rgba(246, 196, 69, 0.4);
+  font-weight: 800;
+}
+
+.lane-panel h3 .headline-ice {
+  color: #dbeafe !important;
+  text-shadow: 0 0 14px rgba(219, 234, 254, 0.35);
+  font-weight: 800;
+}
+
+.lane-panel h3 .headline-symbol {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-weight: 600;
 }
 
 .lane-accent-blue {
@@ -3233,9 +3299,23 @@ a.showcase-card {
 .lane-panel p {
   margin: 0;
   max-width: 42ch;
-  color: rgba(220, 232, 248, 0.82);
+  color: rgba(220, 232, 248, 0.88);
   line-height: 1.5;
   font-size: 0.88rem;
+}
+
+.lane-panel .kinetic-keyword-trigger {
+  color: #60a5fa !important;
+  font-weight: 700;
+  border-bottom: 1px dashed rgba(96, 165, 250, 0.6);
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.lane-panel .kinetic-keyword-trigger:hover {
+  color: #93c5fd !important;
+  border-bottom-style: solid;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
 }
 
 .lane-cta {
@@ -12636,75 +12716,79 @@ span.stat-icon-box svg,
    GLASS SHINE ANIMATION & WORKING ANIMATED FOOTER SIREN LINE
    ============================================================ */
 
-/* 1. Stealth Obsidian Luxury Chassis for Cards 01, 02, and 03 (.lane-panel) */
+/* 1. Midnight Tactical Carbon Chassis for Cards 01, 02, and 03 (.lane-panel) */
 .lane-panel {
   position: relative !important;
-  border-radius: 18px !important;
-  background: linear-gradient(165deg, rgba(10, 16, 28, 0.96) 0%, rgba(5, 8, 15, 0.98) 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 8px),
+    linear-gradient(160deg, #0e172a 0%, #080f1d 55%, #050a14 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    0 18px 45px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   overflow: hidden !important;
-  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 260ms ease,
-              box-shadow 260ms ease !important;
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 280ms ease,
+              box-shadow 280ms ease !important;
 }
 
-/* Card 01 — Vehicle Detail Packages (Tactical Sapphire Accent) */
+/* Card 01 — Vehicle Detail Packages (Tactical Sapphire Ambient Aura) */
 .lane-panel.lane-blue {
-  border: 1px solid rgba(97, 183, 255, 0.22) !important;
+  border: 1px solid rgba(77, 169, 255, 0.35) !important;
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.65),
-    0 0 20px rgba(22, 120, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    0 18px 45px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(37, 99, 235, 0.16),
+    inset 0 1px 0 rgba(147, 197, 253, 0.25) !important;
 }
 
 .lane-panel.lane-blue:hover {
-  transform: translateY(-4px) !important;
-  border-color: rgba(97, 183, 255, 0.48) !important;
+  transform: translateY(-5px) !important;
+  border-color: rgba(77, 169, 255, 0.7) !important;
   box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.75),
-    0 0 28px rgba(22, 120, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    0 26px 60px rgba(0, 0, 0, 0.8),
+    0 0 45px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(147, 197, 253, 0.45) !important;
 }
 
-/* Card 02 — Commercial + Semi Trucks (Stealth Crimson Accent) */
+/* Card 02 — Commercial + Semi Trucks (Tactical Crimson Ambient Aura) */
 .lane-panel.lane-red {
-  border: 1px solid rgba(255, 95, 115, 0.22) !important;
+  border: 1px solid rgba(255, 77, 77, 0.35) !important;
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.65),
-    0 0 20px rgba(255, 45, 75, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    0 18px 45px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(239, 68, 68, 0.16),
+    inset 0 1px 0 rgba(254, 202, 202, 0.25) !important;
 }
 
 .lane-panel.lane-red:hover {
-  transform: translateY(-4px) !important;
-  border-color: rgba(255, 95, 115, 0.45) !important;
+  transform: translateY(-5px) !important;
+  border-color: rgba(255, 77, 77, 0.7) !important;
   box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.75),
-    0 0 28px rgba(255, 45, 75, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    0 26px 60px rgba(0, 0, 0, 0.8),
+    0 0 45px rgba(239, 68, 68, 0.35),
+    inset 0 1px 0 rgba(254, 202, 202, 0.45) !important;
 }
 
-/* Card 03 — First Responder Units (Tactical Dual Accent) */
+/* Card 03 — First Responder Units (Tactical Police Dual Ambient Aura) */
 .lane-panel.lane-mix {
-  border: 1px solid rgba(160, 200, 255, 0.22) !important;
+  border: 1px solid rgba(165, 180, 252, 0.35) !important;
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.65),
-    0 0 20px rgba(97, 183, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    0 18px 45px rgba(0, 0, 0, 0.65),
+    -10px 0 30px rgba(37, 99, 235, 0.14),
+    10px 0 30px rgba(239, 68, 68, 0.14),
+    inset 0 1px 0 rgba(224, 231, 255, 0.25) !important;
 }
 
 .lane-panel.lane-mix:hover {
-  transform: translateY(-4px) !important;
-  border-color: rgba(160, 200, 255, 0.45) !important;
+  transform: translateY(-5px) !important;
+  border-color: rgba(165, 180, 252, 0.7) !important;
   box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.75),
-    0 0 28px rgba(97, 183, 255, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    0 26px 60px rgba(0, 0, 0, 0.8),
+    -15px 0 42px rgba(37, 99, 235, 0.28),
+    15px 0 42px rgba(239, 68, 68, 0.28),
+    inset 0 1px 0 rgba(224, 231, 255, 0.45) !important;
 }
 
 /* 2. Keyframes for Moving Glass Light Beam & Pulsing Aura */
@@ -16020,9 +16104,40 @@ span.stat-icon-box svg,
 }
 
 .lane-panel h3 {
-  color: #ffffff !important;
   background: none !important;
-  -webkit-text-fill-color: #ffffff !important;
+}
+
+.lane-panel h3 span.headline-blue {
+  color: #4da9ff !important;
+  -webkit-text-fill-color: #4da9ff !important;
+  text-shadow: 0 0 16px rgba(77, 169, 255, 0.5) !important;
+  font-weight: 800 !important;
+}
+
+.lane-panel h3 span.headline-red {
+  color: #ff4d4d !important;
+  -webkit-text-fill-color: #ff4d4d !important;
+  text-shadow: 0 0 16px rgba(255, 77, 77, 0.5) !important;
+  font-weight: 800 !important;
+}
+
+.lane-panel h3 span.headline-gold {
+  color: #f6c445 !important;
+  -webkit-text-fill-color: #f6c445 !important;
+  text-shadow: 0 0 14px rgba(246, 196, 69, 0.45) !important;
+  font-weight: 800 !important;
+}
+
+.lane-panel h3 span.headline-ice {
+  color: #dbeafe !important;
+  -webkit-text-fill-color: #dbeafe !important;
+  text-shadow: 0 0 14px rgba(219, 234, 254, 0.4) !important;
+  font-weight: 800 !important;
+}
+
+.lane-panel h3 span.headline-symbol {
+  color: rgba(255, 255, 255, 0.65) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.65) !important;
 }
 
 .lane-panel.lane-blue .lane-badge {
