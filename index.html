@@ -33,7 +33,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=block"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=ps-update-134" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-135" />
     <link rel="preload" as="image" href="./POLICECAR.jpg" />
     <script type="application/ld+json">
       {
@@ -838,52 +838,97 @@
         <div class="why-grid">
           <div class="why-identity" data-media-slot="owner-identity">
             <div class="why-intro">
-              <p class="eyebrow">Why Clients Choose Protect & Shine</p>
+              <span class="why-eyebrow">Why Clients Choose Protect &amp; Shine</span>
               <h2>Accountability before, during, and after the detail.</h2>
-              <p>
-                Protect & Shine is built around clear communication, respect for the vehicle, and work the customer can
+              <p class="why-lead">
+                Protect &amp; Shine is built around clear communication, respect for the vehicle, and work the customer can
                 inspect before the job is complete.
               </p>
             </div>
-            <div class="why-photo">
-              <img
-                src="./protectshineimg.png"
-                alt="Protect & Shine Detailing sidewalk sign reading Detail in Progress with scan-to-book code and phone number"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="why-photo-card">
+              <div class="why-photo-media">
+                <img
+                  src="./protectshineimg.png"
+                  alt="Protect &amp; Shine Detailing on-site sign Detail in Progress with scan-to-book QR and contact number"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="why-photo-overlay" aria-hidden="true"></div>
+                <div class="why-verified-badge">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span>VERIFIED ON-SITE DEPLOYMENT</span>
+                </div>
+              </div>
+              <div class="why-photo-bar">
+                <div class="why-pill"><span class="why-dot dot-blue"></span> 100% Mobile Rig</div>
+                <div class="why-pill"><span class="why-dot dot-red"></span> Owner-Operated</div>
+                <div class="why-pill"><span class="why-dot dot-gold"></span> Melissa &amp; McKinney</div>
+              </div>
             </div>
           </div>
+
           <div class="why-credentials">
             <div class="why-crest">
-              <img src="./assets/ProtectShineLOGO.jpg" alt="Protect & Shine Detailing badge" decoding="async" />
-              <span class="why-crest-label">Protect & Shine Detailing</span>
-              <small>Police Officer Owned &middot; Texas CDL</small>
+              <img src="./assets/ProtectShineLOGO.jpg" alt="Protect &amp; Shine Detailing crest emblem" decoding="async" />
+              <div class="why-crest-info">
+                <span class="why-crest-label">Protect &amp; Shine Detailing</span>
+                <small>Police Officer Owned &middot; Texas CDL Experienced</small>
+              </div>
             </div>
-            <article class="why-credential">
-              <span class="why-num">01</span>
+
+            <article class="why-credential why-card-police">
+              <div class="why-icon-wrap">
+                <svg class="why-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M12 8l1.5 3 3.5.5-2.5 2.5.5 3.5-3-1.6-3 1.6.5-3.5L7 11.5l3.5-.5z"/>
+                </svg>
+              </div>
               <div class="why-credential-body">
+                <div class="why-tag-row">
+                  <span class="why-tag why-tag-blue">PILLAR 01 &bull; INTEGRITY &amp; TRUST</span>
+                </div>
                 <h3>Police Officer Owned</h3>
                 <p>A public-service background brings accountability, consistency, discretion, and respect for the customer's property.</p>
               </div>
             </article>
-            <article class="why-credential">
-              <span class="why-num">02</span>
+
+            <article class="why-credential why-card-cdl">
+              <div class="why-icon-wrap">
+                <svg class="why-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 3h15v13H1z"/>
+                  <path d="M16 8h4l3 3v5h-7V8z"/>
+                  <circle cx="5.5" cy="18.5" r="2.5"/>
+                  <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+              </div>
               <div class="why-credential-body">
+                <div class="why-tag-row">
+                  <span class="why-tag why-tag-red">PILLAR 02 &bull; COMMERCIAL CDL EXPERTISE</span>
+                </div>
                 <h3>Texas CDL Experience</h3>
                 <p>Former semi-truck driving experience provides firsthand understanding of working cabs, owner-operators, and driver-ready commercial vehicles.</p>
               </div>
             </article>
-            <article class="why-credential">
-              <span class="why-num">03</span>
+
+            <article class="why-credential why-card-mobile">
+              <div class="why-icon-wrap">
+                <svg class="why-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
               <div class="why-credential-body">
+                <div class="why-tag-row">
+                  <span class="why-tag why-tag-gold">PILLAR 03 &bull; ON-LOCATION DEPLOYMENT</span>
+                </div>
                 <h3>Mobile By Design</h3>
                 <p>Service comes to the customer's home, workplace, route stop, or fleet location throughout Melissa, McKinney, and surrounding areas.</p>
               </div>
             </article>
+
             <div class="why-footer">
-              <div class="hero-actions">
-                <a class="button button-primary" href="#quote">Get A Quote</a>
+              <div class="why-actions">
+                <a class="button button-primary" href="#quote">Get A Free Quote</a>
                 <a class="button button-secondary" href="tel:9723385781">Call 972-338-5781</a>
               </div>
             </div>

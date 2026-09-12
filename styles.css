@@ -11345,54 +11345,423 @@ body.js .section-heading.is-visible h2::after {
   font-size: 0.85rem !important;
 }
 
-/* 8. Why Us Section Credentials Downward Offset */
-.why-grid {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) !important;
-  gap: 44px !important;
-  align-items: start !important;
+/* ============================================================
+   WHY US SECTION — TACTICAL PROOF MATRIX OVERHAUL
+   ============================================================ */
+.why-section {
+  position: relative !important;
+  padding: 80px 0 !important;
+  overflow: hidden !important;
 }
 
-@media (max-width: 900px) {
+.why-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  gap: 36px !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 960px) {
   .why-grid {
     grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 }
 
+/* Left Column: Identity & Media Card */
 .why-identity {
   display: flex !important;
   flex-direction: column !important;
+  justify-content: space-between !important;
   gap: 24px !important;
+  padding: 32px !important;
+  border-radius: 20px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 8px),
+    linear-gradient(160deg, #0e172a 0%, #080f1d 55%, #050a14 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
 }
 
-.why-photo {
+.why-identity::before,
+.why-identity::after {
+  display: none !important;
+}
+
+.why-intro {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.why-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(37, 99, 235, 0.14) !important;
+  border: 1px solid rgba(97, 183, 255, 0.35) !important;
+  color: #93c5fd !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.why-intro h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.85rem, 3.4vw, 2.5rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.02em !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.why-lead {
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  color: rgba(220, 232, 248, 0.82) !important;
+  margin: 0 !important;
+}
+
+/* Photo Card Showcase */
+.why-photo-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+}
+
+.why-photo-media {
   position: relative !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(184, 205, 227, 0.22) !important;
-  border-radius: 18px !important;
-  background: rgba(3, 6, 12, 0.6) !important;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45) !important;
   width: 100% !important;
-  aspect-ratio: 1 / 1 !important;
-  margin-top: 8px !important;
+  height: 280px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: #060a12 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5) !important;
 }
 
-.why-photo img {
+.why-photo-media img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+  object-position: center top !important;
   display: block !important;
+  transition: transform 400ms ease !important;
 }
 
+.why-photo-media:hover img {
+  transform: scale(1.03) !important;
+}
+
+.why-photo-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: linear-gradient(180deg, rgba(8, 15, 29, 0.1) 0%, rgba(8, 15, 29, 0.25) 50%, rgba(8, 15, 29, 0.85) 100%) !important;
+}
+
+.why-verified-badge {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(8, 15, 29, 0.88) !important;
+  border: 1px solid rgba(97, 183, 255, 0.45) !important;
+  color: #93c5fd !important;
+  font-size: 0.65rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.why-photo-bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.why-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 5px 10px !important;
+  border-radius: 8px !important;
+  background: rgba(14, 25, 48, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(220, 232, 248, 0.88) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+
+.why-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+}
+
+.dot-blue { background: #38bdf8 !important; box-shadow: 0 0 8px #38bdf8; }
+.dot-red { background: #ff4d4d !important; box-shadow: 0 0 8px #ff4d4d; }
+.dot-gold { background: #f6c445 !important; box-shadow: 0 0 8px #f6c445; }
+
+/* Right Column: Credentials */
 .why-credentials {
-  margin-top: 56px !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 20px !important;
+  gap: 16px !important;
+  margin-top: 0 !important;
+  padding-left: 0 !important;
 }
 
+.why-credentials::before {
+  display: none !important;
+}
+
+/* Authority Crest Banner */
 .why-crest {
-  margin-bottom: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 12px 18px !important;
+  border-radius: 14px !important;
+  background:
+    linear-gradient(135deg, rgba(14, 26, 48, 0.8), rgba(6, 12, 24, 0.95)) !important;
+  border: 1px solid rgba(97, 183, 255, 0.28) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  margin-bottom: 2px !important;
+}
+
+.why-crest img {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 10px !important;
+  object-fit: cover !important;
+  border: 1px solid rgba(97, 183, 255, 0.4) !important;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.3) !important;
+  flex-shrink: 0 !important;
+}
+
+.why-crest-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.why-crest-label {
+  font-family: var(--font-display) !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.05em !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+}
+
+.why-crest small {
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  color: #f6c445 !important;
+  text-transform: uppercase !important;
+}
+
+/* Credential Cards */
+.why-credential {
+  position: relative !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  padding: 18px 20px !important;
+  border-radius: 16px !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 8px),
+    linear-gradient(160deg, rgba(14, 24, 42, 0.9) 0%, rgba(8, 14, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease !important;
+}
+
+.why-credential:hover {
+  transform: translateX(4px) !important;
+}
+
+/* Pillar 01: Police */
+.why-credential.why-card-police {
+  border-color: rgba(77, 169, 255, 0.28) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 24px rgba(37, 99, 235, 0.1) !important;
+}
+.why-credential.why-card-police:hover {
+  border-color: rgba(77, 169, 255, 0.55) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 32px rgba(37, 99, 235, 0.22) !important;
+}
+
+/* Pillar 02: CDL */
+.why-credential.why-card-cdl {
+  border-color: rgba(255, 77, 77, 0.28) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 24px rgba(239, 68, 68, 0.1) !important;
+}
+.why-credential.why-card-cdl:hover {
+  border-color: rgba(255, 77, 77, 0.55) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 32px rgba(239, 68, 68, 0.22) !important;
+}
+
+/* Pillar 03: Mobile */
+.why-credential.why-card-mobile {
+  border-color: rgba(246, 196, 69, 0.28) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 24px rgba(246, 196, 69, 0.1) !important;
+}
+.why-credential.why-card-mobile:hover {
+  border-color: rgba(246, 196, 69, 0.55) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 32px rgba(246, 196, 69, 0.22) !important;
+}
+
+/* Icons */
+.why-icon-wrap {
+  display: grid !important;
+  place-items: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+.why-card-police .why-icon-wrap {
+  background: rgba(37, 99, 235, 0.18) !important;
+  border: 1px solid rgba(77, 169, 255, 0.4) !important;
+  color: #60a5fa !important;
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.25) !important;
+}
+
+.why-card-cdl .why-icon-wrap {
+  background: rgba(239, 68, 68, 0.18) !important;
+  border: 1px solid rgba(255, 77, 77, 0.4) !important;
+  color: #f87171 !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25) !important;
+}
+
+.why-card-mobile .why-icon-wrap {
+  background: rgba(246, 196, 69, 0.18) !important;
+  border: 1px solid rgba(246, 196, 69, 0.4) !important;
+  color: #fbbf24 !important;
+  box-shadow: 0 0 14px rgba(246, 196, 69, 0.25) !important;
+}
+
+/* Card Body & Tags */
+.why-credential-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.why-tag-row {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 2px !important;
+}
+
+.why-tag {
+  display: inline-flex !important;
+  font-size: 0.62rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.why-tag-blue { color: #93c5fd !important; }
+.why-tag-red { color: #fca5a5 !important; }
+.why-tag-gold { color: #fde68a !important; }
+
+.why-credential-body h3 {
+  font-family: var(--font-display) !important;
+  font-size: 1.22rem !important;
+  letter-spacing: 0.03em !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.why-credential-body p {
+  font-size: 0.84rem !important;
+  line-height: 1.48 !important;
+  color: rgba(220, 232, 248, 0.78) !important;
+  margin: 0 !important;
+}
+
+/* Footer Action Buttons */
+.why-footer {
+  margin-top: 4px !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+}
+
+.why-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.why-actions .button {
+  padding: 10px 22px !important;
+  font-size: 0.8rem !important;
+  border-radius: 999px !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .why-identity {
+    padding: 20px 16px !important;
+  }
+
+  .why-photo-media {
+    height: 220px !important;
+  }
+
+  .why-credential {
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+
+  .why-icon-wrap {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .why-icon-wrap svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .why-credential-body h3 {
+    font-size: 1.08rem !important;
+  }
+
+  .why-credential-body p {
+    font-size: 0.78rem !important;
+  }
+
+  .why-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .why-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 /* ============================================================
@@ -12497,17 +12866,20 @@ span.stat-icon-box svg,
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 6px !important;
-    align-items: start !important;
+    align-items: stretch !important;
   }
 
   .route-step,
-  .route-step:nth-child(2) {
+  .route-step:nth-child(2),
+  .route-step:nth-child(3) {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     text-align: center !important;
     padding: 12px 6px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
     transform: none !important;
     background: linear-gradient(145deg, rgba(12, 26, 44, 0.7), rgba(4, 9, 17, 0.85)) !important;
     border: 1px solid rgba(97, 183, 255, 0.18) !important;
@@ -12554,6 +12926,7 @@ span.stat-icon-box svg,
     color: #a2b7cc !important;
     max-width: 100% !important;
     margin: 0 !important;
+    flex-grow: 1 !important;
   }
 
   .route-actions {
@@ -12789,6 +13162,78 @@ span.stat-icon-box svg,
     -15px 0 42px rgba(37, 99, 235, 0.28),
     15px 0 42px rgba(239, 68, 68, 0.28),
     inset 0 1px 0 rgba(224, 231, 255, 0.45) !important;
+}
+
+/* Mobile Optimization: Compact Proportional Service Lane Cards */
+@media (max-width: 768px) {
+  .lane-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .lane-panel,
+  .lane-panel-wide,
+  .lane-panel:not(.lane-full):not(.lane-panel-wide) {
+    min-height: 0 !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 16px !important;
+  }
+
+  .lane-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 145px !important;
+    min-height: 145px !important;
+    aspect-ratio: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .lane-overlay {
+    background: linear-gradient(180deg, rgba(8, 15, 29, 0.05) 0%, rgba(8, 15, 29, 0.4) 40%, rgba(8, 15, 29, 0.98) 95%) !important;
+  }
+
+  .lane-body {
+    position: relative !important;
+    padding: 12px 14px 14px !important;
+    gap: 6px !important;
+    margin-top: -20px !important;
+    z-index: 3 !important;
+  }
+
+  .lane-badge {
+    padding: 3px 8px !important;
+    font-size: 0.62rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .lane-badge svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .lane-panel h3 {
+    font-size: 1.18rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 4px !important;
+    gap: 0 4px !important;
+  }
+
+  .lane-panel p {
+    font-size: 0.78rem !important;
+    line-height: 1.42 !important;
+    max-width: 100% !important;
+  }
+
+  .lane-cta {
+    margin-top: 10px !important;
+    padding: 7px 14px !important;
+    font-size: 0.68rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 /* 2. Keyframes for Moving Glass Light Beam & Pulsing Aura */
@@ -19085,6 +19530,10 @@ span.stat-icon-box svg,
       min-height: 0 !important;
       padding: 12px;
       border-radius: 22px 7px 22px 7px;
+    }
+
+    .car-seat-inner::before {
+      display: none !important;
     }
 
     .car-seat-eyebrow {
