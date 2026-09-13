@@ -229,6 +229,7 @@ function initHeadlineAccents() {
         ".fr-panel-label",
         ".fr-no-surprise strong",
         ".quote-pkg-name",
+        "[data-service-summary-title]",
         ".car-seat-copy h2",
         ".fr-heading h2"
       ].join(", ")
@@ -494,9 +495,21 @@ function initQuoteForm() {
   };
   const updateServiceSummary = (card) => {
     if (!card) return;
-    const nameText = card.querySelector(".quote-pkg-name")?.textContent || selectedPkg;
+    const nameEl = card.querySelector(".quote-pkg-name");
+    const nameText = nameEl?.textContent.trim() || selectedPkg;
     const priceText = card.querySelector(".quote-pkg-price")?.textContent || "Custom Quote";
-    if (serviceCurrent) serviceCurrent.textContent = nameText;
+    if (serviceCurrent) {
+      if (nameEl && nameEl.children.length > 0) {
+        serviceCurrent.innerHTML = nameEl.innerHTML;
+        serviceCurrent.classList.add("headline-accented");
+        serviceCurrent.dataset.headlineAccented = "true";
+      } else {
+        serviceCurrent.textContent = nameText;
+        delete serviceCurrent.dataset.headlineAccented;
+        serviceCurrent.classList.remove("headline-accented");
+        accentHeadlineElement(serviceCurrent);
+      }
+    }
     if (servicePrice) servicePrice.textContent = priceText;
   };
 
