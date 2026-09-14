@@ -21331,3 +21331,49 @@ span.stat-icon-box svg,
   -webkit-text-fill-color: var(--red) !important;
   text-shadow: 0 0 18px currentColor, 0 0 1px rgba(255, 255, 255, 0.36) !important;
 }
+
+/* ============================================================
+   MOBILE PERFORMANCE & GPU OPTIMIZATION ENGINE
+   ============================================================ */
+@media (max-width: 820px), (hover: none) and (pointer: coarse) {
+  /* Disable custom desktop cursor tracking on touch screens */
+  .cursor-ring,
+  .cursor-dot {
+    display: none !important;
+  }
+
+  /* Optimize heavy backdrop-filters for smooth 60fps mobile scrolling */
+  .modal-overlay,
+  .quote-section,
+  .service-card,
+  .package-card,
+  .trust-card,
+  .showcase-card,
+  .review-card,
+  .faq-card,
+  .hero-cred-card,
+  .hero-badge-card {
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+
+  /* Content-visibility optimization for heavy off-screen sections to free CPU/GPU */
+  #process,
+  #results,
+  #packages,
+  #car-seat,
+  #trucks,
+  #first-responder,
+  #reviews,
+  #faq,
+  #quote,
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
+
+  /* Simplify complex multi-layer site backdrop on mobile to preserve GPU memory */
+  .site-backdrop {
+    background-size: auto, auto, auto, 128px 128px, 128px 128px, auto, auto !important;
+  }
+}

@@ -56,12 +56,11 @@ function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
   if (!preloader) return;
 
-  const navEntry = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0]) || null;
-  const isReload = navEntry ? navEntry.type === "reload" : false;
+  const isMobile = window.matchMedia("(max-width: 820px), (hover: none)").matches;
   const hasVisitedSession = sessionStorage.getItem("ps_has_loaded_session");
 
-  // Skip preloader on internal page navigation (only show on page reload or fresh visit)
-  if (hasVisitedSession && !isReload) {
+  // On mobile or return visits, skip preloader immediately for instant page entry
+  if (isMobile || hasVisitedSession) {
     preloader.remove();
     document.body.classList.add("is-loaded");
     updateHeaderState();
@@ -83,12 +82,9 @@ function initPreloader() {
 
   const timer = window.setInterval(() => {
     if (hidden) return;
-    const next = progress + (progress < 55 ? 6 : progress < 82 ? 3 : 1.5);
+    const next = progress + 20;
     updateProgress(Math.min(next, 96));
-  }, 100);
-
-  const startedAt = Date.now();
-  const MIN_VISIBLE = 1700;
+  }, 40);
 
   const hide = () => {
     if (hidden) return;
@@ -96,21 +92,16 @@ function initPreloader() {
     document.body.classList.add("is-loaded");
     updateProgress(100);
     window.clearInterval(timer);
-    const wait = Math.max(0, MIN_VISIBLE - (Date.now() - startedAt));
-    window.setTimeout(() => {
-      preloader.classList.add("is-hidden");
-      window.setTimeout(() => preloader.remove(), 360);
-    }, wait);
+    preloader.classList.add("is-hidden");
+    window.setTimeout(() => preloader.remove(), 250);
     updateHeaderState();
   };
 
-  updateProgress(0);
-
-  if (document.readyState === "complete") {
-    window.setTimeout(hide, 300);
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    window.setTimeout(hide, 100);
   } else {
-    window.addEventListener("load", () => window.setTimeout(hide, 300), { once: true });
-    window.setTimeout(hide, 4500);
+    window.addEventListener("DOMContentLoaded", () => window.setTimeout(hide, 100), { once: true });
+    window.setTimeout(hide, 1000);
   }
 }
 
@@ -392,10 +383,8 @@ function initShowcaseVideos() {
   const videos = document.querySelectorAll(".showcase-card video, .finish-media video");
   if (!videos.length) return;
 
-  const nearViewport = (video, margin = 140) => {
-    const rect = video.getBoundingClientRect();
-    return rect.bottom > -margin && rect.top < window.innerHeight + margin;
-  };
+  const isMobile = window.matchMedia("(max-width: 820px), (hover: none)").matches;
+  let activePlayingVideo = null;
 
   const ensureSource = (video) => {
     if (!video.getAttribute("src") && video.dataset.src) {
@@ -407,68 +396,61 @@ function initShowcaseVideos() {
     ensureSource(video);
     video.muted = true;
     video.playsInline = true;
-    if (video.readyState < 1 && video.networkState !== 2) video.load();
-    video.play().catch(() => {});
+
+    // On mobile, only allow a single video to play at any given time to avoid decoder overload
+    if (isMobile && activePlayingVideo && activePlayingVideo !== video) {
+      activePlayingVideo.pause();
+    }
+
+    const p = video.play();
+    if (p !== undefined) {
+      p.then(() => {
+        activePlayingVideo = video;
+      }).catch(() => {});
+    }
   };
 
-  const hasIO = "IntersectionObserver" in window;
-  if (!hasIO) {
-    videos.forEach((video) => playVideo(video));
+  const pauseVideo = (video) => {
+    video.pause();
+    if (activePlayingVideo === video) activePlayingVideo = null;
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    if (videos[0]) playVideo(videos[0]);
     return;
   }
 
+  // Just-in-time source loader: loads source when within 150px of viewport
   const loader = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       ensureSource(entry.target);
       loader.unobserve(entry.target);
     });
-  }, { rootMargin: "700px 0px" });
+  }, { rootMargin: "150px 0px" });
 
+  // Viewport playback observer: plays when clearly visible, pauses immediately when scrolling past
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         playVideo(entry.target);
       } else {
-        entry.target.pause();
+        pauseVideo(entry.target);
       }
     });
-  }, { threshold: 0.18 });
+  }, { threshold: 0.25 });
 
   videos.forEach((video) => {
-    video.addEventListener("stalled", () => {
-      if (nearViewport(video)) window.setTimeout(() => playVideo(video), 250);
-    });
-    video.addEventListener("waiting", () => {
-      if (nearViewport(video)) window.setTimeout(() => playVideo(video), 300);
-    });
     video.addEventListener("ended", () => playVideo(video));
-    video.addEventListener("error", () => {
-      const tries = Number(video.dataset.retries || 0);
-      if (tries >= 3) return;
-      video.dataset.retries = String(tries + 1);
-      window.setTimeout(() => {
-        video.load();
-        playVideo(video);
-      }, 800 * (tries + 1));
-    });
     video.closest(".showcase-card")?.addEventListener("mouseenter", () => playVideo(video));
     loader.observe(video);
     observer.observe(video);
   });
 
-  window.setInterval(() => {
-    if (document.hidden) return;
-    videos.forEach((video) => {
-      if (video.paused && nearViewport(video)) playVideo(video);
-    });
-  }, 2500);
-
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) return;
-    videos.forEach((video) => {
-      if (nearViewport(video)) playVideo(video);
-    });
+    if (document.hidden && activePlayingVideo) {
+      activePlayingVideo.pause();
+    }
   });
 }
 
@@ -844,17 +826,20 @@ function initBackToTop() {
   const button = document.querySelector("[data-back-to-top]");
   if (!button) return;
 
-  const featureSections = document.querySelectorAll("#car-seat, #trucks");
+  let ticking = false;
   const sync = () => {
-    const overlapsFeature = window.innerWidth < 768 && Array.from(featureSections).some((section) => {
-      const rect = section.getBoundingClientRect();
-      return rect.bottom > 0 && rect.top < window.innerHeight;
+    button.classList.toggle("is-visible", window.scrollY > 600);
+  };
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      sync();
+      ticking = false;
     });
-    button.classList.toggle("is-visible", window.scrollY > 600 && !overlapsFeature);
   };
   sync();
-  window.addEventListener("scroll", sync, { passive: true });
-  window.addEventListener("resize", sync);
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   button.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
@@ -1303,6 +1288,7 @@ init3DCircularCarousel();
 
 /* ── LIGHTWEIGHT 3D MOUSE-TRACKING TILT ENGINE ([data-tilt-card]) ── */
 function initTiltCards() {
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
   const cards = document.querySelectorAll('[data-tilt-card]');
   if (!cards.length) return;
 
@@ -1336,6 +1322,12 @@ function initCanvasElectricBorder() {
   const container = document.getElementById('electricBorderPriority');
   const canvas = document.getElementById('ebCanvasPriority');
   if (!container || !canvas) return;
+
+  // On touch/mobile devices, disable continuous high-frequency 60fps canvas Perlin noise calculations
+  if (window.matchMedia('(max-width: 820px), (hover: none) and (pointer: coarse)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -1466,8 +1458,15 @@ function initCanvasElectricBorder() {
 
   let { width, height } = updateSize();
   let lastDpr = Math.min(window.devicePixelRatio || 1, 2);
+  let isVisible = false;
+  let rafId = null;
 
   const draw = (currentTime) => {
+    if (!isVisible) {
+      rafId = null;
+      return;
+    }
+
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     if (dpr !== lastDpr) {
       lastDpr = dpr;
@@ -1521,8 +1520,25 @@ function initCanvasElectricBorder() {
     ctx.closePath();
     ctx.stroke();
 
-    requestAnimationFrame(draw);
+    rafId = requestAnimationFrame(draw);
   };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !rafId) {
+          lastFrameTime = performance.now();
+          rafId = requestAnimationFrame(draw);
+        } else if (!isVisible && rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      });
+    },
+    { threshold: 0.05 }
+  );
+  observer.observe(container);
 
   const resizeObserver = new ResizeObserver(() => {
     const newSize = updateSize();
@@ -1530,8 +1546,6 @@ function initCanvasElectricBorder() {
     height = newSize.height;
   });
   resizeObserver.observe(container);
-
-  requestAnimationFrame(draw);
 }
 
 /* ── EDITORIAL PROOF RAIL GSAP ENTRANCE ── */
@@ -1608,11 +1622,40 @@ function initTrueFocusEngine() {
       frame.style.opacity = '1';
     };
 
-    updateFocus(0);
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % wordEls.length;
-      updateFocus(currentIndex);
-    }, 600);
+    let focusTimer = null;
+    const startFocusTimer = () => {
+      if (focusTimer) return;
+      focusTimer = setInterval(() => {
+        currentIndex = (currentIndex + 1) % wordEls.length;
+        updateFocus(currentIndex);
+      }, 600);
+    };
+    const stopFocusTimer = () => {
+      if (focusTimer) {
+        clearInterval(focusTimer);
+        focusTimer = null;
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      const focusObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              updateFocus(currentIndex);
+              startFocusTimer();
+            } else {
+              stopFocusTimer();
+            }
+          });
+        },
+        { threshold: 0.05 }
+      );
+      focusObserver.observe(titleEl);
+    } else {
+      updateFocus(0);
+      startFocusTimer();
+    }
 
     wordEls.forEach((el, idx) => {
       el.addEventListener('mouseenter', () => {

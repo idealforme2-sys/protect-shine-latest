@@ -30,10 +30,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=block"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=ps-update-141" />
+    <link rel="stylesheet" href="./styles.css?v=ps-update-142" />
     <link rel="preload" as="image" href="./POLICECAR.jpg" />
     <script type="application/ld+json">
       {
@@ -392,17 +392,17 @@
             </div>
             <div class="route-grid">
               <article class="route-step">
-                <div class="route-checkpoint"><img src="./Icons/service.jpg" alt="Choose the service icon" /></div>
+                <div class="route-checkpoint"><img src="./Icons/service.jpg" alt="Choose the service icon" loading="lazy" decoding="async" /></div>
                 <h3>Choose The Service</h3>
                 <p>Select the package that fits your car, SUV, pickup, or specialty request.</p>
               </article>
               <article class="route-step">
-                <div class="route-checkpoint"><img src="./Icons/car.jpg" alt="Tell us what the vehicle needs icon" /></div>
+                <div class="route-checkpoint"><img src="./Icons/car.jpg" alt="Tell us what the vehicle needs icon" loading="lazy" decoding="async" /></div>
                 <h3>Tell Us What It Needs</h3>
                 <p>Share the vehicle size, condition, service location, and photos when needed.</p>
               </article>
               <article class="route-step">
-                <div class="route-checkpoint"><img src="./Icons/date.jpg" alt="Choose a date and time icon" /></div>
+                <div class="route-checkpoint"><img src="./Icons/date.jpg" alt="Choose a date and time icon" loading="lazy" decoding="async" /></div>
                 <h3>Choose A Date + Time</h3>
                 <p>Select a preferred service date and one of the available appointment windows.</p>
               </article>
@@ -712,7 +712,7 @@
       <section class="section finish-section" id="trucks">
         <div class="finish-intro">
           <div class="finish-media">
-            <video data-src="./TruckModified.mp4" muted loop playsinline preload="metadata" aria-label="Commercial truck detailing work"></video>
+            <video data-src="./TruckModified.mp4" muted loop playsinline preload="none" poster="./truck.jpeg" aria-label="Commercial truck detailing work"></video>
           </div>
           <div class="finish-copy">
             <p class="eyebrow">Commercial + Semi-Truck Detailing</p>
@@ -1368,6 +1368,6 @@
     </button>
 
     <div id="siren" aria-hidden="true"><div class="light red"></div><div class="light blue"></div><div class="base"></div></div>
-    <script defer src="./script.js?v=ps-update-115"></script>
+    <script defer src="./script.js?v=ps-update-142"></script>
   </body>
 </html>
