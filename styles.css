@@ -19228,29 +19228,31 @@ span.stat-icon-box svg,
   }
 
   .hero-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr) !important;
+    grid-template-rows: auto auto minmax(min-content, 1fr) auto auto !important;
+    column-gap: clamp(8px, 2.5vw, 12px) !important;
+    row-gap: 8px !important;
+    align-items: start !important;
     width: 100% !important;
-    max-width: 640px !important;
-    margin-inline: auto !important;
     padding: 0 !important;
   }
 
   .hero .eyebrow {
-    order: 1 !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 7px !important;
+    gap: 6px !important;
     align-self: flex-start !important;
     width: fit-content !important;
-    margin: 0 !important;
-    padding: 5px 12px !important;
+    margin: 0 0 2px !important;
+    padding: 3.5px 10px !important;
     border-radius: 999px !important;
     border: 1px solid rgba(97, 183, 255, 0.32) !important;
     background: linear-gradient(90deg, rgba(97, 183, 255, 0.14), rgba(6, 12, 22, 0.85)) !important;
     color: #dbeaff !important;
-    font-size: 0.72rem !important;
+    font-size: 0.65rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
@@ -19274,11 +19276,12 @@ span.stat-icon-box svg,
   }
 
   #hero-title {
-    order: 2 !important;
-    margin: 2px 0 0 !important;
-    font-size: clamp(2.35rem, 8.5vw, 3.15rem) !important;
+    grid-column: 1 / 2 !important;
+    grid-row: 2 !important;
+    margin: 0 0 4px !important;
+    font-size: clamp(1.58rem, 6.2vw, 1.95rem) !important;
     line-height: 0.90 !important;
-    letter-spacing: 0.02em !important;
+    letter-spacing: 0.015em !important;
     text-wrap: balance !important;
   }
 
@@ -19288,26 +19291,340 @@ span.stat-icon-box svg,
   }
 
   .rotator-item {
-    max-width: none !important;
+    max-width: 14ch !important;
     white-space: normal !important;
   }
 
   .hero-copy {
-    order: 3 !important;
-    margin: 0 !important;
-    font-size: 0.94rem !important;
-    line-height: 1.44 !important;
+    grid-column: 1 / 2 !important;
+    grid-row: 3 !important;
+    margin: 0 0 4px !important;
+    font-size: 0.74rem !important;
+    line-height: 1.30 !important;
     color: rgba(226, 236, 250, 0.88) !important;
-    max-width: 46ch !important;
+  }
+
+  /* Tactical Trust Crest - Luxury Stealth Obsidian & Ice-Blue Crest */
+  .hero .hero-badge-card {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 4 !important;
+    align-self: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 7px 8px 6px !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(97, 183, 255, 0.25) !important;
+    background: linear-gradient(165deg, rgba(10, 16, 28, 0.97) 0%, rgba(5, 8, 15, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.75),
+      0 0 14px rgba(22, 120, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    text-decoration: none !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero .hbc-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 5px !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero .hbc-identity {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .hero .hbc-avatar-shell,
+  .hero-badge-card .hbc-avatar-shell {
+    flex: 0 0 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .hero .hbc-avatar-shell img,
+  .hero-badge-card .hbc-avatar-shell img,
+  .hero .hero-badge-card img {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(97, 183, 255, 0.45) !important;
+    box-shadow: 0 0 6px rgba(22, 120, 255, 0.3) !important;
+    display: block !important;
+  }
+
+  .hero .hbc-verified-pill {
+    position: absolute !important;
+    width: 9px !important;
+    height: 9px !important;
+    bottom: -1px !important;
+    right: -1px !important;
+    background: #1678ff !important;
+    border: 1px solid #060911 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero .hbc-verified-pill svg {
+    width: 4.5px !important;
+    height: 4.5px !important;
+  }
+
+  .hero .hbc-badge-labels {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    min-width: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero .hbc-badge-tag {
+    font-family: var(--font-body) !important;
+    font-size: 0.52rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.03em !important;
+    color: var(--gold) !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .hero .hbc-badge-sub {
+    font-family: var(--font-body) !important;
+    font-size: 0.44rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    color: #61b7ff !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .hero .hbc-seal {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    padding: 1.5px 5px !important;
+    border-radius: 999px !important;
+    background: rgba(22, 120, 255, 0.12) !important;
+    border: 1px solid rgba(97, 183, 255, 0.3) !important;
+    color: #61b7ff !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.44rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero .hbc-seal svg {
+    width: 7.5px !important;
+    height: 7.5px !important;
+  }
+
+  .hero .hbc-motto-divider {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 100% !important;
+    margin: 1px 0 !important;
+  }
+
+  .hero .hbc-motto-line {
+    flex: 1 1 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(97, 183, 255, 0.22), transparent);
+  }
+
+  .hero .hbc-heading {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    width: auto !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.46rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.03em !important;
+    color: rgba(235, 244, 255, 0.92) !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    display: block !important;
+  }
+
+  .hero .hbc-cred-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 0 !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .hero .hbc-cred-row {
+    display: flex !important;
+    align-items: center !important;
+    font-family: var(--font-body) !important;
+    gap: 5px !important;
+    padding: 3.5px 5px !important;
+    border-radius: 5px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .hero .hbc-cred-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
+    background: rgba(22, 120, 255, 0.12) !important;
+    border: 1px solid rgba(97, 183, 255, 0.28) !important;
+    color: #61b7ff !important;
+  }
+
+  .hero .hbc-cred-icon svg {
+    width: 10px !important;
+    height: 10px !important;
+    display: block !important;
+  }
+
+  .hero .hbc-cred-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    text-align: left !important;
+  }
+
+  .hero .hbc-cred-title {
+    font-family: var(--font-body) !important;
+    font-size: 0.50rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: 0.015em !important;
+    line-height: 1.15 !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+  }
+
+  .hero .hbc-cred-detail {
+    font-family: var(--font-body) !important;
+    font-size: 0.44rem !important;
+    font-weight: 600 !important;
+    color: rgba(200, 220, 245, 0.82) !important;
+    letter-spacing: 0 !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+  }
+
+  .hero .hbc-cta-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    margin-top: 2px !important;
+    padding: 4px 6px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.48rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.03em !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), rgba(22, 120, 255, 0.08)) !important;
+    border: 1px solid rgba(97, 183, 255, 0.28) !important;
+    color: #dbeaff !important;
+    text-transform: uppercase !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero .hbc-cta-ig-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #61b7ff !important;
+  }
+
+  .hero .hbc-cta-ig-icon svg {
+    width: 9.5px !important;
+    height: 9.5px !important;
+  }
+
+  .hero .hbc-cta-text {
+    font-family: var(--font-body) !important;
+    font-size: 0.48rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.015em !important;
+    white-space: nowrap !important;
+    color: #ffffff !important;
+  }
+
+  .hero .hbc-cta-arrow {
+    flex-shrink: 0 !important;
+    font-size: 0.54rem !important;
+    color: #61b7ff !important;
+    line-height: 1 !important;
+  }
+
+  .hero .hero-badge-card:hover,
+  .hero .hero-badge-card:active {
+    transform: none !important;
   }
 
   /* Hero Actions on Mobile */
   .hero .hero-actions {
-    order: 4 !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
-    margin: 4px 0 0 !important;
+    gap: 6px !important;
+    margin: 6px 0 4px !important;
     width: 100% !important;
   }
 
@@ -19317,14 +19634,14 @@ span.stat-icon-box svg,
     justify-content: center !important;
     gap: 8px !important;
     width: 100% !important;
-    min-height: 48px !important;
-    padding: 0 18px !important;
+    min-height: 42px !important;
+    padding: 0 16px !important;
     border-radius: 999px !important;
     border: 1px solid rgba(97, 183, 255, 0.42) !important;
     background: repeating-linear-gradient(135deg, rgba(220, 241, 255, 0.12) 0 1px, transparent 1px 5px), linear-gradient(115deg, #071b35, #0c4d9d 60%, #08234a) !important;
     color: #ffffff !important;
     font-family: var(--font-body) !important;
-    font-size: 0.88rem !important;
+    font-size: 0.80rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.06em !important;
     text-transform: uppercase !important;
@@ -19340,7 +19657,7 @@ span.stat-icon-box svg,
   .hero .hero-actions-row {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    gap: 6px !important;
     width: 100% !important;
   }
 
@@ -19351,11 +19668,11 @@ span.stat-icon-box svg,
     justify-content: center !important;
     gap: 6px !important;
     width: 100% !important;
-    min-height: 44px !important;
-    padding: 0 10px !important;
+    min-height: 36px !important;
+    padding: 0 8px !important;
     border-radius: 999px !important;
     font-family: var(--font-body) !important;
-    font-size: 0.78rem !important;
+    font-size: 0.72rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.04em !important;
     text-transform: uppercase !important;
@@ -19377,323 +19694,17 @@ span.stat-icon-box svg,
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 6px 18px rgba(0, 0, 0, 0.3) !important;
   }
 
-  /* Tactical Trust Crest - Luxury Stealth Obsidian & Ice-Blue Crest */
-  .hero .hero-badge-card {
-    order: 5 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 4px 0 0 !important;
-    padding: 12px 14px 10px !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(97, 183, 255, 0.22) !important;
-    background: linear-gradient(165deg, rgba(10, 16, 28, 0.96) 0%, rgba(5, 8, 15, 0.98) 100%) !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-    box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.75),
-      0 0 16px rgba(22, 120, 255, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-    text-decoration: none !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .hero .hbc-header {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 8px !important;
-    width: 100% !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  .hero .hbc-identity {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    min-width: 0 !important;
-    flex: 1 1 auto !important;
-  }
-
-  .hero .hbc-avatar-shell,
-  .hero-badge-card .hbc-avatar-shell {
-    flex: 0 0 32px !important;
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
-    position: relative !important;
-    overflow: visible !important;
-  }
-
-  .hero .hbc-avatar-shell img,
-  .hero-badge-card .hbc-avatar-shell img,
-  .hero .hero-badge-card img {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
-    object-fit: cover !important;
-    border-radius: 50% !important;
-    border: 1.5px solid rgba(97, 183, 255, 0.45) !important;
-    box-shadow: 0 0 8px rgba(22, 120, 255, 0.3) !important;
-    display: block !important;
-  }
-
-  .hero .hbc-verified-pill {
-    position: absolute !important;
-    width: 11px !important;
-    height: 11px !important;
-    bottom: -2px !important;
-    right: -2px !important;
-    background: #1678ff !important;
-    border: 1.5px solid #060911 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .hero .hbc-verified-pill svg {
-    width: 6px !important;
-    height: 6px !important;
-  }
-
-  .hero .hbc-badge-labels {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1px !important;
-    min-width: 0 !important;
-    line-height: 1.15 !important;
-  }
-
-  .hero .hbc-badge-tag {
-    font-family: var(--font-body) !important;
-    font-size: 0.72rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-    color: var(--gold) !important;
-    text-transform: uppercase !important;
-    white-space: nowrap !important;
-  }
-
-  .hero .hbc-badge-sub {
-    font-family: var(--font-body) !important;
-    font-size: 0.65rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.03em !important;
-    color: #61b7ff !important;
-    text-transform: uppercase !important;
-    white-space: nowrap !important;
-  }
-
-  .hero .hbc-seal {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px !important;
-    padding: 3px 8px !important;
-    border-radius: 999px !important;
-    background: rgba(22, 120, 255, 0.12) !important;
-    border: 1px solid rgba(97, 183, 255, 0.3) !important;
-    color: #61b7ff !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.60rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.05em !important;
-    text-transform: uppercase !important;
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hero .hbc-seal svg {
-    width: 10px !important;
-    height: 10px !important;
-  }
-
-  .hero .hbc-motto-divider {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-    margin: 1px 0 !important;
-  }
-
-  .hero .hbc-motto-line {
-    flex: 1 1 auto;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(97, 183, 255, 0.22), transparent);
-  }
-
-  .hero .hbc-heading {
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    width: auto !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.66rem !important;
-    font-weight: 800 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.04em !important;
-    color: rgba(235, 244, 255, 0.92) !important;
-    text-align: center !important;
-    text-transform: uppercase !important;
-    white-space: nowrap !important;
-    display: block !important;
-  }
-
-  .hero .hbc-cred-cards {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    padding: 0 !important;
-    gap: 5px !important;
-    margin: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-
-  .hero .hbc-cred-row {
-    display: flex !important;
-    align-items: center !important;
-    font-family: var(--font-body) !important;
-    gap: 8px !important;
-    padding: 6px 8px !important;
-    border-radius: 6px !important;
-    background: rgba(255, 255, 255, 0.035) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-
-  .hero .hbc-cred-icon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 0 0 24px !important;
-    width: 24px !important;
-    height: 24px !important;
-    border-radius: 5px !important;
-    background: rgba(22, 120, 255, 0.12) !important;
-    border: 1px solid rgba(97, 183, 255, 0.28) !important;
-    color: #61b7ff !important;
-  }
-
-  .hero .hbc-cred-icon svg {
-    width: 13px !important;
-    height: 13px !important;
-    display: block !important;
-  }
-
-  .hero .hbc-cred-body {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    min-width: 0 !important;
-    flex: 1 1 auto !important;
-    text-align: left !important;
-  }
-
-  .hero .hbc-cred-title {
-    font-family: var(--font-body) !important;
-    font-size: 0.76rem !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    letter-spacing: 0.02em !important;
-    line-height: 1.2 !important;
-    text-transform: uppercase !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    display: block !important;
-  }
-
-  .hero .hbc-cred-detail {
-    font-family: var(--font-body) !important;
-    font-size: 0.68rem !important;
-    font-weight: 600 !important;
-    color: rgba(200, 220, 245, 0.82) !important;
-    letter-spacing: 0 !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    display: block !important;
-  }
-
-  .hero .hbc-cta-strip {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    width: 100% !important;
-    margin-top: 2px !important;
-    padding: 7px 10px !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.72rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 6px !important;
-    white-space: nowrap !important;
-    background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), rgba(22, 120, 255, 0.08)) !important;
-    border: 1px solid rgba(97, 183, 255, 0.28) !important;
-    color: #dbeaff !important;
-    text-transform: uppercase !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero .hbc-cta-ig-icon {
-    display: inline-flex !important;
-    align-items: center !important;
-    color: #61b7ff !important;
-  }
-
-  .hero .hbc-cta-ig-icon svg {
-    width: 12px !important;
-    height: 12px !important;
-  }
-
-  .hero .hbc-cta-text {
-    font-family: var(--font-body) !important;
-    font-size: 0.72rem !important;
-    line-height: 1 !important;
-    letter-spacing: 0.02em !important;
-    white-space: nowrap !important;
-    color: #ffffff !important;
-  }
-
-  .hero .hbc-cta-arrow {
-    flex-shrink: 0 !important;
-    font-size: 0.78rem !important;
-    color: #61b7ff !important;
-    line-height: 1 !important;
-  }
-
-  .hero .hero-badge-card:hover,
-  .hero .hero-badge-card:active {
-    transform: none !important;
-  }
-
   /* Proof Rail on Mobile: Telemetry Ribbon */
   .hero-proof-rail {
-    order: 6 !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 5 !important;
     display: grid !important;
     grid-template-columns: 1fr auto 1fr auto 1fr !important;
     align-items: center !important;
     gap: 0 !important;
-    margin: 4px 0 12px !important;
-    padding: 10px 12px !important;
-    border-radius: 12px !important;
+    margin: 4px 0 10px !important;
+    padding: 7px 10px !important;
+    border-radius: 11px !important;
     border: 1px solid rgba(97, 183, 255, 0.22) !important;
     background: linear-gradient(135deg, rgba(14, 26, 44, 0.88), rgba(7, 11, 18, 0.94) 50%, rgba(32, 10, 16, 0.88)) !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
@@ -19704,17 +19715,17 @@ span.stat-icon-box svg,
   .hero-proof-rail .proof-rail-divider {
     display: block !important;
     width: 1px !important;
-    height: 28px !important;
-    margin: 0 4px !important;
+    height: 24px !important;
+    margin: 0 3px !important;
     background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.16), transparent) !important;
   }
 
   .hero-proof-rail .proof-rail-col {
     display: flex !important;
     flex-direction: column !important;
-    gap: 2px !important;
+    gap: 1.5px !important;
     min-width: 0 !important;
-    padding: 0 4px !important;
+    padding: 0 3px !important;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
@@ -19724,7 +19735,7 @@ span.stat-icon-box svg,
   .hero-proof-rail .proof-rail-num {
     display: inline-block !important;
     font-family: var(--font-display) !important;
-    font-size: 0.92rem !important;
+    font-size: 0.82rem !important;
     font-weight: 800 !important;
     line-height: 1 !important;
     color: #61b7ff !important;
@@ -19747,7 +19758,7 @@ span.stat-icon-box svg,
 
   .hero-proof-rail .proof-rail-label {
     font-family: var(--font-body) !important;
-    font-size: 0.58rem !important;
+    font-size: 0.54rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.06em !important;
     color: rgba(180, 200, 225, 0.70) !important;
@@ -19760,7 +19771,7 @@ span.stat-icon-box svg,
 
   .hero-proof-rail .proof-rail-val {
     font-family: var(--font-body) !important;
-    font-size: clamp(0.68rem, 2.8vw, 0.78rem) !important;
+    font-size: clamp(0.64rem, 2.4vw, 0.72rem) !important;
     font-weight: 800 !important;
     line-height: 1.15 !important;
     color: #ffffff !important;
