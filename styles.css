@@ -17318,45 +17318,79 @@ span.stat-icon-box svg,
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .site-footer {
-    padding: 24px 16px 28px !important;
+    padding: 32px 18px 28px !important;
+    text-align: center !important;
+  }
+
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 
   .footer-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
+    align-items: center !important;
+    gap: 22px !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
   }
 
-  .footer-brand-identity {
+  .footer-col {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-col-brand {
+    align-items: center !important;
+    text-align: center !important;
     gap: 10px !important;
   }
 
+  .footer-brand-identity {
+    gap: 12px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
   .footer-logo {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 9px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
   }
 
   .footer-company-name {
-    font-size: 1.05rem !important;
+    font-size: 1.08rem !important;
     line-height: 1.15 !important;
+    text-align: center !important;
   }
 
   .footer-tagline {
     font-size: 0.68rem !important;
-    margin: 2px 0 0 !important;
+    margin: 3px 0 0 !important;
+    text-align: center !important;
   }
 
   .footer-badges {
-    margin-top: 2px !important;
-    gap: 5px !important;
+    margin-top: 4px !important;
+    gap: 6px !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .footer-badge-pill {
     font-size: 0.65rem !important;
-    padding: 2px 7px !important;
+    padding: 3px 8px !important;
     gap: 5px !important;
   }
 
@@ -17366,42 +17400,76 @@ span.stat-icon-box svg,
   }
 
   .footer-desc {
-    font-size: 0.75rem !important;
-    line-height: 1.45 !important;
+    font-size: 0.76rem !important;
+    line-height: 1.48 !important;
     color: #94a3b8 !important;
     text-transform: none !important;
-    margin: 4px 0 0 !important;
+    margin: 6px auto 0 !important;
+    text-align: center !important;
+    max-width: 440px !important;
   }
 
   .footer-col-title {
-    font-size: 0.7rem !important;
-    margin: 0 0 8px !important;
-    letter-spacing: 0.08em !important;
+    font-size: 0.72rem !important;
+    margin: 0 0 10px !important;
+    letter-spacing: 0.1em !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
-  /* 2-Column Grid for Service Lanes on Mobile */
+  .footer-col-title::after {
+    display: none !important;
+  }
+
+  /* 2-Column Grid for Service Lanes on Mobile, centered */
+  .footer-col-nav {
+    width: 100% !important;
+  }
+
   .footer-col-nav .footer-link-list {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 6px 12px !important;
+    gap: 8px 14px !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-link-list li {
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .footer-link-list li a {
     font-size: 0.78rem !important;
-    line-height: 1.3 !important;
-    padding: 2px 0 !important;
+    line-height: 1.35 !important;
+    padding: 3px 0 !important;
+    text-align: center !important;
+    display: inline-block !important;
   }
 
-  /* Compact Direct Dispatch Card on Mobile */
+  /* Compact Direct Dispatch Card on Mobile, centered */
   .footer-dispatch-card {
-    padding: 12px 14px !important;
-    border-radius: 10px !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .dispatch-status {
-    margin-bottom: 5px !important;
+    margin-bottom: 6px !important;
     font-size: 0.68rem !important;
     gap: 6px !important;
+    justify-content: center !important;
   }
 
   .dispatch-live-pulse {
@@ -17410,9 +17478,11 @@ span.stat-icon-box svg,
   }
 
   .footer-phone-link {
-    font-size: 1.05rem !important;
+    font-size: 1.1rem !important;
     margin-bottom: 4px !important;
     gap: 7px !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   .footer-phone-link svg {
@@ -17422,27 +17492,41 @@ span.stat-icon-box svg,
 
   .dispatch-area {
     font-size: 0.68rem !important;
-    margin: 0 0 8px !important;
+    margin: 0 0 10px !important;
     gap: 6px !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   .footer-quote-btn {
     min-height: 38px !important;
-    padding: 7px 14px !important;
-    font-size: 0.76rem !important;
+    padding: 8px 16px !important;
+    font-size: 0.78rem !important;
     border-radius: 8px !important;
+    width: 100% !important;
+    max-width: 260px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
   }
 
-  /* Compact Field Updates on Mobile */
+  /* Compact Field Updates on Mobile, centered */
   .footer-coverage-card {
     gap: 8px !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    align-items: center !important;
   }
 
   .coverage-loc {
-    padding: 8px 10px !important;
+    padding: 9px 12px !important;
     font-size: 0.72rem !important;
     line-height: 1.35 !important;
     border-radius: 8px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .coverage-loc svg {
@@ -17451,9 +17535,17 @@ span.stat-icon-box svg,
   }
 
   .footer-instagram-box {
-    padding: 8px 10px !important;
+    padding: 9px 12px !important;
     gap: 10px !important;
     border-radius: 8px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-instagram-box .ig-text {
+    text-align: left !important;
   }
 
   .ig-icon-wrap {
@@ -17481,18 +17573,21 @@ span.stat-icon-box svg,
     align-items: center !important;
     text-align: center !important;
     gap: 6px !important;
-    margin-top: 16px !important;
-    padding-top: 12px !important;
+    margin-top: 18px !important;
+    padding-top: 14px !important;
     padding-bottom: 16px !important;
     font-size: 0.68rem !important;
+    width: 100% !important;
   }
 
   .footer-discretion {
     font-size: 0.66rem !important;
+    text-align: center !important;
   }
 
   .footer-credit {
     font-size: 0.68rem !important;
+    text-align: center !important;
   }
 }
 
@@ -20765,10 +20860,10 @@ span.stat-icon-box svg,
     margin: 0 !important;
   }
 
-  /* Stacked Tactical Contact Channels on Mobile */
+  /* Quick Contact Stack on Mobile */
   .chat-cards {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 8px !important;
     margin: 10px 0 !important;
     width: 100% !important;
@@ -20779,42 +20874,29 @@ span.stat-icon-box svg,
     min-height: 48px !important;
     padding: 8px 12px !important;
     gap: 12px !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     border: 1px solid rgba(97, 183, 255, 0.22) !important;
-    background: rgba(10, 18, 30, 0.8) !important;
+    background: rgba(10, 18, 30, 0.72) !important;
     display: flex !important;
     align-items: center !important;
     text-decoration: none !important;
-    width: 100% !important;
+    overflow: hidden !important;
     box-sizing: border-box !important;
-    transition: all 0.2s ease !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .chat-icon,
-  .chat-card .chat-icon {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
+  .chat-card .chat-icon,
+  .chat-card:nth-child(2) .chat-icon,
+  .chat-card:nth-child(3) .chat-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
     border-radius: 8px !important;
     display: grid !important;
     place-items: center !important;
     flex-shrink: 0 !important;
-    background: rgba(22, 120, 255, 0.15) !important;
-    border: 1px solid rgba(22, 120, 255, 0.4) !important;
-    color: #60a5fa !important;
-  }
-
-  .chat-card.chat-card-instagram .chat-icon,
-  .chat-card:nth-child(2) .chat-icon {
-    background: rgba(255, 42, 109, 0.15) !important;
-    border-color: rgba(255, 42, 109, 0.4) !important;
-    color: #ff6584 !important;
-  }
-
-  .chat-card:nth-child(3) .chat-icon {
-    background: rgba(244, 207, 106, 0.15) !important;
-    border-color: rgba(244, 207, 106, 0.4) !important;
-    color: #f4cf6a !important;
   }
 
   .chat-icon svg,
@@ -20825,30 +20907,32 @@ span.stat-icon-box svg,
 
   .chat-text,
   .chat-card .chat-text {
+    min-width: 0 !important;
+    overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 2px !important;
-    min-width: 0 !important;
     flex: 1 1 auto !important;
   }
 
   .chat-text small {
     font-size: 0.62rem !important;
-    line-height: 1 !important;
+    line-height: 1.15 !important;
     color: #8da2b5 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
     display: block !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    font-weight: 700 !important;
   }
 
   .chat-text strong {
-    font-size: 0.88rem !important;
+    font-size: 0.86rem !important;
     font-weight: 700 !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     overflow: visible !important;
     line-height: 1.2 !important;
-    color: #ffffff !important;
+    display: block !important;
   }
 
   /* Sidebar Notes on Mobile: 2-column side-by-side compact tiles */
@@ -21110,10 +21194,10 @@ span.stat-icon-box svg,
     color: #94a3b8 !important;
   }
 
-  /* Stacked Tactical Contact Channels on Desktop */
+  /* Quick Contact Stack on Desktop (No truncation or slipping out) */
   .quote-support.chat-support .chat-cards {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 8px !important;
     margin: 10px 0 !important;
     width: 100% !important;
@@ -21123,48 +21207,34 @@ span.stat-icon-box svg,
     min-height: 48px !important;
     padding: 8px 12px !important;
     gap: 12px !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     border: 1px solid rgba(97, 183, 255, 0.22) !important;
-    background: rgba(10, 18, 30, 0.8) !important;
+    background: rgba(10, 18, 30, 0.75) !important;
     display: flex !important;
     align-items: center !important;
     text-decoration: none !important;
     transition: all 0.2s ease !important;
-    width: 100% !important;
+    overflow: hidden !important;
     box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .quote-support.chat-support .chat-card:hover {
     transform: translateY(-2px) !important;
-    border-color: rgba(97, 183, 255, 0.5) !important;
+    border-color: rgba(97, 183, 255, 0.55) !important;
     background: rgba(16, 28, 48, 0.9) !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(22, 120, 255, 0.2) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(22, 120, 255, 0.25) !important;
   }
 
   .quote-support.chat-support .chat-icon {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
     border-radius: 8px !important;
     display: grid !important;
     place-items: center !important;
     flex-shrink: 0 !important;
-    background: rgba(22, 120, 255, 0.15) !important;
-    border: 1px solid rgba(22, 120, 255, 0.4) !important;
-    color: #60a5fa !important;
-  }
-
-  .quote-support.chat-support .chat-card.chat-card-instagram .chat-icon,
-  .quote-support.chat-support .chat-card:nth-child(2) .chat-icon {
-    background: rgba(255, 42, 109, 0.15) !important;
-    border-color: rgba(255, 42, 109, 0.4) !important;
-    color: #ff6584 !important;
-  }
-
-  .quote-support.chat-support .chat-card:nth-child(3) .chat-icon {
-    background: rgba(244, 207, 106, 0.15) !important;
-    border-color: rgba(244, 207, 106, 0.4) !important;
-    color: #f4cf6a !important;
   }
 
   .quote-support.chat-support .chat-icon svg {
@@ -21173,29 +21243,31 @@ span.stat-icon-box svg,
   }
 
   .quote-support.chat-support .chat-text {
+    min-width: 0 !important;
+    overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 2px !important;
-    min-width: 0 !important;
     flex: 1 1 auto !important;
   }
 
   .quote-support.chat-support .chat-text small {
     font-size: 0.62rem !important;
-    line-height: 1 !important;
+    line-height: 1.15 !important;
     color: #8da2b5 !important;
     display: block !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
   }
 
   .quote-support.chat-support .chat-text strong {
-    font-size: 0.88rem !important;
+    font-size: 0.86rem !important;
     font-weight: 700 !important;
     line-height: 1.2 !important;
     color: #ffffff !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     overflow: visible !important;
     display: block !important;
   }
