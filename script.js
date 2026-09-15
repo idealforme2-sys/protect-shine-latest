@@ -1573,11 +1573,16 @@ function initTrueFocusEngine() {
     titleEl.innerHTML = '';
     titleEl.className = 'focus-container';
 
+    const isMobileViewport = () => window.innerWidth <= 768;
+
     const wordEls = words.map((word) => {
       const span = document.createElement('span');
       span.className = 'focus-word';
-      span.style.filter = 'blur(6px)';
-      span.style.opacity = '0.45';
+      const isMob = isMobileViewport();
+      span.style.filter = isMob ? 'none' : 'blur(6px)';
+      span.style.opacity = isMob ? '0.88' : '0.45';
+      span.style.color = '#ffffff';
+      span.style.webkitTextFillColor = '#ffffff';
       span.style.transition = 'filter 0.2s ease, opacity 0.2s ease, color 0.15s ease';
       span.textContent = word;
       titleEl.appendChild(span);
@@ -1599,17 +1604,20 @@ function initTrueFocusEngine() {
 
     let currentIndex = 0;
     const updateFocus = (index) => {
+      const isMob = isMobileViewport();
       wordEls.forEach((el, idx) => {
         if (idx === index) {
           el.classList.add('active');
-          el.style.filter = 'blur(0px)';
+          el.style.filter = 'none';
           el.style.opacity = '1';
-          el.style.color = '#ffffff';
+          el.style.color = isMob ? '#61b7ff' : '#ffffff';
+          el.style.webkitTextFillColor = isMob ? '#61b7ff' : '#ffffff';
         } else {
           el.classList.remove('active');
-          el.style.filter = 'blur(6px)';
-          el.style.opacity = '0.45';
-          el.style.color = 'rgba(255, 255, 255, 0.5)';
+          el.style.filter = isMob ? 'none' : 'blur(6px)';
+          el.style.opacity = isMob ? '0.88' : '0.45';
+          el.style.color = isMob ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
+          el.style.webkitTextFillColor = isMob ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
         }
       });
 

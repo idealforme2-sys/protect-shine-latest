@@ -15167,12 +15167,22 @@ span.stat-icon-box svg,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 24px 60px rgba(0, 0, 0, 0.55) !important;
 }
 
-.driver-reset-grid h2 {
+.driver-reset-grid h2:not(.focus-container):not([data-true-focus-title]) {
   background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 55%, #f4cf6a 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+
+.driver-reset-grid h2.focus-container,
+[data-true-focus-title] {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
 
 /* ============================================================
    6. FIRST RESPONDER PAGE — SPECIALIZED ADD-ONS TILES IMPROVEMENT
@@ -18136,12 +18146,36 @@ span.stat-icon-box svg,
   outline: none;
   user-select: none;
   display: inline-block;
+  -webkit-text-fill-color: currentColor;
+  color: #ffffff;
 }
 
 .focus-word.active {
   filter: blur(0px) !important;
   opacity: 1 !important;
+  -webkit-text-fill-color: #ffffff !important;
   color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .focus-container {
+    gap: 0.35em !important;
+  }
+
+  .focus-word {
+    filter: none !important;
+    opacity: 0.88 !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .focus-word.active {
+    filter: none !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #61b7ff !important;
+    color: #61b7ff !important;
+    text-shadow: 0 0 10px rgba(97, 183, 255, 0.6) !important;
+  }
 }
 
 .focus-frame {
@@ -20386,8 +20420,9 @@ span.stat-icon-box svg,
     }
 
     .car-seat-media {
-      aspect-ratio: 2 / 3;
-      background: #f5f7fb;
+      aspect-ratio: 479 / 717;
+      background: transparent;
+      align-self: start;
     }
 
     .car-seat-media::after {
@@ -20395,9 +20430,10 @@ span.stat-icon-box svg,
     }
 
     .car-seat-media img {
-      inset: 0;
+      position: relative;
+      inset: auto;
       width: 100%;
-      height: 100%;
+      height: auto;
       max-width: 100%;
       object-fit: contain;
       object-position: top center;
@@ -20497,117 +20533,218 @@ span.stat-icon-box svg,
     }
   }
 
-  .fr-panel.fr-panel-blue {
-    display: block !important;
+  /* --- First Responder: Symmetrically Centered Unit Detail & Maintenance Cards --- */
+  .fr-spotlight {
+    padding: 36px 12px 30px !important;
+    overflow: hidden !important;
+  }
+
+  .fr-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .fr-heading {
+    text-align: center !important;
+    max-width: 540px !important;
+    margin: 0 auto 24px !important;
+    padding-inline: 8px !important;
+  }
+
+  .fr-heading .eyebrow {
+    margin: 0 auto 10px !important;
+  }
+
+  .fr-heading h2 {
+    margin: 0 auto 12px !important;
+    font-size: clamp(1.8rem, 6.8vw, 2.3rem) !important;
+    line-height: 1.05 !important;
+    text-align: center !important;
+  }
+
+  .fr-heading > p {
+    margin: 0 auto !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+  }
+
+  .fr-equipment-notice {
+    margin: 16px auto 0 !important;
+    max-width: 440px !important;
+  }
+
+  .fr-panels {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 22px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .fr-panel,
+  .fr-panel.fr-panel-blue,
+  .fr-panel.fr-panel-red {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: min(440px, calc(100% - 12px)) !important;
     min-height: 0 !important;
     height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-media {
-    width: 100%;
-    height: 132px !important;
+  .fr-panel .fr-panel-media {
+    width: 100% !important;
+    height: 135px !important;
     min-height: 0 !important;
-    flex: none;
-    background-position: 50% 52%;
+    flex: none !important;
+    background-position: 50% 50% !important;
+    background-size: cover !important;
+    border-radius: 20px 20px 0 0 !important;
   }
 
-  .fr-panel.fr-panel-blue > .fr-panel-body {
-    display: block;
+  .fr-panel > .fr-panel-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
     margin-top: 0 !important;
-    padding: 10px !important;
+    padding: 16px 14px 18px !important;
+    box-sizing: border-box !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+  .fr-panel .fr-panel-head {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    margin: 0 0 4px !important;
+  }
+
+  .fr-panel .fr-panel-label {
+    min-height: 0 !important;
     margin: 0 !important;
+    font-size: 0.68rem !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-label,
-  .fr-panel.fr-panel-blue .fr-panel-flag {
-    min-height: 0;
-    margin: 0;
-    font-size: .62rem;
-    line-height: 1.2;
+  .fr-panel .fr-panel-flag {
+    min-height: 0 !important;
+    margin: 0 !important;
+    font-size: 0.62rem !important;
+    line-height: 1.2 !important;
+    padding: 3px 8px !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-price {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    width: auto;
-    margin: 7px 0 1px !important;
-    padding: 0;
-    border: 0;
+  .fr-panel .fr-panel-price {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 6px !important;
+    width: auto !important;
+    margin: 8px 0 2px !important;
+    padding: 0 !important;
+    border: 0 !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-price strong {
-    font-size: 2.65rem !important;
-    line-height: .86;
+  .fr-panel .fr-panel-price strong {
+    font-size: 2.8rem !important;
+    line-height: 0.9 !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-price em {
-    font-size: .66rem;
+  .fr-panel .fr-panel-price em,
+  .fr-panel .fr-panel-price span {
+    font-size: 0.7rem !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-tag {
-    min-height: 0;
-    margin: 0 0 8px !important;
-    font-size: .7rem !important;
-    line-height: 1.25;
+  .fr-panel .fr-panel-tag {
+    min-height: 0 !important;
+    margin: 0 0 12px !important;
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px !important;
-    margin: 0 0 10px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 0 14px !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups section {
-    width: 100%;
-    max-width: none;
-    min-height: 0;
-    padding: 7px !important;
-    border-radius: 8px 3px 8px 3px;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups section:nth-child(3) {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1 !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups h3 {
-    margin: 0 0 5px !important;
-    padding: 0 0 5px;
-    font-size: .7rem !important;
-    line-height: 1.15;
+    margin: 0 0 6px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups ul {
-    gap: 3px !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups li {
-    min-height: 0;
-    padding: 4px 0 4px 9px !important;
-    font-size: .65rem !important;
-    line-height: 1.22 !important;
-    overflow-wrap: anywhere;
+    min-height: 0 !important;
+    padding: 3px 0 3px 10px !important;
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
   }
 
   .fr-panel.fr-panel-blue .fr-service-groups section:nth-child(3) ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3px 10px;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px 10px !important;
   }
 
-  .fr-panel.fr-panel-blue .fr-panel-body > .button {
-    width: 100%;
-    min-height: 44px;
-    margin: 0;
+  .fr-panel.fr-panel-red .fr-cadence {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
   }
 
+  .fr-panel.fr-panel-red .fr-cadence li {
+    padding: 8px 12px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.25 !important;
+    border-radius: 8px !important;
+  }
+
+  .fr-panel > .fr-panel-body > .button {
+    width: 100% !important;
+    min-height: 46px !important;
+    margin: auto 0 0 !important;
+    font-size: 0.7rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 340px) {
@@ -20656,20 +20793,27 @@ span.stat-icon-box svg,
 }
 
 @media (max-width: 767px) {
-  /* --- Car seat media: bottom edge aligns with the price block,
-         stops before the feature cards. Four equal corners. --- */
+  /* --- Car seat media: natural flyer aspect ratio, no vertical stretching, no trailing white space --- */
   .car-seat-media {
-    aspect-ratio: auto;
-    align-self: stretch;
-    height: auto;
-    min-height: 0;
-    border-radius: 16px;
+    aspect-ratio: 479 / 717 !important;
+    align-self: start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
   }
 
   .car-seat-media img {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: top center !important;
+    border-radius: inherit !important;
+    display: block !important;
   }
 
   /* --- Truck media: bottom edge aligns with the intro copy only,
