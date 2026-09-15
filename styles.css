@@ -12850,12 +12850,57 @@ span.stat-icon-box svg,
   display: none !important;
 }
 
+/* Radio indicator circle before each package card across all 3 quote forms */
+.quote-package-card::before,
+.service-selector-options .quote-package-card::before {
+  content: "" !important;
+  display: block !important;
+  width: 14px !important;
+  min-width: 14px !important;
+  max-width: 14px !important;
+  height: 14px !important;
+  min-height: 14px !important;
+  max-height: 14px !important;
+  aspect-ratio: 1 / 1 !important;
+  flex: 0 0 14px !important;
+  flex-shrink: 0 !important;
+  align-self: center !important;
+  border: 2px solid rgba(255, 255, 255, 0.45) !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.quote-package-card.is-selected::before,
+.service-selector-options .quote-package-card.is-selected::before {
+  border-color: var(--blue, #61b7ff) !important;
+  background: var(--blue, #61b7ff) !important;
+  box-shadow: 0 0 0 3px rgba(97, 183, 255, 0.25) !important;
+}
+
+.service-selector-options .quote-package-card {
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
 .service-selector-options .quote-pkg-top {
   display: flex !important;
   flex-direction: row !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
-  gap: 10px !important;
-  flex: 1 !important;
+  gap: 4px 8px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.service-selector-options .quote-pkg-badge {
+  display: inline-flex !important;
+  width: fit-content !important;
+  flex: 0 0 100% !important;
+  margin: 0 0 4px 0 !important;
+  white-space: nowrap !important;
 }
 
 .service-selector-options .quote-pkg-name {
@@ -12863,6 +12908,7 @@ span.stat-icon-box svg,
   font-weight: 800 !important;
   color: #ffffff !important;
   margin: 0 !important;
+  min-width: 0 !important;
 }
 
 .service-selector-options .quote-pkg-badge-tag {
@@ -12871,6 +12917,7 @@ span.stat-icon-box svg,
   color: #92b8de !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
 }
 
 .service-selector-options .quote-pkg-price {
@@ -12879,6 +12926,43 @@ span.stat-icon-box svg,
   color: #61b7ff !important;
   margin: 0 !important;
   white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  margin-left: 8px !important;
+}
+
+@media (max-width: 640px) {
+  .service-selector-options .quote-package-card {
+    padding: 10px 10px !important;
+    gap: 8px !important;
+  }
+
+  .quote-package-card::before,
+  .service-selector-options .quote-package-card::before {
+    margin-right: 8px !important;
+  }
+
+  .service-selector-options .quote-pkg-top {
+    gap: 3px 6px !important;
+  }
+
+  .service-selector-options .quote-pkg-name {
+    font-size: 0.84rem !important;
+  }
+
+  .service-selector-options .quote-pkg-badge {
+    padding: 2px 7px !important;
+    font-size: 0.6rem !important;
+    margin-bottom: 3px !important;
+  }
+
+  .service-selector-options .quote-pkg-badge-tag {
+    font-size: 0.64rem !important;
+  }
+
+  .service-selector-options .quote-pkg-price {
+    font-size: 0.78rem !important;
+    margin-left: 4px !important;
+  }
 }
 
 /* ============================================================
@@ -19186,8 +19270,9 @@ span.stat-icon-box svg,
 /* ---- STAGE HEIGHT — give the premium cards vertical room so the
        CTA never spills past the frame ---- */
 .truck-3d-stage { height: 640px; }
-@media (max-width: 900px) { .truck-3d-stage { height: 600px; } }
-@media (max-width: 600px) { .truck-3d-stage { height: 668px; } }
+@media (max-width: 900px) { .truck-3d-stage { height: 560px; } }
+@media (max-width: 640px) { .truck-3d-stage { height: 495px !important; } }
+
 
 /* ---- GENTLE AMBIENT FLOAT (individual translate so the 3D slot
        transforms on `transform` keep full control) ---- */
@@ -19413,9 +19498,126 @@ span.stat-icon-box svg,
     0 0 26px var(--lane-glow) !important;
 }
 
-@media (max-width: 600px) {
-  .truck-3d-stage .tcp-v3-title { font-size: 1.48rem !important; }
+@media (max-width: 640px) {
+  .truck-3d-stage {
+    height: 495px !important;
+  }
+
+  .truck-3d-stage .truck-panel-v3,
+  .truck-3d-stage .truck-panel-v3.tcp-v3-featured,
+  .truck-3d-stage .tcp-v3-featured {
+    width: min(285px, 78vw) !important;
+    max-width: 82vw !important;
+    padding: 16px 14px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .truck-3d-stage .truck-panel-v3[data-slot="0"] {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 28px var(--lane-glow) !important;
+  }
+
+  .truck-3d-stage .truck-panel-v3[data-slot="-1"] {
+    transform: translate(-50%, -50%) translate3d(-140px, 0, -110px) rotateY(20deg) scale(0.72) !important;
+    opacity: 0.35 !important;
+  }
+
+  .truck-3d-stage .truck-panel-v3[data-slot="1"] {
+    transform: translate(-50%, -50%) translate3d(140px, 0, -110px) rotateY(-20deg) scale(0.72) !important;
+    opacity: 0.35 !important;
+  }
+
+  .truck-3d-stage .tcp-v3-badge-row {
+    margin-bottom: 6px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-tag {
+    padding: 3px 8px !important;
+    font-size: 0.54rem !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 6px !important;
+    border-radius: 6px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-header {
+    margin-bottom: 8px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-num-pill {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .truck-3d-stage .tcp-v3-icon {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-icon svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-title {
+    font-size: 1.05rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 4px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.32 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-list {
+    gap: 0 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .truck-3d-stage .tcp-v3-list li {
+    padding: 2px 0 !important;
+    font-size: 0.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .truck-3d-stage .tcp-v3-list li svg {
+    width: 13px !important;
+    height: 13px !important;
+    padding: 1.5px !important;
+    border-radius: 4px !important;
+    margin-right: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .truck-3d-stage .tcp-v3-action {
+    padding-top: 8px !important;
+  }
+
+  .truck-3d-stage .button-tcp {
+    min-height: 38px !important;
+    padding: 6px 12px !important;
+    font-size: 0.65rem !important;
+    border-radius: 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  .truck-3d-stage-wrapper .nav-btn-prev {
+    left: 2px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .truck-3d-stage-wrapper .nav-btn-next {
+    right: 2px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .editorial-proof-rail .proof-column,
