@@ -16,9 +16,13 @@
    - For homepage (`/`): Eyebrow pill, dynamic headline, subtext, Built Different card, 3 action buttons, 3-column proof rail, and animated marquee ribbon must all fit above the fold.
 2. **Hero Background Navbar Coverage**:
    - On both desktop and mobile, hero background photos (`POLICECAR.jpg`, `TRUCKSs.jpg`, `policE.jpg`) extend to `Y = 0` behind, above, and around the floating header and patrol lights via `-82px` margin offset and calibrated top padding. Zero empty space or backdrop exposure when header contracts/detracts.
-3. **Git as Memory**:
+3. **Preloader Behavior**:
+   - The tactical preloader (`.preloader`, `initPreloader()`) is present only on the homepage (`index.html`).
+   - On homepage reload/visit, it should smoothly display its progress animation and lights sequence (rather than being instantly skipped by sessionStorage or abrupt 100ms cuts).
+   - Specialty pages (`/commercial-truck-detailing` and `/first-responder-detailing`) have no preloader markup and open immediately without any delay.
+4. **Git as Memory**:
    - Every meaningful update must be committed with structured commit format under Gemini Flash.
-4. **Mobile Hero Split 2-Column Layout**:
+5. **Mobile Hero Split 2-Column Layout**:
    - The mobile hero section (`@media (max-width: 820px)`) is split down the middle into 2 parallel columns:
      - Left Column: Eyebrow pill, dynamic rotating headline, and subcopy.
      - Right Column: Compact Built Different tactical badge tile with officer avatar, gold command bar, verified check, and 3 service rank stripes (Police, CDL, Accountability).

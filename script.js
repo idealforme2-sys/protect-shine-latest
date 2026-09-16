@@ -56,19 +56,6 @@ function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
   if (!preloader) return;
 
-  const isMobile = window.matchMedia("(max-width: 820px), (hover: none)").matches;
-  const hasVisitedSession = sessionStorage.getItem("ps_has_loaded_session");
-
-  // On mobile or return visits, skip preloader immediately for instant page entry
-  if (isMobile || hasVisitedSession) {
-    preloader.remove();
-    document.body.classList.add("is-loaded");
-    updateHeaderState();
-    return;
-  }
-
-  sessionStorage.setItem("ps_has_loaded_session", "true");
-
   const bar = preloader.querySelector("[data-preloader-bar]");
   const percent = preloader.querySelector("[data-preloader-percent]");
   let progress = 0;
@@ -80,29 +67,35 @@ function initPreloader() {
     if (percent) percent.textContent = `${progress}%`;
   };
 
-  const timer = window.setInterval(() => {
+  const startTime = performance.now();
+  const duration = 1200; // 1.2s smooth tactical progression
+
+  const frame = (now) => {
     if (hidden) return;
-    const next = progress + 20;
-    updateProgress(Math.min(next, 96));
-  }, 40);
+    const elapsed = now - startTime;
+    const ratio = Math.min(1, elapsed / duration);
+    // Smooth ease-out quad curve for natural progress feel
+    const eased = 1 - (1 - ratio) * (1 - ratio);
+    updateProgress(eased * 100);
+
+    if (ratio < 1) {
+      requestAnimationFrame(frame);
+    } else {
+      hide();
+    }
+  };
 
   const hide = () => {
     if (hidden) return;
     hidden = true;
-    document.body.classList.add("is-loaded");
     updateProgress(100);
-    window.clearInterval(timer);
+    document.body.classList.add("is-loaded");
     preloader.classList.add("is-hidden");
-    window.setTimeout(() => preloader.remove(), 250);
+    window.setTimeout(() => preloader.remove(), 450);
     updateHeaderState();
   };
 
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    window.setTimeout(hide, 100);
-  } else {
-    window.addEventListener("DOMContentLoaded", () => window.setTimeout(hide, 100), { once: true });
-    window.setTimeout(hide, 1000);
-  }
+  requestAnimationFrame(frame);
 }
 
 function updateHeaderState() {
