@@ -17,12 +17,13 @@ const types = {
 http
   .createServer((req, res) => {
     const url = decodeURI(req.url.split("?")[0]);
+    const cleanUrl = url.replace(/\/+$/, "") || "/";
     const legacyRedirects = {
       "/commercial-truck-detailing.html": "/commercial-truck-detailing",
       "/first-responder-detailing.html": "/first-responder-detailing"
     };
-    if (legacyRedirects[url]) {
-      res.writeHead(301, { Location: legacyRedirects[url] });
+    if (legacyRedirects[cleanUrl]) {
+      res.writeHead(301, { Location: legacyRedirects[cleanUrl] });
       res.end();
       return;
     }
@@ -31,8 +32,8 @@ http
       "/commercial-truck-detailing": "commercial-truck-detailing/index.html",
       "/first-responder-detailing": "first-responder-detailing/index.html"
     };
-    const requestedPath = routeFiles[url] || url;
-    const file = path.join(root, requestedPath);
+    const requestedPath = routeFiles[cleanUrl] || routeFiles[url] || (url.endsWith("/") ? path.join(url, "index.html") : url);
+    let file = path.join(root, requestedPath);
 
     if (!file.startsWith(root)) {
       res.writeHead(403);
@@ -41,10 +42,27 @@ http
     }
 
     fs.stat(file, (err, stat) => {
-      if (err || !stat.isFile()) {
-        res.writeHead(404);
-        res.end("Not found");
-        return;
+      if (err) {
+        // Check if it's a directory with index.html
+        const dirIndex = path.join(root, url, "index.html");
+        if (fs.existsSync(dirIndex)) {
+          file = dirIndex;
+          stat = fs.statSync(file);
+        } else {
+          res.writeHead(404);
+          res.end("Not found");
+          return;
+        }
+      } else if (stat.isDirectory()) {
+        const dirIndex = path.join(file, "index.html");
+        if (fs.existsSync(dirIndex)) {
+          file = dirIndex;
+          stat = fs.statSync(file);
+        } else {
+          res.writeHead(404);
+          res.end("Not found");
+          return;
+        }
       }
 
       const ext = path.extname(file).toLowerCase();
