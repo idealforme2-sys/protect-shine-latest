@@ -15260,20 +15260,14 @@ span.stat-icon-box svg,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 24px 60px rgba(0, 0, 0, 0.55) !important;
 }
 
-.driver-reset-grid h2:not(.focus-container):not([data-true-focus-title]) {
-  background: linear-gradient(90deg, #ffffff 0%, #a4d4ff 55%, #f4cf6a 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
-.driver-reset-grid h2.focus-container,
-[data-true-focus-title] {
+.driver-reset-grid h2 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   background: none !important;
   -webkit-background-clip: initial !important;
   background-clip: initial !important;
-  -webkit-text-fill-color: #ffffff !important;
-  color: #ffffff !important;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 

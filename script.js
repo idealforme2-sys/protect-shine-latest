@@ -1239,7 +1239,7 @@ function init3DCircularCarousel() {
     if (isHoveredOrTouching) return;
     autoAdvanceTimer = setInterval(() => {
       navigate(1);
-    }, 800);
+    }, 1400); // 1.4s auto-advance interval
   }
 
   function stopAutoAdvance() {
@@ -1618,6 +1618,8 @@ function initProofRailAnimation() {
 
 /* ── TRUE FOCUS INTERACTIVE WORD FOCUS ENGINE ── */
 function initTrueFocusEngine() {
+  // Never run on desktop / PC — keep clean headline
+  if (window.innerWidth > 768) return;
   const titleEl = document.querySelector('[data-true-focus-title]');
   if (titleEl) {
     const text = titleEl.textContent.trim();
