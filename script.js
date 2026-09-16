@@ -1212,10 +1212,10 @@ function init3DCircularCarousel() {
     currentIndex = (currentIndex + direction + total) % total;
     updateSlots();
 
-    // Release animation lock after transition duration (450ms)
+    // Release animation lock after transition duration (260ms)
     setTimeout(() => {
       isAnimating = false;
-    }, 450);
+    }, 260);
   }
 
   function jumpTo(targetIndex) {
@@ -1227,12 +1227,63 @@ function init3DCircularCarousel() {
 
     setTimeout(() => {
       isAnimating = false;
-    }, 450);
+    }, 260);
   }
 
+  /* ── 0.8s Auto-Advance Engine (Left to Right) ── */
+  let autoAdvanceTimer = null;
+  let isHoveredOrTouching = false;
+
+  function startAutoAdvance() {
+    stopAutoAdvance();
+    if (isHoveredOrTouching) return;
+    autoAdvanceTimer = setInterval(() => {
+      navigate(1);
+    }, 800);
+  }
+
+  function stopAutoAdvance() {
+    if (autoAdvanceTimer) {
+      clearInterval(autoAdvanceTimer);
+      autoAdvanceTimer = null;
+    }
+  }
+
+  function restartAutoAdvance() {
+    stopAutoAdvance();
+    if (!isHoveredOrTouching) {
+      startAutoAdvance();
+    }
+  }
+
+  startAutoAdvance();
+
+  // Pause on hover / touch so user has uninterrupted inspection
+  wrapper.addEventListener('mouseenter', () => {
+    isHoveredOrTouching = true;
+    stopAutoAdvance();
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    isHoveredOrTouching = false;
+    startAutoAdvance();
+  });
+
+  wrapper.addEventListener('touchstart', () => {
+    isHoveredOrTouching = true;
+    stopAutoAdvance();
+  }, { passive: true });
+
+  wrapper.addEventListener('touchend', () => {
+    isHoveredOrTouching = false;
+    setTimeout(() => {
+      if (!isHoveredOrTouching) startAutoAdvance();
+    }, 1200);
+  }, { passive: true });
+
   /* ── Event Handlers ── */
-  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(-1); });
-  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(1); });
+  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(-1); restartAutoAdvance(); });
+  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); navigate(1); restartAutoAdvance(); });
 
   // Direct card click to bring into center
   cards.forEach((card) => {
@@ -1240,6 +1291,7 @@ function init3DCircularCarousel() {
       if (e.target.closest('a, button')) return;
       const cardIndex = parseInt(card.dataset.cardIndex, 10);
       jumpTo(cardIndex);
+      restartAutoAdvance();
     });
   });
 
@@ -1257,8 +1309,8 @@ function init3DCircularCarousel() {
     isSwiping = false;
     const endX = e.changedTouches[0].clientX;
     const deltaX = endX - startX;
-    if (deltaX < -40) navigate(1);
-    else if (deltaX > 40) navigate(-1);
+    if (deltaX < -40) { navigate(1); restartAutoAdvance(); }
+    else if (deltaX > 40) { navigate(-1); restartAutoAdvance(); }
   }, { passive: true });
 
   stage.addEventListener('mousedown', (e) => {
@@ -1270,14 +1322,14 @@ function init3DCircularCarousel() {
     if (!isSwiping) return;
     isSwiping = false;
     const deltaX = e.clientX - startX;
-    if (deltaX < -50) navigate(1);
-    else if (deltaX > 50) navigate(-1);
+    if (deltaX < -50) { navigate(1); restartAutoAdvance(); }
+    else if (deltaX > 50) { navigate(-1); restartAutoAdvance(); }
   });
 
   // Keyboard navigation when stage or page focus
   stage.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); navigate(-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1); restartAutoAdvance(); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); navigate(-1); restartAutoAdvance(); }
   });
 
   // Initial slot render from scratch

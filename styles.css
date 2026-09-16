@@ -13356,6 +13356,11 @@ span.stat-icon-box svg,
   .showcase-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* Show only 5 videos on mobile version */
+  .showcase-grid .showcase-card:nth-child(n+6) {
+    display: none !important;
+  }
 }
 
 /* ============================================================
@@ -13752,11 +13757,15 @@ span.stat-icon-box svg,
 }
 
 /* ── 3D INFINITE FLIP CAROUSEL (3D Curved Stage) ─────────────── */
+.truck-services-section {
+  overflow-x: clip;
+}
+
 .truck-3d-stage-wrapper {
   position: relative;
   width: 100%;
   padding: 30px 0 50px;
-  overflow: hidden;
+  overflow: visible;
   margin-top: 20px;
 }
 
@@ -13795,7 +13804,7 @@ span.stat-icon-box svg,
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
-  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease, box-shadow 450ms ease, border-color 450ms ease !important;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1), opacity 260ms ease, box-shadow 260ms ease, border-color 260ms ease !important;
 }
 
 /* Deterministic Relative Position Matrix */
@@ -13808,14 +13817,14 @@ span.stat-icon-box svg,
 }
 
 .truck-3d-stage .truck-panel-v3[data-slot="-1"] { /* PREVIOUS CARD — Left */
-  transform: translate(-50%, -50%) translate3d(clamp(-360px, -34vw, -280px), 0, -90px) rotateY(18deg) scale(0.86) !important;
+  transform: translate(-50%, -50%) translate3d(clamp(-320px, -28vw, -250px), 0, -80px) rotateY(14deg) scale(0.86) !important;
   z-index: 10 !important;
   opacity: 0.65 !important;
   pointer-events: auto !important;
 }
 
 .truck-3d-stage .truck-panel-v3[data-slot="1"] { /* NEXT CARD — Right */
-  transform: translate(-50%, -50%) translate3d(clamp(280px, 34vw, 360px), 0, -90px) rotateY(-18deg) scale(0.86) !important;
+  transform: translate(-50%, -50%) translate3d(clamp(250px, 28vw, 320px), 0, -80px) rotateY(-14deg) scale(0.86) !important;
   z-index: 10 !important;
   opacity: 0.65 !important;
   pointer-events: auto !important;
@@ -13878,23 +13887,23 @@ span.stat-icon-box svg,
 
 @media (max-width: 900px) {
   .truck-3d-stage {
-    height: 520px;
+    height: 580px;
   }
-  .truck-3d-stage .truck-panel-v3[data-slot="-1"] { transform: translate(-50%, -50%) translate3d(-260px, 0, -110px) rotateY(22deg) scale(0.82) !important; opacity: 0.55 !important; }
-  .truck-3d-stage .truck-panel-v3[data-slot="1"] { transform: translate(-50%, -50%) translate3d(260px, 0, -110px) rotateY(-22deg) scale(0.82) !important; opacity: 0.55 !important; }
+  .truck-3d-stage .truck-panel-v3[data-slot="-1"] { transform: translate(-50%, -50%) translate3d(-240px, 0, -90px) rotateY(16deg) scale(0.82) !important; opacity: 0.55 !important; }
+  .truck-3d-stage .truck-panel-v3[data-slot="1"] { transform: translate(-50%, -50%) translate3d(240px, 0, -90px) rotateY(-16deg) scale(0.82) !important; opacity: 0.55 !important; }
   .nav-btn-prev { left: 10px; }
   .nav-btn-next { right: 10px; }
 }
 
 @media (max-width: 600px) {
   .truck-3d-stage {
-    height: 500px;
+    height: 525px !important;
   }
   .truck-3d-stage .truck-panel-v3 {
     width: 320px !important;
   }
-  .truck-3d-stage .truck-panel-v3[data-slot="-1"] { transform: translate(-50%, -50%) translate3d(-170px, 0, -130px) rotateY(25deg) scale(0.74) !important; opacity: 0.35 !important; }
-  .truck-3d-stage .truck-panel-v3[data-slot="1"] { transform: translate(-50%, -50%) translate3d(170px, 0, -130px) rotateY(-25deg) scale(0.74) !important; opacity: 0.35 !important; }
+  .truck-3d-stage .truck-panel-v3[data-slot="-1"] { transform: translate(-50%, -50%) translate3d(-105px, 0, -95px) rotateY(15deg) scale(0.78) !important; opacity: 0.45 !important; }
+  .truck-3d-stage .truck-panel-v3[data-slot="1"] { transform: translate(-50%, -50%) translate3d(105px, 0, -95px) rotateY(-15deg) scale(0.78) !important; opacity: 0.45 !important; }
 }
 
 .truck-panel-v3 {
@@ -19269,9 +19278,9 @@ span.stat-icon-box svg,
 
 /* ---- STAGE HEIGHT — give the premium cards vertical room so the
        CTA never spills past the frame ---- */
-.truck-3d-stage { height: 640px; }
-@media (max-width: 900px) { .truck-3d-stage { height: 560px; } }
-@media (max-width: 640px) { .truck-3d-stage { height: 495px !important; } }
+.truck-3d-stage { height: 660px; }
+@media (max-width: 900px) { .truck-3d-stage { height: 580px; } }
+@media (max-width: 640px) { .truck-3d-stage { height: 525px !important; } }
 
 
 /* ---- GENTLE AMBIENT FLOAT (individual translate so the 3D slot
@@ -19336,11 +19345,11 @@ span.stat-icon-box svg,
     inset 0 1px 0 rgba(255, 255, 255, 0.16),
     0 26px 62px rgba(0, 0, 0, 0.62) !important;
   transition:
-    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 450ms ease,
-    border-color 420ms ease,
-    box-shadow 420ms ease,
-    scale 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    scale 260ms cubic-bezier(0.2, 0.9, 0.3, 1) !important;
 }
 
 /* Flagship lane runs a full siren border */
@@ -19500,7 +19509,7 @@ span.stat-icon-box svg,
 
 @media (max-width: 640px) {
   .truck-3d-stage {
-    height: 495px !important;
+    height: 525px !important;
   }
 
   .truck-3d-stage .truck-panel-v3,
@@ -19517,13 +19526,13 @@ span.stat-icon-box svg,
   }
 
   .truck-3d-stage .truck-panel-v3[data-slot="-1"] {
-    transform: translate(-50%, -50%) translate3d(-140px, 0, -110px) rotateY(20deg) scale(0.72) !important;
-    opacity: 0.35 !important;
+    transform: translate(-50%, -50%) translate3d(-105px, 0, -95px) rotateY(15deg) scale(0.78) !important;
+    opacity: 0.45 !important;
   }
 
   .truck-3d-stage .truck-panel-v3[data-slot="1"] {
-    transform: translate(-50%, -50%) translate3d(140px, 0, -110px) rotateY(-20deg) scale(0.72) !important;
-    opacity: 0.35 !important;
+    transform: translate(-50%, -50%) translate3d(105px, 0, -95px) rotateY(-15deg) scale(0.78) !important;
+    opacity: 0.45 !important;
   }
 
   .truck-3d-stage .tcp-v3-badge-row {
@@ -19698,7 +19707,7 @@ span.stat-icon-box svg,
   .hero-layout {
     display: grid !important;
     grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr) !important;
-    grid-template-rows: auto auto minmax(min-content, 1fr) auto auto !important;
+    grid-template-rows: auto auto auto auto auto !important;
     column-gap: clamp(8px, 2.5vw, 12px) !important;
     row-gap: 8px !important;
     align-items: start !important;
@@ -19807,8 +19816,9 @@ span.stat-icon-box svg,
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 5px !important;
+    gap: 3px !important;
     width: 100% !important;
+    min-width: 0 !important;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
@@ -19816,20 +19826,21 @@ span.stat-icon-box svg,
   .hero .hbc-identity {
     display: flex !important;
     align-items: center !important;
-    gap: 5px !important;
+    gap: 4px !important;
     min-width: 0 !important;
     flex: 1 1 auto !important;
+    overflow: hidden !important;
   }
 
   .hero .hbc-avatar-shell,
   .hero-badge-card .hbc-avatar-shell {
-    flex: 0 0 24px !important;
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
-    max-width: 24px !important;
-    max-height: 24px !important;
+    flex: 0 0 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
     position: relative !important;
     overflow: visible !important;
   }
@@ -19837,12 +19848,12 @@ span.stat-icon-box svg,
   .hero .hbc-avatar-shell img,
   .hero-badge-card .hbc-avatar-shell img,
   .hero .hero-badge-card img {
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
-    max-width: 24px !important;
-    max-height: 24px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
     object-fit: cover !important;
     border-radius: 50% !important;
     border: 1px solid rgba(97, 183, 255, 0.45) !important;
@@ -19852,8 +19863,8 @@ span.stat-icon-box svg,
 
   .hero .hbc-verified-pill {
     position: absolute !important;
-    width: 9px !important;
-    height: 9px !important;
+    width: 8px !important;
+    height: 8px !important;
     bottom: -1px !important;
     right: -1px !important;
     background: #1678ff !important;
@@ -19865,8 +19876,8 @@ span.stat-icon-box svg,
   }
 
   .hero .hbc-verified-pill svg {
-    width: 4.5px !important;
-    height: 4.5px !important;
+    width: 4px !important;
+    height: 4px !important;
   }
 
   .hero .hbc-badge-labels {
@@ -19874,52 +19885,56 @@ span.stat-icon-box svg,
     flex-direction: column !important;
     gap: 0 !important;
     min-width: 0 !important;
+    flex: 1 1 auto !important;
     line-height: 1.1 !important;
+    overflow: hidden !important;
   }
 
   .hero .hbc-badge-tag {
     font-family: var(--font-body) !important;
-    font-size: 0.52rem !important;
+    font-size: 0.46rem !important;
     font-weight: 800 !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.02em !important;
     color: var(--gold) !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .hero .hbc-badge-sub {
     font-family: var(--font-body) !important;
-    font-size: 0.44rem !important;
+    font-size: 0.38rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.02em !important;
+    letter-spacing: 0.01em !important;
     color: #61b7ff !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .hero .hbc-seal {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 3px !important;
-    padding: 1.5px 5px !important;
+    gap: 2px !important;
+    padding: 1.5px 4px !important;
     border-radius: 999px !important;
     background: rgba(22, 120, 255, 0.12) !important;
     border: 1px solid rgba(97, 183, 255, 0.3) !important;
     color: #61b7ff !important;
     font-family: var(--font-body) !important;
-    font-size: 0.44rem !important;
+    font-size: 0.38rem !important;
     font-weight: 800 !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.04em !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
   }
 
   .hero .hbc-seal svg {
-    width: 7.5px !important;
-    height: 7.5px !important;
+    width: 6.5px !important;
+    height: 6.5px !important;
   }
 
   .hero .hbc-motto-divider {
@@ -20035,15 +20050,15 @@ span.stat-icon-box svg,
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: 4px !important;
+    justify-content: space-between !important;
+    gap: 3px !important;
     width: 100% !important;
     margin-top: 2px !important;
-    padding: 4px 6px !important;
+    padding: 3.5px 5px !important;
     font-family: var(--font-body) !important;
-    font-size: 0.48rem !important;
+    font-size: 0.40rem !important;
     font-weight: 800 !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.02em !important;
     border-radius: 4px !important;
     white-space: nowrap !important;
     background: linear-gradient(90deg, rgba(22, 120, 255, 0.16), rgba(22, 120, 255, 0.08)) !important;
@@ -20051,31 +20066,38 @@ span.stat-icon-box svg,
     color: #dbeaff !important;
     text-transform: uppercase !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .hero .hbc-cta-ig-icon {
+    flex: 0 0 auto !important;
     display: inline-flex !important;
     align-items: center !important;
     color: #61b7ff !important;
   }
 
   .hero .hbc-cta-ig-icon svg {
-    width: 9.5px !important;
-    height: 9.5px !important;
+    width: 8.5px !important;
+    height: 8.5px !important;
   }
 
   .hero .hbc-cta-text {
+    flex: 1 1 auto !important;
     font-family: var(--font-body) !important;
-    font-size: 0.48rem !important;
+    font-size: 0.39rem !important;
     line-height: 1 !important;
-    letter-spacing: 0.015em !important;
+    letter-spacing: 0.01em !important;
     white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center !important;
     color: #ffffff !important;
+    padding: 0 2px !important;
   }
 
   .hero .hbc-cta-arrow {
-    flex-shrink: 0 !important;
-    font-size: 0.54rem !important;
+    flex: 0 0 auto !important;
+    font-size: 0.48rem !important;
     color: #61b7ff !important;
     line-height: 1 !important;
   }
@@ -20092,7 +20114,7 @@ span.stat-icon-box svg,
     display: flex !important;
     flex-direction: column !important;
     gap: 6px !important;
-    margin: 6px 0 4px !important;
+    margin: 10px 0 4px !important;
     width: 100% !important;
   }
 
@@ -20481,10 +20503,16 @@ span.stat-icon-box svg,
       display: block;
     }
 
-    .finish-intro,
-    .car-seat-intro {
+    .finish-intro {
       display: grid;
       grid-template-columns: minmax(108px, 38%) minmax(0, 1fr);
+      gap: 0 12px;
+      align-items: start;
+    }
+
+    .car-seat-intro {
+      display: grid;
+      grid-template-columns: minmax(140px, 47%) minmax(0, 1fr);
       gap: 0 12px;
       align-items: start;
     }
@@ -20651,23 +20679,23 @@ span.stat-icon-box svg,
 
     .car-seat-copy > h2 {
       max-width: none;
-      margin: 0 0 8px;
-      font-size: clamp(1.62rem, 6.3vw, 1.95rem);
+      margin: 0 0 6px;
+      font-size: clamp(1.48rem, 5.8vw, 1.82rem);
       line-height: .97;
       overflow-wrap: anywhere;
     }
 
     .car-seat-copy > p:not(.car-seat-price) {
       margin: 0;
-      font-size: .76rem;
-      line-height: 1.34;
+      font-size: .73rem;
+      line-height: 1.28;
     }
 
     .car-seat-price {
       width: auto;
       max-width: none;
-      margin: 9px 0 0;
-      padding: 6px 0 5px 8px;
+      margin: 8px 0 0;
+      padding: 5px 0 4px 8px;
       border-left: 2px solid var(--blue);
       font-size: .63rem;
       line-height: 1.1;
