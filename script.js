@@ -1630,12 +1630,11 @@ function initTrueFocusEngine() {
     const wordEls = words.map((word) => {
       const span = document.createElement('span');
       span.className = 'focus-word';
-      const isMob = isMobileViewport();
-      span.style.filter = isMob ? 'none' : 'blur(6px)';
-      span.style.opacity = isMob ? '0.88' : '0.45';
+      span.style.filter = 'none';
+      span.style.opacity = '0.85';
       span.style.color = '#ffffff';
       span.style.webkitTextFillColor = '#ffffff';
-      span.style.transition = 'filter 0.2s ease, opacity 0.2s ease, color 0.15s ease';
+      span.style.transition = 'opacity 0.2s ease, color 0.15s ease';
       span.textContent = word;
       titleEl.appendChild(span);
       return span;
@@ -1656,20 +1655,19 @@ function initTrueFocusEngine() {
 
     let currentIndex = 0;
     const updateFocus = (index) => {
-      const isMob = isMobileViewport();
       wordEls.forEach((el, idx) => {
         if (idx === index) {
           el.classList.add('active');
           el.style.filter = 'none';
           el.style.opacity = '1';
-          el.style.color = isMob ? '#61b7ff' : '#ffffff';
-          el.style.webkitTextFillColor = isMob ? '#61b7ff' : '#ffffff';
+          el.style.color = '#61b7ff';
+          el.style.webkitTextFillColor = '#61b7ff';
         } else {
           el.classList.remove('active');
-          el.style.filter = isMob ? 'none' : 'blur(6px)';
-          el.style.opacity = isMob ? '0.88' : '0.45';
-          el.style.color = isMob ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
-          el.style.webkitTextFillColor = isMob ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
+          el.style.filter = 'none';
+          el.style.opacity = '0.85';
+          el.style.color = '#ffffff';
+          el.style.webkitTextFillColor = '#ffffff';
         }
       });
 

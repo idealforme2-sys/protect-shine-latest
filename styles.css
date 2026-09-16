@@ -18233,9 +18233,9 @@ span.stat-icon-box svg,
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
-  filter: blur(6px);
-  opacity: 0.45;
-  transition: filter 0.2s ease, opacity 0.2s ease, color 0.15s ease;
+  filter: none !important;
+  opacity: 0.88;
+  transition: opacity 0.2s ease, color 0.15s ease;
   outline: none;
   user-select: none;
   display: inline-block;
@@ -18244,10 +18244,11 @@ span.stat-icon-box svg,
 }
 
 .focus-word.active {
-  filter: blur(0px) !important;
+  filter: none !important;
   opacity: 1 !important;
-  -webkit-text-fill-color: #ffffff !important;
-  color: #ffffff !important;
+  -webkit-text-fill-color: #61b7ff !important;
+  color: #61b7ff !important;
+  text-shadow: 0 0 10px rgba(97, 183, 255, 0.4) !important;
 }
 
 @media (max-width: 768px) {
@@ -20961,7 +20962,7 @@ span.stat-icon-box svg,
   }
 
   .fr-panel.fr-panel-red .fr-cadence li {
-    padding: 8px 12px !important;
+    padding: 8px 12px 8px 48px !important;
     font-size: 0.72rem !important;
     line-height: 1.25 !important;
     border-radius: 8px !important;
